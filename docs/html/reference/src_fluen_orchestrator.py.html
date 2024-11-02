@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>src/fluen/orchestrator.py - fluen-core</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h1><a href="../index.html">fluen-core</a></h1>
+        </div>
+        
+        <div class="sidebar-content">
+            <div class="file-info">
+                <p>Python</p>
+                <p>Last modified: 2024-11-03T10:06:46.988840</p>
+            </div>
+
+            <div class="element-navigation">
+                    <div class="element-group">
+                        <h3>Class</h3>
+                        <ul>
+                                <li><a href="#orchestrator">Orchestrator</a></li>
+                                <li><a href="#processmanager">ProcessManager</a></li>
+                        </ul>
+                    </div>
+                    <div class="element-group">
+                        <h3>Method</h3>
+                        <ul>
+                                <li><a href="#orchestrator.__init__">Orchestrator.__init__</a></li>
+                                <li><a href="#orchestrator.generate_documentation">Orchestrator.generate_documentation</a></li>
+                                <li><a href="#orchestrator._initialize_repository">Orchestrator._initialize_repository</a></li>
+                                <li><a href="#orchestrator._run_analysis">Orchestrator._run_analysis</a></li>
+                                <li><a href="#orchestrator._generate_docs">Orchestrator._generate_docs</a></li>
+                                <li><a href="#orchestrator._create_llm_provider">Orchestrator._create_llm_provider</a></li>
+                                <li><a href="#processmanager.run">ProcessManager.run</a></li>
+                        </ul>
+                    </div>
+                    <div class="element-group">
+                        <h3>Function</h3>
+                        <ul>
+                                <li><a href="#main">main</a></li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content">
+        <div class="file-header">
+            <h1>src/fluen/orchestrator.py</h1>
+            <div class="metadata">
+                <span>Language: Python</span>
+                <span>Last Modified: 2024-11-03T10:06:46.988840</span>
+            </div>
+        </div>
+
+        <section class="file-purpose">
+            <h2>Purpose</h2>
+            <p>The primary purpose of this code is to orchestrate the process of generating documentation for a software project. It handles tasks such as cloning or initializing a repository, analyzing the codebase, and generating documentation output.</p>
+        </section>
+
+            <section class="exposures">
+                <h2>Public API</h2>
+                <ul class="exposure-list">
+                        <li>
+                            <code>Orchestrator.__init__</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>Orchestrator.generate_documentation</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>Orchestrator._initialize_repository</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>Orchestrator._run_analysis</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>Orchestrator._generate_docs</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>Orchestrator._create_llm_provider</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>ProcessManager.run</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>main</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                </ul>
+            </section>
+
+            <section class="dependencies">
+                <h2>Dependencies</h2>
+                <ul class="dependency-list">
+                        <li>
+                            <span class="dep-name">asyncio</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">pathlib.Path</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">typing.Optional</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">logging</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">time</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">rich.console.Console</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">rich.progress.Progress</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">rich.progress.SpinnerColumn</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">rich.progress.TextColumn</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">rich.progress.BarColumn</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">rich.progress.TaskID</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.config.FluenConfig</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.git_integration.manager.GitManager</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.state.manager.StateManager</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.analyzer.file_analyzer.FileAnalyzer</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.analyzer.project_analyzer.ProjectAnalyzer</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.generator.manifest.ManifestGenerator</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.generator.manifest.ProjectManifest</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.generator.doc_generator.DocumentationGenerator</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.generator.templates.template_manager.TemplateManager</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.generator.cross_referencer.CrossReferenceResolver</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.llm_providers.base_provider.BaseLLMProvider</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                </ul>
+            </section>
+
+        <section class="elements">
+            <h2>Elements</h2>
+                <div class="element-type-section">
+                    <h3>Class</h3>
+                        <div class="element" id="orchestrator">
+                            <div class="element-header">
+                                <code>Orchestrator</code>
+                                    <span class="scope-badge">global</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="processmanager">
+                            <div class="element-header">
+                                <code>ProcessManager</code>
+                                    <span class="scope-badge">global</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Method</h3>
+                        <div class="element" id="orchestrator.__init__">
+                            <div class="element-header">
+                                <code>Orchestrator.__init__</code>
+                                    <span class="scope-badge">Orchestrator</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="orchestrator.generate_documentation">
+                            <div class="element-header">
+                                <code>Orchestrator.generate_documentation</code>
+                                    <span class="scope-badge">Orchestrator</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="orchestrator._initialize_repository">
+                            <div class="element-header">
+                                <code>Orchestrator._initialize_repository</code>
+                                    <span class="scope-badge">Orchestrator</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="orchestrator._run_analysis">
+                            <div class="element-header">
+                                <code>Orchestrator._run_analysis</code>
+                                    <span class="scope-badge">Orchestrator</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="orchestrator._generate_docs">
+                            <div class="element-header">
+                                <code>Orchestrator._generate_docs</code>
+                                    <span class="scope-badge">Orchestrator</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="orchestrator._create_llm_provider">
+                            <div class="element-header">
+                                <code>Orchestrator._create_llm_provider</code>
+                                    <span class="scope-badge">Orchestrator</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="processmanager.run">
+                            <div class="element-header">
+                                <code>ProcessManager.run</code>
+                                    <span class="scope-badge">ProcessManager</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Function</h3>
+                        <div class="element" id="main">
+                            <div class="element-header">
+                                <code>main</code>
+                                    <span class="scope-badge">global</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+        </section>
+    </main>
+
+    <script src="../assets/script.js"></script>
+</body>
+</html>

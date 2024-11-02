@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ file.get('path', 'Unknown File') }} - {{ project.get('name', 'Documentation') }}</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h1><a href="../index.html">{{ project.get('name', 'Project') }}</a></h1>
+        </div>
+        
+        <div class="sidebar-content">
+            <div class="file-info">
+                <p>{{ file.get('language', 'Unknown') }}</p>
+                <p>Last modified: {{ file.get('last_modified', 'Unknown') }}</p>
+            </div>
+
+            <div class="element-navigation">
+                {% for type, elements in elements_by_type.items()|default({}.items()) %}
+                    <div class="element-group">
+                        <h3>{{ type|format_type }}</h3>
+                        <ul>
+                            {% for element in elements|default([]) %}
+                                <li><a href="#{{ element.get('name', '')|anchor_id }}">{{ element.get('name', '') }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </nav>
+
+    <main class="content">
+        <div class="file-header">
+            <h1>{{ file.get('path', 'Unknown File') }}</h1>
+            <div class="metadata">
+                <span>Language: {{ file.get('language', 'Unknown') }}</span>
+                <span>Last Modified: {{ file.get('last_modified', 'Unknown') }}</span>
+            </div>
+        </div>
+
+        <section class="file-purpose">
+            <h2>Purpose</h2>
+            <p>{{ file.get('purpose', 'No purpose specified') }}</p>
+        </section>
+
+        {% if file.get('exposures') %}
+            <section class="exposures">
+                <h2>Public API</h2>
+                <ul class="exposure-list">
+                    {% for exposure in file.get('exposures', [])|default([]) %}
+                        <li>
+                            <code>{{ exposure.get('name', '') }}</code>
+                            <span class="type-badge">{{ exposure.get('type', 'Unknown') }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+
+        {% if file.get('dependencies') %}
+            <section class="dependencies">
+                <h2>Dependencies</h2>
+                <ul class="dependency-list">
+                    {% for dep in file.get('dependencies', [])|default([]) %}
+                        <li>
+                            <span class="dep-name">{{ dep.get('name', '') }}</span>
+                            <span class="type-badge">{{ dep.get('type', 'Unknown') }}</span>
+                            {% if dep.get('version') %}
+                                <span class="version-badge">{{ dep.get('version') }}</span>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+
+        <section class="elements">
+            <h2>Elements</h2>
+            {% for type, elements in elements_by_type.items()|default({}.items()) %}
+                <div class="element-type-section">
+                    <h3>{{ type|format_type }}</h3>
+                    {% for element in elements|default([]) %}
+                        <div class="element" id="{{ element.get('name', '')|anchor_id }}">
+                            <div class="element-header">
+                                <code>{{ element.get('name', '') }}</code>
+                                {% if element.get('scope') %}
+                                    <span class="scope-badge">{{ element.get('scope') }}</span>
+                                {% endif %}
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose">{{ element.get('purpose', '') }}</p>
+                                <div class="documentation">
+                                    {{ element.get('documentation', '')|safe }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </section>
+    </main>
+
+    <script src="../assets/script.js"></script>
+</body>
+</html>

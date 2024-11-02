@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>src/fluen/analyzer/project_analyzer.py - fluen-core</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h1><a href="../index.html">fluen-core</a></h1>
+        </div>
+        
+        <div class="sidebar-content">
+            <div class="file-info">
+                <p>Python</p>
+                <p>Last modified: 2024-11-03T10:07:35.327673</p>
+            </div>
+
+            <div class="element-navigation">
+                    <div class="element-group">
+                        <h3>Class</h3>
+                        <ul>
+                                <li><a href="#projectanalyzer">ProjectAnalyzer</a></li>
+                        </ul>
+                    </div>
+                    <div class="element-group">
+                        <h3>Method</h3>
+                        <ul>
+                                <li><a href="#__init__">__init__</a></li>
+                                <li><a href="#analyze">analyze</a></li>
+                                <li><a href="#_perform_full_analysis">_perform_full_analysis</a></li>
+                                <li><a href="#_perform_incremental_update">_perform_incremental_update</a></li>
+                                <li><a href="#_analyze_batch">_analyze_batch</a></li>
+                                <li><a href="#_get_analyzable_files">_get_analyzable_files</a></li>
+                                <li><a href="#_analyze_file">_analyze_file</a></li>
+                        </ul>
+                    </div>
+                    <div class="element-group">
+                        <h3>Variable</h3>
+                        <ul>
+                                <li><a href="#batch_size">batch_size</a></li>
+                                <li><a href="#batch_delay">batch_delay</a></li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content">
+        <div class="file-header">
+            <h1>src/fluen/analyzer/project_analyzer.py</h1>
+            <div class="metadata">
+                <span>Language: Python</span>
+                <span>Last Modified: 2024-11-03T10:07:35.327673</span>
+            </div>
+        </div>
+
+        <section class="file-purpose">
+            <h2>Purpose</h2>
+            <p>The code provides a mechanism for analyzing a software project, performing either a full analysis or an incremental analysis based on recent file changes, and updates the project&#39;s manifest accordingly.</p>
+        </section>
+
+            <section class="exposures">
+                <h2>Public API</h2>
+                <ul class="exposure-list">
+                        <li>
+                            <code>ProjectAnalyzer</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>ProjectAnalyzer.__init__</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>ProjectAnalyzer.analyze</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>ProjectAnalyzer._analyze_batch</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>ProjectAnalyzer._perform_full_analysis</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>ProjectAnalyzer._perform_incremental_update</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>ProjectAnalyzer._get_analyzable_files</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>ProjectAnalyzer._analyze_file</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                </ul>
+            </section>
+
+            <section class="dependencies">
+                <h2>Dependencies</h2>
+                <ul class="dependency-list">
+                        <li>
+                            <span class="dep-name">pathlib.Path</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">typing.Dict</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">typing.List</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">typing.Optional</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">typing.Set</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">asyncio</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">logging</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.git_integration.manager.GitManager</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.state.manager.StateManager</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.analyzer.file_analyzer.FileAnalysis</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.analyzer.file_analyzer.FileAnalyzer</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.generator.manifest.ManifestGenerator</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                </ul>
+            </section>
+
+        <section class="elements">
+            <h2>Elements</h2>
+                <div class="element-type-section">
+                    <h3>Class</h3>
+                        <div class="element" id="projectanalyzer">
+                            <div class="element-header">
+                                <code>ProjectAnalyzer</code>
+                                    <span class="scope-badge">global</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Method</h3>
+                        <div class="element" id="__init__">
+                            <div class="element-header">
+                                <code>__init__</code>
+                                    <span class="scope-badge">ProjectAnalyzer</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="analyze">
+                            <div class="element-header">
+                                <code>analyze</code>
+                                    <span class="scope-badge">ProjectAnalyzer</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_perform_full_analysis">
+                            <div class="element-header">
+                                <code>_perform_full_analysis</code>
+                                    <span class="scope-badge">ProjectAnalyzer</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_perform_incremental_update">
+                            <div class="element-header">
+                                <code>_perform_incremental_update</code>
+                                    <span class="scope-badge">ProjectAnalyzer</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_analyze_batch">
+                            <div class="element-header">
+                                <code>_analyze_batch</code>
+                                    <span class="scope-badge">ProjectAnalyzer</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_get_analyzable_files">
+                            <div class="element-header">
+                                <code>_get_analyzable_files</code>
+                                    <span class="scope-badge">ProjectAnalyzer</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_analyze_file">
+                            <div class="element-header">
+                                <code>_analyze_file</code>
+                                    <span class="scope-badge">ProjectAnalyzer</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Variable</h3>
+                        <div class="element" id="batch_size">
+                            <div class="element-header">
+                                <code>batch_size</code>
+                                    <span class="scope-badge">ProjectAnalyzer</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="batch_delay">
+                            <div class="element-header">
+                                <code>batch_delay</code>
+                                    <span class="scope-badge">ProjectAnalyzer</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+        </section>
+    </main>
+
+    <script src="../assets/script.js"></script>
+</body>
+</html>

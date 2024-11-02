@@ -1,0 +1,48 @@
+# Fluen Configuration File
+# All paths are relative to the project root
+
+# LLM Provider Configuration
+llm:
+  # Choose provider: 'openai', 'mistral', or 'ollama'
+  provider: openai
+  
+  # OpenAI Configuration
+  api_key: your-openai-api-key  # Set your API key here
+  model: gpt-3.5-turbo  # or 'gpt-4' for better results
+  
+  # Mistral Configuration (comment out if using OpenAI)
+  # provider: mistral
+  # api_key: your-mistral-api-key
+  # model: mistral-small-latest  # or 'mistral-medium-latest', 'mistral-large-latest'
+  
+  # Ollama Configuration (comment out if using OpenAI/Mistral)
+  # provider: ollama
+  # api_base_url: http://localhost:11434/api
+  # model: gemma  # or any other model you have installed
+  # max_retries: 3
+  # timeout: 60
+
+# Documentation Output Configuration
+output_dir: docs  # Output directory for generated documentation
+
+# Cache and Temporary Files
+cache_dir: .fluen/cache  # Cache directory for analysis results
+temp_dir: .fluen/temp    # Temporary directory for processing
+
+# Export Configuration
+default_export_type: html  # Default format for documentation export ('html' or 'md')
+
+# Project Configuration
+project:
+  name: Fluen
+  description: LLM-based Code Documentation Generator
+  ignore_patterns:  # Files and directories to ignore
+    - '*.pyc'
+    - '__pycache__'
+    - '*.git*'
+    - '*.env*'
+    - 'venv'
+    - 'node_modules'
+    - 'build'
+    - 'dist'
+    - 'docs'  # Ignore existing documentation

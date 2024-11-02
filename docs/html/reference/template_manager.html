@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>src/fluen/generator/templates/template_manager.py - fluen-core</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h1><a href="../index.html">fluen-core</a></h1>
+        </div>
+        
+        <div class="sidebar-content">
+            <div class="file-info">
+                <p>Python</p>
+                <p>Last modified: 2024-11-03T10:06:10.841417</p>
+            </div>
+
+            <div class="element-navigation">
+                    <div class="element-group">
+                        <h3>Class</h3>
+                        <ul>
+                                <li><a href="#templatemanager">TemplateManager</a></li>
+                        </ul>
+                    </div>
+                    <div class="element-group">
+                        <h3>Method</h3>
+                        <ul>
+                                <li><a href="#__init__">__init__</a></li>
+                                <li><a href="#_register_filters">_register_filters</a></li>
+                                <li><a href="#_detect_language">_detect_language</a></li>
+                                <li><a href="#render_template">render_template</a></li>
+                                <li><a href="#get_default_context">get_default_context</a></li>
+                        </ul>
+                    </div>
+                    <div class="element-group">
+                        <h3>Variable</h3>
+                        <ul>
+                                <li><a href="#loaders">loaders</a></li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content">
+        <div class="file-header">
+            <h1>src/fluen/generator/templates/template_manager.py</h1>
+            <div class="metadata">
+                <span>Language: Python</span>
+                <span>Last Modified: 2024-11-03T10:06:10.841417</span>
+            </div>
+        </div>
+
+        <section class="file-purpose">
+            <h2>Purpose</h2>
+            <p>The primary purpose of the code is to manage the template system for documentation generation using the Jinja2 templating engine.</p>
+        </section>
+
+            <section class="exposures">
+                <h2>Public API</h2>
+                <ul class="exposure-list">
+                        <li>
+                            <code>TemplateManager.__init__</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>TemplateManager._register_filters</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>TemplateManager._detect_language</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>TemplateManager.render_template</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>TemplateManager.get_default_context</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                </ul>
+            </section>
+
+            <section class="dependencies">
+                <h2>Dependencies</h2>
+                <ul class="dependency-list">
+                        <li>
+                            <span class="dep-name">pathlib.Path</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">typing.Dict</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">typing.Any</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">typing.Optional</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">jinja2.Environment</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">jinja2.FileSystemLoader</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">jinja2.PackageLoader</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">jinja2.ChoiceLoader</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">logging</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                </ul>
+            </section>
+
+        <section class="elements">
+            <h2>Elements</h2>
+                <div class="element-type-section">
+                    <h3>Class</h3>
+                        <div class="element" id="templatemanager">
+                            <div class="element-header">
+                                <code>TemplateManager</code>
+                                    <span class="scope-badge">global</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Method</h3>
+                        <div class="element" id="__init__">
+                            <div class="element-header">
+                                <code>__init__</code>
+                                    <span class="scope-badge">TemplateManager</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_register_filters">
+                            <div class="element-header">
+                                <code>_register_filters</code>
+                                    <span class="scope-badge">TemplateManager</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_detect_language">
+                            <div class="element-header">
+                                <code>_detect_language</code>
+                                    <span class="scope-badge">TemplateManager</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="render_template">
+                            <div class="element-header">
+                                <code>render_template</code>
+                                    <span class="scope-badge">TemplateManager</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="get_default_context">
+                            <div class="element-header">
+                                <code>get_default_context</code>
+                                    <span class="scope-badge">TemplateManager</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Variable</h3>
+                        <div class="element" id="loaders">
+                            <div class="element-header">
+                                <code>loaders</code>
+                                    <span class="scope-badge">TemplateManager.__init__</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+        </section>
+    </main>
+
+    <script src="../assets/script.js"></script>
+</body>
+</html>

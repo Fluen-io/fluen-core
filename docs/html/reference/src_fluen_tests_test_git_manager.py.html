@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>src/fluen/tests/test_git_manager.py - fluen-core</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h1><a href="../index.html">fluen-core</a></h1>
+        </div>
+        
+        <div class="sidebar-content">
+            <div class="file-info">
+                <p>Python</p>
+                <p>Last modified: 2024-11-03T10:09:01.138939</p>
+            </div>
+
+            <div class="element-navigation">
+                    <div class="element-group">
+                        <h3>Function</h3>
+                        <ul>
+                                <li><a href="#test_git_manager_initialization">test_git_manager_initialization</a></li>
+                                <li><a href="#test_get_current_commit">test_get_current_commit</a></li>
+                                <li><a href="#test_get_file_content">test_get_file_content</a></li>
+                                <li><a href="#test_get_changes_since_commit">test_get_changes_since_commit</a></li>
+                        </ul>
+                    </div>
+                    <div class="element-group">
+                        <h3>Variable</h3>
+                        <ul>
+                                <li><a href="#sample_repo">sample_repo</a></li>
+                                <li><a href="#manager">manager</a></li>
+                        </ul>
+                    </div>
+                    <div class="element-group">
+                        <h3>Class</h3>
+                        <ul>
+                                <li><a href="#gitmanager">GitManager</a></li>
+                                <li><a href="#gitdiff">GitDiff</a></li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content">
+        <div class="file-header">
+            <h1>src/fluen/tests/test_git_manager.py</h1>
+            <div class="metadata">
+                <span>Language: Python</span>
+                <span>Last Modified: 2024-11-03T10:09:01.138939</span>
+            </div>
+        </div>
+
+        <section class="file-purpose">
+            <h2>Purpose</h2>
+            <p>This code provides test cases for the GitManager functionality, ensuring correct behavior of Git operations.</p>
+        </section>
+
+            <section class="exposures">
+                <h2>Public API</h2>
+                <ul class="exposure-list">
+                        <li>
+                            <code>test_git_manager_initialization</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>test_get_current_commit</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>test_get_file_content</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>test_get_changes_since_commit</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                </ul>
+            </section>
+
+            <section class="dependencies">
+                <h2>Dependencies</h2>
+                <ul class="dependency-list">
+                        <li>
+                            <span class="dep-name">pytest</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">pathlib.Path</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">git_integration.manager.GitManager</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">git_integration.manager.GitDiff</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                </ul>
+            </section>
+
+        <section class="elements">
+            <h2>Elements</h2>
+                <div class="element-type-section">
+                    <h3>Function</h3>
+                        <div class="element" id="test_git_manager_initialization">
+                            <div class="element-header">
+                                <code>test_git_manager_initialization</code>
+                                    <span class="scope-badge">module</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="test_get_current_commit">
+                            <div class="element-header">
+                                <code>test_get_current_commit</code>
+                                    <span class="scope-badge">module</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="test_get_file_content">
+                            <div class="element-header">
+                                <code>test_get_file_content</code>
+                                    <span class="scope-badge">module</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="test_get_changes_since_commit">
+                            <div class="element-header">
+                                <code>test_get_changes_since_commit</code>
+                                    <span class="scope-badge">module</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Variable</h3>
+                        <div class="element" id="sample_repo">
+                            <div class="element-header">
+                                <code>sample_repo</code>
+                                    <span class="scope-badge">function parameter</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="manager">
+                            <div class="element-header">
+                                <code>manager</code>
+                                    <span class="scope-badge">local</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Class</h3>
+                        <div class="element" id="gitmanager">
+                            <div class="element-header">
+                                <code>GitManager</code>
+                                    <span class="scope-badge">imported</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="gitdiff">
+                            <div class="element-header">
+                                <code>GitDiff</code>
+                                    <span class="scope-badge">imported</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+        </section>
+    </main>
+
+    <script src="../assets/script.js"></script>
+</body>
+</html>

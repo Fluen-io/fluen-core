@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.name }} Documentation</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h1>{{ project.name }}</h1>
+            <p>{{ project.primary_language }} Project</p>
+        </div>
+    </nav>
+    
+    <main class="content">
+        <div class="project-info">
+            <h1>{{ project.name }}</h1>
+            <div class="metadata">
+                <p><strong>Primary Language:</strong> {{ project.primary_language }}</p>
+                <p><strong>Last Updated:</strong> {{ generation_time }}</p>
+                <p><strong>Git Commit:</strong> {{ git_commit[:8] }}</p>
+            </div>
+        </div>
+
+        <section class="empty-notice">
+            <h2>No Files to Document</h2>
+            <p>No source files were found for documentation. This could be because:</p>
+            <ul>
+                <li>The project is empty</li>
+                <li>All files are in ignored directories</li>
+                <li>No recognizable source files were found</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>

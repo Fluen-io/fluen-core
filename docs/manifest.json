@@ -1,0 +1,5046 @@
+{
+  "name": "fluen-core",
+  "root_path": "/Users/abidev/dev/fluen-core",
+  "primary_language": "Python",
+  "frameworks": [
+    "dataclasses - use of @dataclass decorator",
+    "logging - for logging purposes",
+    "asyncio",
+    "OpenAI API client",
+    "pytest",
+    "Jinja2",
+    "aiohttp (for async HTTP requests)",
+    "setuptools",
+    "Jinja2 or similar templating engine",
+    "jinja2",
+    "Click",
+    "Rich",
+    "dataclasses",
+    "rich",
+    "detected_frameworks_based_on_analysis",
+    "logging",
+    "asyncio for asynchronous operations",
+    "logging for error and process logging",
+    "GitPython",
+    "yaml",
+    "YAML format for configuration",
+    "None"
+  ],
+  "files": {
+    "src/fluen/generator/cross_referencer.py": {
+      "path": "src/fluen/generator/cross_referencer.py",
+      "language": "Python",
+      "purpose": "The code is designed to resolve cross-references between documentation elements and generate reference graphs.",
+      "exposures": [
+        {
+          "name": "CrossReferenceResolver",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/cross_referencer.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "Reference",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/cross_referencer.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "pathlib",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/tests/conftest.py",
+            "src/fluen/generator/doc_generator.py",
+            "src/fluen/git_integration/manager.py",
+            "src/fluen/analyzer/file_analyzer.py",
+            "src/fluen/config.py"
+          ]
+        },
+        {
+          "name": "typing",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/llm_providers/openai_provider.py",
+            "src/fluen/llm_providers/mistral_ai_provider.py",
+            "src/fluen/llm_providers/ollama_provider.py",
+            "src/fluen/tests/conftest.py",
+            "src/fluen/llm_providers/base_provider.py",
+            "src/fluen/generator/doc_generator.py",
+            "src/fluen/git_integration/manager.py",
+            "src/fluen/analyzer/file_analyzer.py",
+            "src/fluen/config.py"
+          ]
+        },
+        {
+          "name": "dataclasses",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/state/manager.py",
+            "src/fluen/git_integration/manager.py",
+            "src/fluen/analyzer/file_analyzer.py",
+            "src/fluen/config.py"
+          ]
+        },
+        {
+          "name": "re",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/analyzer/file_analyzer.py"
+          ]
+        },
+        {
+          "name": "logging",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/generator/templates/template_manager.py",
+            "src/fluen/state/manager.py",
+            "src/fluen/orchestrator.py",
+            "src/fluen/generator/manifest.py",
+            "src/fluen/generator/doc_generator.py",
+            "src/fluen/analyzer/project_analyzer.py",
+            "src/fluen/git_integration/manager.py",
+            "src/fluen/analyzer/file_analyzer.py"
+          ]
+        },
+        {
+          "name": "fluen.generator.manifest",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "Reference",
+          "type": "class",
+          "file_path": "src/fluen/generator/cross_referencer.py",
+          "line_number": 12,
+          "scope": "public"
+        },
+        {
+          "name": "CrossReferenceResolver",
+          "type": "class",
+          "file_path": "src/fluen/generator/cross_referencer.py",
+          "line_number": 19,
+          "scope": "public"
+        },
+        {
+          "name": "__init__",
+          "type": "method",
+          "file_path": "src/fluen/generator/cross_referencer.py",
+          "line_number": 20,
+          "scope": "private"
+        },
+        {
+          "name": "_build_reference_map",
+          "type": "method",
+          "file_path": "src/fluen/generator/cross_referencer.py",
+          "line_number": 26,
+          "scope": "private"
+        },
+        {
+          "name": "_add_reference",
+          "type": "method",
+          "file_path": "src/fluen/generator/cross_referencer.py",
+          "line_number": 35,
+          "scope": "private"
+        },
+        {
+          "name": "resolve_references",
+          "type": "method",
+          "file_path": "src/fluen/generator/cross_referencer.py",
+          "line_number": 44,
+          "scope": "public"
+        },
+        {
+          "name": "_find_best_reference",
+          "type": "method",
+          "file_path": "src/fluen/generator/cross_referencer.py",
+          "line_number": 67,
+          "scope": "private"
+        },
+        {
+          "name": "get_incoming_references",
+          "type": "method",
+          "file_path": "src/fluen/generator/cross_referencer.py",
+          "line_number": 75,
+          "scope": "public"
+        },
+        {
+          "name": "get_outgoing_references",
+          "type": "method",
+          "file_path": "src/fluen/generator/cross_referencer.py",
+          "line_number": 89,
+          "scope": "public"
+        },
+        {
+          "name": "generate_reference_graph",
+          "type": "method",
+          "file_path": "src/fluen/generator/cross_referencer.py",
+          "line_number": 104,
+          "scope": "public"
+        }
+      ],
+      "framework_hints": [
+        "dataclasses - use of @dataclass decorator",
+        "logging - for logging purposes"
+      ],
+      "last_modified": "2024-11-03T10:04:47.800434"
+    },
+    "src/fluen/generator/templates/default/html/reference.html": {
+      "path": "src/fluen/generator/templates/default/html/reference.html",
+      "language": "Unknown",
+      "purpose": "File in html module",
+      "exposures": [],
+      "dependencies": [],
+      "elements": [],
+      "framework_hints": [],
+      "last_modified": "2024-11-03T10:04:47.800478"
+    },
+    "src/fluen/llm_providers/openai_provider.py": {
+      "path": "src/fluen/llm_providers/openai_provider.py",
+      "language": "Python",
+      "purpose": "The primary purpose of this code is to create an asynchronous provider for interacting with OpenAI's API, specifically for generating text completions and embeddings.",
+      "exposures": [
+        {
+          "name": "OpenAIProvider",
+          "type": "exposure",
+          "file_path": "src/fluen/llm_providers/openai_provider.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "generate",
+          "type": "exposure",
+          "file_path": "src/fluen/llm_providers/openai_provider.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "get_embedding",
+          "type": "exposure",
+          "file_path": "src/fluen/llm_providers/openai_provider.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "openai",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": ".base_provider",
+          "type": "internal",
+          "version": null,
+          "used_by": [
+            "src/fluen/llm_providers/mistral_ai_provider.py"
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "name": "OpenAIProvider",
+          "type": "class",
+          "file_path": "src/fluen/llm_providers/openai_provider.py",
+          "line_number": 6,
+          "scope": null
+        },
+        {
+          "name": "__init__",
+          "type": "method",
+          "file_path": "src/fluen/llm_providers/openai_provider.py",
+          "line_number": 7,
+          "scope": null
+        },
+        {
+          "name": "generate",
+          "type": "method",
+          "file_path": "src/fluen/llm_providers/openai_provider.py",
+          "line_number": 12,
+          "scope": null
+        },
+        {
+          "name": "get_embedding",
+          "type": "method",
+          "file_path": "src/fluen/llm_providers/openai_provider.py",
+          "line_number": 18,
+          "scope": null
+        },
+        {
+          "name": "self.client",
+          "type": "variable",
+          "file_path": "src/fluen/llm_providers/openai_provider.py",
+          "line_number": 8,
+          "scope": "instance"
+        },
+        {
+          "name": "self.model",
+          "type": "variable",
+          "file_path": "src/fluen/llm_providers/openai_provider.py",
+          "line_number": 9,
+          "scope": "instance"
+        }
+      ],
+      "framework_hints": [
+        "asyncio",
+        "OpenAI API client"
+      ],
+      "last_modified": "2024-11-03T10:04:58.858032"
+    },
+    "requirements.txt": {
+      "path": "requirements.txt",
+      "language": "Unknown",
+      "purpose": "This code represents a list of dependencies for a Python project. It specifies the external libraries required for the project, along with their versions.",
+      "exposures": [],
+      "dependencies": [
+        {
+          "name": "click",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/cli.py"
+          ]
+        },
+        {
+          "name": "coverage",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "exceptiongroup",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "iniconfig",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "Jinja2",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "markdown-it-py",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "MarkupSafe",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "mdurl",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "packaging",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "pluggy",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "Pygments",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "pytest",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/tests/conftest.py",
+            "src/fluen/tests/test_file_analyzer.py",
+            "src/fluen/tests/test_git_manager.py"
+          ]
+        },
+        {
+          "name": "pytest-asyncio",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "pytest-cov",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "python-magic",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "PyYAML",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "rich",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "tomli",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing_extensions",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [],
+      "framework_hints": [
+        "pytest"
+      ],
+      "last_modified": "2024-11-03T10:04:58.858168"
+    },
+    "src/fluen/state/__init__.py": {
+      "path": "src/fluen/state/__init__.py",
+      "language": "Python",
+      "purpose": "Empty file or package marker",
+      "exposures": [],
+      "dependencies": [],
+      "elements": [],
+      "framework_hints": [],
+      "last_modified": "2024-11-03T10:05:08.885201"
+    },
+    ".fluen/cache/state.json": {
+      "path": ".fluen/cache/state.json",
+      "language": "Unknown",
+      "purpose": "Represents metadata or a summary of a project's source code processing status.",
+      "exposures": [
+        {
+          "name": "last_commit",
+          "type": "exposure",
+          "file_path": ".fluen/cache/state.json",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "last_run_timestamp",
+          "type": "exposure",
+          "file_path": ".fluen/cache/state.json",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "files_processed",
+          "type": "exposure",
+          "file_path": ".fluen/cache/state.json",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "total_files",
+          "type": "exposure",
+          "file_path": ".fluen/cache/state.json",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "manifest_path",
+          "type": "exposure",
+          "file_path": ".fluen/cache/state.json",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [],
+      "elements": [
+        {
+          "name": "last_commit",
+          "type": "variable",
+          "file_path": ".fluen/cache/state.json",
+          "line_number": 1,
+          "scope": "global"
+        },
+        {
+          "name": "last_run_timestamp",
+          "type": "variable",
+          "file_path": ".fluen/cache/state.json",
+          "line_number": 2,
+          "scope": "global"
+        },
+        {
+          "name": "files_processed",
+          "type": "variable",
+          "file_path": ".fluen/cache/state.json",
+          "line_number": 3,
+          "scope": "global"
+        },
+        {
+          "name": "total_files",
+          "type": "variable",
+          "file_path": ".fluen/cache/state.json",
+          "line_number": 4,
+          "scope": "global"
+        },
+        {
+          "name": "manifest_path",
+          "type": "variable",
+          "file_path": ".fluen/cache/state.json",
+          "line_number": 5,
+          "scope": "global"
+        }
+      ],
+      "framework_hints": [],
+      "last_modified": "2024-11-03T10:05:08.885235"
+    },
+    "src/fluen/generator/templates/default/html/index.html": {
+      "path": "src/fluen/generator/templates/default/html/index.html",
+      "language": "Unknown",
+      "purpose": "The primary purpose of this code is to generate a static HTML documentation page for a software project, which includes project information, a navigation sidebar, and a list of dependencies.",
+      "exposures": [
+        {
+          "name": "HTML structure with placeholders for project data",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "Sidebar navigation menu with links to reference files",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "Project information such as primary language, frameworks, last update, and git commit",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "Table of project dependencies with version and used-by information",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "Link to an external stylesheet",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "Link to an external JavaScript file",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "assets/styles.css",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "assets/script.js",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "DOCTYPE declaration",
+          "type": "declaration",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 1,
+          "scope": "global"
+        },
+        {
+          "name": "html",
+          "type": "element",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 2,
+          "scope": "global"
+        },
+        {
+          "name": "lang",
+          "type": "attribute",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 2,
+          "scope": "html"
+        },
+        {
+          "name": "head",
+          "type": "element",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 3,
+          "scope": "html"
+        },
+        {
+          "name": "meta charset",
+          "type": "element",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 4,
+          "scope": "head"
+        },
+        {
+          "name": "meta viewport",
+          "type": "element",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 5,
+          "scope": "head"
+        },
+        {
+          "name": "title",
+          "type": "element",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 6,
+          "scope": "head"
+        },
+        {
+          "name": "link to stylesheet",
+          "type": "element",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 7,
+          "scope": "head"
+        },
+        {
+          "name": "body",
+          "type": "element",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 8,
+          "scope": "html"
+        },
+        {
+          "name": "nav.sidebar",
+          "type": "element",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 9,
+          "scope": "body"
+        },
+        {
+          "name": "main.content",
+          "type": "element",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 20,
+          "scope": "body"
+        },
+        {
+          "name": "section.dependencies",
+          "type": "element",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 25,
+          "scope": "main"
+        },
+        {
+          "name": "script",
+          "type": "element",
+          "file_path": "src/fluen/generator/templates/default/html/index.html",
+          "line_number": 45,
+          "scope": "body"
+        }
+      ],
+      "framework_hints": [
+        "Jinja2"
+      ],
+      "last_modified": "2024-11-03T10:05:24.867075"
+    },
+    "src/fluen/llm_providers/mistral_ai_provider.py": {
+      "path": "src/fluen/llm_providers/mistral_ai_provider.py",
+      "language": "Python",
+      "purpose": "This code defines a provider class for interacting with the Mistral API to generate text and obtain text embeddings asynchronously.",
+      "exposures": [
+        {
+          "name": "MistralAIProvider",
+          "type": "exposure",
+          "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "typing",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "mistralai",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": ".base_provider",
+          "type": "internal",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "MistralAIProvider",
+          "type": "class",
+          "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
+          "line_number": 6,
+          "scope": "global"
+        },
+        {
+          "name": "__init__",
+          "type": "method",
+          "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
+          "line_number": 7,
+          "scope": "MistralAIProvider"
+        },
+        {
+          "name": "generate",
+          "type": "method",
+          "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
+          "line_number": 12,
+          "scope": "MistralAIProvider"
+        },
+        {
+          "name": "get_embedding",
+          "type": "method",
+          "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
+          "line_number": 22,
+          "scope": "MistralAIProvider"
+        },
+        {
+          "name": "config",
+          "type": "variable",
+          "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
+          "line_number": 7,
+          "scope": "local to __init__"
+        },
+        {
+          "name": "client",
+          "type": "variable",
+          "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
+          "line_number": 8,
+          "scope": "class-level in MistralAIProvider"
+        },
+        {
+          "name": "model",
+          "type": "variable",
+          "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
+          "line_number": 9,
+          "scope": "class-level in MistralAIProvider"
+        }
+      ],
+      "framework_hints": [],
+      "last_modified": "2024-11-03T10:05:37.739994"
+    },
+    "src/fluen/git_integration/__init__.py": {
+      "path": "src/fluen/git_integration/__init__.py",
+      "language": "Python",
+      "purpose": "Empty file or package marker",
+      "exposures": [],
+      "dependencies": [],
+      "elements": [],
+      "framework_hints": [],
+      "last_modified": "2024-11-03T10:05:48.728596"
+    },
+    "src/fluen/llm_providers/ollama_provider.py": {
+      "path": "src/fluen/llm_providers/ollama_provider.py",
+      "language": "Python",
+      "purpose": "The primary purpose of this code is to interact with a language model API for generating text completions and obtaining text embeddings using asynchronous HTTP calls.",
+      "exposures": [
+        {
+          "name": "OllamaProvider",
+          "type": "exposure",
+          "file_path": "src/fluen/llm_providers/ollama_provider.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "json",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/state/manager.py",
+            "src/fluen/generator/manifest.py",
+            "src/fluen/analyzer/file_analyzer.py"
+          ]
+        },
+        {
+          "name": "aiohttp",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "base_provider.BaseLLMProvider",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "OllamaProvider",
+          "type": "class",
+          "file_path": "src/fluen/llm_providers/ollama_provider.py",
+          "line_number": 6,
+          "scope": "global"
+        },
+        {
+          "name": "__init__",
+          "type": "method",
+          "file_path": "src/fluen/llm_providers/ollama_provider.py",
+          "line_number": 7,
+          "scope": "OllamaProvider"
+        },
+        {
+          "name": "generate",
+          "type": "method",
+          "file_path": "src/fluen/llm_providers/ollama_provider.py",
+          "line_number": 14,
+          "scope": "OllamaProvider"
+        },
+        {
+          "name": "get_embedding",
+          "type": "method",
+          "file_path": "src/fluen/llm_providers/ollama_provider.py",
+          "line_number": 27,
+          "scope": "OllamaProvider"
+        },
+        {
+          "name": "api_base_url",
+          "type": "variable",
+          "file_path": "src/fluen/llm_providers/ollama_provider.py",
+          "line_number": 8,
+          "scope": "OllamaProvider"
+        },
+        {
+          "name": "model",
+          "type": "variable",
+          "file_path": "src/fluen/llm_providers/ollama_provider.py",
+          "line_number": 9,
+          "scope": "OllamaProvider"
+        },
+        {
+          "name": "max_retries",
+          "type": "variable",
+          "file_path": "src/fluen/llm_providers/ollama_provider.py",
+          "line_number": 10,
+          "scope": "OllamaProvider"
+        },
+        {
+          "name": "timeout",
+          "type": "variable",
+          "file_path": "src/fluen/llm_providers/ollama_provider.py",
+          "line_number": 11,
+          "scope": "OllamaProvider"
+        }
+      ],
+      "framework_hints": [
+        "asyncio",
+        "aiohttp (for async HTTP requests)"
+      ],
+      "last_modified": "2024-11-03T10:05:48.728722"
+    },
+    "src/fluen/llm_factory.py": {
+      "path": "src/fluen/llm_factory.py",
+      "language": "Python",
+      "purpose": "This code defines a factory class used to create instances of various LLM provider classes based on a given configuration.",
+      "exposures": [
+        {
+          "name": "LLMProviderFactory",
+          "type": "exposure",
+          "file_path": "src/fluen/llm_factory.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "LLMProviderFactory.create",
+          "type": "exposure",
+          "file_path": "src/fluen/llm_factory.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "typing.Dict",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/generator/templates/template_manager.py",
+            "src/fluen/state/manager.py",
+            "src/fluen/generator/manifest.py",
+            "src/fluen/analyzer/project_analyzer.py"
+          ]
+        },
+        {
+          "name": "typing.Any",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/generator/templates/template_manager.py",
+            "src/fluen/state/manager.py",
+            "src/fluen/generator/manifest.py"
+          ]
+        },
+        {
+          "name": "fluen.llm_providers.base_provider.BaseLLMProvider",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/orchestrator.py"
+          ]
+        },
+        {
+          "name": "fluen.llm_providers.openai_provider.OpenAIProvider",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.llm_providers.mistral_ai_provider.MistralAIProvider",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.llm_providers.ollama_provider.OllamaProvider",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "LLMProviderFactory",
+          "type": "class",
+          "file_path": "src/fluen/llm_factory.py",
+          "line_number": 7,
+          "scope": "global"
+        },
+        {
+          "name": "create",
+          "type": "classmethod",
+          "file_path": "src/fluen/llm_factory.py",
+          "line_number": 13,
+          "scope": "class-level"
+        },
+        {
+          "name": "_providers",
+          "type": "variable",
+          "file_path": "src/fluen/llm_factory.py",
+          "line_number": 8,
+          "scope": "class-level"
+        }
+      ],
+      "framework_hints": [],
+      "last_modified": "2024-11-03T10:06:00.803035"
+    },
+    "setup.py": {
+      "path": "setup.py",
+      "language": "Python",
+      "purpose": "Sets up a Python package named 'fluen', configuring its metadata, dependencies, and entry points.",
+      "exposures": [
+        {
+          "name": "setup",
+          "type": "exposure",
+          "file_path": "setup.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "find_packages",
+          "type": "exposure",
+          "file_path": "setup.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "click>=8.0.0",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "gitpython>=3.1.0",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "pyyaml>=6.0",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "rich>=10.0.0",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "jinja2>=3.0.0",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "aiohttp>=3.8.0",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "openai>=1.0.0",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "mistralai>=0.0.7",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "dev dependencies: pytest>=7.0.0",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "pytest-asyncio>=0.21.0",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "pytest-cov>=4.0.0",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "black>=23.0.0",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "mypy>=1.0.0",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "flake8>=6.0.0",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "setup",
+          "type": "function",
+          "file_path": "setup.py",
+          "line_number": 3,
+          "scope": "global"
+        },
+        {
+          "name": "find_packages",
+          "type": "function",
+          "file_path": "setup.py",
+          "line_number": 2,
+          "scope": "global"
+        },
+        {
+          "name": "install_requires",
+          "type": "variable",
+          "file_path": "setup.py",
+          "line_number": 9,
+          "scope": "within setup()"
+        },
+        {
+          "name": "extras_require",
+          "type": "variable",
+          "file_path": "setup.py",
+          "line_number": 18,
+          "scope": "within setup()"
+        },
+        {
+          "name": "entry_points",
+          "type": "variable",
+          "file_path": "setup.py",
+          "line_number": 26,
+          "scope": "within setup()"
+        }
+      ],
+      "framework_hints": [
+        "setuptools"
+      ],
+      "last_modified": "2024-11-03T10:06:00.803106"
+    },
+    "src/fluen/generator/templates/default/md/reference.md": {
+      "path": "src/fluen/generator/templates/default/md/reference.md",
+      "language": "Unknown",
+      "purpose": "This template is intended to generate documentation for a code file automatically. It outlines the file's purpose, public API, dependencies, and describes each code element like classes and functions.",
+      "exposures": [
+        {
+          "name": "{{ exposure.name }}",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/md/reference.md",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "{{ dep.name }}",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "{{ element.name }}",
+          "type": "inferred from context",
+          "file_path": "src/fluen/generator/templates/default/md/reference.md",
+          "line_number": "not applicable due to templating",
+          "scope": "{{ element.scope | default('not specified') }}"
+        }
+      ],
+      "framework_hints": [
+        "Jinja2 or similar templating engine"
+      ],
+      "last_modified": "2024-11-03T10:06:10.841266"
+    },
+    "src/fluen/generator/templates/template_manager.py": {
+      "path": "src/fluen/generator/templates/template_manager.py",
+      "language": "Python",
+      "purpose": "The primary purpose of the code is to manage the template system for documentation generation using the Jinja2 templating engine.",
+      "exposures": [
+        {
+          "name": "TemplateManager.__init__",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/template_manager.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "TemplateManager._register_filters",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/template_manager.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "TemplateManager._detect_language",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/template_manager.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "TemplateManager.render_template",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/template_manager.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "TemplateManager.get_default_context",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/template_manager.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "pathlib.Path",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/cli.py",
+            "src/fluen/state/manager.py",
+            "src/fluen/orchestrator.py",
+            "src/fluen/tests/test_file_analyzer.py",
+            "src/fluen/generator/manifest.py",
+            "src/fluen/analyzer/project_analyzer.py",
+            "src/fluen/tests/test_git_manager.py"
+          ]
+        },
+        {
+          "name": "typing.Dict",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing.Any",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing.Optional",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/cli.py",
+            "src/fluen/state/manager.py",
+            "src/fluen/orchestrator.py",
+            "src/fluen/generator/manifest.py",
+            "src/fluen/analyzer/project_analyzer.py"
+          ]
+        },
+        {
+          "name": "jinja2.Environment",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "jinja2.FileSystemLoader",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "jinja2.PackageLoader",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "jinja2.ChoiceLoader",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "logging",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "TemplateManager",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/template_manager.py",
+          "line_number": 9,
+          "scope": "global"
+        },
+        {
+          "name": "__init__",
+          "type": "method",
+          "file_path": "src/fluen/generator/templates/template_manager.py",
+          "line_number": 10,
+          "scope": "TemplateManager"
+        },
+        {
+          "name": "loaders",
+          "type": "variable",
+          "file_path": "src/fluen/generator/templates/template_manager.py",
+          "line_number": 15,
+          "scope": "TemplateManager.__init__"
+        },
+        {
+          "name": "_register_filters",
+          "type": "method",
+          "file_path": "src/fluen/generator/templates/template_manager.py",
+          "line_number": 28,
+          "scope": "TemplateManager"
+        },
+        {
+          "name": "_detect_language",
+          "type": "method",
+          "file_path": "src/fluen/generator/templates/template_manager.py",
+          "line_number": 34,
+          "scope": "TemplateManager"
+        },
+        {
+          "name": "render_template",
+          "type": "method",
+          "file_path": "src/fluen/generator/templates/template_manager.py",
+          "line_number": 49,
+          "scope": "TemplateManager"
+        },
+        {
+          "name": "get_default_context",
+          "type": "method",
+          "file_path": "src/fluen/generator/templates/template_manager.py",
+          "line_number": 59,
+          "scope": "TemplateManager"
+        }
+      ],
+      "framework_hints": [
+        "jinja2"
+      ],
+      "last_modified": "2024-11-03T10:06:10.841417"
+    },
+    "src/fluen/cli.py": {
+      "path": "src/fluen/cli.py",
+      "language": "Python",
+      "purpose": "This code implements a command-line interface (CLI) for generating and exporting documentation for codebases using an LLM-based approach. It leverages the Click library for creating commands and includes options for specifying configurations and output formats.",
+      "exposures": [
+        {
+          "name": "cli",
+          "type": "exposure",
+          "file_path": "src/fluen/cli.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "docs",
+          "type": "exposure",
+          "file_path": "src/fluen/cli.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "generate",
+          "type": "exposure",
+          "file_path": "src/fluen/cli.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "export",
+          "type": "exposure",
+          "file_path": "src/fluen/cli.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "click",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "pathlib.Path",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing.Optional",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.config.FluenConfig",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/orchestrator.py"
+          ]
+        },
+        {
+          "name": "rich.console.Console",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/orchestrator.py"
+          ]
+        },
+        {
+          "name": "rich.progress.Progress",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/orchestrator.py"
+          ]
+        },
+        {
+          "name": "rich.progress.SpinnerColumn",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/orchestrator.py"
+          ]
+        },
+        {
+          "name": "rich.progress.TextColumn",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/orchestrator.py"
+          ]
+        },
+        {
+          "name": "rich.progress.BarColumn",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/orchestrator.py"
+          ]
+        },
+        {
+          "name": "asyncio",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/orchestrator.py",
+            "src/fluen/analyzer/project_analyzer.py",
+            "src/fluen/analyzer/file_analyzer.py"
+          ]
+        },
+        {
+          "name": "fluen.orchestrator.Orchestrator",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "FluenContext",
+          "type": "class",
+          "file_path": "src/fluen/cli.py",
+          "line_number": 14,
+          "scope": "global"
+        },
+        {
+          "name": "pass_fluen_context",
+          "type": "variable",
+          "file_path": "src/fluen/cli.py",
+          "line_number": 21,
+          "scope": "global"
+        },
+        {
+          "name": "cli",
+          "type": "function",
+          "file_path": "src/fluen/cli.py",
+          "line_number": 23,
+          "scope": "global"
+        },
+        {
+          "name": "docs",
+          "type": "function",
+          "file_path": "src/fluen/cli.py",
+          "line_number": 32,
+          "scope": "within CLI"
+        },
+        {
+          "name": "generate",
+          "type": "function",
+          "file_path": "src/fluen/cli.py",
+          "line_number": 37,
+          "scope": "within docs"
+        },
+        {
+          "name": "run_generation",
+          "type": "function",
+          "file_path": "src/fluen/cli.py",
+          "line_number": 43,
+          "scope": "within generate"
+        },
+        {
+          "name": "export",
+          "type": "function",
+          "file_path": "src/fluen/cli.py",
+          "line_number": 77,
+          "scope": "within docs"
+        },
+        {
+          "name": "run_export",
+          "type": "function",
+          "file_path": "src/fluen/cli.py",
+          "line_number": 109,
+          "scope": "within export"
+        }
+      ],
+      "framework_hints": [
+        "Click",
+        "Rich",
+        "asyncio"
+      ],
+      "last_modified": "2024-11-03T10:06:10.841510"
+    },
+    "src/fluen/state/manager.py": {
+      "path": "src/fluen/state/manager.py",
+      "language": "Python",
+      "purpose": "Manage the state of a documentation generation process by saving, loading, and updating progress information.",
+      "exposures": [
+        {
+          "name": "DocumentationState",
+          "type": "exposure",
+          "file_path": "src/fluen/state/manager.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "StateManager",
+          "type": "exposure",
+          "file_path": "src/fluen/state/manager.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "json",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "pathlib.Path",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "dataclasses",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "asdict",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing.Optional",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing.Dict",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing.Any",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "logging",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "DocumentationState",
+          "type": "class",
+          "file_path": "src/fluen/state/manager.py",
+          "line_number": 12,
+          "scope": "module"
+        },
+        {
+          "name": "StateManager",
+          "type": "class",
+          "file_path": "src/fluen/state/manager.py",
+          "line_number": 19,
+          "scope": "module"
+        },
+        {
+          "name": "__init__",
+          "type": "method",
+          "file_path": "src/fluen/state/manager.py",
+          "line_number": 20,
+          "scope": "StateManager"
+        },
+        {
+          "name": "load",
+          "type": "method",
+          "file_path": "src/fluen/state/manager.py",
+          "line_number": 26,
+          "scope": "StateManager"
+        },
+        {
+          "name": "save",
+          "type": "method",
+          "file_path": "src/fluen/state/manager.py",
+          "line_number": 38,
+          "scope": "StateManager"
+        },
+        {
+          "name": "update_progress",
+          "type": "method",
+          "file_path": "src/fluen/state/manager.py",
+          "line_number": 47,
+          "scope": "StateManager"
+        },
+        {
+          "name": "update_commit",
+          "type": "method",
+          "file_path": "src/fluen/state/manager.py",
+          "line_number": 52,
+          "scope": "StateManager"
+        },
+        {
+          "name": "set_manifest_path",
+          "type": "method",
+          "file_path": "src/fluen/state/manager.py",
+          "line_number": 57,
+          "scope": "StateManager"
+        }
+      ],
+      "framework_hints": [
+        "dataclasses"
+      ],
+      "last_modified": "2024-11-03T10:06:24.637072"
+    },
+    "src/fluen/generator/templates/default/md/readme.md": {
+      "path": "src/fluen/generator/templates/default/md/readme.md",
+      "language": "Unknown",
+      "purpose": "The primary purpose of this code is to generate documentation for a project using templating. It provides an overview of the project, lists files by type, outlines dependencies, and gives navigation options.",
+      "exposures": [
+        {
+          "name": "Summary.md",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/md/readme.md",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "reference/",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/md/readme.md",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [],
+      "elements": [
+        {
+          "name": "project.name",
+          "type": "variable",
+          "file_path": "src/fluen/generator/templates/default/md/readme.md",
+          "line_number": 1,
+          "scope": "global"
+        },
+        {
+          "name": "project.primary_language",
+          "type": "variable",
+          "file_path": "src/fluen/generator/templates/default/md/readme.md",
+          "line_number": 4,
+          "scope": "global"
+        },
+        {
+          "name": "project.frameworks",
+          "type": "variable",
+          "file_path": "src/fluen/generator/templates/default/md/readme.md",
+          "line_number": 5,
+          "scope": "global"
+        },
+        {
+          "name": "generation_time",
+          "type": "variable",
+          "file_path": "src/fluen/generator/templates/default/md/readme.md",
+          "line_number": 6,
+          "scope": "global"
+        },
+        {
+          "name": "git_commit",
+          "type": "variable",
+          "file_path": "src/fluen/generator/templates/default/md/readme.md",
+          "line_number": 7,
+          "scope": "global"
+        },
+        {
+          "name": "files_by_type",
+          "type": "variable",
+          "file_path": "src/fluen/generator/templates/default/md/readme.md",
+          "line_number": 10,
+          "scope": "global"
+        },
+        {
+          "name": "dependencies",
+          "type": "variable",
+          "file_path": "src/fluen/generator/templates/default/md/readme.md",
+          "line_number": 18,
+          "scope": "global"
+        }
+      ],
+      "framework_hints": [],
+      "last_modified": "2024-11-03T10:06:24.637189"
+    },
+    "src/fluen/tests/conftest.py": {
+      "path": "src/fluen/tests/conftest.py",
+      "language": "Python",
+      "purpose": "This code defines configuration and shared fixtures for PyTest to facilitate testing by setting up temporary environments and sample data structures.",
+      "exposures": [
+        {
+          "name": "temp_dir",
+          "type": "exposure",
+          "file_path": "src/fluen/tests/conftest.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "sample_repo",
+          "type": "exposure",
+          "file_path": "src/fluen/tests/conftest.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "mock_config",
+          "type": "exposure",
+          "file_path": "src/fluen/tests/conftest.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "pytest",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "pathlib",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "tempfile",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "shutil",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/generator/doc_generator.py"
+          ]
+        },
+        {
+          "name": "git",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/analyzer/file_analyzer.py"
+          ]
+        },
+        {
+          "name": "typing",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "config",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "temp_dir",
+          "type": "fixture",
+          "file_path": "src/fluen/tests/conftest.py",
+          "line_number": 11,
+          "scope": "module"
+        },
+        {
+          "name": "sample_repo",
+          "type": "fixture",
+          "file_path": "src/fluen/tests/conftest.py",
+          "line_number": 16,
+          "scope": "module"
+        },
+        {
+          "name": "mock_config",
+          "type": "fixture",
+          "file_path": "src/fluen/tests/conftest.py",
+          "line_number": 61,
+          "scope": "module"
+        }
+      ],
+      "framework_hints": [
+        "pytest"
+      ],
+      "last_modified": "2024-11-03T10:06:32.451269"
+    },
+    "fluen_config.yml": {
+      "path": "fluen_config.yml",
+      "language": "Unknown",
+      "purpose": "This configuration file is designed to set up and control the behavior of a code documentation generator called Fluen, particularly by configuring the large language model (LLM) provider, specifying directories for output, cache, and temporary files, and providing project specific-settings.",
+      "exposures": [
+        {
+          "name": "llm.provider",
+          "type": "exposure",
+          "file_path": "fluen_config.yml",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "llm.api_key",
+          "type": "exposure",
+          "file_path": "fluen_config.yml",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "llm.model",
+          "type": "exposure",
+          "file_path": "fluen_config.yml",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "output_dir",
+          "type": "exposure",
+          "file_path": "fluen_config.yml",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "cache_dir",
+          "type": "exposure",
+          "file_path": "fluen_config.yml",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "temp_dir",
+          "type": "exposure",
+          "file_path": "fluen_config.yml",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "default_export_type",
+          "type": "exposure",
+          "file_path": "fluen_config.yml",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "project.name",
+          "type": "exposure",
+          "file_path": "fluen_config.yml",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "project.description",
+          "type": "exposure",
+          "file_path": "fluen_config.yml",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "project.ignore_patterns",
+          "type": "exposure",
+          "file_path": "fluen_config.yml",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [],
+      "elements": [
+        {
+          "name": "llm.provider",
+          "type": "variable",
+          "file_path": "fluen_config.yml",
+          "line_number": 6,
+          "scope": "global"
+        },
+        {
+          "name": "llm.api_key",
+          "type": "variable",
+          "file_path": "fluen_config.yml",
+          "line_number": 10,
+          "scope": "global"
+        },
+        {
+          "name": "llm.model",
+          "type": "variable",
+          "file_path": "fluen_config.yml",
+          "line_number": 11,
+          "scope": "global"
+        },
+        {
+          "name": "output_dir",
+          "type": "variable",
+          "file_path": "fluen_config.yml",
+          "line_number": 24,
+          "scope": "global"
+        },
+        {
+          "name": "cache_dir",
+          "type": "variable",
+          "file_path": "fluen_config.yml",
+          "line_number": 27,
+          "scope": "global"
+        },
+        {
+          "name": "temp_dir",
+          "type": "variable",
+          "file_path": "fluen_config.yml",
+          "line_number": 28,
+          "scope": "global"
+        },
+        {
+          "name": "default_export_type",
+          "type": "variable",
+          "file_path": "fluen_config.yml",
+          "line_number": 31,
+          "scope": "global"
+        },
+        {
+          "name": "project.name",
+          "type": "variable",
+          "file_path": "fluen_config.yml",
+          "line_number": 34,
+          "scope": "global"
+        },
+        {
+          "name": "project.description",
+          "type": "variable",
+          "file_path": "fluen_config.yml",
+          "line_number": 35,
+          "scope": "global"
+        },
+        {
+          "name": "project.ignore_patterns",
+          "type": "variable",
+          "file_path": "fluen_config.yml",
+          "line_number": 36,
+          "scope": "global"
+        }
+      ],
+      "framework_hints": [],
+      "last_modified": "2024-11-03T10:06:46.988700"
+    },
+    "src/fluen/orchestrator.py": {
+      "path": "src/fluen/orchestrator.py",
+      "language": "Python",
+      "purpose": "The primary purpose of this code is to orchestrate the process of generating documentation for a software project. It handles tasks such as cloning or initializing a repository, analyzing the codebase, and generating documentation output.",
+      "exposures": [
+        {
+          "name": "Orchestrator.__init__",
+          "type": "exposure",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "Orchestrator.generate_documentation",
+          "type": "exposure",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "Orchestrator._initialize_repository",
+          "type": "exposure",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "Orchestrator._run_analysis",
+          "type": "exposure",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "Orchestrator._generate_docs",
+          "type": "exposure",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "Orchestrator._create_llm_provider",
+          "type": "exposure",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "ProcessManager.run",
+          "type": "exposure",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "main",
+          "type": "exposure",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "asyncio",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "pathlib.Path",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing.Optional",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "logging",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "time",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/analyzer/file_analyzer.py"
+          ]
+        },
+        {
+          "name": "rich.console.Console",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "rich.progress.Progress",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "rich.progress.SpinnerColumn",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "rich.progress.TextColumn",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "rich.progress.BarColumn",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "rich.progress.TaskID",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.config.FluenConfig",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.git_integration.manager.GitManager",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/analyzer/project_analyzer.py"
+          ]
+        },
+        {
+          "name": "fluen.state.manager.StateManager",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/analyzer/project_analyzer.py"
+          ]
+        },
+        {
+          "name": "fluen.analyzer.file_analyzer.FileAnalyzer",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/analyzer/project_analyzer.py"
+          ]
+        },
+        {
+          "name": "fluen.analyzer.project_analyzer.ProjectAnalyzer",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.generator.manifest.ManifestGenerator",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/analyzer/project_analyzer.py"
+          ]
+        },
+        {
+          "name": "fluen.generator.manifest.ProjectManifest",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/generator/doc_generator.py"
+          ]
+        },
+        {
+          "name": "fluen.generator.doc_generator.DocumentationGenerator",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.generator.templates.template_manager.TemplateManager",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/generator/doc_generator.py"
+          ]
+        },
+        {
+          "name": "fluen.generator.cross_referencer.CrossReferenceResolver",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.llm_providers.base_provider.BaseLLMProvider",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "Orchestrator",
+          "type": "class",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 19,
+          "scope": "global"
+        },
+        {
+          "name": "Orchestrator.__init__",
+          "type": "method",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 20,
+          "scope": "Orchestrator"
+        },
+        {
+          "name": "Orchestrator.generate_documentation",
+          "type": "method",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 28,
+          "scope": "Orchestrator"
+        },
+        {
+          "name": "Orchestrator._initialize_repository",
+          "type": "method",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 83,
+          "scope": "Orchestrator"
+        },
+        {
+          "name": "Orchestrator._run_analysis",
+          "type": "method",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 97,
+          "scope": "Orchestrator"
+        },
+        {
+          "name": "Orchestrator._generate_docs",
+          "type": "method",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 112,
+          "scope": "Orchestrator"
+        },
+        {
+          "name": "Orchestrator._create_llm_provider",
+          "type": "method",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 130,
+          "scope": "Orchestrator"
+        },
+        {
+          "name": "ProcessManager",
+          "type": "class",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 136,
+          "scope": "global"
+        },
+        {
+          "name": "ProcessManager.run",
+          "type": "method",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 138,
+          "scope": "ProcessManager"
+        },
+        {
+          "name": "main",
+          "type": "function",
+          "file_path": "src/fluen/orchestrator.py",
+          "line_number": 146,
+          "scope": "global"
+        }
+      ],
+      "framework_hints": [
+        "rich",
+        "asyncio"
+      ],
+      "last_modified": "2024-11-03T10:06:46.988840"
+    },
+    "src/fluen/llm_providers/__init__.py": {
+      "path": "src/fluen/llm_providers/__init__.py",
+      "language": "Python",
+      "purpose": "Empty file or package marker",
+      "exposures": [],
+      "dependencies": [],
+      "elements": [],
+      "framework_hints": [],
+      "last_modified": "2024-11-03T10:06:48.991805"
+    },
+    "src/fluen/tests/test_file_analyzer.py": {
+      "path": "src/fluen/tests/test_file_analyzer.py",
+      "language": "Python",
+      "purpose": "Tests for the file analysis functionality in a Python project using mock and asynchronous testing.",
+      "exposures": [
+        {
+          "name": "test_analyze_file",
+          "type": "exposure",
+          "file_path": "src/fluen/tests/test_file_analyzer.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "test_analyze_binary_file",
+          "type": "exposure",
+          "file_path": "src/fluen/tests/test_file_analyzer.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "test_element_extraction",
+          "type": "exposure",
+          "file_path": "src/fluen/tests/test_file_analyzer.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "mock_llm_provider",
+          "type": "exposure",
+          "file_path": "src/fluen/tests/test_file_analyzer.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "pytest",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "pathlib.Path",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "unittest.mock.Mock",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "unittest.mock.AsyncMock",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "analyzer.file_analyzer.FileAnalyzer",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "analyzer.file_analyzer.FileAnalysis",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "analyzer.file_analyzer.CodeElement",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "mock_llm_provider",
+          "type": "function",
+          "file_path": "src/fluen/tests/test_file_analyzer.py",
+          "line_number": 10,
+          "scope": "module"
+        },
+        {
+          "name": "test_analyze_file",
+          "type": "function",
+          "file_path": "src/fluen/tests/test_file_analyzer.py",
+          "line_number": 26,
+          "scope": "module"
+        },
+        {
+          "name": "test_analyze_binary_file",
+          "type": "function",
+          "file_path": "src/fluen/tests/test_file_analyzer.py",
+          "line_number": 44,
+          "scope": "module"
+        },
+        {
+          "name": "test_element_extraction",
+          "type": "function",
+          "file_path": "src/fluen/tests/test_file_analyzer.py",
+          "line_number": 56,
+          "scope": "module"
+        }
+      ],
+      "framework_hints": [
+        "pytest"
+      ],
+      "last_modified": "2024-11-03T10:06:57.028741"
+    },
+    "src/fluen/llm_providers/base_provider.py": {
+      "path": "src/fluen/llm_providers/base_provider.py",
+      "language": "Python",
+      "purpose": "The primary purpose of this code is to define an abstract base class for an LLM (Large Language Model) provider, specifying the necessary methods that any LLM provider implementation must include.",
+      "exposures": [
+        {
+          "name": "BaseLLMProvider",
+          "type": "exposure",
+          "file_path": "src/fluen/llm_providers/base_provider.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "abc",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "BaseLLMProvider",
+          "type": "class",
+          "file_path": "src/fluen/llm_providers/base_provider.py",
+          "line_number": 5,
+          "scope": "global"
+        },
+        {
+          "name": "generate",
+          "type": "method",
+          "file_path": "src/fluen/llm_providers/base_provider.py",
+          "line_number": 7,
+          "scope": "BaseLLMProvider"
+        },
+        {
+          "name": "get_embedding",
+          "type": "method",
+          "file_path": "src/fluen/llm_providers/base_provider.py",
+          "line_number": 10,
+          "scope": "BaseLLMProvider"
+        }
+      ],
+      "framework_hints": [
+        "asyncio"
+      ],
+      "last_modified": "2024-11-03T10:07:16.175258"
+    },
+    "src/fluen/generator/manifest.py": {
+      "path": "src/fluen/generator/manifest.py",
+      "language": "Python",
+      "purpose": "The primary purpose of this code is to generate and manage a documentation manifest for a given project. It tracks file analysis, dependencies, and framework usage across the project.",
+      "exposures": [
+        {
+          "name": "ManifestGenerator",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/manifest.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "DependencyInfo",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/manifest.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "ElementReference",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/manifest.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "FileManifest",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/manifest.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "ProjectManifest",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/manifest.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "pathlib.Path",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing.Dict",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing.List",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/analyzer/project_analyzer.py"
+          ]
+        },
+        {
+          "name": "typing.Any",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing.Optional",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "dataclasses.dataclass",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "dataclasses.asdict",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "json",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "logging",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "datetime.datetime",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.analyzer.file_analyzer.FileAnalysis",
+          "type": "external",
+          "version": null,
+          "used_by": [
+            "src/fluen/analyzer/project_analyzer.py"
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "name": "DependencyInfo",
+          "type": "class",
+          "file_path": "src/fluen/generator/manifest.py",
+          "line_number": 16,
+          "scope": "global"
+        },
+        {
+          "name": "ElementReference",
+          "type": "class",
+          "file_path": "src/fluen/generator/manifest.py",
+          "line_number": 23,
+          "scope": "global"
+        },
+        {
+          "name": "FileManifest",
+          "type": "class",
+          "file_path": "src/fluen/generator/manifest.py",
+          "line_number": 30,
+          "scope": "global"
+        },
+        {
+          "name": "ProjectManifest",
+          "type": "class",
+          "file_path": "src/fluen/generator/manifest.py",
+          "line_number": 41,
+          "scope": "global"
+        },
+        {
+          "name": "ManifestGenerator",
+          "type": "class",
+          "file_path": "src/fluen/generator/manifest.py",
+          "line_number": 52,
+          "scope": "global"
+        },
+        {
+          "name": "__init__",
+          "type": "method",
+          "file_path": "src/fluen/generator/manifest.py",
+          "line_number": 63,
+          "scope": "ManifestGenerator"
+        },
+        {
+          "name": "initialize_manifest",
+          "type": "method",
+          "file_path": "src/fluen/generator/manifest.py",
+          "line_number": 69,
+          "scope": "ManifestGenerator"
+        },
+        {
+          "name": "load_existing_manifest",
+          "type": "method",
+          "file_path": "src/fluen/generator/manifest.py",
+          "line_number": 83,
+          "scope": "ManifestGenerator"
+        },
+        {
+          "name": "add_file_analysis",
+          "type": "method",
+          "file_path": "src/fluen/generator/manifest.py",
+          "line_number": 95,
+          "scope": "ManifestGenerator"
+        },
+        {
+          "name": "_update_project_information",
+          "type": "method",
+          "file_path": "src/fluen/generator/manifest.py",
+          "line_number": 123,
+          "scope": "ManifestGenerator"
+        },
+        {
+          "name": "save",
+          "type": "method",
+          "file_path": "src/fluen/generator/manifest.py",
+          "line_number": 145,
+          "scope": "ManifestGenerator"
+        }
+      ],
+      "framework_hints": [
+        "detected_frameworks_based_on_analysis"
+      ],
+      "last_modified": "2024-11-03T10:07:16.175363"
+    },
+    "src/fluen/generator/doc_generator.py": {
+      "path": "src/fluen/generator/doc_generator.py",
+      "language": "Python",
+      "purpose": "The primary purpose of this code is to manage the generation of documentation in HTML and Markdown formats based on a given project manifest. It uses templates to render documentation files and organizes them into structured directories.",
+      "exposures": [
+        {
+          "name": "DocumentationGenerator",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "generate",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "HTMLGenerator",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "MarkdownGenerator",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "pathlib",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "shutil",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "logging",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.generator.templates.template_manager.TemplateManager",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.generator.manifest.ProjectManifest",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.generator.manifest.ElementReference",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "DocumentationGenerator",
+          "type": "class",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 11,
+          "scope": "public"
+        },
+        {
+          "name": "__init__",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 13,
+          "scope": "public"
+        },
+        {
+          "name": "generate",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 22,
+          "scope": "public"
+        },
+        {
+          "name": "_get_generator",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 31,
+          "scope": "private"
+        },
+        {
+          "name": "BaseFormatGenerator",
+          "type": "class",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 42,
+          "scope": "private"
+        },
+        {
+          "name": "__init__",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 44,
+          "scope": "private"
+        },
+        {
+          "name": "generate",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 50,
+          "scope": "private"
+        },
+        {
+          "name": "HTMLGenerator",
+          "type": "class",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 54,
+          "scope": "public"
+        },
+        {
+          "name": "generate",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 56,
+          "scope": "public"
+        },
+        {
+          "name": "_copy_static_assets",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 74,
+          "scope": "private"
+        },
+        {
+          "name": "_generate_index_page",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 80,
+          "scope": "private"
+        },
+        {
+          "name": "_generate_reference_pages",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 91,
+          "scope": "private"
+        },
+        {
+          "name": "_group_files_by_type",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 104,
+          "scope": "private"
+        },
+        {
+          "name": "_group_elements_by_type",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 115,
+          "scope": "private"
+        },
+        {
+          "name": "MarkdownGenerator",
+          "type": "class",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 120,
+          "scope": "public"
+        },
+        {
+          "name": "generate",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 122,
+          "scope": "public"
+        },
+        {
+          "name": "_generate_readme",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 139,
+          "scope": "private"
+        },
+        {
+          "name": "_generate_reference_docs",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 148,
+          "scope": "private"
+        },
+        {
+          "name": "_generate_summary",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 159,
+          "scope": "private"
+        },
+        {
+          "name": "_group_files_by_type",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 171,
+          "scope": "private"
+        },
+        {
+          "name": "_group_elements_by_type",
+          "type": "method",
+          "file_path": "src/fluen/generator/doc_generator.py",
+          "line_number": 182,
+          "scope": "private"
+        }
+      ],
+      "framework_hints": [
+        "asyncio",
+        "logging"
+      ],
+      "last_modified": "2024-11-03T10:07:16.175436"
+    },
+    "src/fluen/tests/__init__.py": {
+      "path": "src/fluen/tests/__init__.py",
+      "language": "Python",
+      "purpose": "Empty file or package marker",
+      "exposures": [],
+      "dependencies": [],
+      "elements": [],
+      "framework_hints": [],
+      "last_modified": "2024-11-03T10:07:35.327547"
+    },
+    "src/fluen/analyzer/project_analyzer.py": {
+      "path": "src/fluen/analyzer/project_analyzer.py",
+      "language": "Python",
+      "purpose": "The code provides a mechanism for analyzing a software project, performing either a full analysis or an incremental analysis based on recent file changes, and updates the project's manifest accordingly.",
+      "exposures": [
+        {
+          "name": "ProjectAnalyzer",
+          "type": "exposure",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "ProjectAnalyzer.__init__",
+          "type": "exposure",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "ProjectAnalyzer.analyze",
+          "type": "exposure",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "ProjectAnalyzer._analyze_batch",
+          "type": "exposure",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "ProjectAnalyzer._perform_full_analysis",
+          "type": "exposure",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "ProjectAnalyzer._perform_incremental_update",
+          "type": "exposure",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "ProjectAnalyzer._get_analyzable_files",
+          "type": "exposure",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "ProjectAnalyzer._analyze_file",
+          "type": "exposure",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "pathlib.Path",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing.Dict",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing.List",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing.Optional",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing.Set",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "asyncio",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "logging",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.git_integration.manager.GitManager",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.state.manager.StateManager",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.analyzer.file_analyzer.FileAnalysis",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.analyzer.file_analyzer.FileAnalyzer",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.generator.manifest.ManifestGenerator",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "ProjectAnalyzer",
+          "type": "class",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 16,
+          "scope": "global"
+        },
+        {
+          "name": "__init__",
+          "type": "method",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 17,
+          "scope": "ProjectAnalyzer"
+        },
+        {
+          "name": "analyze",
+          "type": "method",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 28,
+          "scope": "ProjectAnalyzer"
+        },
+        {
+          "name": "_perform_full_analysis",
+          "type": "method",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 65,
+          "scope": "ProjectAnalyzer"
+        },
+        {
+          "name": "_perform_incremental_update",
+          "type": "method",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 134,
+          "scope": "ProjectAnalyzer"
+        },
+        {
+          "name": "_analyze_batch",
+          "type": "method",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 48,
+          "scope": "ProjectAnalyzer"
+        },
+        {
+          "name": "_get_analyzable_files",
+          "type": "method",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 196,
+          "scope": "ProjectAnalyzer"
+        },
+        {
+          "name": "_analyze_file",
+          "type": "method",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 211,
+          "scope": "ProjectAnalyzer"
+        },
+        {
+          "name": "batch_size",
+          "type": "variable",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 25,
+          "scope": "ProjectAnalyzer"
+        },
+        {
+          "name": "batch_delay",
+          "type": "variable",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 26,
+          "scope": "ProjectAnalyzer"
+        }
+      ],
+      "framework_hints": [
+        "asyncio for asynchronous operations",
+        "logging for error and process logging"
+      ],
+      "last_modified": "2024-11-03T10:07:35.327673"
+    },
+    "src/fluen/git_integration/manager.py": {
+      "path": "src/fluen/git_integration/manager.py",
+      "language": "Python",
+      "purpose": "This module provides functionality for managing and analyzing Git repositories, including connecting to a Git repository, cloning repositories, retrieving the current commit, getting changes since a specific commit, and retrieving file content at a specific commit.",
+      "exposures": [
+        {
+          "name": "GitDiff",
+          "type": "exposure",
+          "file_path": "src/fluen/git_integration/manager.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "GitManager",
+          "type": "exposure",
+          "file_path": "src/fluen/git_integration/manager.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "git (from GitPython)",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "pathlib",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "dataclasses",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "logging",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "GitDiff",
+          "type": "class",
+          "file_path": "src/fluen/git_integration/manager.py",
+          "line_number": 12,
+          "scope": "public"
+        },
+        {
+          "name": "GitManager",
+          "type": "class",
+          "file_path": "src/fluen/git_integration/manager.py",
+          "line_number": 19,
+          "scope": "public"
+        },
+        {
+          "name": "__init__",
+          "type": "method",
+          "file_path": "src/fluen/git_integration/manager.py",
+          "line_number": 20,
+          "scope": "public"
+        },
+        {
+          "name": "initialize",
+          "type": "method",
+          "file_path": "src/fluen/git_integration/manager.py",
+          "line_number": 26,
+          "scope": "public"
+        },
+        {
+          "name": "clone",
+          "type": "method",
+          "file_path": "src/fluen/git_integration/manager.py",
+          "line_number": 34,
+          "scope": "public"
+        },
+        {
+          "name": "get_current_commit",
+          "type": "method",
+          "file_path": "src/fluen/git_integration/manager.py",
+          "line_number": 44,
+          "scope": "public"
+        },
+        {
+          "name": "get_changes_since_commit",
+          "type": "method",
+          "file_path": "src/fluen/git_integration/manager.py",
+          "line_number": 49,
+          "scope": "public"
+        },
+        {
+          "name": "get_file_content",
+          "type": "method",
+          "file_path": "src/fluen/git_integration/manager.py",
+          "line_number": 66,
+          "scope": "public"
+        },
+        {
+          "name": "repo_path",
+          "type": "variable",
+          "file_path": "src/fluen/git_integration/manager.py",
+          "line_number": 21,
+          "scope": "private"
+        },
+        {
+          "name": "repo",
+          "type": "variable",
+          "file_path": "src/fluen/git_integration/manager.py",
+          "line_number": 22,
+          "scope": "private"
+        },
+        {
+          "name": "logger",
+          "type": "variable",
+          "file_path": "src/fluen/git_integration/manager.py",
+          "line_number": 23,
+          "scope": "private"
+        }
+      ],
+      "framework_hints": [
+        "GitPython"
+      ],
+      "last_modified": "2024-11-03T10:07:48.020934"
+    },
+    "LICENSE": {
+      "path": "LICENSE",
+      "language": "Unknown",
+      "purpose": "The primary purpose of this document is to define the conditions under which software may be used, reproduced, and distributed under the Apache License, Version 2.0.",
+      "exposures": [
+        {
+          "name": "TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION",
+          "type": "exposure",
+          "file_path": "LICENSE",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [],
+      "elements": [
+        {
+          "name": "Definitions",
+          "type": "section",
+          "file_path": "LICENSE",
+          "line_number": 3,
+          "scope": "Document scope"
+        },
+        {
+          "name": "Grant of Copyright License",
+          "type": "section",
+          "file_path": "LICENSE",
+          "line_number": 25,
+          "scope": "Document scope"
+        },
+        {
+          "name": "Grant of Patent License",
+          "type": "section",
+          "file_path": "LICENSE",
+          "line_number": 31,
+          "scope": "Document scope"
+        },
+        {
+          "name": "Redistribution",
+          "type": "section",
+          "file_path": "LICENSE",
+          "line_number": 39,
+          "scope": "Document scope"
+        },
+        {
+          "name": "Submission of Contributions",
+          "type": "section",
+          "file_path": "LICENSE",
+          "line_number": 58,
+          "scope": "Document scope"
+        },
+        {
+          "name": "Trademarks",
+          "type": "section",
+          "file_path": "LICENSE",
+          "line_number": 64,
+          "scope": "Document scope"
+        },
+        {
+          "name": "Disclaimer of Warranty",
+          "type": "section",
+          "file_path": "LICENSE",
+          "line_number": 70,
+          "scope": "Document scope"
+        },
+        {
+          "name": "Limitation of Liability",
+          "type": "section",
+          "file_path": "LICENSE",
+          "line_number": 73,
+          "scope": "Document scope"
+        },
+        {
+          "name": "Accepting Warranty or Additional Liability",
+          "type": "section",
+          "file_path": "LICENSE",
+          "line_number": 80,
+          "scope": "Document scope"
+        },
+        {
+          "name": "APPENDIX",
+          "type": "section",
+          "file_path": "LICENSE",
+          "line_number": 88,
+          "scope": "Document scope"
+        }
+      ],
+      "framework_hints": [],
+      "last_modified": "2024-11-03T10:08:02.462404"
+    },
+    "src/fluen/generator/__init__.py": {
+      "path": "src/fluen/generator/__init__.py",
+      "language": "Python",
+      "purpose": "Empty file or package marker",
+      "exposures": [],
+      "dependencies": [],
+      "elements": [],
+      "framework_hints": [],
+      "last_modified": "2024-11-03T10:08:18.129842"
+    },
+    "src/fluen/analyzer/file_analyzer.py": {
+      "path": "src/fluen/analyzer/file_analyzer.py",
+      "language": "Python",
+      "purpose": "File in analyzer module",
+      "exposures": [],
+      "dependencies": [
+        {
+          "name": "pathlib",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "re",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "dataclasses",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "logging",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "mimetypes",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "json",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "asyncio",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "time",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "git",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [],
+      "framework_hints": [],
+      "last_modified": "2024-11-03T10:08:18.129904"
+    },
+    "src/fluen/config.py": {
+      "path": "src/fluen/config.py",
+      "language": "Python",
+      "purpose": "This code defines configurations for a language model application, allowing for these configurations to be loaded from a YAML file or created with default values.",
+      "exposures": [
+        {
+          "name": "LLMConfig",
+          "type": "exposure",
+          "file_path": "src/fluen/config.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "FluenConfig",
+          "type": "exposure",
+          "file_path": "src/fluen/config.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "FluenConfig.load",
+          "type": "exposure",
+          "file_path": "src/fluen/config.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "FluenConfig.create_default",
+          "type": "exposure",
+          "file_path": "src/fluen/config.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "FluenConfig.ensure_directories",
+          "type": "exposure",
+          "file_path": "src/fluen/config.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "dataclasses",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "pathlib",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "yaml",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "os",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "LLMConfig",
+          "type": "class",
+          "file_path": "src/fluen/config.py",
+          "line_number": 8,
+          "scope": "global"
+        },
+        {
+          "name": "FluenConfig",
+          "type": "class",
+          "file_path": "src/fluen/config.py",
+          "line_number": 16,
+          "scope": "global"
+        },
+        {
+          "name": "FluenConfig.load",
+          "type": "method",
+          "file_path": "src/fluen/config.py",
+          "line_number": 25,
+          "scope": "FluenConfig"
+        },
+        {
+          "name": "FluenConfig.create_default",
+          "type": "method",
+          "file_path": "src/fluen/config.py",
+          "line_number": 41,
+          "scope": "FluenConfig"
+        },
+        {
+          "name": "FluenConfig.ensure_directories",
+          "type": "method",
+          "file_path": "src/fluen/config.py",
+          "line_number": 74,
+          "scope": "FluenConfig"
+        }
+      ],
+      "framework_hints": [
+        "dataclasses",
+        "yaml"
+      ],
+      "last_modified": "2024-11-03T10:08:29.803188"
+    },
+    "fluen_config.example.yml": {
+      "path": "fluen_config.example.yml",
+      "language": "Unknown",
+      "purpose": "This configuration file is used for setting up and managing settings for a project named 'Fluen', which appears to be a code documentation generator utilizing Large Language Models (LLMs).",
+      "exposures": [
+        {
+          "name": "llm",
+          "type": "exposure",
+          "file_path": "fluen_config.example.yml",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "output_dir",
+          "type": "exposure",
+          "file_path": "fluen_config.example.yml",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "cache_dir",
+          "type": "exposure",
+          "file_path": "fluen_config.example.yml",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "temp_dir",
+          "type": "exposure",
+          "file_path": "fluen_config.example.yml",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "default_export_type",
+          "type": "exposure",
+          "file_path": "fluen_config.example.yml",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "project",
+          "type": "exposure",
+          "file_path": "fluen_config.example.yml",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [],
+      "elements": [
+        {
+          "name": "llm",
+          "type": "variable",
+          "file_path": "fluen_config.example.yml",
+          "line_number": 4,
+          "scope": "global"
+        },
+        {
+          "name": "output_dir",
+          "type": "variable",
+          "file_path": "fluen_config.example.yml",
+          "line_number": 26,
+          "scope": "global"
+        },
+        {
+          "name": "cache_dir",
+          "type": "variable",
+          "file_path": "fluen_config.example.yml",
+          "line_number": 29,
+          "scope": "global"
+        },
+        {
+          "name": "temp_dir",
+          "type": "variable",
+          "file_path": "fluen_config.example.yml",
+          "line_number": 30,
+          "scope": "global"
+        },
+        {
+          "name": "default_export_type",
+          "type": "variable",
+          "file_path": "fluen_config.example.yml",
+          "line_number": 33,
+          "scope": "global"
+        },
+        {
+          "name": "project",
+          "type": "variable",
+          "file_path": "fluen_config.example.yml",
+          "line_number": 36,
+          "scope": "global"
+        }
+      ],
+      "framework_hints": [
+        "YAML format for configuration"
+      ],
+      "last_modified": "2024-11-03T10:08:29.803278"
+    },
+    "src/fluen/generator/templates/default/styles.css": {
+      "path": "src/fluen/generator/templates/default/styles.css",
+      "language": "Unknown",
+      "purpose": "This code provides styles for a webpage layout that includes a sidebar, content area, and search functionality.",
+      "exposures": [
+        {
+          "name": ":root",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "*",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "body",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".sidebar",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".sidebar-header",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".sidebar-header h1",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".sidebar-header p",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".sidebar-content",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".content",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".file-group",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".file-group h3",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".file-group ul",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".file-group li",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".file-group a",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".file-group a:hover",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".metadata",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".element",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".element-header",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".element-header code",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".type-badge",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".scope-badge",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".search-container",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".search-input",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".search-results",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".search-active .search-results",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".search-result-item",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": ".search-result-item:hover",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [],
+      "elements": [
+        {
+          "name": ":root",
+          "type": "variable",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 1,
+          "scope": "global"
+        },
+        {
+          "name": "*",
+          "type": "variable",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 8,
+          "scope": null
+        },
+        {
+          "name": "body",
+          "type": "variable",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 14,
+          "scope": null
+        },
+        {
+          "name": ".sidebar",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 21,
+          "scope": null
+        },
+        {
+          "name": ".sidebar-header",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 29,
+          "scope": null
+        },
+        {
+          "name": ".sidebar-header h1",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 33,
+          "scope": null
+        },
+        {
+          "name": ".sidebar-header p",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 37,
+          "scope": null
+        },
+        {
+          "name": ".sidebar-content",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 42,
+          "scope": null
+        },
+        {
+          "name": ".content",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 45,
+          "scope": null
+        },
+        {
+          "name": ".file-group",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 50,
+          "scope": null
+        },
+        {
+          "name": ".file-group h3",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 54,
+          "scope": null
+        },
+        {
+          "name": ".file-group ul",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 58,
+          "scope": null
+        },
+        {
+          "name": ".file-group li",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 61,
+          "scope": null
+        },
+        {
+          "name": ".file-group a",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 64,
+          "scope": null
+        },
+        {
+          "name": ".file-group a:hover",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 68,
+          "scope": null
+        },
+        {
+          "name": ".metadata",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 72,
+          "scope": null
+        },
+        {
+          "name": ".element",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 77,
+          "scope": null
+        },
+        {
+          "name": ".element-header",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 84,
+          "scope": null
+        },
+        {
+          "name": ".element-header code",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 88,
+          "scope": null
+        },
+        {
+          "name": ".type-badge",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 92,
+          "scope": null
+        },
+        {
+          "name": ".scope-badge",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 96,
+          "scope": null
+        },
+        {
+          "name": ".search-container",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 101,
+          "scope": null
+        },
+        {
+          "name": ".search-input",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 107,
+          "scope": null
+        },
+        {
+          "name": ".search-results",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 113,
+          "scope": null
+        },
+        {
+          "name": ".search-active .search-results",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 121,
+          "scope": null
+        },
+        {
+          "name": ".search-result-item",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 126,
+          "scope": null
+        },
+        {
+          "name": ".search-result-item:hover",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/styles.css",
+          "line_number": 130,
+          "scope": null
+        }
+      ],
+      "framework_hints": [],
+      "last_modified": "2024-11-03T10:08:50.041264"
+    },
+    "src/fluen/__init__.py": {
+      "path": "src/fluen/__init__.py",
+      "language": "Python",
+      "purpose": "Empty file or package marker",
+      "exposures": [],
+      "dependencies": [],
+      "elements": [],
+      "framework_hints": [],
+      "last_modified": "2024-11-03T10:08:52.051709"
+    },
+    "src/fluen/tests/test_git_manager.py": {
+      "path": "src/fluen/tests/test_git_manager.py",
+      "language": "Python",
+      "purpose": "This code provides test cases for the GitManager functionality, ensuring correct behavior of Git operations.",
+      "exposures": [
+        {
+          "name": "test_git_manager_initialization",
+          "type": "exposure",
+          "file_path": "src/fluen/tests/test_git_manager.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "test_get_current_commit",
+          "type": "exposure",
+          "file_path": "src/fluen/tests/test_git_manager.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "test_get_file_content",
+          "type": "exposure",
+          "file_path": "src/fluen/tests/test_git_manager.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "test_get_changes_since_commit",
+          "type": "exposure",
+          "file_path": "src/fluen/tests/test_git_manager.py",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "pytest",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "pathlib.Path",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "git_integration.manager.GitManager",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "git_integration.manager.GitDiff",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "test_git_manager_initialization",
+          "type": "function",
+          "file_path": "src/fluen/tests/test_git_manager.py",
+          "line_number": 10,
+          "scope": "module"
+        },
+        {
+          "name": "test_get_current_commit",
+          "type": "function",
+          "file_path": "src/fluen/tests/test_git_manager.py",
+          "line_number": 17,
+          "scope": "module"
+        },
+        {
+          "name": "test_get_file_content",
+          "type": "function",
+          "file_path": "src/fluen/tests/test_git_manager.py",
+          "line_number": 26,
+          "scope": "module"
+        },
+        {
+          "name": "test_get_changes_since_commit",
+          "type": "function",
+          "file_path": "src/fluen/tests/test_git_manager.py",
+          "line_number": 35,
+          "scope": "module"
+        },
+        {
+          "name": "sample_repo",
+          "type": "variable",
+          "file_path": "src/fluen/tests/test_git_manager.py",
+          "line_number": null,
+          "scope": "function parameter"
+        },
+        {
+          "name": "manager",
+          "type": "variable",
+          "file_path": "src/fluen/tests/test_git_manager.py",
+          "line_number": null,
+          "scope": "local"
+        },
+        {
+          "name": "GitManager",
+          "type": "class",
+          "file_path": "src/fluen/tests/test_git_manager.py",
+          "line_number": null,
+          "scope": "imported"
+        },
+        {
+          "name": "GitDiff",
+          "type": "class",
+          "file_path": "src/fluen/tests/test_git_manager.py",
+          "line_number": null,
+          "scope": "imported"
+        }
+      ],
+      "framework_hints": [
+        "pytest"
+      ],
+      "last_modified": "2024-11-03T10:09:01.138939"
+    },
+    "src/fluen/analyzer/__init__.py": {
+      "path": "src/fluen/analyzer/__init__.py",
+      "language": "Python",
+      "purpose": "Empty file or package marker",
+      "exposures": [],
+      "dependencies": [],
+      "elements": [],
+      "framework_hints": [],
+      "last_modified": "2024-11-03T10:09:15.050649"
+    },
+    "src/fluen/generator/templates/default/script.js": {
+      "path": "src/fluen/generator/templates/default/script.js",
+      "language": "JavaScript",
+      "purpose": "This code implements a search functionality for documentation, and also highlights the current page in navigation and handles mobile navigation toggling.",
+      "exposures": [
+        {
+          "name": "DocumentationSearch",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/script.js",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "highlightCurrentPage",
+          "type": "exposure",
+          "file_path": "src/fluen/generator/templates/default/script.js",
+          "line_number": 0,
+          "scope": null
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "fetch API",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "DOM API",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        }
+      ],
+      "elements": [
+        {
+          "name": "DocumentationSearch",
+          "type": "class",
+          "file_path": "src/fluen/generator/templates/default/script.js",
+          "line_number": 2,
+          "scope": "global"
+        },
+        {
+          "name": "initializeSearch",
+          "type": "method",
+          "file_path": "src/fluen/generator/templates/default/script.js",
+          "line_number": 9,
+          "scope": "DocumentationSearch"
+        },
+        {
+          "name": "setupEventListeners",
+          "type": "method",
+          "file_path": "src/fluen/generator/templates/default/script.js",
+          "line_number": 18,
+          "scope": "DocumentationSearch"
+        },
+        {
+          "name": "handleSearch",
+          "type": "method",
+          "file_path": "src/fluen/generator/templates/default/script.js",
+          "line_number": 30,
+          "scope": "DocumentationSearch"
+        },
+        {
+          "name": "performSearch",
+          "type": "method",
+          "file_path": "src/fluen/generator/templates/default/script.js",
+          "line_number": 39,
+          "scope": "DocumentationSearch"
+        },
+        {
+          "name": "displayResults",
+          "type": "method",
+          "file_path": "src/fluen/generator/templates/default/script.js",
+          "line_number": 58,
+          "scope": "DocumentationSearch"
+        },
+        {
+          "name": "handleResultClick",
+          "type": "method",
+          "file_path": "src/fluen/generator/templates/default/script.js",
+          "line_number": 79,
+          "scope": "DocumentationSearch"
+        },
+        {
+          "name": "clearResults",
+          "type": "method",
+          "file_path": "src/fluen/generator/templates/default/script.js",
+          "line_number": 92,
+          "scope": "DocumentationSearch"
+        },
+        {
+          "name": "highlightCurrentPage",
+          "type": "function",
+          "file_path": "src/fluen/generator/templates/default/script.js",
+          "line_number": 99,
+          "scope": "global"
+        },
+        {
+          "name": "document.addEventListener('DOMContentLoaded', ...)",
+          "type": "initializer",
+          "file_path": "src/fluen/generator/templates/default/script.js",
+          "line_number": 106,
+          "scope": "global"
+        },
+        {
+          "name": "document.querySelector('.mobile-menu-button')",
+          "type": "variable",
+          "file_path": "src/fluen/generator/templates/default/script.js",
+          "line_number": 112,
+          "scope": "global"
+        },
+        {
+          "name": "document.querySelector('.sidebar')",
+          "type": "variable",
+          "file_path": "src/fluen/generator/templates/default/script.js",
+          "line_number": 113,
+          "scope": "global"
+        },
+        {
+          "name": "mobileMenuButton?.addEventListener('click', ...)",
+          "type": "event_listener",
+          "file_path": "src/fluen/generator/templates/default/script.js",
+          "line_number": 115,
+          "scope": "global"
+        }
+      ],
+      "framework_hints": [
+        "None"
+      ],
+      "last_modified": "2024-11-03T10:09:15.050769"
+    }
+  },
+  "dependencies": {
+    "pathlib": {
+      "name": "pathlib",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/tests/conftest.py",
+        "src/fluen/generator/doc_generator.py",
+        "src/fluen/git_integration/manager.py",
+        "src/fluen/analyzer/file_analyzer.py",
+        "src/fluen/config.py"
+      ]
+    },
+    "typing": {
+      "name": "typing",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/llm_providers/openai_provider.py",
+        "src/fluen/llm_providers/mistral_ai_provider.py",
+        "src/fluen/llm_providers/ollama_provider.py",
+        "src/fluen/tests/conftest.py",
+        "src/fluen/llm_providers/base_provider.py",
+        "src/fluen/generator/doc_generator.py",
+        "src/fluen/git_integration/manager.py",
+        "src/fluen/analyzer/file_analyzer.py",
+        "src/fluen/config.py"
+      ]
+    },
+    "dataclasses": {
+      "name": "dataclasses",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/state/manager.py",
+        "src/fluen/git_integration/manager.py",
+        "src/fluen/analyzer/file_analyzer.py",
+        "src/fluen/config.py"
+      ]
+    },
+    "re": {
+      "name": "re",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/analyzer/file_analyzer.py"
+      ]
+    },
+    "logging": {
+      "name": "logging",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/generator/templates/template_manager.py",
+        "src/fluen/state/manager.py",
+        "src/fluen/orchestrator.py",
+        "src/fluen/generator/manifest.py",
+        "src/fluen/generator/doc_generator.py",
+        "src/fluen/analyzer/project_analyzer.py",
+        "src/fluen/git_integration/manager.py",
+        "src/fluen/analyzer/file_analyzer.py"
+      ]
+    },
+    "fluen.generator.manifest": {
+      "name": "fluen.generator.manifest",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "openai": {
+      "name": "openai",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    ".base_provider": {
+      "name": ".base_provider",
+      "type": "internal",
+      "version": null,
+      "used_by": [
+        "src/fluen/llm_providers/mistral_ai_provider.py"
+      ]
+    },
+    "click": {
+      "name": "click",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/cli.py"
+      ]
+    },
+    "coverage": {
+      "name": "coverage",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "exceptiongroup": {
+      "name": "exceptiongroup",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "iniconfig": {
+      "name": "iniconfig",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "Jinja2": {
+      "name": "Jinja2",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "markdown-it-py": {
+      "name": "markdown-it-py",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "MarkupSafe": {
+      "name": "MarkupSafe",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "mdurl": {
+      "name": "mdurl",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "packaging": {
+      "name": "packaging",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "pluggy": {
+      "name": "pluggy",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "Pygments": {
+      "name": "Pygments",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "pytest": {
+      "name": "pytest",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/tests/conftest.py",
+        "src/fluen/tests/test_file_analyzer.py",
+        "src/fluen/tests/test_git_manager.py"
+      ]
+    },
+    "pytest-asyncio": {
+      "name": "pytest-asyncio",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "pytest-cov": {
+      "name": "pytest-cov",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "python-magic": {
+      "name": "python-magic",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "PyYAML": {
+      "name": "PyYAML",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "rich": {
+      "name": "rich",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "tomli": {
+      "name": "tomli",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "typing_extensions": {
+      "name": "typing_extensions",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "assets/styles.css": {
+      "name": "assets/styles.css",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "assets/script.js": {
+      "name": "assets/script.js",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "mistralai": {
+      "name": "mistralai",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "json": {
+      "name": "json",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/state/manager.py",
+        "src/fluen/generator/manifest.py",
+        "src/fluen/analyzer/file_analyzer.py"
+      ]
+    },
+    "aiohttp": {
+      "name": "aiohttp",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "base_provider.BaseLLMProvider": {
+      "name": "base_provider.BaseLLMProvider",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "typing.Dict": {
+      "name": "typing.Dict",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/generator/templates/template_manager.py",
+        "src/fluen/state/manager.py",
+        "src/fluen/generator/manifest.py",
+        "src/fluen/analyzer/project_analyzer.py"
+      ]
+    },
+    "typing.Any": {
+      "name": "typing.Any",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/generator/templates/template_manager.py",
+        "src/fluen/state/manager.py",
+        "src/fluen/generator/manifest.py"
+      ]
+    },
+    "fluen.llm_providers.base_provider.BaseLLMProvider": {
+      "name": "fluen.llm_providers.base_provider.BaseLLMProvider",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/orchestrator.py"
+      ]
+    },
+    "fluen.llm_providers.openai_provider.OpenAIProvider": {
+      "name": "fluen.llm_providers.openai_provider.OpenAIProvider",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.llm_providers.mistral_ai_provider.MistralAIProvider": {
+      "name": "fluen.llm_providers.mistral_ai_provider.MistralAIProvider",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.llm_providers.ollama_provider.OllamaProvider": {
+      "name": "fluen.llm_providers.ollama_provider.OllamaProvider",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "click>=8.0.0": {
+      "name": "click>=8.0.0",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "gitpython>=3.1.0": {
+      "name": "gitpython>=3.1.0",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "pyyaml>=6.0": {
+      "name": "pyyaml>=6.0",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "rich>=10.0.0": {
+      "name": "rich>=10.0.0",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "jinja2>=3.0.0": {
+      "name": "jinja2>=3.0.0",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "aiohttp>=3.8.0": {
+      "name": "aiohttp>=3.8.0",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "openai>=1.0.0": {
+      "name": "openai>=1.0.0",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "mistralai>=0.0.7": {
+      "name": "mistralai>=0.0.7",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "dev dependencies: pytest>=7.0.0": {
+      "name": "dev dependencies: pytest>=7.0.0",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "pytest-asyncio>=0.21.0": {
+      "name": "pytest-asyncio>=0.21.0",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "pytest-cov>=4.0.0": {
+      "name": "pytest-cov>=4.0.0",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "black>=23.0.0": {
+      "name": "black>=23.0.0",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "mypy>=1.0.0": {
+      "name": "mypy>=1.0.0",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "flake8>=6.0.0": {
+      "name": "flake8>=6.0.0",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "{{ dep.name }}": {
+      "name": "{{ dep.name }}",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "pathlib.Path": {
+      "name": "pathlib.Path",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/cli.py",
+        "src/fluen/state/manager.py",
+        "src/fluen/orchestrator.py",
+        "src/fluen/tests/test_file_analyzer.py",
+        "src/fluen/generator/manifest.py",
+        "src/fluen/analyzer/project_analyzer.py",
+        "src/fluen/tests/test_git_manager.py"
+      ]
+    },
+    "typing.Optional": {
+      "name": "typing.Optional",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/cli.py",
+        "src/fluen/state/manager.py",
+        "src/fluen/orchestrator.py",
+        "src/fluen/generator/manifest.py",
+        "src/fluen/analyzer/project_analyzer.py"
+      ]
+    },
+    "jinja2.Environment": {
+      "name": "jinja2.Environment",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "jinja2.FileSystemLoader": {
+      "name": "jinja2.FileSystemLoader",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "jinja2.PackageLoader": {
+      "name": "jinja2.PackageLoader",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "jinja2.ChoiceLoader": {
+      "name": "jinja2.ChoiceLoader",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.config.FluenConfig": {
+      "name": "fluen.config.FluenConfig",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/orchestrator.py"
+      ]
+    },
+    "rich.console.Console": {
+      "name": "rich.console.Console",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/orchestrator.py"
+      ]
+    },
+    "rich.progress.Progress": {
+      "name": "rich.progress.Progress",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/orchestrator.py"
+      ]
+    },
+    "rich.progress.SpinnerColumn": {
+      "name": "rich.progress.SpinnerColumn",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/orchestrator.py"
+      ]
+    },
+    "rich.progress.TextColumn": {
+      "name": "rich.progress.TextColumn",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/orchestrator.py"
+      ]
+    },
+    "rich.progress.BarColumn": {
+      "name": "rich.progress.BarColumn",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/orchestrator.py"
+      ]
+    },
+    "asyncio": {
+      "name": "asyncio",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/orchestrator.py",
+        "src/fluen/analyzer/project_analyzer.py",
+        "src/fluen/analyzer/file_analyzer.py"
+      ]
+    },
+    "fluen.orchestrator.Orchestrator": {
+      "name": "fluen.orchestrator.Orchestrator",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "asdict": {
+      "name": "asdict",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "tempfile": {
+      "name": "tempfile",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "shutil": {
+      "name": "shutil",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/generator/doc_generator.py"
+      ]
+    },
+    "git": {
+      "name": "git",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/analyzer/file_analyzer.py"
+      ]
+    },
+    "config": {
+      "name": "config",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "time": {
+      "name": "time",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/analyzer/file_analyzer.py"
+      ]
+    },
+    "rich.progress.TaskID": {
+      "name": "rich.progress.TaskID",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.git_integration.manager.GitManager": {
+      "name": "fluen.git_integration.manager.GitManager",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/analyzer/project_analyzer.py"
+      ]
+    },
+    "fluen.state.manager.StateManager": {
+      "name": "fluen.state.manager.StateManager",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/analyzer/project_analyzer.py"
+      ]
+    },
+    "fluen.analyzer.file_analyzer.FileAnalyzer": {
+      "name": "fluen.analyzer.file_analyzer.FileAnalyzer",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/analyzer/project_analyzer.py"
+      ]
+    },
+    "fluen.analyzer.project_analyzer.ProjectAnalyzer": {
+      "name": "fluen.analyzer.project_analyzer.ProjectAnalyzer",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.generator.manifest.ManifestGenerator": {
+      "name": "fluen.generator.manifest.ManifestGenerator",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/analyzer/project_analyzer.py"
+      ]
+    },
+    "fluen.generator.manifest.ProjectManifest": {
+      "name": "fluen.generator.manifest.ProjectManifest",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/generator/doc_generator.py"
+      ]
+    },
+    "fluen.generator.doc_generator.DocumentationGenerator": {
+      "name": "fluen.generator.doc_generator.DocumentationGenerator",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.generator.templates.template_manager.TemplateManager": {
+      "name": "fluen.generator.templates.template_manager.TemplateManager",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/generator/doc_generator.py"
+      ]
+    },
+    "fluen.generator.cross_referencer.CrossReferenceResolver": {
+      "name": "fluen.generator.cross_referencer.CrossReferenceResolver",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "unittest.mock.Mock": {
+      "name": "unittest.mock.Mock",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "unittest.mock.AsyncMock": {
+      "name": "unittest.mock.AsyncMock",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "analyzer.file_analyzer.FileAnalyzer": {
+      "name": "analyzer.file_analyzer.FileAnalyzer",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "analyzer.file_analyzer.FileAnalysis": {
+      "name": "analyzer.file_analyzer.FileAnalysis",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "analyzer.file_analyzer.CodeElement": {
+      "name": "analyzer.file_analyzer.CodeElement",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "abc": {
+      "name": "abc",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "typing.List": {
+      "name": "typing.List",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/analyzer/project_analyzer.py"
+      ]
+    },
+    "dataclasses.dataclass": {
+      "name": "dataclasses.dataclass",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "dataclasses.asdict": {
+      "name": "dataclasses.asdict",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "datetime.datetime": {
+      "name": "datetime.datetime",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.analyzer.file_analyzer.FileAnalysis": {
+      "name": "fluen.analyzer.file_analyzer.FileAnalysis",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/analyzer/project_analyzer.py"
+      ]
+    },
+    "fluen.generator.manifest.ElementReference": {
+      "name": "fluen.generator.manifest.ElementReference",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "typing.Set": {
+      "name": "typing.Set",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "git (from GitPython)": {
+      "name": "git (from GitPython)",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "mimetypes": {
+      "name": "mimetypes",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen": {
+      "name": "fluen",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "yaml": {
+      "name": "yaml",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "os": {
+      "name": "os",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "git_integration.manager.GitManager": {
+      "name": "git_integration.manager.GitManager",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "git_integration.manager.GitDiff": {
+      "name": "git_integration.manager.GitDiff",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fetch API": {
+      "name": "fetch API",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "DOM API": {
+      "name": "DOM API",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    }
+  },
+  "last_updated": "2024-11-03T10:31:29.857455",
+  "git_commit": "c529b8f6ffedbe5fc7ad8b4c4096e38f342f3cff"
+}

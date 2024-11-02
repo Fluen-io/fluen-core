@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>src/fluen/generator/doc_generator.py - fluen-core</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h1><a href="../index.html">fluen-core</a></h1>
+        </div>
+        
+        <div class="sidebar-content">
+            <div class="file-info">
+                <p>Python</p>
+                <p>Last modified: 2024-11-03T10:07:16.175436</p>
+            </div>
+
+            <div class="element-navigation">
+                    <div class="element-group">
+                        <h3>Class</h3>
+                        <ul>
+                                <li><a href="#documentationgenerator">DocumentationGenerator</a></li>
+                                <li><a href="#baseformatgenerator">BaseFormatGenerator</a></li>
+                                <li><a href="#htmlgenerator">HTMLGenerator</a></li>
+                                <li><a href="#markdowngenerator">MarkdownGenerator</a></li>
+                        </ul>
+                    </div>
+                    <div class="element-group">
+                        <h3>Method</h3>
+                        <ul>
+                                <li><a href="#__init__">__init__</a></li>
+                                <li><a href="#generate">generate</a></li>
+                                <li><a href="#_get_generator">_get_generator</a></li>
+                                <li><a href="#__init__">__init__</a></li>
+                                <li><a href="#generate">generate</a></li>
+                                <li><a href="#generate">generate</a></li>
+                                <li><a href="#_copy_static_assets">_copy_static_assets</a></li>
+                                <li><a href="#_generate_index_page">_generate_index_page</a></li>
+                                <li><a href="#_generate_reference_pages">_generate_reference_pages</a></li>
+                                <li><a href="#_group_files_by_type">_group_files_by_type</a></li>
+                                <li><a href="#_group_elements_by_type">_group_elements_by_type</a></li>
+                                <li><a href="#generate">generate</a></li>
+                                <li><a href="#_generate_readme">_generate_readme</a></li>
+                                <li><a href="#_generate_reference_docs">_generate_reference_docs</a></li>
+                                <li><a href="#_generate_summary">_generate_summary</a></li>
+                                <li><a href="#_group_files_by_type">_group_files_by_type</a></li>
+                                <li><a href="#_group_elements_by_type">_group_elements_by_type</a></li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content">
+        <div class="file-header">
+            <h1>src/fluen/generator/doc_generator.py</h1>
+            <div class="metadata">
+                <span>Language: Python</span>
+                <span>Last Modified: 2024-11-03T10:07:16.175436</span>
+            </div>
+        </div>
+
+        <section class="file-purpose">
+            <h2>Purpose</h2>
+            <p>The primary purpose of this code is to manage the generation of documentation in HTML and Markdown formats based on a given project manifest. It uses templates to render documentation files and organizes them into structured directories.</p>
+        </section>
+
+            <section class="exposures">
+                <h2>Public API</h2>
+                <ul class="exposure-list">
+                        <li>
+                            <code>DocumentationGenerator</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>generate</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>HTMLGenerator</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>MarkdownGenerator</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                </ul>
+            </section>
+
+            <section class="dependencies">
+                <h2>Dependencies</h2>
+                <ul class="dependency-list">
+                        <li>
+                            <span class="dep-name">pathlib</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">typing</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">shutil</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">logging</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.generator.templates.template_manager.TemplateManager</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.generator.manifest.ProjectManifest</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.generator.manifest.ElementReference</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                </ul>
+            </section>
+
+        <section class="elements">
+            <h2>Elements</h2>
+                <div class="element-type-section">
+                    <h3>Class</h3>
+                        <div class="element" id="documentationgenerator">
+                            <div class="element-header">
+                                <code>DocumentationGenerator</code>
+                                    <span class="scope-badge">public</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="baseformatgenerator">
+                            <div class="element-header">
+                                <code>BaseFormatGenerator</code>
+                                    <span class="scope-badge">private</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="htmlgenerator">
+                            <div class="element-header">
+                                <code>HTMLGenerator</code>
+                                    <span class="scope-badge">public</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="markdowngenerator">
+                            <div class="element-header">
+                                <code>MarkdownGenerator</code>
+                                    <span class="scope-badge">public</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Method</h3>
+                        <div class="element" id="__init__">
+                            <div class="element-header">
+                                <code>__init__</code>
+                                    <span class="scope-badge">public</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="generate">
+                            <div class="element-header">
+                                <code>generate</code>
+                                    <span class="scope-badge">public</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_get_generator">
+                            <div class="element-header">
+                                <code>_get_generator</code>
+                                    <span class="scope-badge">private</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="__init__">
+                            <div class="element-header">
+                                <code>__init__</code>
+                                    <span class="scope-badge">private</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="generate">
+                            <div class="element-header">
+                                <code>generate</code>
+                                    <span class="scope-badge">private</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="generate">
+                            <div class="element-header">
+                                <code>generate</code>
+                                    <span class="scope-badge">public</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_copy_static_assets">
+                            <div class="element-header">
+                                <code>_copy_static_assets</code>
+                                    <span class="scope-badge">private</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_generate_index_page">
+                            <div class="element-header">
+                                <code>_generate_index_page</code>
+                                    <span class="scope-badge">private</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_generate_reference_pages">
+                            <div class="element-header">
+                                <code>_generate_reference_pages</code>
+                                    <span class="scope-badge">private</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_group_files_by_type">
+                            <div class="element-header">
+                                <code>_group_files_by_type</code>
+                                    <span class="scope-badge">private</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_group_elements_by_type">
+                            <div class="element-header">
+                                <code>_group_elements_by_type</code>
+                                    <span class="scope-badge">private</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="generate">
+                            <div class="element-header">
+                                <code>generate</code>
+                                    <span class="scope-badge">public</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_generate_readme">
+                            <div class="element-header">
+                                <code>_generate_readme</code>
+                                    <span class="scope-badge">private</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_generate_reference_docs">
+                            <div class="element-header">
+                                <code>_generate_reference_docs</code>
+                                    <span class="scope-badge">private</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_generate_summary">
+                            <div class="element-header">
+                                <code>_generate_summary</code>
+                                    <span class="scope-badge">private</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_group_files_by_type">
+                            <div class="element-header">
+                                <code>_group_files_by_type</code>
+                                    <span class="scope-badge">private</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="element" id="_group_elements_by_type">
+                            <div class="element-header">
+                                <code>_group_elements_by_type</code>
+                                    <span class="scope-badge">private</span>
+                            </div>
+                            <div class="element-content">
+                                <p class="purpose"></p>
+                                <div class="documentation">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+        </section>
+    </main>
+
+    <script src="../assets/script.js"></script>
+</body>
+</html>
