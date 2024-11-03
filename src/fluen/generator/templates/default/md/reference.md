@@ -7,7 +7,7 @@
 
 {{ file.purpose }}
 
-{% if file.exposures %}
+{% if file.exposures|default([])|length > 0 %}
 ## Public API
 
 {% for exposure in file.exposures %}
@@ -15,7 +15,7 @@
 {% endfor %}
 {% endif %}
 
-{% if file.dependencies %}
+{% if file.dependencies|default([])|length > 0 %}
 ## Dependencies
 
 {% for dep in file.dependencies %}
@@ -25,23 +25,27 @@
 
 ## Elements
 
-{% for type, elements in elements_by_type.items() %}
+{% if elements_by_type.items()|length > 0 %}
+{% for type, elements in elements_by_type.items()|sort %}
 ### {{ type|format_type }}
 
-{% for element in elements %}
+{% for element in elements|sort(attribute="name") %}
 #### `{{ element.name }}`
 
 {% if element.scope %}
 **Scope:** {{ element.scope }}
 {% endif %}
 
-**Purpose:** {{ element.purpose }}
+**Purpose:** {{ element.purpose|default('No purpose specified') }}
 
 **Documentation:**
 
-{{ element.documentation }}
+{{ element.documentation|default('No documentation available') }}
 
 {% endfor %}
 {% endfor %}
+{% else %}
+No documented elements found.
+{% endif %}
 
 [Back to Index](../README.md)

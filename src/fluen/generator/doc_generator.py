@@ -217,10 +217,12 @@ class MarkdownGenerator(BaseFormatGenerator):
             context = self.template_manager.get_default_context(self.manifest)
             context.update({
                 'file': file_manifest,
-                'elements_by_type': self._group_elements_by_type(file_manifest.elements)
+                'elements_by_type': self._group_elements_by_type(file_manifest.get("elements", []))
             })
             
-            output_path = reference_dir / f"{Path(file_path).stem}.md"
+            # Convert file path to a safe filename
+            safe_filename = file_path.replace('/', '_').replace('\\', '_')
+            output_path = reference_dir / f"{safe_filename}.md"
             content = self.template_manager.render_template('md/reference.md', context)
             output_path.write_text(content)
 
@@ -233,23 +235,26 @@ class MarkdownGenerator(BaseFormatGenerator):
         })
         
         content = self.template_manager.render_template('md/summary.md', context)
-        (docs_dir / 'SUMMARY.md').write_text(content)
+        (docs_dir / 'summary.md').write_text(content)
 
     def _group_files_by_type(self) -> Dict[str, List[str]]:
-        """Group files by their language/type."""
+        """Group files by their language/type with safety checks."""
         groups = {}
-        for file_path, file_manifest in self.manifest.files.items():
-            lang = file_manifest.language
-            if lang not in groups:
-                groups[lang] = []
-            groups[lang].append(file_path)
+        if self.manifest and hasattr(self.manifest, 'files'):
+            for file_path, file_manifest in self.manifest.files.items():
+                
+                lang = file_manifest.get('language', 'Unknown')
+                if lang not in groups:
+                    groups[lang] = []
+                groups[lang].append(file_path)
         return groups
 
     def _group_elements_by_type(self, elements: List['ElementReference']) -> Dict[str, List['ElementReference']]:
         """Group elements by their type."""
         groups = {}
         for element in elements:
-            if element.type not in groups:
-                groups[element.type] = []
-            groups[element.type].append(element)
+            element_type = element.get('type', 'Unknown')
+            if element_type not in groups:
+                groups[element_type] = []
+            groups[element_type].append(element)
         return groups

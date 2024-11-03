@@ -1,8 +1,11 @@
 from setuptools import setup, find_packages
 
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
 setup(
     name="fluen",
-    version="0.1.0",
+    version="0.1.1",
     packages=find_packages(where="src"),
     package_dir={"": "src"},  # Tell setuptools packages are under src
     python_requires=">=3.8",
@@ -33,13 +36,13 @@ setup(
         ],
     },
     # Metadata
-    author="Your Name",
-    author_email="your.email@example.com",
-    description="LLM-based Code Documentation Generator",
-    long_description="",
+    author="Abi Chatterjee",
+    author_email="abi@fluen.io",
+    description="LLM-based AI powered Code Documentation Generator",
+    long_description=long_description,
     long_description_content_type="text/markdown",
     keywords="documentation, llm, code-analysis",
-    url="https://github.com/yourusername/fluen",
+    url="https://github.com/Fluen-io/fluen-core",
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
