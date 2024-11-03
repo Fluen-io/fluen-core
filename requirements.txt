@@ -17,3 +17,9 @@ PyYAML==6.0.2
 rich==13.9.4
 tomli==2.0.2
 typing_extensions==4.12.2
+
+# Mistral AI
+mistralai==1.1.0
+
+# OpenAI
+openai==1.43.0
