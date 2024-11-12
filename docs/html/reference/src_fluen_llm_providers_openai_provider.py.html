@@ -15,7 +15,7 @@
         <div class="sidebar-content">
             <div class="file-info">
                 <p>Python</p>
-                <p>Last modified: 2024-11-03T10:04:58.858032</p>
+                <p>Last modified: 2024-11-12T20:10:07.635858</p>
             </div>
 
             <div class="element-navigation">
@@ -36,8 +36,8 @@
                     <div class="element-group">
                         <h3>Variable</h3>
                         <ul>
-                                <li><a href="#self.client">self.client</a></li>
-                                <li><a href="#self.model">self.model</a></li>
+                                <li><a href="#client">client</a></li>
+                                <li><a href="#model">model</a></li>
                         </ul>
                     </div>
             </div>
@@ -49,13 +49,13 @@
             <h1>src/fluen/llm_providers/openai_provider.py</h1>
             <div class="metadata">
                 <span>Language: Python</span>
-                <span>Last Modified: 2024-11-03T10:04:58.858032</span>
+                <span>Last Modified: 2024-11-12T20:10:07.635858</span>
             </div>
         </div>
 
         <section class="file-purpose">
             <h2>Purpose</h2>
-            <p>The primary purpose of this code is to create an asynchronous provider for interacting with OpenAI&#39;s API, specifically for generating text completions and embeddings.</p>
+            <p>The primary purpose of this code is to define an asynchronous provider class, OpenAIProvider, that interacts with the OpenAI API to generate text completions and obtain text embeddings using specified models.</p>
         </section>
 
             <section class="exposures">
@@ -80,15 +80,23 @@
                 <h2>Dependencies</h2>
                 <ul class="dependency-list">
                         <li>
-                            <span class="dep-name">openai</span>
+                            <span class="dep-name">openai.AsyncOpenAI</span>
                             <span class="type-badge">external</span>
                         </li>
                         <li>
-                            <span class="dep-name">typing</span>
+                            <span class="dep-name">typing.List</span>
                             <span class="type-badge">external</span>
                         </li>
                         <li>
-                            <span class="dep-name">.base_provider</span>
+                            <span class="dep-name">typing.Dict</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">typing.Any</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">.base_provider.BaseLLMProvider</span>
                             <span class="type-badge">internal</span>
                         </li>
                 </ul>
@@ -101,6 +109,7 @@
                         <div class="element" id="openaiprovider">
                             <div class="element-header">
                                 <code>OpenAIProvider</code>
+                                    <span class="scope-badge">global</span>
                             </div>
                             <div class="element-content">
                                 <p class="purpose"></p>
@@ -115,6 +124,7 @@
                         <div class="element" id="__init__">
                             <div class="element-header">
                                 <code>__init__</code>
+                                    <span class="scope-badge">OpenAIProvider</span>
                             </div>
                             <div class="element-content">
                                 <p class="purpose"></p>
@@ -126,6 +136,7 @@
                         <div class="element" id="generate">
                             <div class="element-header">
                                 <code>generate</code>
+                                    <span class="scope-badge">OpenAIProvider</span>
                             </div>
                             <div class="element-content">
                                 <p class="purpose"></p>
@@ -137,6 +148,7 @@
                         <div class="element" id="get_embedding">
                             <div class="element-header">
                                 <code>get_embedding</code>
+                                    <span class="scope-badge">OpenAIProvider</span>
                             </div>
                             <div class="element-content">
                                 <p class="purpose"></p>
@@ -148,10 +160,10 @@
                 </div>
                 <div class="element-type-section">
                     <h3>Variable</h3>
-                        <div class="element" id="self.client">
+                        <div class="element" id="client">
                             <div class="element-header">
-                                <code>self.client</code>
-                                    <span class="scope-badge">instance</span>
+                                <code>client</code>
+                                    <span class="scope-badge">OpenAIProvider</span>
                             </div>
                             <div class="element-content">
                                 <p class="purpose"></p>
@@ -160,10 +172,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="element" id="self.model">
+                        <div class="element" id="model">
                             <div class="element-header">
-                                <code>self.model</code>
-                                    <span class="scope-badge">instance</span>
+                                <code>model</code>
+                                    <span class="scope-badge">OpenAIProvider</span>
                             </div>
                             <div class="element-content">
                                 <p class="purpose"></p>

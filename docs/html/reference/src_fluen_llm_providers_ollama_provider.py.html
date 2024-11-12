@@ -15,7 +15,7 @@
         <div class="sidebar-content">
             <div class="file-info">
                 <p>Python</p>
-                <p>Last modified: 2024-11-03T10:05:48.728722</p>
+                <p>Last modified: 2024-11-12T20:10:07.635917</p>
             </div>
 
             <div class="element-navigation">
@@ -51,13 +51,13 @@
             <h1>src/fluen/llm_providers/ollama_provider.py</h1>
             <div class="metadata">
                 <span>Language: Python</span>
-                <span>Last Modified: 2024-11-03T10:05:48.728722</span>
+                <span>Last Modified: 2024-11-12T20:10:07.635917</span>
             </div>
         </div>
 
         <section class="file-purpose">
             <h2>Purpose</h2>
-            <p>The primary purpose of this code is to interact with a language model API for generating text completions and obtaining text embeddings using asynchronous HTTP calls.</p>
+            <p>The code defines an asynchronous provider for interacting with an LLM service via HTTP API, with methods to generate text completions and obtain text embeddings.</p>
         </section>
 
             <section class="exposures">
@@ -65,6 +65,18 @@
                 <ul class="exposure-list">
                         <li>
                             <code>OllamaProvider</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>OllamaProvider.__init__</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>OllamaProvider.generate</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>OllamaProvider.get_embedding</code>
                             <span class="type-badge">exposure</span>
                         </li>
                 </ul>
@@ -86,8 +98,8 @@
                             <span class="type-badge">external</span>
                         </li>
                         <li>
-                            <span class="dep-name">base_provider.BaseLLMProvider</span>
-                            <span class="type-badge">external</span>
+                            <span class="dep-name">.base_provider</span>
+                            <span class="type-badge">internal</span>
                         </li>
                 </ul>
             </section>
@@ -99,7 +111,6 @@
                         <div class="element" id="ollamaprovider">
                             <div class="element-header">
                                 <code>OllamaProvider</code>
-                                    <span class="scope-badge">global</span>
                             </div>
                             <div class="element-content">
                                 <p class="purpose"></p>

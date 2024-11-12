@@ -45,18 +45,27 @@ class Orchestrator:
                 BarColumn(),
                 TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
                 console=self.console,
-                expand=True
+                expand=True,
+                transient=False  # Keep finished tasks visible
             ) as progress:
-                # Initialize repository
-                init_task = progress.add_task("[cyan]Initializing repository...", total=1)
+                # Single overall progress task
+                overall_task = progress.add_task(
+                    "[cyan]Generating documentation...",
+                    total=100
+                )
+
+                # Initialize repository (10% of progress)
+                progress.update(overall_task, description="[cyan]Initializing repository...")
                 if not await self._initialize_repository(repo_url):
-                    progress.update(init_task, completed=1, description="[red]Repository initialization failed!")
+                    progress.update(
+                        overall_task,
+                        description="[red]Repository initialization failed!",
+                        completed=100
+                    )
                     return False
-                progress.update(init_task, completed=1, description="[green]Repository initialized!")
-                
-                # Initialize components and start analysis
-                analyze_task = progress.add_task("[cyan]Analyzing codebase...", total=100)
-                
+                progress.update(overall_task, completed=10)
+
+                # Initialize components for analysis
                 manifest_generator = ManifestGenerator(
                     Path(self.git_manager.repo_path),
                     self.config.output_dir
@@ -64,38 +73,56 @@ class Orchestrator:
                 
                 file_analyzer = FileAnalyzer(self._create_llm_provider())
                 
+                # Setup project analyzer with progress callback (80% of progress)
+                progress.update(overall_task, description="[cyan]Analyzing codebase...")
+                
+                def analysis_progress(current: int, total: int):
+                    if total > 0:
+                        # Scale progress to fit in the 10-90 range (80% of total)
+                        percentage = (current / total * 80) + 10
+                        progress.update(overall_task, completed=percentage)
+
                 project_analyzer = ProjectAnalyzer(
                     Path(self.git_manager.repo_path),
                     self.git_manager,
                     self.state_manager,
                     file_analyzer,
                     manifest_generator,
-                    progress_callback=lambda current, total: 
-                        progress.update(analyze_task, completed=(current / total * 100) if total > 0 else 0)
+                    progress_callback=analysis_progress
                 )
 
-                # Analyze project with scan options
+                # Run analysis based on scan options
                 analysis_success = False
                 if scan_options and scan_options.is_selective_scan:
-                    analysis_success = await self._run_selective_analysis(
-                        project_analyzer, 
-                        scan_options.selector,
-                        progress, 
-                        analyze_task
+                    analysis_success = await project_analyzer.analyze_path(
+                        Path(scan_options.selector.value),
+                        force=scan_options.selector.force
                     )
                 else:
-                    analysis_success = await self._run_analysis(project_analyzer, progress, analyze_task)
+                    force = scan_options.selector.force if scan_options else False
+                    analysis_success = await project_analyzer.analyze(force=force)
 
                 if not analysis_success:
-                    progress.update(analyze_task, description="[red]Analysis failed!")
+                    progress.update(
+                        overall_task,
+                        description="[red]Analysis failed!",
+                        completed=100
+                    )
                     return False
-                
-                progress.update(analyze_task, completed=100, description="[green]Analysis complete! Documentation manifest generated and saved.")
 
+                # Update progress for successful analysis
+                progress.update(
+                    overall_task,
+                    description="[green]Analysis complete! Documentation manifest generated and saved.",
+                    completed=100
+                )
+
+                self.console.print("\n✨ Documentation generation complete!")
+                self.console.print(f"📚 Manifest output directory: {self.config.output_dir}")
                 return True
 
         except Exception as e:
-            self.logger.error(f"Documentation manifest generation failed: {e}")
+            self.logger.error(f"Documentation generation failed: {e}")
             self.console.print(f"\n❌ Error: {str(e)}")
             return False
 
@@ -137,7 +164,11 @@ class Orchestrator:
         """Run selective analysis based on scan selector."""
         try:
             if selector.is_path_selector:
-                return await analyzer.analyze_path(Path(selector.value))
+                force = getattr(selector, 'force', False)  # Get force flag from selector
+                return await analyzer.analyze_path(
+                    Path(selector.value),
+                    force=force
+                )
             elif selector.is_element_selector:
                 self.logger.warning("Element-based scanning not yet implemented")
                 return False

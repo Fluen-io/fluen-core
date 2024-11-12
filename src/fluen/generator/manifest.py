@@ -26,6 +26,8 @@ class ElementReference:
     file_path: str
     line_number: int
     scope: Optional[str] = None
+    purpose: Optional[str] = None
+    documentation: Optional[str] = None
 
 @dataclass
 class FileManifest:
@@ -109,6 +111,8 @@ class ManifestGenerator:
                 ElementReference(
                     name=elem.name,
                     type=elem.type,
+                    purpose=elem.purpose,
+                    documentation=elem.documentation,
                     file_path=relative_path,
                     line_number=elem.line_number,
                     scope=elem.scope

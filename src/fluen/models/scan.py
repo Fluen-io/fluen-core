@@ -8,6 +8,7 @@ class ScanSelector:
         self.raw_selector = selector
         self.type: str = ""
         self.value: str = ""
+        self.force: bool = False  # Add force flag
         self._parse_selector()
     
     def _parse_selector(self):
@@ -41,10 +42,11 @@ class ScanSelector:
 class ScanOptions:
     """Container for scan options."""
     
-    def __init__(self, selector: Optional[str] = None):
+    def __init__(self, selector: Optional[str] = None, force: bool = False):
         self.selector: Optional[ScanSelector] = None
         if selector:
             self.selector = ScanSelector(selector)
+            self.selector.force = force  # Add force flag to selector
     
     @property
     def is_selective_scan(self) -> bool:

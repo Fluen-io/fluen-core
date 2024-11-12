@@ -32,7 +32,7 @@ class ProjectAnalyzer:
         self.batch_size = 5
         self.batch_delay = 2
 
-    async def analyze(self) -> bool:
+    async def analyze(self, force=False) -> bool:
         """
         Perform full project analysis or incremental update based on git state.
         """
@@ -41,7 +41,7 @@ class ProjectAnalyzer:
             state = self.state_manager.load()
             last_commit = state.last_commit
             
-            if last_commit:
+            if not force and last_commit:
                 # Incremental update
                 return await self._perform_incremental_update(last_commit)
             else:
@@ -206,11 +206,20 @@ class ProjectAnalyzer:
             self.logger.error(f"Failed to analyze file {file_path}: {e}")
         return None
 
-    async def analyze_path(self, target_path: Path) -> bool:
-        """Analyze specific path (file or directory)."""
+    async def analyze_path(self, target_path: Path, force: bool = False) -> bool:
+        """
+        Analyze specific path (file or directory) with git change detection.
+        
+        Args:
+            target_path: Path to analyze
+            force: If True, analyzes all files regardless of git status
+        """
         try:
             # Initialize or load manifest
             current_commit = self.git_manager.get_current_commit()
+            last_commit = self.state_manager.load().last_commit
+            
+            # Load existing manifest
             if not self.manifest_generator.load_existing_manifest():
                 self.manifest_generator.initialize_manifest(
                     project_name=self.project_root.name,
@@ -223,16 +232,33 @@ class ProjectAnalyzer:
                 self.logger.error(f"Target path does not exist: {target_path}")
                 return False
             
+            # Get files to analyze based on path
             files_to_analyze = []
             if full_path.is_file():
                 files_to_analyze.append(full_path)
             else:
                 files_to_analyze.extend(self._get_analyzable_files(full_path))
             
-            total_files = len(files_to_analyze)
-            if total_files == 0:
+            if not files_to_analyze:
                 self.logger.warning("No files to analyze in specified path")
                 return False
+            
+            # If not force mode and we have a last commit, check which files actually changed
+            if not force and last_commit:
+                self.logger.info("Checking for changes since last analysis...")
+                changed_files = self._get_changed_files(last_commit, files_to_analyze)
+                if not changed_files:
+                    self.logger.info("No changes detected in specified path since last analysis")
+                    return True  # Return success as no changes needed
+                files_to_analyze = changed_files
+                self.logger.info(f"Found {len(files_to_analyze)} changed files to analyze")
+            else:
+                if force:
+                    self.logger.info("Force mode: analyzing all files in path")
+                else:
+                    self.logger.info("No previous analysis found: analyzing all files in path")
+
+            total_files = len(files_to_analyze)
             
             # Process files in batches
             processed_count = 0
@@ -267,3 +293,28 @@ class ProjectAnalyzer:
         except Exception as e:
             self.logger.error(f"Path analysis failed: {e}")
             return False
+
+    def _get_changed_files(self, last_commit: str, files_to_check: List[Path]) -> List[Path]:
+        """Get list of files that have changed since last commit."""
+        try:
+            # Get git changes since last commit
+            changes = self.git_manager.get_changes_since_commit(last_commit)
+            
+            # Convert changed files to set of relative paths for efficient lookup
+            changed_paths = set()
+            changed_paths.update(changes.added_files)
+            changed_paths.update(changes.modified_files)
+            
+            # Filter files_to_check to only include changed files
+            changed_files = []
+            for file_path in files_to_check:
+                relative_path = str(file_path.relative_to(self.project_root))
+                if relative_path in changed_paths:
+                    changed_files.append(file_path)
+            
+            return changed_files
+            
+        except Exception as e:
+            self.logger.warning(f"Error checking git changes: {e}")
+            # If there's an error checking changes, return all files as changed
+            return files_to_check

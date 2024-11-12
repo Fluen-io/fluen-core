@@ -36,14 +36,15 @@ def docs():
 @docs.command()
 @click.option('--repo', '-r', help='Git repository URL')
 @click.option('--scan', '-s', help='Selective scan selector (e.g., path:src/module)')
+@click.option('--force', '-f', is_flag=True, help='Force analysis regardless of git status')
 @pass_fluen_context
-def generate(ctx: FluenContext, repo: Optional[str], scan: Optional[str]):
+def generate(ctx: FluenContext, repo: Optional[str], scan: Optional[str], force: bool):
     """Generate documentation for the codebase."""
     try:
         # Initialize scan options
         if scan:
             try:
-                ctx.scan_options = ScanOptions(scan)
+                ctx.scan_options = ScanOptions(scan, force=force)
             except ValueError as e:
                 ctx.console.print(f"❌ Invalid scan selector: {e}")
                 raise click.Abort()
@@ -61,7 +62,7 @@ def generate(ctx: FluenContext, repo: Optional[str], scan: Optional[str]):
                 console=ctx.console
             ) as progress:
                 # Add initial task
-                task = progress.add_task("Initializing...", total=100)
+                #task = progress.add_task("Initializing...", total=100)
                 
                 try:
                     success = await orchestrator.generate_documentation(
@@ -69,14 +70,14 @@ def generate(ctx: FluenContext, repo: Optional[str], scan: Optional[str]):
                         scan_options=ctx.scan_options
                     )
                     if success:
-                        progress.update(task, completed=100, description="Documentation generated successfully!")
+                        #progress.update(task, completed=100, description="Documentation generated successfully!")
                         ctx.console.print("\n✨ Documentation generation complete!")
                         ctx.console.print(f"📚 Manifest output directory: {ctx.config.output_dir}")
                     else:
-                        progress.update(task, description="Documentation manifest generation failed!")
+                        #progress.update(task, description="Documentation manifest generation failed!")
                         ctx.console.print("\n❌ Documentation manifest generation failed!")
                 except Exception as e:
-                    progress.update(task, description=f"Error: {str(e)}")
+                    #progress.update(task, description=f"Error: {str(e)}")
                     ctx.console.print(f"\n❌ Error during documentation manifest generation: {str(e)}")
                     raise click.Abort()
 

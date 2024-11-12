@@ -1,21 +1,23 @@
 # src/fluen/llm_providers/mistral_ai_provider.py
 
 **Language:** Python  
-**Last Modified:** 2024-11-03T10:05:37.739994
+**Last Modified:** 2024-11-12T20:10:07.635960
 
 ## Purpose
 
-This code defines a provider class for interacting with the Mistral API to generate text and obtain text embeddings asynchronously.
+The primary purpose of this code is to provide an implementation of the MistralAIProvider class for interacting with the Mistral API, facilitating text generation and embedding retrieval.
 
 ## Public API
 
 - `MistralAIProvider` (exposure)
+- `generate` (exposure)
+- `get_embedding` (exposure)
 
 ## Dependencies
 
 - `typing` (external)
 - `mistralai` (external)
-- `.base_provider` (internal)
+- `base_provider` (external)
 
 ## Elements
 
@@ -35,7 +37,7 @@ No documentation available
 
 #### `__init__`
 
-**Scope:** MistralAIProvider
+**Scope:** class
 
 **Purpose:** No purpose specified
 
@@ -45,7 +47,7 @@ No documentation available
 
 #### `generate`
 
-**Scope:** MistralAIProvider
+**Scope:** class
 
 **Purpose:** No purpose specified
 
@@ -55,7 +57,7 @@ No documentation available
 
 #### `get_embedding`
 
-**Scope:** MistralAIProvider
+**Scope:** class
 
 **Purpose:** No purpose specified
 
@@ -65,19 +67,9 @@ No documentation available
 
 ### Variable
 
-#### `client`
-
-**Scope:** class-level in MistralAIProvider
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
 #### `config`
 
-**Scope:** local to __init__
+**Scope:** method
 
 **Purpose:** No purpose specified
 
@@ -85,9 +77,19 @@ No documentation available
 
 No documentation available
 
-#### `model`
+#### `prompt`
 
-**Scope:** class-level in MistralAIProvider
+**Scope:** method
+
+**Purpose:** No purpose specified
+
+**Documentation:**
+
+No documentation available
+
+#### `text`
+
+**Scope:** method
 
 **Purpose:** No purpose specified
 

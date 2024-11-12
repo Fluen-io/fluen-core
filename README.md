@@ -22,7 +22,7 @@ Fluen is a modern, LLM-powered documentation generator that understands your cod
 
 1. Install Fluen:
 ```bash
-pip install fluen-core
+pip install fluen
 ```
 
 2. Create a configuration file:
@@ -35,6 +35,8 @@ vim fluen_config.yml
 ```
 
 3. Generate documentation:
+The generate command analyzes the project and generates a code manifest.json file. We recommend you to first clone a repository and then run fluen from the root of your local repository.
+
 ```bash
 # For local repository
 fluen docs generate
@@ -43,12 +45,34 @@ fluen docs generate
 fluen docs generate --repo https://github.com/username/repo.git
 ```
 
+Once the manifest.json generation succeeds, run the export command to export in html or markdown format
+
+```bash
+# Default export type configured in fluen_config.yml
+fluen docs export
+
+# Explicitly tell the export format type html/md
+fluen docs export --type md
+```
+
 4. View your documentation:
 ```bash
 # Documentation will be available in ./docs directory
 open docs/html/index.html
 ```
 
+5. Update your documentation
+Fluen is designed to update documentation incrementally with git commits. However there might be scenarios where you need to fore an update. Simply use the `--force` flag
+```bash
+fluen docs generate --force
+```
+
+6. Selective scanning (of sub directories)
+In case you want Fluen to look at only a specific sub-directory, then use the `--scan` flag
+```bash
+fluen docs generate --scan path:<your_sub_path>
+```
+You may use the `--force` flag to force updates
 ## 📖 Use Cases
 
 ### 1. Project Onboarding
@@ -69,10 +93,10 @@ Fluen uses a YAML configuration file (`fluen_config.yml`) for customization. Her
 
 ```yaml
 llm:
-  # Choose your provider: 'openai' or 'mistral'
+  # Choose your provider: 'openai' or 'mistral' or 'ollama' for local use
   provider: openai
   api_key: your-api-key-here
-  model: gpt-3.5-turbo  # or 'gpt-4' for better results
+  model: gpt-3.5-turbo  # or 'gpt-4o' for better results
 
 # Output directory for generated documentation
 output_dir: docs

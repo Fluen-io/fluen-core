@@ -130,26 +130,21 @@ Empty file or package marker
 
 ### [src/fluen/analyzer/file_analyzer.py](reference/src_fluen_analyzer_file_analyzer.py.md)
 
-File in analyzer module
+Purpose not specified
 
 
 ### [src/fluen/analyzer/project_analyzer.py](reference/src_fluen_analyzer_project_analyzer.py.md)
 
-The code provides a mechanism for analyzing a software project, performing either a full...
+The code provides functionality for analyzing a software project at a project level. It handles...
 
 **Public API:**
-- `ProjectAnalyzer` (exposure)
 - `ProjectAnalyzer.__init__` (exposure)
-- `ProjectAnalyzer._analyze_batch` (exposure)
-- `ProjectAnalyzer._analyze_file` (exposure)
-- `ProjectAnalyzer._get_analyzable_files` (exposure)
-- `ProjectAnalyzer._perform_full_analysis` (exposure)
-- `ProjectAnalyzer._perform_incremental_update` (exposure)
 - `ProjectAnalyzer.analyze` (exposure)
+- `ProjectAnalyzer.analyze_path` (exposure)
 
 ### [src/fluen/cli.py](reference/src_fluen_cli.py.md)
 
-This code implements a command-line interface (CLI) for generating and exporting documentation...
+This code defines a CLI application for generating and exporting code documentation using large...
 
 **Public API:**
 - `cli` (exposure)
@@ -314,28 +309,33 @@ Empty file or package marker
 
 ### [src/fluen/llm_providers/base_provider.py](reference/src_fluen_llm_providers_base_provider.py.md)
 
-The primary purpose of this code is to define an abstract base class for an LLM (Large Language...
+The primary purpose of the code is to define an abstract base class for a language model...
 
 **Public API:**
 - `BaseLLMProvider` (exposure)
 
 ### [src/fluen/llm_providers/mistral_ai_provider.py](reference/src_fluen_llm_providers_mistral_ai_provider.py.md)
 
-This code defines a provider class for interacting with the Mistral API to generate text and...
+The primary purpose of this code is to provide an implementation of the MistralAIProvider class...
 
 **Public API:**
+- `generate` (exposure)
+- `get_embedding` (exposure)
 - `MistralAIProvider` (exposure)
 
 ### [src/fluen/llm_providers/ollama_provider.py](reference/src_fluen_llm_providers_ollama_provider.py.md)
 
-The primary purpose of this code is to interact with a language model API for generating text...
+The code defines an asynchronous provider for interacting with an LLM service via HTTP API, with...
 
 **Public API:**
 - `OllamaProvider` (exposure)
+- `OllamaProvider.__init__` (exposure)
+- `OllamaProvider.generate` (exposure)
+- `OllamaProvider.get_embedding` (exposure)
 
 ### [src/fluen/llm_providers/openai_provider.py](reference/src_fluen_llm_providers_openai_provider.py.md)
 
-The primary purpose of this code is to create an asynchronous provider for interacting with...
+The primary purpose of this code is to define an asynchronous provider class, OpenAIProvider,...
 
 **Public API:**
 - `generate` (exposure)
@@ -405,5 +405,5 @@ This code provides test cases for the GitManager functionality, ensuring correct
 
 
 ---
-Generated on 2024-11-03T10:31:29.857455  
+Generated on 2024-11-12T20:10:07.635990  
 Git commit: c529b8f6
