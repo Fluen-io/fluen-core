@@ -6,6 +6,7 @@ from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn
 import asyncio
 from fluen.orchestrator import Orchestrator
+from fluen.models.scan import ScanSelector, ScanOptions
 
 
 class FluenContext:
@@ -13,6 +14,7 @@ class FluenContext:
         self.config: Optional[FluenConfig] = None
         self.config_path: Path = Path('fluen_config.yml')
         self.console = Console()
+        self.scan_options: Optional[ScanOptions] = None
 
 pass_fluen_context = click.make_pass_decorator(FluenContext, ensure=True)
 
@@ -33,10 +35,19 @@ def docs():
 
 @docs.command()
 @click.option('--repo', '-r', help='Git repository URL')
+@click.option('--scan', '-s', help='Selective scan selector (e.g., path:src/module)')
 @pass_fluen_context
-def generate(ctx: FluenContext, repo: Optional[str]):
+def generate(ctx: FluenContext, repo: Optional[str], scan: Optional[str]):
     """Generate documentation for the codebase."""
     try:
+        # Initialize scan options
+        if scan:
+            try:
+                ctx.scan_options = ScanOptions(scan)
+            except ValueError as e:
+                ctx.console.print(f"❌ Invalid scan selector: {e}")
+                raise click.Abort()
+        
         # Initialize orchestrator
         orchestrator = Orchestrator(ctx.config)
         
@@ -53,17 +64,20 @@ def generate(ctx: FluenContext, repo: Optional[str]):
                 task = progress.add_task("Initializing...", total=100)
                 
                 try:
-                    success = await orchestrator.generate_documentation(repo)
+                    success = await orchestrator.generate_documentation(
+                        repo_url=repo,
+                        scan_options=ctx.scan_options
+                    )
                     if success:
                         progress.update(task, completed=100, description="Documentation generated successfully!")
                         ctx.console.print("\n✨ Documentation generation complete!")
-                        ctx.console.print(f"📚 Output directory: {ctx.config.output_dir}")
+                        ctx.console.print(f"📚 Manifest output directory: {ctx.config.output_dir}")
                     else:
-                        progress.update(task, description="Documentation generation failed!")
-                        ctx.console.print("\n❌ Documentation generation failed!")
+                        progress.update(task, description="Documentation manifest generation failed!")
+                        ctx.console.print("\n❌ Documentation manifest generation failed!")
                 except Exception as e:
                     progress.update(task, description=f"Error: {str(e)}")
-                    ctx.console.print(f"\n❌ Error during documentation generation: {str(e)}")
+                    ctx.console.print(f"\n❌ Error during documentation manifest generation: {str(e)}")
                     raise click.Abort()
 
         # Run the async generation process

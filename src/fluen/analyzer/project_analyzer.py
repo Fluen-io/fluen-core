@@ -4,7 +4,7 @@ Handles project-level analysis and coordinates file analysis.
 """
 
 from pathlib import Path
-from typing import Dict, List, Optional, Set
+from typing import Callable, Dict, List, Optional, Set
 import asyncio
 import logging
 from fluen.git_integration.manager import GitManager
@@ -13,22 +13,24 @@ from fluen.analyzer.file_analyzer import FileAnalysis, FileAnalyzer
 from fluen.generator.manifest import ManifestGenerator
 
 class ProjectAnalyzer:
-    def __init__(self, 
+    def __init__(self,
                  project_root: Path,
                  git_manager: GitManager,
                  state_manager: StateManager,
                  file_analyzer: FileAnalyzer,
-                 manifest_generator: ManifestGenerator):
+                 manifest_generator: ManifestGenerator,
+                 progress_callback: Optional[Callable[[int, int], None]] = None):
         self.project_root = project_root
         self.git_manager = git_manager
         self.state_manager = state_manager
         self.file_analyzer = file_analyzer
         self.manifest_generator = manifest_generator
         self.logger = logging.getLogger(__name__)
+        self.progress_callback = progress_callback
         
         # Analysis settings
-        self.batch_size = 5  # Number of files to analyze concurrently
-        self.batch_delay = 2  # Seconds to wait between batches
+        self.batch_size = 5
+        self.batch_delay = 2
 
     async def analyze(self) -> bool:
         """
@@ -175,15 +177,17 @@ class ProjectAnalyzer:
             self.logger.error(f"Incremental update failed: {e}")
             return False
 
-    def _get_analyzable_files(self) -> Set[Path]:
-        """Get list of files that should be analyzed."""
+    def _get_analyzable_files(self, root_path: Optional[Path] = None) -> Set[Path]:
+        """Get list of files that should be analyzed, optionally from a specific root."""
+        root = root_path or self.project_root
+        
         ignore_patterns = {
             '*.pyc', '__pycache__', '*.git*', '*.env*', 
             'venv', 'node_modules', 'build', 'dist'
         }
         
         files = set()
-        for file_path in self.project_root.rglob('*'):
+        for file_path in root.rglob('*'):
             if file_path.is_file():
                 # Check if file should be ignored
                 if any(file_path.match(pattern) for pattern in ignore_patterns):
@@ -201,3 +205,65 @@ class ProjectAnalyzer:
         except Exception as e:
             self.logger.error(f"Failed to analyze file {file_path}: {e}")
         return None
+
+    async def analyze_path(self, target_path: Path) -> bool:
+        """Analyze specific path (file or directory)."""
+        try:
+            # Initialize or load manifest
+            current_commit = self.git_manager.get_current_commit()
+            if not self.manifest_generator.load_existing_manifest():
+                self.manifest_generator.initialize_manifest(
+                    project_name=self.project_root.name,
+                    git_commit=current_commit
+                )
+            
+            # Resolve target path relative to project root
+            full_path = (self.project_root / target_path).resolve()
+            if not full_path.exists():
+                self.logger.error(f"Target path does not exist: {target_path}")
+                return False
+            
+            files_to_analyze = []
+            if full_path.is_file():
+                files_to_analyze.append(full_path)
+            else:
+                files_to_analyze.extend(self._get_analyzable_files(full_path))
+            
+            total_files = len(files_to_analyze)
+            if total_files == 0:
+                self.logger.warning("No files to analyze in specified path")
+                return False
+            
+            # Process files in batches
+            processed_count = 0
+            for i in range(0, total_files, self.batch_size):
+                batch = files_to_analyze[i:i + self.batch_size]
+                
+                # Process batch
+                results = await self._analyze_batch(batch)
+                
+                # Update manifest with results
+                for file_path, analysis in results:
+                    if analysis:
+                        relative_path = str(file_path.relative_to(self.project_root))
+                        self.manifest_generator.add_file_analysis(analysis, relative_path)
+                
+                # Update progress
+                processed_count += len(batch)
+                if self.progress_callback:
+                    self.progress_callback(processed_count, total_files)
+                
+                # Rate limiting delay between batches
+                if i + self.batch_size < total_files:
+                    await asyncio.sleep(self.batch_delay)
+            
+            # Save final manifest
+            if self.manifest_generator.save():
+                self.state_manager.update_commit(current_commit)
+                return True
+            
+            return False
+            
+        except Exception as e:
+            self.logger.error(f"Path analysis failed: {e}")
+            return False

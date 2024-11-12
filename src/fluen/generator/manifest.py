@@ -142,10 +142,10 @@ class ManifestGenerator:
             else:
                 # Update existing dependency usage
                 existing_dep = self.manifest.dependencies[dep.name]
-                if not existing_dep.used_by:
-                    existing_dep.used_by = []
-                if file_manifest.path not in existing_dep.used_by:
-                    existing_dep.used_by.append(file_manifest.path)
+                if not existing_dep['used_by']:
+                    existing_dep['used_by'] = []
+                if file_manifest.path not in existing_dep['used_by']:
+                    existing_dep['used_by'].append(file_manifest.path)
 
     def save(self) -> bool:
         """Save the current manifest to file."""

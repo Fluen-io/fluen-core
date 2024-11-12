@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Optional
 import logging
 import time
+from fluen.models.scan import ScanOptions, ScanSelector
 from fluen.llm_providers.base_provider import BaseLLMProvider
 from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TaskID
@@ -33,7 +34,9 @@ class Orchestrator:
         self.state_manager = StateManager(self.config.cache_dir)
         self.template_manager = TemplateManager()
 
-    async def generate_documentation(self, repo_url: Optional[str] = None) -> bool:
+    async def generate_documentation(self, 
+                                   repo_url: Optional[str] = None,
+                                   scan_options: Optional[ScanOptions] = None) -> bool:
         """Main documentation generation process."""
         try:
             with Progress(
@@ -41,19 +44,21 @@ class Orchestrator:
                 TextColumn("[progress.description]{task.description}"),
                 BarColumn(),
                 TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
-                console=self.console
+                console=self.console,
+                expand=True
             ) as progress:
                 # Initialize repository
-                init_task = progress.add_task("Initializing repository...", total=None)
+                init_task = progress.add_task("[cyan]Initializing repository...", total=1)
                 if not await self._initialize_repository(repo_url):
+                    progress.update(init_task, completed=1, description="[red]Repository initialization failed!")
                     return False
-                progress.remove_task(init_task)
-
-                # Initialize components
-                analyze_task = progress.add_task("Analyzing codebase...", total=100)
+                progress.update(init_task, completed=1, description="[green]Repository initialized!")
+                
+                # Initialize components and start analysis
+                analyze_task = progress.add_task("[cyan]Analyzing codebase...", total=100)
                 
                 manifest_generator = ManifestGenerator(
-                    self.git_manager.repo_path,
+                    Path(self.git_manager.repo_path),
                     self.config.output_dir
                 )
                 
@@ -64,23 +69,33 @@ class Orchestrator:
                     self.git_manager,
                     self.state_manager,
                     file_analyzer,
-                    manifest_generator
+                    manifest_generator,
+                    progress_callback=lambda current, total: 
+                        progress.update(analyze_task, completed=(current / total * 100) if total > 0 else 0)
                 )
 
-                # Analyze project
-                if not await self._run_analysis(project_analyzer, progress, analyze_task):
-                    return False
+                # Analyze project with scan options
+                analysis_success = False
+                if scan_options and scan_options.is_selective_scan:
+                    analysis_success = await self._run_selective_analysis(
+                        project_analyzer, 
+                        scan_options.selector,
+                        progress, 
+                        analyze_task
+                    )
+                else:
+                    analysis_success = await self._run_analysis(project_analyzer, progress, analyze_task)
 
-                # Generate documentation
-                doc_task = progress.add_task("Generating documentation...", total=100)
-                if not await self._generate_docs(manifest_generator.manifest, progress, doc_task):
+                if not analysis_success:
+                    progress.update(analyze_task, description="[red]Analysis failed!")
                     return False
+                
+                progress.update(analyze_task, completed=100, description="[green]Analysis complete! Documentation manifest generated and saved.")
 
-                self.console.print("\n✨ Documentation generated successfully!")
                 return True
 
         except Exception as e:
-            self.logger.error(f"Documentation generation failed: {e}")
+            self.logger.error(f"Documentation manifest generation failed: {e}")
             self.console.print(f"\n❌ Error: {str(e)}")
             return False
 
@@ -114,6 +129,23 @@ class Orchestrator:
             self.logger.error(f"Analysis failed: {e}")
             return False
 
+    async def _run_selective_analysis(self,
+                                    analyzer: ProjectAnalyzer,
+                                    selector: ScanSelector,
+                                    progress: Progress,
+                                    task_id: TaskID) -> bool:
+        """Run selective analysis based on scan selector."""
+        try:
+            if selector.is_path_selector:
+                return await analyzer.analyze_path(Path(selector.value))
+            elif selector.is_element_selector:
+                self.logger.warning("Element-based scanning not yet implemented")
+                return False
+            return False
+        except Exception as e:
+            self.logger.error(f"Selective analysis failed: {e}")
+            return False
+    
     async def _generate_docs(self,
                            manifest: 'ProjectManifest',
                            progress: Progress,

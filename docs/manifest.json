@@ -24,7 +24,12 @@
     "GitPython",
     "yaml",
     "YAML format for configuration",
-    "None"
+    "None",
+    "Asyncio",
+    "Click - for CLI interaction",
+    "Rich - for enhanced console output and progress indicators",
+    "Asyncio - for asynchronous execution within command functions",
+    "click"
   ],
   "files": {
     "src/fluen/generator/cross_referencer.py": {
@@ -1341,7 +1346,7 @@
     "src/fluen/cli.py": {
       "path": "src/fluen/cli.py",
       "language": "Python",
-      "purpose": "This code implements a command-line interface (CLI) for generating and exporting documentation for codebases using an LLM-based approach. It leverages the Click library for creating commands and includes options for specifying configurations and output formats.",
+      "purpose": "This code defines a CLI application for generating and exporting code documentation using large language models (LLMs).",
       "exposures": [
         {
           "name": "cli",
@@ -1380,13 +1385,13 @@
           "used_by": null
         },
         {
-          "name": "pathlib.Path",
+          "name": "pathlib",
           "type": "external",
           "version": null,
           "used_by": null
         },
         {
-          "name": "typing.Optional",
+          "name": "typing",
           "type": "external",
           "version": null,
           "used_by": null
@@ -1395,62 +1400,58 @@
           "name": "fluen.config.FluenConfig",
           "type": "external",
           "version": null,
-          "used_by": [
-            "src/fluen/orchestrator.py"
-          ]
+          "used_by": null
         },
         {
           "name": "rich.console.Console",
           "type": "external",
           "version": null,
-          "used_by": [
-            "src/fluen/orchestrator.py"
-          ]
+          "used_by": null
         },
         {
           "name": "rich.progress.Progress",
           "type": "external",
           "version": null,
-          "used_by": [
-            "src/fluen/orchestrator.py"
-          ]
+          "used_by": null
         },
         {
           "name": "rich.progress.SpinnerColumn",
           "type": "external",
           "version": null,
-          "used_by": [
-            "src/fluen/orchestrator.py"
-          ]
+          "used_by": null
         },
         {
           "name": "rich.progress.TextColumn",
           "type": "external",
           "version": null,
-          "used_by": [
-            "src/fluen/orchestrator.py"
-          ]
+          "used_by": null
         },
         {
           "name": "rich.progress.BarColumn",
           "type": "external",
           "version": null,
-          "used_by": [
-            "src/fluen/orchestrator.py"
-          ]
+          "used_by": null
         },
         {
           "name": "asyncio",
           "type": "external",
           "version": null,
-          "used_by": [
-            "src/fluen/orchestrator.py",
-            "src/fluen/analyzer/project_analyzer.py",
-            "src/fluen/analyzer/file_analyzer.py"
-          ]
+          "used_by": null
         },
         {
           "name": "fluen.orchestrator.Orchestrator",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.models.scan.ScanSelector",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.models.scan.ScanOptions",
           "type": "external",
           "version": null,
           "used_by": null
@@ -1461,65 +1462,51 @@
           "name": "FluenContext",
           "type": "class",
           "file_path": "src/fluen/cli.py",
-          "line_number": 14,
-          "scope": "global"
+          "line_number": 10,
+          "scope": null
         },
         {
           "name": "pass_fluen_context",
           "type": "variable",
           "file_path": "src/fluen/cli.py",
-          "line_number": 21,
-          "scope": "global"
+          "line_number": 18,
+          "scope": null
         },
         {
           "name": "cli",
           "type": "function",
           "file_path": "src/fluen/cli.py",
-          "line_number": 23,
-          "scope": "global"
+          "line_number": 20,
+          "scope": null
         },
         {
           "name": "docs",
           "type": "function",
           "file_path": "src/fluen/cli.py",
-          "line_number": 32,
-          "scope": "within CLI"
+          "line_number": 31,
+          "scope": null
         },
         {
           "name": "generate",
           "type": "function",
           "file_path": "src/fluen/cli.py",
-          "line_number": 37,
-          "scope": "within docs"
-        },
-        {
-          "name": "run_generation",
-          "type": "function",
-          "file_path": "src/fluen/cli.py",
-          "line_number": 43,
-          "scope": "within generate"
+          "line_number": 36,
+          "scope": null
         },
         {
           "name": "export",
           "type": "function",
           "file_path": "src/fluen/cli.py",
-          "line_number": 77,
-          "scope": "within docs"
-        },
-        {
-          "name": "run_export",
-          "type": "function",
-          "file_path": "src/fluen/cli.py",
-          "line_number": 109,
-          "scope": "within export"
+          "line_number": 85,
+          "scope": null
         }
       ],
       "framework_hints": [
-        "Click",
-        "Rich",
+        "click",
+        "rich",
         "asyncio"
       ],
-      "last_modified": "2024-11-03T10:06:10.841510"
+      "last_modified": "2024-11-12T19:21:12.795352"
     },
     "src/fluen/state/manager.py": {
       "path": "src/fluen/state/manager.py",
@@ -4306,7 +4293,8 @@
         "src/fluen/generator/doc_generator.py",
         "src/fluen/git_integration/manager.py",
         "src/fluen/analyzer/file_analyzer.py",
-        "src/fluen/config.py"
+        "src/fluen/config.py",
+        "src/fluen/cli.py"
       ]
     },
     "typing": {
@@ -4322,7 +4310,8 @@
         "src/fluen/generator/doc_generator.py",
         "src/fluen/git_integration/manager.py",
         "src/fluen/analyzer/file_analyzer.py",
-        "src/fluen/config.py"
+        "src/fluen/config.py",
+        "src/fluen/cli.py"
       ]
     },
     "dataclasses": {
@@ -4731,7 +4720,8 @@
       "type": "external",
       "version": null,
       "used_by": [
-        "src/fluen/orchestrator.py"
+        "src/fluen/orchestrator.py",
+        "src/fluen/cli.py"
       ]
     },
     "rich.console.Console": {
@@ -4739,7 +4729,8 @@
       "type": "external",
       "version": null,
       "used_by": [
-        "src/fluen/orchestrator.py"
+        "src/fluen/orchestrator.py",
+        "src/fluen/cli.py"
       ]
     },
     "rich.progress.Progress": {
@@ -4747,7 +4738,8 @@
       "type": "external",
       "version": null,
       "used_by": [
-        "src/fluen/orchestrator.py"
+        "src/fluen/orchestrator.py",
+        "src/fluen/cli.py"
       ]
     },
     "rich.progress.SpinnerColumn": {
@@ -4755,7 +4747,8 @@
       "type": "external",
       "version": null,
       "used_by": [
-        "src/fluen/orchestrator.py"
+        "src/fluen/orchestrator.py",
+        "src/fluen/cli.py"
       ]
     },
     "rich.progress.TextColumn": {
@@ -4763,7 +4756,8 @@
       "type": "external",
       "version": null,
       "used_by": [
-        "src/fluen/orchestrator.py"
+        "src/fluen/orchestrator.py",
+        "src/fluen/cli.py"
       ]
     },
     "rich.progress.BarColumn": {
@@ -4771,7 +4765,8 @@
       "type": "external",
       "version": null,
       "used_by": [
-        "src/fluen/orchestrator.py"
+        "src/fluen/orchestrator.py",
+        "src/fluen/cli.py"
       ]
     },
     "asyncio": {
@@ -4781,14 +4776,17 @@
       "used_by": [
         "src/fluen/orchestrator.py",
         "src/fluen/analyzer/project_analyzer.py",
-        "src/fluen/analyzer/file_analyzer.py"
+        "src/fluen/analyzer/file_analyzer.py",
+        "src/fluen/cli.py"
       ]
     },
     "fluen.orchestrator.Orchestrator": {
       "name": "fluen.orchestrator.Orchestrator",
       "type": "external",
       "version": null,
-      "used_by": null
+      "used_by": [
+        "src/fluen/cli.py"
+      ]
     },
     "asdict": {
       "name": "asdict",
@@ -5039,8 +5037,108 @@
       "type": "external",
       "version": null,
       "used_by": null
+    },
+    "fluen.config": {
+      "name": "fluen.config",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "rich.console": {
+      "name": "rich.console",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "rich.progress": {
+      "name": "rich.progress",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.orchestrator": {
+      "name": "fluen.orchestrator",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.models.scan": {
+      "name": "fluen.models.scan",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "generator.doc_generator": {
+      "name": "generator.doc_generator",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "generator.templates.template_manager": {
+      "name": "generator.templates.template_manager",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "generator.manifest": {
+      "name": "generator.manifest",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "typing - Optional": {
+      "name": "typing - Optional",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.config - FluenConfig": {
+      "name": "fluen.config - FluenConfig",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "rich.console - Console": {
+      "name": "rich.console - Console",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "rich.progress - Progress, SpinnerColumn, TextColumn, BarColumn": {
+      "name": "rich.progress - Progress, SpinnerColumn, TextColumn, BarColumn",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.orchestrator - Orchestrator": {
+      "name": "fluen.orchestrator - Orchestrator",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.models.scan - ScanSelector, ScanOptions": {
+      "name": "fluen.models.scan - ScanSelector, ScanOptions",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.models.scan.ScanSelector": {
+      "name": "fluen.models.scan.ScanSelector",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/cli.py"
+      ]
+    },
+    "fluen.models.scan.ScanOptions": {
+      "name": "fluen.models.scan.ScanOptions",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/cli.py"
+      ]
     }
   },
-  "last_updated": "2024-11-03T10:31:29.857455",
+  "last_updated": "2024-11-12T19:34:06.141233",
   "git_commit": "c529b8f6ffedbe5fc7ad8b4c4096e38f342f3cff"
 }
