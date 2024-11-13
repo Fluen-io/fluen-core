@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>src/fluen/models/scan.py - fluen-core</title>
+    <link href="../assets/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
+        </div>
+        <div class="sidebar-content">
+            <div class="element-navigation">
+                <div class="element-group">
+                    <h3>Class</h3>
+                    <ul>
+                        <li>
+                            <a href="#scanselector">
+                                ScanSelector
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#scanoptions">
+                                ScanOptions
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Method</h3>
+                    <ul>
+                        <li>
+                            <a href="#scanselector.__init__">
+                                ScanSelector.__init__
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#scanselector._parse_selector">
+                                ScanSelector._parse_selector
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#scanselector._validate">
+                                ScanSelector._validate
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#scanoptions.__init__">
+                                ScanOptions.__init__
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Property</h3>
+                    <ul>
+                        <li>
+                            <a href="#scanselector.is_path_selector">
+                                ScanSelector.is_path_selector
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#scanselector.is_element_selector">
+                                ScanSelector.is_element_selector
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#scanoptions.is_selective_scan">
+                                ScanOptions.is_selective_scan
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="file-header">
+                <h1>src/fluen/models/scan.py</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Python</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:53:21.469450</p>
+                </div>
+            </div>
+
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>The code provides functionality for parsing, validating, and handling selectors for a scanning operation with options for selective scanning and forced execution.</p>
+            </section>
+
+            <section class="dependencies-section">
+                <h2>Dependencies</h2>
+                <ul class="dependency-list">
+                    <li>
+                        <span class="dep-name">pathlib</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">typing</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
+
+            <section class="elements-section">
+                <h2>Elements</h2>
+                <div class="element-type-section">
+                    <h3>Class</h3>
+                    <div id="scanselector" class="element">
+                        <div class="element-header">
+                            <code>ScanSelector</code>
+                            <span class="scope-badge">public</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Handles parsing and validation of scan selectors.</p>
+                            <div class="documentation">
+                                This class parses a selector string into type and value, validates it, and provides properties to query the selector type.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="scanoptions" class="element">
+                        <div class="element-header">
+                            <code>ScanOptions</code>
+                            <span class="scope-badge">public</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Container for scan options, including selector and force flag.</p>
+                            <div class="documentation">
+                                This class wraps scan options and provides a mechanism to manage an optional selector and a force flag for scan operations.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Method</h3>
+                    <div id="scanselector.__init__" class="element">
+                        <div class="element-header">
+                            <code>ScanSelector.__init__</code>
+                            <span class="scope-badge">public</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Initializes a ScanSelector instance with parsing.</p>
+                            <div class="documentation">
+                                Constructor that takes a raw selector string, initializes attributes, and triggers parsing and validation.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="scanselector._parse_selector" class="element">
+                        <div class="element-header">
+                            <code>ScanSelector._parse_selector</code>
+                            <span class="scope-badge">private</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Parses the selector string into type and value components.</p>
+                            <div class="documentation">
+                                Internal method that splits the selector string by ':' and assigns the type and value. Raises ValueError on invalid format.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="scanselector._validate" class="element">
+                        <div class="element-header">
+                            <code>ScanSelector._validate</code>
+                            <span class="scope-badge">private</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Validates the parsed selector type.</p>
+                            <div class="documentation">
+                                Checks if the selector type is within the set of valid types (e.g., 'path', 'element'). Returns True if valid, otherwise False.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="scanoptions.__init__" class="element">
+                        <div class="element-header">
+                            <code>ScanOptions.__init__</code>
+                            <span class="scope-badge">public</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Initializes a ScanOptions instance with optional selector and force flag.</p>
+                            <div class="documentation">
+                                Constructor that initializes the selector object if provided and sets the force flag.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Property</h3>
+                    <div id="scanselector.is_path_selector" class="element">
+                        <div class="element-header">
+                            <code>ScanSelector.is_path_selector</code>
+                            <span class="scope-badge">public</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Checks if the selector is of type &#39;path&#39;.</p>
+                            <div class="documentation">
+                                Property that returns True if the selector type is 'path'.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="scanselector.is_element_selector" class="element">
+                        <div class="element-header">
+                            <code>ScanSelector.is_element_selector</code>
+                            <span class="scope-badge">public</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Checks if the selector is of type &#39;element&#39;.</p>
+                            <div class="documentation">
+                                Property that returns True if the selector type is 'element'.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="scanoptions.is_selective_scan" class="element">
+                        <div class="element-header">
+                            <code>ScanOptions.is_selective_scan</code>
+                            <span class="scope-badge">public</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Determines if the scan is selective based on selector presence.</p>
+                            <div class="documentation">
+                                Property that returns True if a selector is present, indicating a selective scan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
+    <script src="../assets/script.js"></script>
+<script>window.lineageData = {"nodes": [{"id": "src/fluen/models/scan.py", "type": "current"}], "links": []};</script></body>
+</html>

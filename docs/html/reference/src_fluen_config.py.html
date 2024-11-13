@@ -4,177 +4,186 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>src/fluen/config.py - fluen-core</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link href="../assets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
         </div>
-        
         <div class="sidebar-content">
-            <div class="file-info">
-                <p>Python</p>
-                <p>Last modified: 2024-11-03T10:08:29.803188</p>
-            </div>
-
             <div class="element-navigation">
-                    <div class="element-group">
-                        <h3>Class</h3>
-                        <ul>
-                                <li><a href="#llmconfig">LLMConfig</a></li>
-                                <li><a href="#fluenconfig">FluenConfig</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Method</h3>
-                        <ul>
-                                <li><a href="#fluenconfig.load">FluenConfig.load</a></li>
-                                <li><a href="#fluenconfig.create_default">FluenConfig.create_default</a></li>
-                                <li><a href="#fluenconfig.ensure_directories">FluenConfig.ensure_directories</a></li>
-                        </ul>
-                    </div>
+                <div class="element-group">
+                    <h3>Class</h3>
+                    <ul>
+                        <li>
+                            <a href="#llmconfig">
+                                LLMConfig
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#fluenconfig">
+                                FluenConfig
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Method</h3>
+                    <ul>
+                        <li>
+                            <a href="#fluenconfig.load">
+                                FluenConfig.load
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#fluenconfig.create_default">
+                                FluenConfig.create_default
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#fluenconfig.ensure_directories">
+                                FluenConfig.ensure_directories
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <main class="content">
-        <div class="file-header">
-            <h1>src/fluen/config.py</h1>
-            <div class="metadata">
-                <span>Language: Python</span>
-                <span>Last Modified: 2024-11-03T10:08:29.803188</span>
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
             </div>
-        </div>
+        </header>
 
-        <section class="file-purpose">
-            <h2>Purpose</h2>
-            <p>This code defines configurations for a language model application, allowing for these configurations to be loaded from a YAML file or created with default values.</p>
-        </section>
+        <main class="content">
+            <div class="file-header">
+                <h1>src/fluen/config.py</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Python</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:46:42.341938</p>
+                </div>
+            </div>
 
-            <section class="exposures">
-                <h2>Public API</h2>
-                <ul class="exposure-list">
-                        <li>
-                            <code>LLMConfig</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>FluenConfig</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>FluenConfig.load</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>FluenConfig.create_default</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>FluenConfig.ensure_directories</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                </ul>
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>This code provides a configuration management system for an application that uses a large language model (LLM). It allows for loading, creating, and ensuring directories for configurations stored in YAML files.</p>
             </section>
 
-            <section class="dependencies">
+            <section class="dependencies-section">
                 <h2>Dependencies</h2>
                 <ul class="dependency-list">
-                        <li>
-                            <span class="dep-name">dataclasses</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">pathlib</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">typing</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">yaml</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">os</span>
-                            <span class="type-badge">external</span>
-                        </li>
+                    <li>
+                        <span class="dep-name">dataclasses</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">pathlib</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">typing</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">yaml</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">os</span>
+                        <span class="type-badge">external</span>
+                    </li>
                 </ul>
             </section>
 
-        <section class="elements">
-            <h2>Elements</h2>
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
+
+            <section class="elements-section">
+                <h2>Elements</h2>
                 <div class="element-type-section">
                     <h3>Class</h3>
-                        <div class="element" id="llmconfig">
-                            <div class="element-header">
-                                <code>LLMConfig</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="llmconfig" class="element">
+                        <div class="element-header">
+                            <code>LLMConfig</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Holds configuration for the large language model provider and its parameters.</p>
+                            <div class="documentation">
+                                A dataclass representing the configuration settings for a language model provider, including provider name, API key, model type, API base URL, max retries, and timeout settings.
                             </div>
                         </div>
-                        <div class="element" id="fluenconfig">
-                            <div class="element-header">
-                                <code>FluenConfig</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="fluenconfig" class="element">
+                        <div class="element-header">
+                            <code>FluenConfig</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Manages application configurations, specifically for settings related to directory paths and LLM configurations.</p>
+                            <div class="documentation">
+                                A dataclass that stores configuration details regarding output, cache, and temporary directories, as well as the default export type. It also includes methods to load configurations from a YAML file and ensure required directories exist.
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div class="element-type-section">
                     <h3>Method</h3>
-                        <div class="element" id="fluenconfig.load">
-                            <div class="element-header">
-                                <code>FluenConfig.load</code>
-                                    <span class="scope-badge">FluenConfig</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="fluenconfig.load" class="element">
+                        <div class="element-header">
+                            <code>FluenConfig.load</code>
+                            <span class="scope-badge">class method</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Loads configurations from a specified YAML file.</p>
+                            <div class="documentation">
+                                A class method that attempts to load a configuration from the given file path. If the specified YAML file does not exist, it creates a default configuration instead. Parses YAML content into corresponding configuration objects.
                             </div>
                         </div>
-                        <div class="element" id="fluenconfig.create_default">
-                            <div class="element-header">
-                                <code>FluenConfig.create_default</code>
-                                    <span class="scope-badge">FluenConfig</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="fluenconfig.create_default" class="element">
+                        <div class="element-header">
+                            <code>FluenConfig.create_default</code>
+                            <span class="scope-badge">class method</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Creates a default configuration and saves it to a file.</p>
+                            <div class="documentation">
+                                A class method that generates a default configuration for the application using standard settings. This method saves the default configuration in a YAML file at the specified path and ensures all parent directories are created.
                             </div>
                         </div>
-                        <div class="element" id="fluenconfig.ensure_directories">
-                            <div class="element-header">
-                                <code>FluenConfig.ensure_directories</code>
-                                    <span class="scope-badge">FluenConfig</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="fluenconfig.ensure_directories" class="element">
+                        <div class="element-header">
+                            <code>FluenConfig.ensure_directories</code>
+                            <span class="scope-badge">instance method</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Ensures that all necessary directories exist.</p>
+                            <div class="documentation">
+                                Ensures that the output, cache, and temporary directories are created in the file system if they do not already exist. This prevents runtime errors related to missing directories.
                             </div>
                         </div>
+                    </div>
                 </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
     <script src="../assets/script.js"></script>
-</body>
+<script>window.lineageData = {"nodes": [{"id": "src/fluen/config.py", "type": "current"}], "links": []};</script></body>
 </html>

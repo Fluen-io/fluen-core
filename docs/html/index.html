@@ -4,1366 +4,1330 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>fluen-core Documentation</title>
-    <link rel="stylesheet" href="assets/styles.css">
+    <link href="assets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
             <h1>fluen-core</h1>
             <p>Python Project</p>
         </div>
         <div class="sidebar-content">
-            <h2>Files</h2>
-            <div class="file-group">
-                <h3>Python</h3>
-                <ul>
-                    <li><a href="reference/src_fluen_generator_cross_referencer.py.html">src/fluen/generator/cross_referencer.py</a></li>
-                    <li><a href="reference/src_fluen_llm_providers_openai_provider.py.html">src/fluen/llm_providers/openai_provider.py</a></li>
-                    <li><a href="reference/src_fluen_state___init__.py.html">src/fluen/state/__init__.py</a></li>
-                    <li><a href="reference/src_fluen_llm_providers_mistral_ai_provider.py.html">src/fluen/llm_providers/mistral_ai_provider.py</a></li>
-                    <li><a href="reference/src_fluen_git_integration___init__.py.html">src/fluen/git_integration/__init__.py</a></li>
-                    <li><a href="reference/src_fluen_llm_providers_ollama_provider.py.html">src/fluen/llm_providers/ollama_provider.py</a></li>
-                    <li><a href="reference/src_fluen_llm_factory.py.html">src/fluen/llm_factory.py</a></li>
-                    <li><a href="reference/setup.py.html">setup.py</a></li>
-                    <li><a href="reference/src_fluen_generator_templates_template_manager.py.html">src/fluen/generator/templates/template_manager.py</a></li>
-                    <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                    <li><a href="reference/src_fluen_state_manager.py.html">src/fluen/state/manager.py</a></li>
-                    <li><a href="reference/src_fluen_tests_conftest.py.html">src/fluen/tests/conftest.py</a></li>
-                    <li><a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a></li>
-                    <li><a href="reference/src_fluen_llm_providers___init__.py.html">src/fluen/llm_providers/__init__.py</a></li>
-                    <li><a href="reference/src_fluen_tests_test_file_analyzer.py.html">src/fluen/tests/test_file_analyzer.py</a></li>
-                    <li><a href="reference/src_fluen_llm_providers_base_provider.py.html">src/fluen/llm_providers/base_provider.py</a></li>
-                    <li><a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a></li>
-                    <li><a href="reference/src_fluen_generator_doc_generator.py.html">src/fluen/generator/doc_generator.py</a></li>
-                    <li><a href="reference/src_fluen_tests___init__.py.html">src/fluen/tests/__init__.py</a></li>
-                    <li><a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a></li>
-                    <li><a href="reference/src_fluen_git_integration_manager.py.html">src/fluen/git_integration/manager.py</a></li>
-                    <li><a href="reference/src_fluen_generator___init__.py.html">src/fluen/generator/__init__.py</a></li>
-                    <li><a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a></li>
-                    <li><a href="reference/src_fluen_config.py.html">src/fluen/config.py</a></li>
-                    <li><a href="reference/src_fluen___init__.py.html">src/fluen/__init__.py</a></li>
-                    <li><a href="reference/src_fluen_tests_test_git_manager.py.html">src/fluen/tests/test_git_manager.py</a></li>
-                    <li><a href="reference/src_fluen_analyzer___init__.py.html">src/fluen/analyzer/__init__.py</a></li>
-                </ul>
-            </div>
-            <div class="file-group">
-                <h3>Unknown</h3>
-                <ul>
-                    <li><a href="reference/src_fluen_generator_templates_default_html_reference.html.html">src/fluen/generator/templates/default/html/reference.html</a></li>
-                    <li><a href="reference/requirements.txt.html">requirements.txt</a></li>
-                    <li><a href="reference/.fluen_cache_state.json.html">.fluen/cache/state.json</a></li>
-                    <li><a href="reference/src_fluen_generator_templates_default_html_index.html.html">src/fluen/generator/templates/default/html/index.html</a></li>
-                    <li><a href="reference/src_fluen_generator_templates_default_md_reference.md.html">src/fluen/generator/templates/default/md/reference.md</a></li>
-                    <li><a href="reference/src_fluen_generator_templates_default_md_readme.md.html">src/fluen/generator/templates/default/md/readme.md</a></li>
-                    <li><a href="reference/fluen_config.yml.html">fluen_config.yml</a></li>
-                    <li><a href="reference/LICENSE.html">LICENSE</a></li>
-                    <li><a href="reference/fluen_config.example.yml.html">fluen_config.example.yml</a></li>
-                    <li><a href="reference/src_fluen_generator_templates_default_styles.css.html">src/fluen/generator/templates/default/styles.css</a></li>
-                </ul>
-            </div>
-            <div class="file-group">
-                <h3>JavaScript</h3>
-                <ul>
-                    <li><a href="reference/src_fluen_generator_templates_default_script.js.html">src/fluen/generator/templates/default/script.js</a></li>
-                </ul>
+            <div class="file-groups">
+                <div class="file-group">
+                    <h3>Python</h3>
+                    <ul>
+                        <li>
+                            <a href="reference/src_fluen_config.py.html">src/fluen/config.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_llm_factory.py.html">src/fluen/llm_factory.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_generator___init__.py.html">src/fluen/generator/__init__.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_git_integration_manager.py.html">src/fluen/git_integration/manager.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_llm_providers_base_provider.py.html">src/fluen/llm_providers/base_provider.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_generator_doc_generator.py.html">src/fluen/generator/doc_generator.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_generator_cross_referencer.py.html">src/fluen/generator/cross_referencer.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_state_manager.py.html">src/fluen/state/manager.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/setup.py.html">setup.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_generator_templates_template_manager.py.html">src/fluen/generator/templates/template_manager.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_models_scan.py.html">src/fluen/models/scan.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_llm_providers___init__.py.html">src/fluen/llm_providers/__init__.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_tests_test_file_analyzer.py.html">src/fluen/tests/test_file_analyzer.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_llm_providers_ollama_provider.py.html">src/fluen/llm_providers/ollama_provider.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_tests_conftest.py.html">src/fluen/tests/conftest.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_models___init__.py.html">src/fluen/models/__init__.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_analyzer___init__.py.html">src/fluen/analyzer/__init__.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_llm_providers_openai_provider.py.html">src/fluen/llm_providers/openai_provider.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_tests_test_git_manager.py.html">src/fluen/tests/test_git_manager.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_state___init__.py.html">src/fluen/state/__init__.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_tests___init__.py.html">src/fluen/tests/__init__.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_git_integration___init__.py.html">src/fluen/git_integration/__init__.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen___init__.py.html">src/fluen/__init__.py</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_llm_providers_mistral_ai_provider.py.html">src/fluen/llm_providers/mistral_ai_provider.py</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="file-group">
+                    <h3>Unknown</h3>
+                    <ul>
+                        <li>
+                            <a href="reference/fluen_config.example.yml.html">fluen_config.example.yml</a>
+                        </li>
+                        <li>
+                            <a href="reference/README.md.html">README.md</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_generator_templates_default_html_empty.html.html">src/fluen/generator/templates/default/html/empty.html</a>
+                        </li>
+                        <li>
+                            <a href="reference/requirements.txt.html">requirements.txt</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_generator_templates_default_md_summary.md.html">src/fluen/generator/templates/default/md/summary.md</a>
+                        </li>
+                        <li>
+                            <a href="reference/fluen_config.yml.html">fluen_config.yml</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_generator_templates_default_md_reference.md.html">src/fluen/generator/templates/default/md/reference.md</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_generator_templates_default_md_readme.md.html">src/fluen/generator/templates/default/md/readme.md</a>
+                        </li>
+                        <li>
+                            <a href="reference/LICENSE.html">LICENSE</a>
+                        </li>
+                        <li>
+                            <a href="reference/.fluen_cache_state.json.html">.fluen/cache/state.json</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_generator_templates_default_html_index.html.html">src/fluen/generator/templates/default/html/index.html</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_generator_templates_default_html_reference.html.html">src/fluen/generator/templates/default/html/reference.html</a>
+                        </li>
+                        <li>
+                            <a href="reference/src_fluen_generator_templates_default_static_styles.css.html">src/fluen/generator/templates/default/static/styles.css</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="file-group">
+                    <h3>JavaScript</h3>
+                    <ul>
+                        <li>
+                            <a href="reference/src_fluen_generator_templates_default_static_script.js.html">src/fluen/generator/templates/default/static/script.js</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </nav>
-    
-    <main class="content">
-        <div class="project-info">
-            <h1>fluen-core</h1>
-            <div class="metadata">
-                <p><strong>Primary Language:</strong> Python</p>
-                <p><strong>Frameworks:</strong> dataclasses - use of @dataclass decorator, logging - for logging purposes, asyncio, OpenAI API client, pytest, Jinja2, aiohttp (for async HTTP requests), setuptools, Jinja2 or similar templating engine, jinja2, Click, Rich, dataclasses, rich, detected_frameworks_based_on_analysis, logging, asyncio for asynchronous operations, logging for error and process logging, GitPython, yaml, YAML format for configuration, None, Asyncio, Click - for CLI interaction, Rich - for enhanced console output and progress indicators, Asyncio - for asynchronous execution within command functions, click, pathlib, Python logging, possibly custom-framework (fluen), asyncio framework for asynchronous programming in Python, Python standard library features such as abstract base classes and type hints, openai-py, Python typing, aiohttp, AsyncIO</p>
-                <p><strong>Last Updated:</strong> 2024-11-12T21:49:39.528554</p>
-                <p><strong>Git Commit:</strong> c529b8f6</p>
+    </div>
+
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
             </div>
-        </div>
+        </header>
 
-        <section class="dependencies">
-            <h2>Project Dependencies</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Version</th>
-                        <th>Used By</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>pathlib</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_tests_conftest.py.html">src/fluen/tests/conftest.py</a></li>
-                                <li><a href="reference/src_fluen_generator_doc_generator.py.html">src/fluen/generator/doc_generator.py</a></li>
-                                <li><a href="reference/src_fluen_git_integration_manager.py.html">src/fluen/git_integration/manager.py</a></li>
-                                <li><a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a></li>
-                                <li><a href="reference/src_fluen_config.py.html">src/fluen/config.py</a></li>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                                <li><a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>typing</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_llm_providers_openai_provider.py.html">src/fluen/llm_providers/openai_provider.py</a></li>
-                                <li><a href="reference/src_fluen_llm_providers_mistral_ai_provider.py.html">src/fluen/llm_providers/mistral_ai_provider.py</a></li>
-                                <li><a href="reference/src_fluen_llm_providers_ollama_provider.py.html">src/fluen/llm_providers/ollama_provider.py</a></li>
-                                <li><a href="reference/src_fluen_tests_conftest.py.html">src/fluen/tests/conftest.py</a></li>
-                                <li><a href="reference/src_fluen_llm_providers_base_provider.py.html">src/fluen/llm_providers/base_provider.py</a></li>
-                                <li><a href="reference/src_fluen_generator_doc_generator.py.html">src/fluen/generator/doc_generator.py</a></li>
-                                <li><a href="reference/src_fluen_git_integration_manager.py.html">src/fluen/git_integration/manager.py</a></li>
-                                <li><a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a></li>
-                                <li><a href="reference/src_fluen_config.py.html">src/fluen/config.py</a></li>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>dataclasses</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_state_manager.py.html">src/fluen/state/manager.py</a></li>
-                                <li><a href="reference/src_fluen_git_integration_manager.py.html">src/fluen/git_integration/manager.py</a></li>
-                                <li><a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a></li>
-                                <li><a href="reference/src_fluen_config.py.html">src/fluen/config.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>re</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>logging</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_generator_templates_template_manager.py.html">src/fluen/generator/templates/template_manager.py</a></li>
-                                <li><a href="reference/src_fluen_state_manager.py.html">src/fluen/state/manager.py</a></li>
-                                <li><a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a></li>
-                                <li><a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a></li>
-                                <li><a href="reference/src_fluen_generator_doc_generator.py.html">src/fluen/generator/doc_generator.py</a></li>
-                                <li><a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a></li>
-                                <li><a href="reference/src_fluen_git_integration_manager.py.html">src/fluen/git_integration/manager.py</a></li>
-                                <li><a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.generator.manifest</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>openai</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>.base_provider</td>
-                        <td>internal</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_llm_providers_mistral_ai_provider.py.html">src/fluen/llm_providers/mistral_ai_provider.py</a></li>
-                                <li><a href="reference/src_fluen_llm_providers_ollama_provider.py.html">src/fluen/llm_providers/ollama_provider.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>click</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>coverage</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>exceptiongroup</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>iniconfig</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Jinja2</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>markdown-it-py</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>MarkupSafe</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>mdurl</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>packaging</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>pluggy</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Pygments</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>pytest</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_tests_conftest.py.html">src/fluen/tests/conftest.py</a></li>
-                                <li><a href="reference/src_fluen_tests_test_file_analyzer.py.html">src/fluen/tests/test_file_analyzer.py</a></li>
-                                <li><a href="reference/src_fluen_tests_test_git_manager.py.html">src/fluen/tests/test_git_manager.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>pytest-asyncio</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>pytest-cov</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>python-magic</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>PyYAML</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>rich</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>tomli</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>typing_extensions</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>assets/styles.css</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>assets/script.js</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>mistralai</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_llm_providers_mistral_ai_provider.py.html">src/fluen/llm_providers/mistral_ai_provider.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>json</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_state_manager.py.html">src/fluen/state/manager.py</a></li>
-                                <li><a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a></li>
-                                <li><a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a></li>
-                                <li><a href="reference/src_fluen_llm_providers_ollama_provider.py.html">src/fluen/llm_providers/ollama_provider.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>aiohttp</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_llm_providers_ollama_provider.py.html">src/fluen/llm_providers/ollama_provider.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>base_provider.BaseLLMProvider</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>typing.Dict</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_generator_templates_template_manager.py.html">src/fluen/generator/templates/template_manager.py</a></li>
-                                <li><a href="reference/src_fluen_state_manager.py.html">src/fluen/state/manager.py</a></li>
-                                <li><a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a></li>
-                                <li><a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a></li>
-                                <li><a href="reference/src_fluen_llm_providers_openai_provider.py.html">src/fluen/llm_providers/openai_provider.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>typing.Any</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_generator_templates_template_manager.py.html">src/fluen/generator/templates/template_manager.py</a></li>
-                                <li><a href="reference/src_fluen_state_manager.py.html">src/fluen/state/manager.py</a></li>
-                                <li><a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a></li>
-                                <li><a href="reference/src_fluen_llm_providers_openai_provider.py.html">src/fluen/llm_providers/openai_provider.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.llm_providers.base_provider.BaseLLMProvider</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.llm_providers.openai_provider.OpenAIProvider</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.llm_providers.mistral_ai_provider.MistralAIProvider</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.llm_providers.ollama_provider.OllamaProvider</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>click&gt;=8.0.0</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>gitpython&gt;=3.1.0</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>pyyaml&gt;=6.0</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>rich&gt;=10.0.0</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>jinja2&gt;=3.0.0</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>aiohttp&gt;=3.8.0</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>openai&gt;=1.0.0</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>mistralai&gt;=0.0.7</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>dev dependencies: pytest&gt;=7.0.0</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>pytest-asyncio&gt;=0.21.0</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>pytest-cov&gt;=4.0.0</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>black&gt;=23.0.0</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>mypy&gt;=1.0.0</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>flake8&gt;=6.0.0</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>{{ dep.name }}</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>pathlib.Path</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                                <li><a href="reference/src_fluen_state_manager.py.html">src/fluen/state/manager.py</a></li>
-                                <li><a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a></li>
-                                <li><a href="reference/src_fluen_tests_test_file_analyzer.py.html">src/fluen/tests/test_file_analyzer.py</a></li>
-                                <li><a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a></li>
-                                <li><a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a></li>
-                                <li><a href="reference/src_fluen_tests_test_git_manager.py.html">src/fluen/tests/test_git_manager.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>typing.Optional</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                                <li><a href="reference/src_fluen_state_manager.py.html">src/fluen/state/manager.py</a></li>
-                                <li><a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a></li>
-                                <li><a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a></li>
-                                <li><a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>jinja2.Environment</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>jinja2.FileSystemLoader</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>jinja2.PackageLoader</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>jinja2.ChoiceLoader</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.config.FluenConfig</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a></li>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>rich.console.Console</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a></li>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>rich.progress.Progress</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a></li>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>rich.progress.SpinnerColumn</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a></li>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>rich.progress.TextColumn</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a></li>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>rich.progress.BarColumn</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a></li>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>asyncio</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a></li>
-                                <li><a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a></li>
-                                <li><a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a></li>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.orchestrator.Orchestrator</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>asdict</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>tempfile</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>shutil</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_generator_doc_generator.py.html">src/fluen/generator/doc_generator.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>git</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>config</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>time</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>rich.progress.TaskID</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.git_integration.manager.GitManager</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.state.manager.StateManager</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.analyzer.file_analyzer.FileAnalyzer</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.analyzer.project_analyzer.ProjectAnalyzer</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.generator.manifest.ManifestGenerator</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.generator.manifest.ProjectManifest</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_generator_doc_generator.py.html">src/fluen/generator/doc_generator.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.generator.doc_generator.DocumentationGenerator</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.generator.templates.template_manager.TemplateManager</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_generator_doc_generator.py.html">src/fluen/generator/doc_generator.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.generator.cross_referencer.CrossReferenceResolver</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>unittest.mock.Mock</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>unittest.mock.AsyncMock</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>analyzer.file_analyzer.FileAnalyzer</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>analyzer.file_analyzer.FileAnalysis</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>analyzer.file_analyzer.CodeElement</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>abc</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_llm_providers_base_provider.py.html">src/fluen/llm_providers/base_provider.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>typing.List</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a></li>
-                                <li><a href="reference/src_fluen_llm_providers_openai_provider.py.html">src/fluen/llm_providers/openai_provider.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>dataclasses.dataclass</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>dataclasses.asdict</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>datetime.datetime</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.analyzer.file_analyzer.FileAnalysis</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.generator.manifest.ElementReference</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>typing.Set</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>git (from GitPython)</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>mimetypes</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>yaml</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>os</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>git_integration.manager.GitManager</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>git_integration.manager.GitDiff</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fetch API</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>DOM API</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.config</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>rich.console</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>rich.progress</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.orchestrator</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.models.scan</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>generator.doc_generator</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>generator.templates.template_manager</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>generator.manifest</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>typing - Optional</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.config - FluenConfig</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>rich.console - Console</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>rich.progress - Progress, SpinnerColumn, TextColumn, BarColumn</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.orchestrator - Orchestrator</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.models.scan - ScanSelector, ScanOptions</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.models.scan.ScanSelector</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>fluen.models.scan.ScanOptions</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>typing.Callable</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>openai.AsyncOpenAI</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>.base_provider.BaseLLMProvider</td>
-                        <td>internal</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>base_provider</td>
-                        <td>external</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>.generator.doc_generator.DocumentationGenerator</td>
-                        <td>internal</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>.generator.templates.template_manager.TemplateManager</td>
-                        <td>internal</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>.generator.manifest.ManifestGenerator</td>
-                        <td>internal</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-    </main>
+        <main class="content">
+            <div class="project-info">
+                <h1>fluen-core</h1>
+                <div class="metadata">
+                    <p><strong>Primary Language:</strong> Python</p>
+                    <p><strong>Frameworks:</strong> dataclasses is used for simplified class definitions, YAML configuration style, dataclasses, Jiva Framework, Claude by Anthropic, asyncio (implicit async usage for asynchronous operations), artifacts follow Python&#39;s typing hints for better type checking, Detected use of the Jinja2 template engine based on template syntax., Possible integration with Sphinx or a custom documentation generation tool., D3.js, JavaScript ES6 features, YAML format for configuration, Jinja2, Markdown, Python, logging, pathlib, regular expressions (re), Click, Rich, asyncio, Python Type Hints, setuptools, jinja2, pytest, unittest.mock (AsyncMock and Mock), aiohttp, Python type hinting, Jinja2 template engine (indicated by use of {{ }} for variable interpolation and {% %} for control structures), AsyncIO, Python: asyncio, rich for async operations and console progress updates, typing</p>
+                    <p><strong>Last Updated:</strong> 2024-11-13T18:00:12.228147</p>
+                    <p><strong>Git Commit:</strong> 9997683a</p>
+                </div>
+            </div>
 
+            <section class="dependencies-section">
+                <h2>Project Dependencies</h2>
+                <div class="dependencies-grid">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Version</th>
+                                <th>Used By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>dataclasses</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_git_integration_manager.py.html">src/fluen/git_integration/manager.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>pathlib</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_git_integration_manager.py.html">src/fluen/git_integration/manager.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_generator_templates_template_manager.py.html">src/fluen/generator/templates/template_manager.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_models_scan.py.html">src/fluen/models/scan.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_tests_conftest.py.html">src/fluen/tests/conftest.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_tests_test_git_manager.py.html">src/fluen/tests/test_git_manager.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>typing</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_llm_factory.py.html">src/fluen/llm_factory.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_git_integration_manager.py.html">src/fluen/git_integration/manager.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_llm_providers_base_provider.py.html">src/fluen/llm_providers/base_provider.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_generator_templates_template_manager.py.html">src/fluen/generator/templates/template_manager.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_models_scan.py.html">src/fluen/models/scan.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_llm_providers_ollama_provider.py.html">src/fluen/llm_providers/ollama_provider.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_tests_conftest.py.html">src/fluen/tests/conftest.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_llm_providers_openai_provider.py.html">src/fluen/llm_providers/openai_provider.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_llm_providers_mistral_ai_provider.py.html">src/fluen/llm_providers/mistral_ai_provider.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>yaml</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>os</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>OpenAI API</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mistral API</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ollama API</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.llm_providers.base_provider</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.llm_providers.openai_provider</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.llm_providers.mistral_ai_provider</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.llm_providers.ollama_provider</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>git</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_tests_conftest.py.html">src/fluen/tests/conftest.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>logging</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_generator_doc_generator.py.html">src/fluen/generator/doc_generator.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_generator_cross_referencer.py.html">src/fluen/generator/cross_referencer.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_state_manager.py.html">src/fluen/state/manager.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_generator_templates_template_manager.py.html">src/fluen/generator/templates/template_manager.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Python 3.9+</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Git</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>An API key from OpenAI or Mistral AI</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Jiva Framework</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Claude by Anthropic</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>abc</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>assets/styles.css</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>assets/script.js</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>json</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_state_manager.py.html">src/fluen/state/manager.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_llm_providers_ollama_provider.py.html">src/fluen/llm_providers/ollama_provider.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>pathlib.Path</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_generator_cross_referencer.py.html">src/fluen/generator/cross_referencer.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_state_manager.py.html">src/fluen/state/manager.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>shutil</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_tests_conftest.py.html">src/fluen/tests/conftest.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.generator.templates.template_manager.TemplateManager</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.generator.manifest.ManifestGenerator</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_cli.py.html">src/fluen/cli.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.generator.manifest.ProjectManifest</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_generator_cross_referencer.py.html">src/fluen/generator/cross_referencer.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.generator.manifest.ElementReference</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_generator_cross_referencer.py.html">src/fluen/generator/cross_referencer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>click==8.1.7</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>coverage==7.6.4</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>exceptiongroup==1.2.2</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>iniconfig==2.0.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Jinja2==3.1.4</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>markdown-it-py==3.0.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>MarkupSafe==3.0.2</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>mdurl==0.1.2</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>packaging==24.1</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>pluggy==1.5.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Pygments==2.18.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>pytest==8.3.3</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>pytest-asyncio==0.24.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>pytest-cov==6.0.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>python-magic==0.4.27</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PyYAML==6.0.2</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>rich==13.9.4</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>tomli==2.0.2</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>typing_extensions==4.12.2</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>mistralai==1.1.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>openai==1.43.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Jinja2</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_generator_templates_default_md_readme.md.html">src/fluen/generator/templates/default/md/readme.md</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>d3</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>openai</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_llm_providers_openai_provider.py.html">src/fluen/llm_providers/openai_provider.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>dependency_1</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>dependency_2</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>typing.Dict</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_state_manager.py.html">src/fluen/state/manager.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>typing.List</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>typing.Optional</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_state_manager.py.html">src/fluen/state/manager.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>typing.Set</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>typing.Tuple</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>dataclasses.dataclass</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_state_manager.py.html">src/fluen/state/manager.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>re</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>dataclasses.asdict</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>typing.Any</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_generator_manifest.py.html">src/fluen/generator/manifest.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>click</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.config.FluenConfig</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>rich.console.Console</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>rich.progress.Progress</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.orchestrator.Orchestrator</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.models.scan.ScanSelector</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.models.scan.ScanOptions</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>asyncio</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_file_analyzer.py.html">src/fluen/analyzer/file_analyzer.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.generator.doc_generator.DocumentationGenerator</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>setuptools</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>click&gt;=8.0.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>gitpython&gt;=3.1.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>pyyaml&gt;=6.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>rich&gt;=10.0.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>jinja2&gt;=3.0.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>aiohttp&gt;=3.8.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>openai&gt;=1.0.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>mistralai&gt;=0.0.7</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>pytest&gt;=7.0.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>pytest-asyncio&gt;=0.21.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>pytest-cov&gt;=4.0.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>black&gt;=23.0.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>mypy&gt;=1.0.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>flake8&gt;=6.0.0</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>jinja2</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>pytest</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_tests_conftest.py.html">src/fluen/tests/conftest.py</a>
+                                        </li>
+                                        <li>
+                                            <a href="reference/src_fluen_tests_test_git_manager.py.html">src/fluen/tests/test_git_manager.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>unittest.mock</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>analyzer.file_analyzer</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>aiohttp</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>BaseLLMProvider</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>datetime.datetime</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.analyzer.file_analyzer.FileAnalysis</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>tempfile</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>config</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>mimetypes</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>time</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_orchestrator.py.html">src/fluen/orchestrator.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>d3.js</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>d3.js (from https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js)</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>stylesheet (from ../assets/styles.css)</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>script (from ../assets/script.js)</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>base_provider</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_llm_providers_mistral_ai_provider.py.html">src/fluen/llm_providers/mistral_ai_provider.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.llm_providers.base_provider.BaseLLMProvider</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.git_integration.manager.GitManager</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.state.manager.StateManager</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.analyzer.file_analyzer.FileAnalyzer</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                    <ul class="used-by-list">
+                                        <li>
+                                            <a href="reference/src_fluen_analyzer_project_analyzer.py.html">src/fluen/analyzer/project_analyzer.py</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.analyzer.project_analyzer.ProjectAnalyzer</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>fluen.generator.cross_referencer.CrossReferenceResolver</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>typing.Callable</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>git_integration.manager</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>mistralai</td>
+                                <td>external</td>
+                                <td>N/A</td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <script src="assets/script.js"></script>
 </body>
 </html>

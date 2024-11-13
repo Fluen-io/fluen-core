@@ -3,107 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ file.get('path', 'Unknown File') }} - {{ project.get('name', 'Documentation') }}</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <title>{{ file.path }} - {{ project.name }}</title>
+    <link href="../assets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
-            <h1><a href="../index.html">{{ project.get('name', 'Project') }}</a></h1>
+            <h1><a href="../index.html">{{ project.name }}</a></h1>
+            <p>{{ project.primary_language }} Project</p>
         </div>
-        
         <div class="sidebar-content">
-            <div class="file-info">
-                <p>{{ file.get('language', 'Unknown') }}</p>
-                <p>Last modified: {{ file.get('last_modified', 'Unknown') }}</p>
-            </div>
-
             <div class="element-navigation">
                 {% for type, elements in elements_by_type.items()|default({}.items()) %}
-                    <div class="element-group">
-                        <h3>{{ type|format_type }}</h3>
-                        <ul>
-                            {% for element in elements|default([]) %}
-                                <li><a href="#{{ element.get('name', '')|anchor_id }}">{{ element.get('name', '') }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+                <div class="element-group">
+                    <h3>{{ type|format_type }}</h3>
+                    <ul>
+                        {% for element in elements %}
+                        <li>
+                            <a href="#{{ element.get('name', '')|anchor_id }}">
+                                {{ element.get('name', '') }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
                 {% endfor %}
             </div>
         </div>
-    </nav>
+    </div>
 
-    <main class="content">
-        <div class="file-header">
-            <h1>{{ file.get('path', 'Unknown File') }}</h1>
-            <div class="metadata">
-                <span>Language: {{ file.get('language', 'Unknown') }}</span>
-                <span>Last Modified: {{ file.get('last_modified', 'Unknown') }}</span>
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
             </div>
-        </div>
+        </header>
 
-        <section class="file-purpose">
-            <h2>Purpose</h2>
-            <p>{{ file.get('purpose', 'No purpose specified') }}</p>
-        </section>
+        <main class="content">
+            <div class="file-header">
+                <h1>{{ file.path }}</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> {{ file.language }}</p>
+                    <p><strong>Last Modified:</strong> {{ file.last_modified }}</p>
+                </div>
+            </div>
 
-        {% if file.get('exposures') %}
-            <section class="exposures">
-                <h2>Public API</h2>
-                <ul class="exposure-list">
-                    {% for exposure in file.get('exposures', [])|default([]) %}
-                        <li>
-                            <code>{{ exposure.get('name', '') }}</code>
-                            <span class="type-badge">{{ exposure.get('type', 'Unknown') }}</span>
-                        </li>
-                    {% endfor %}
-                </ul>
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>{{ file.purpose }}</p>
             </section>
-        {% endif %}
 
-        {% if file.get('dependencies') %}
-            <section class="dependencies">
+            {% if file.dependencies %}
+            <section class="dependencies-section">
                 <h2>Dependencies</h2>
                 <ul class="dependency-list">
-                    {% for dep in file.get('dependencies', [])|default([]) %}
-                        <li>
-                            <span class="dep-name">{{ dep.get('name', '') }}</span>
-                            <span class="type-badge">{{ dep.get('type', 'Unknown') }}</span>
-                            {% if dep.get('version') %}
-                                <span class="version-badge">{{ dep.get('version') }}</span>
-                            {% endif %}
-                        </li>
+                    {% for dep in file.dependencies %}
+                    <li>
+                        <span class="dep-name">{{ dep.name }}</span>
+                        <span class="type-badge">{{ dep.type }}</span>
+                        {% if dep.version %}
+                        <span class="version-badge">{{ dep.version }}</span>
+                        {% endif %}
+                    </li>
                     {% endfor %}
                 </ul>
             </section>
-        {% endif %}
+            {% endif %}
 
-        <section class="elements">
-            <h2>Elements</h2>
-            {% for type, elements in elements_by_type.items()|default({}.items()) %}
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
+
+            <section class="elements-section">
+                <h2>Elements</h2>
+                {% for type, elements in elements_by_type.items()|default({}.items()) %}
                 <div class="element-type-section">
                     <h3>{{ type|format_type }}</h3>
-                    {% for element in elements|default([]) %}
-                        <div class="element" id="{{ element.get('name', '')|anchor_id }}">
-                            <div class="element-header">
-                                <code>{{ element.get('name', '') }}</code>
-                                {% if element.get('scope') %}
-                                    <span class="scope-badge">{{ element.get('scope') }}</span>
-                                {% endif %}
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose">{{ element.get('purpose', '') }}</p>
-                                <div class="documentation">
-                                    {{ element.get('documentation', '')|safe }}
-                                </div>
+                    {% for element in elements %}
+                    <div id="{{ element.get('name', '')|anchor_id }}" class="element">
+                        <div class="element-header">
+                            <code>{{ element.get('name', '') }}</code>
+                            {% if element.get('scope') %}
+                            <span class="scope-badge">{{ element.get('scope') }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="element-content">
+                            <p>{{ element.get('purpose', '') }}</p>
+                            <div class="documentation">
+                                {{ element.get('documentation', '')|safe }}
                             </div>
                         </div>
+                    </div>
                     {% endfor %}
                 </div>
-            {% endfor %}
-        </section>
-    </main>
+                {% endfor %}
+            </section>
+        </main>
+    </div>
 
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
     <script src="../assets/script.js"></script>
 </body>
 </html>

@@ -185,12 +185,18 @@ class Orchestrator:
         try:
             # Initialize cross-reference resolver
             cross_referencer = CrossReferenceResolver(manifest)
-            
+            manifest_generator = ManifestGenerator(
+                    Path(self.git_manager.repo_path),
+                    self.config.output_dir
+                )
+            manifest_generator.load_existing_manifest()
+
             # Initialize documentation generator
             doc_generator = DocumentationGenerator(
                 manifest,
                 self.config.output_dir,
-                self.template_manager
+                self.template_manager,
+                manifest_generator=manifest_generator
             )
             
             # Generate documentation

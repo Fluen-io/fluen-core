@@ -4,190 +4,203 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>src/fluen/llm_providers/openai_provider.py - fluen-core</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link href="../assets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
         </div>
-        
         <div class="sidebar-content">
-            <div class="file-info">
-                <p>Python</p>
-                <p>Last modified: 2024-11-12T20:10:07.635858</p>
-            </div>
-
             <div class="element-navigation">
-                    <div class="element-group">
-                        <h3>Class</h3>
-                        <ul>
-                                <li><a href="#openaiprovider">OpenAIProvider</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Method</h3>
-                        <ul>
-                                <li><a href="#__init__">__init__</a></li>
-                                <li><a href="#generate">generate</a></li>
-                                <li><a href="#get_embedding">get_embedding</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Variable</h3>
-                        <ul>
-                                <li><a href="#client">client</a></li>
-                                <li><a href="#model">model</a></li>
-                        </ul>
-                    </div>
+                <div class="element-group">
+                    <h3>Class</h3>
+                    <ul>
+                        <li>
+                            <a href="#openaiprovider">
+                                OpenAIProvider
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Method</h3>
+                    <ul>
+                        <li>
+                            <a href="#__init__">
+                                __init__
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#generate">
+                                generate
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#get_embedding">
+                                get_embedding
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Variable</h3>
+                    <ul>
+                        <li>
+                            <a href="#self.client">
+                                self.client
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#self.model">
+                                self.model
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <main class="content">
-        <div class="file-header">
-            <h1>src/fluen/llm_providers/openai_provider.py</h1>
-            <div class="metadata">
-                <span>Language: Python</span>
-                <span>Last Modified: 2024-11-12T20:10:07.635858</span>
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
             </div>
-        </div>
+        </header>
 
-        <section class="file-purpose">
-            <h2>Purpose</h2>
-            <p>The primary purpose of this code is to define an asynchronous provider class, OpenAIProvider, that interacts with the OpenAI API to generate text completions and obtain text embeddings using specified models.</p>
-        </section>
+        <main class="content">
+            <div class="file-header">
+                <h1>src/fluen/llm_providers/openai_provider.py</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Python</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:57:36.051069</p>
+                </div>
+            </div>
 
-            <section class="exposures">
-                <h2>Public API</h2>
-                <ul class="exposure-list">
-                        <li>
-                            <code>OpenAIProvider</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>generate</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>get_embedding</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                </ul>
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>The primary purpose of this code is to serve as a provider for interacting with OpenAI&#39;s APIs to generate text and retrieve embeddings using asynchronous operations.</p>
             </section>
 
-            <section class="dependencies">
+            <section class="dependencies-section">
                 <h2>Dependencies</h2>
                 <ul class="dependency-list">
-                        <li>
-                            <span class="dep-name">openai.AsyncOpenAI</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">typing.List</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">typing.Dict</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">typing.Any</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">.base_provider.BaseLLMProvider</span>
-                            <span class="type-badge">internal</span>
-                        </li>
+                    <li>
+                        <span class="dep-name">openai</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">typing</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">base_provider</span>
+                        <span class="type-badge">external</span>
+                    </li>
                 </ul>
             </section>
 
-        <section class="elements">
-            <h2>Elements</h2>
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
+
+            <section class="elements-section">
+                <h2>Elements</h2>
                 <div class="element-type-section">
                     <h3>Class</h3>
-                        <div class="element" id="openaiprovider">
-                            <div class="element-header">
-                                <code>OpenAIProvider</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="openaiprovider" class="element">
+                        <div class="element-header">
+                            <code>OpenAIProvider</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Serves as an interface to interact with OpenAI&#39;s API for generating text and retrieving embeddings.</p>
+                            <div class="documentation">
+                                The OpenAIProvider class inherits from BaseLLMProvider and provides asynchronous methods to communicate with OpenAI's services for generating text completions and fetching text embeddings.
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div class="element-type-section">
                     <h3>Method</h3>
-                        <div class="element" id="__init__">
-                            <div class="element-header">
-                                <code>__init__</code>
-                                    <span class="scope-badge">OpenAIProvider</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="__init__" class="element">
+                        <div class="element-header">
+                            <code>__init__</code>
+                            <span class="scope-badge">OpenAIProvider</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Initializes the OpenAIProvider with configuration for the API client.</p>
+                            <div class="documentation">
+                                The constructor method for OpenAIProvider which sets up the AsyncOpenAI client using the provided API key and model from the configuration dictionary.
                             </div>
                         </div>
-                        <div class="element" id="generate">
-                            <div class="element-header">
-                                <code>generate</code>
-                                    <span class="scope-badge">OpenAIProvider</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="generate" class="element">
+                        <div class="element-header">
+                            <code>generate</code>
+                            <span class="scope-badge">OpenAIProvider</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Asynchronously generates a text completion based on the given prompt.</p>
+                            <div class="documentation">
+                                The generate method takes a prompt string and uses the OpenAI API to generate a text completion asynchronously, returning the completion as a string.
                             </div>
                         </div>
-                        <div class="element" id="get_embedding">
-                            <div class="element-header">
-                                <code>get_embedding</code>
-                                    <span class="scope-badge">OpenAIProvider</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="get_embedding" class="element">
+                        <div class="element-header">
+                            <code>get_embedding</code>
+                            <span class="scope-badge">OpenAIProvider</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Asynchronously retrieves the embedding for a given text input.</p>
+                            <div class="documentation">
+                                The get_embedding method uses the OpenAI API to obtain an embedding for the provided text, returning the embedding as a list of floats asynchronously.
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div class="element-type-section">
                     <h3>Variable</h3>
-                        <div class="element" id="client">
-                            <div class="element-header">
-                                <code>client</code>
-                                    <span class="scope-badge">OpenAIProvider</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="self.client" class="element">
+                        <div class="element-header">
+                            <code>self.client</code>
+                            <span class="scope-badge">OpenAIProvider</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Holds the AsyncOpenAI client instance used for API interactions.</p>
+                            <div class="documentation">
+                                Instance variable initialized to manage API requests via the AsyncOpenAI class, requiring an API key.
                             </div>
                         </div>
-                        <div class="element" id="model">
-                            <div class="element-header">
-                                <code>model</code>
-                                    <span class="scope-badge">OpenAIProvider</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="self.model" class="element">
+                        <div class="element-header">
+                            <code>self.model</code>
+                            <span class="scope-badge">OpenAIProvider</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Holds the model name identifier to be used in API calls.</p>
+                            <div class="documentation">
+                                Instance variable representing the model to use for API requests, defaulting to 'gpt-3.5-turbo' if not provided.
                             </div>
                         </div>
+                    </div>
                 </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
     <script src="../assets/script.js"></script>
-</body>
+<script>window.lineageData = {"nodes": [{"id": "src/fluen/llm_providers/openai_provider.py", "type": "current"}], "links": []};</script></body>
 </html>

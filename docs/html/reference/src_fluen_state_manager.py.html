@@ -4,216 +4,393 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>src/fluen/state/manager.py - fluen-core</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link href="../assets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
         </div>
-        
         <div class="sidebar-content">
-            <div class="file-info">
-                <p>Python</p>
-                <p>Last modified: 2024-11-03T10:06:24.637072</p>
-            </div>
-
             <div class="element-navigation">
-                    <div class="element-group">
-                        <h3>Class</h3>
-                        <ul>
-                                <li><a href="#documentationstate">DocumentationState</a></li>
-                                <li><a href="#statemanager">StateManager</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Method</h3>
-                        <ul>
-                                <li><a href="#__init__">__init__</a></li>
-                                <li><a href="#load">load</a></li>
-                                <li><a href="#save">save</a></li>
-                                <li><a href="#update_progress">update_progress</a></li>
-                                <li><a href="#update_commit">update_commit</a></li>
-                                <li><a href="#set_manifest_path">set_manifest_path</a></li>
-                        </ul>
-                    </div>
-            </div>
-        </div>
-    </nav>
-
-    <main class="content">
-        <div class="file-header">
-            <h1>src/fluen/state/manager.py</h1>
-            <div class="metadata">
-                <span>Language: Python</span>
-                <span>Last Modified: 2024-11-03T10:06:24.637072</span>
-            </div>
-        </div>
-
-        <section class="file-purpose">
-            <h2>Purpose</h2>
-            <p>Manage the state of a documentation generation process by saving, loading, and updating progress information.</p>
-        </section>
-
-            <section class="exposures">
-                <h2>Public API</h2>
-                <ul class="exposure-list">
+                <div class="element-group">
+                    <h3>Class</h3>
+                    <ul>
                         <li>
-                            <code>DocumentationState</code>
-                            <span class="type-badge">exposure</span>
+                            <a href="#documentationstate">
+                                DocumentationState
+                            </a>
                         </li>
                         <li>
-                            <code>StateManager</code>
-                            <span class="type-badge">exposure</span>
+                            <a href="#statemanager">
+                                StateManager
+                            </a>
                         </li>
-                </ul>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Variable</h3>
+                    <ul>
+                        <li>
+                            <a href="#last_commit">
+                                last_commit
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#last_run_timestamp">
+                                last_run_timestamp
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#files_processed">
+                                files_processed
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#total_files">
+                                total_files
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#manifest_path">
+                                manifest_path
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#state_file">
+                                state_file
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#logger">
+                                logger
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#current_state">
+                                current_state
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Method</h3>
+                    <ul>
+                        <li>
+                            <a href="#__init__">
+                                __init__
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#load">
+                                load
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#save">
+                                save
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#update_progress">
+                                update_progress
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#update_commit">
+                                update_commit
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#set_manifest_path">
+                                set_manifest_path
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="file-header">
+                <h1>src/fluen/state/manager.py</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Python</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:51:57.210903</p>
+                </div>
+            </div>
+
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>This module manages the state of a documentation generation process, allowing for saving, loading, and updating the state related to documentation tasks.</p>
             </section>
 
-            <section class="dependencies">
+            <section class="dependencies-section">
                 <h2>Dependencies</h2>
                 <ul class="dependency-list">
-                        <li>
-                            <span class="dep-name">json</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">pathlib.Path</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">dataclasses</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">asdict</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">typing.Optional</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">typing.Dict</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">typing.Any</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">logging</span>
-                            <span class="type-badge">external</span>
-                        </li>
+                    <li>
+                        <span class="dep-name">json</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">pathlib.Path</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">dataclasses.dataclass</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">dataclasses.asdict</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">typing.Optional</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">typing.Dict</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">typing.Any</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">logging</span>
+                        <span class="type-badge">external</span>
+                    </li>
                 </ul>
             </section>
 
-        <section class="elements">
-            <h2>Elements</h2>
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
+
+            <section class="elements-section">
+                <h2>Elements</h2>
                 <div class="element-type-section">
                     <h3>Class</h3>
-                        <div class="element" id="documentationstate">
-                            <div class="element-header">
-                                <code>DocumentationState</code>
-                                    <span class="scope-badge">module</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="documentationstate" class="element">
+                        <div class="element-header">
+                            <code>DocumentationState</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Represents the state of the documentation process.</p>
+                            <div class="documentation">
+                                A dataclass to store state attributes like commit hash, timestamp of last run, number of files processed, total files, and manifest path.
                             </div>
                         </div>
-                        <div class="element" id="statemanager">
-                            <div class="element-header">
-                                <code>StateManager</code>
-                                    <span class="scope-badge">module</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="statemanager" class="element">
+                        <div class="element-header">
+                            <code>StateManager</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Responsible for managing and persisting documentation process state.</p>
+                            <div class="documentation">
+                                Provides functionality to load and save the documentation state, and update various pieces of state data like files processed, commit hash, and manifest path.
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Variable</h3>
+                    <div id="last_commit" class="element">
+                        <div class="element-header">
+                            <code>last_commit</code>
+                            <span class="scope-badge">DocumentationState</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Stores the last commit hash processed.</p>
+                            <div class="documentation">
+                                An optional string to track the last processed commit hash in the documentation process.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="last_run_timestamp" class="element">
+                        <div class="element-header">
+                            <code>last_run_timestamp</code>
+                            <span class="scope-badge">DocumentationState</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Stores the timestamp of the last run.</p>
+                            <div class="documentation">
+                                An optional float that captures the timestamp of the last run of the documentation process.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="files_processed" class="element">
+                        <div class="element-header">
+                            <code>files_processed</code>
+                            <span class="scope-badge">DocumentationState</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Tracks the number of files processed.</p>
+                            <div class="documentation">
+                                An integer to count how many files have been processed in the documentation run.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="total_files" class="element">
+                        <div class="element-header">
+                            <code>total_files</code>
+                            <span class="scope-badge">DocumentationState</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Stores the total number of files to process.</p>
+                            <div class="documentation">
+                                An integer indicating the total number of files expected in the documentation process.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="manifest_path" class="element">
+                        <div class="element-header">
+                            <code>manifest_path</code>
+                            <span class="scope-badge">DocumentationState</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Stores path to the generated manifest file.</p>
+                            <div class="documentation">
+                                An optional string that holds the path to the manifest file created during documentation generation.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="state_file" class="element">
+                        <div class="element-header">
+                            <code>state_file</code>
+                            <span class="scope-badge">StateManager</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Stores the path to the state file.</p>
+                            <div class="documentation">
+                                A Path object representing the location of the state file within the state directory.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="logger" class="element">
+                        <div class="element-header">
+                            <code>logger</code>
+                            <span class="scope-badge">StateManager</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Handles logging for the StateManager.</p>
+                            <div class="documentation">
+                                A logger object used for logging debug and error information within the StateManager.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="current_state" class="element">
+                        <div class="element-header">
+                            <code>current_state</code>
+                            <span class="scope-badge">StateManager</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Stores the current documentation state.</p>
+                            <div class="documentation">
+                                An instance of DocumentationState holding the state data currently in use.
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="element-type-section">
                     <h3>Method</h3>
-                        <div class="element" id="__init__">
-                            <div class="element-header">
-                                <code>__init__</code>
-                                    <span class="scope-badge">StateManager</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="__init__" class="element">
+                        <div class="element-header">
+                            <code>__init__</code>
+                            <span class="scope-badge">StateManager</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Initializes a StateManager instance.</p>
+                            <div class="documentation">
+                                Initializes the StateManager with a given state directory, sets up logging, and creates a default DocumentationState object.
                             </div>
                         </div>
-                        <div class="element" id="load">
-                            <div class="element-header">
-                                <code>load</code>
-                                    <span class="scope-badge">StateManager</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="load" class="element">
+                        <div class="element-header">
+                            <code>load</code>
+                            <span class="scope-badge">StateManager</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Loads state from a file.</p>
+                            <div class="documentation">
+                                Attempts to load state data from the 'state.json' file into the current_state. If loading fails, returns a fresh DocumentationState object.
                             </div>
                         </div>
-                        <div class="element" id="save">
-                            <div class="element-header">
-                                <code>save</code>
-                                    <span class="scope-badge">StateManager</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="save" class="element">
+                        <div class="element-header">
+                            <code>save</code>
+                            <span class="scope-badge">StateManager</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Saves the current state to a file.</p>
+                            <div class="documentation">
+                                Dumps the current state data as a JSON object into the 'state.json' file, creating necessary directories if missing.
                             </div>
                         </div>
-                        <div class="element" id="update_progress">
-                            <div class="element-header">
-                                <code>update_progress</code>
-                                    <span class="scope-badge">StateManager</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="update_progress" class="element">
+                        <div class="element-header">
+                            <code>update_progress</code>
+                            <span class="scope-badge">StateManager</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Updates the file processing progress.</p>
+                            <div class="documentation">
+                                Updates the number of files processed and the total number of files in the current state, then saves the state.
                             </div>
                         </div>
-                        <div class="element" id="update_commit">
-                            <div class="element-header">
-                                <code>update_commit</code>
-                                    <span class="scope-badge">StateManager</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="update_commit" class="element">
+                        <div class="element-header">
+                            <code>update_commit</code>
+                            <span class="scope-badge">StateManager</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Updates the last commit processed.</p>
+                            <div class="documentation">
+                                Sets the last_commit field in the current state and saves it.
                             </div>
                         </div>
-                        <div class="element" id="set_manifest_path">
-                            <div class="element-header">
-                                <code>set_manifest_path</code>
-                                    <span class="scope-badge">StateManager</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="set_manifest_path" class="element">
+                        <div class="element-header">
+                            <code>set_manifest_path</code>
+                            <span class="scope-badge">StateManager</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Sets the manifest file path.</p>
+                            <div class="documentation">
+                                Updates the manifest_path field with the given path and saves the current state.
                             </div>
                         </div>
+                    </div>
                 </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
     <script src="../assets/script.js"></script>
-</body>
+<script>window.lineageData = {"nodes": [{"id": "src/fluen/state/manager.py", "type": "current"}], "links": []};</script></body>
 </html>

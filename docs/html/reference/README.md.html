@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>README.md - fluen-core</title>
+    <link href="../assets/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
+        </div>
+        <div class="sidebar-content">
+            <div class="element-navigation">
+                <div class="element-group">
+                    <h3>Command</h3>
+                    <ul>
+                        <li>
+                            <a href="#fluen-docs-generate">
+                                fluen docs generate
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#fluen-docs-export">
+                                fluen docs export
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Configuration File</h3>
+                    <ul>
+                        <li>
+                            <a href="#fluen_config.yml">
+                                fluen_config.yml
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="file-header">
+                <h1>README.md</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Unknown</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:48:10.548287</p>
+                </div>
+            </div>
+
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>Fluen is a documentation generator powered by LLMs (Large Language Models). It creates intelligent documentation by analyzing git repositories to capture the structure, intent, and relationships within the codebase.</p>
+            </section>
+
+            <section class="dependencies-section">
+                <h2>Dependencies</h2>
+                <ul class="dependency-list">
+                    <li>
+                        <span class="dep-name">Python 3.9+</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">Git</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">An API key from OpenAI or Mistral AI</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">Jiva Framework</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">Claude by Anthropic</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
+
+            <section class="elements-section">
+                <h2>Elements</h2>
+                <div class="element-type-section">
+                    <h3>Command</h3>
+                    <div id="fluen-docs-generate" class="element">
+                        <div class="element-header">
+                            <code>fluen docs generate</code>
+                            <span class="scope-badge">CLI Command</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Analyzes the project and generates a code manifest.json file.</p>
+                            <div class="documentation">
+                                This command is used to scan a git repository and create a comprehensive manifest describing the project's code structure, purpose, and relationships.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="fluen-docs-export" class="element">
+                        <div class="element-header">
+                            <code>fluen docs export</code>
+                            <span class="scope-badge">CLI Command</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Exports generated documentation in the specified format.</p>
+                            <div class="documentation">
+                                Translates the manifest.json into documentation formats like HTML or Markdown. The format can be specified directly via command line arguments.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Configuration File</h3>
+                    <div id="fluen_config.yml" class="element">
+                        <div class="element-header">
+                            <code>fluen_config.yml</code>
+                            <span class="scope-badge">Configuration</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Configures the Fluen tool, specifying LLM provider settings and output preferences.</p>
+                            <div class="documentation">
+                                This YAML file includes settings such as the LLM provider, API key, model, and output directory for generated documentation.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
+    <script src="../assets/script.js"></script>
+<script>window.lineageData = {"nodes": [{"id": "README.md", "type": "current"}], "links": []};</script></body>
+</html>

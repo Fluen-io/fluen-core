@@ -3,21 +3,24 @@ generator/doc_generator.py
 Main documentation generator that coordinates HTML and Markdown generation.
 """
 
+import json
 from pathlib import Path
 from typing import Dict, Any, Optional, List
 import shutil
 import logging
 from fluen.generator.templates.template_manager import TemplateManager
-from fluen.generator.manifest import ProjectManifest, ElementReference
+from fluen.generator.manifest import ManifestGenerator, ProjectManifest, ElementReference
 
 class DocumentationGenerator:
     def __init__(self, 
                  manifest: ProjectManifest,
                  output_dir: Path,
-                 template_manager: TemplateManager):
+                 template_manager: TemplateManager,
+                 manifest_generator: ManifestGenerator):  # Add this parameter
         self.manifest = manifest
         self.output_dir = output_dir
         self.template_manager = template_manager
+        self.manifest_generator = manifest_generator  # Store the manifest generator
         self.logger = logging.getLogger(__name__)
 
     async def generate(self, format_type: str = 'html') -> bool:
@@ -44,7 +47,12 @@ class DocumentationGenerator:
     def _get_generator(self, format_type: str) -> 'BaseFormatGenerator':
         """Get appropriate format generator."""
         if format_type == 'html':
-            return HTMLGenerator(self.manifest, self.output_dir, self.template_manager)
+            return HTMLGenerator(
+                self.manifest, 
+                self.output_dir, 
+                self.template_manager,
+                self.manifest_generator  # Pass the manifest generator
+            )
         elif format_type == 'md':
             return MarkdownGenerator(self.manifest, self.output_dir, self.template_manager)
         else:
@@ -54,10 +62,12 @@ class BaseFormatGenerator:
     def __init__(self, 
                  manifest: ProjectManifest,
                  output_dir: Path,
-                 template_manager: TemplateManager):
+                 template_manager: TemplateManager,
+                 manifest_generator: Optional[ManifestGenerator] = None):  # Add optional parameter
         self.manifest = manifest
         self.output_dir = output_dir
         self.template_manager = template_manager
+        self.manifest_generator = manifest_generator
         self.logger = logging.getLogger(__name__)
 
     async def generate(self) -> bool:
@@ -116,19 +126,37 @@ class HTMLGenerator(BaseFormatGenerator):
         (output_dir / 'index.html').write_text(content)
 
     async def _generate_reference_pages(self, reference_dir: Path):
-        """Generate individual reference pages."""
+        """Generate individual reference pages with relationship data."""
         for file_path, file_manifest in self.manifest.files.items():
             context = self.template_manager.get_default_context(self.manifest)
+            
+            # Get relationship data if manifest_generator is available
+            relationships = None
+            if self.manifest_generator:
+                relationships = self.manifest_generator.get_file_relationships(file_path)
+            
             context.update({
                 'file': file_manifest,
-                'elements_by_type': self._group_elements_by_type(file_manifest.get('elements', []))
+                'elements_by_type': self._group_elements_by_type(file_manifest.get('elements', [])),
+                'relationships': relationships,  # Add relationship data to context
             })
+            
+            # Generate lineage data for JavaScript if relationships exist
+            lineage_script = ""
+            if relationships:
+                lineage_script = f"<script>window.lineageData = {json.dumps(relationships)};</script>"
             
             # Convert file path to a safe filename
             safe_filename = file_path.replace('/', '_').replace('\\', '_')
             output_path = reference_dir / f"{safe_filename}.html"
             
+            # Render template
             content = self.template_manager.render_template('html/reference.html', context)
+            
+            # Insert lineage data script before closing body tag if it exists
+            if lineage_script:
+                content = content.replace('</body>', f'{lineage_script}</body>')
+            
             output_path.write_text(content)
 
     def _group_files_by_type(self) -> Dict[str, List[str]]:

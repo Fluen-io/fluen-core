@@ -1,11 +1,11 @@
 # src/fluen/llm_factory.py
 
 **Language:** Python  
-**Last Modified:** 2024-11-03T10:06:00.803035
+**Last Modified:** 2024-11-13T17:47:39.735133
 
 ## Purpose
 
-This code defines a factory class used to create instances of various LLM provider classes based on a given configuration.
+The primary purpose of this code is to provide a factory class, LLMProviderFactory, that creates instances of different LLM provider classes based on a provider name and configuration map.
 
 ## Public API
 
@@ -14,12 +14,11 @@ This code defines a factory class used to create instances of various LLM provid
 
 ## Dependencies
 
-- `typing.Dict` (external)
-- `typing.Any` (external)
-- `fluen.llm_providers.base_provider.BaseLLMProvider` (external)
-- `fluen.llm_providers.openai_provider.OpenAIProvider` (external)
-- `fluen.llm_providers.mistral_ai_provider.MistralAIProvider` (external)
-- `fluen.llm_providers.ollama_provider.OllamaProvider` (external)
+- `typing` (external)
+- `fluen.llm_providers.base_provider` (external)
+- `fluen.llm_providers.openai_provider` (external)
+- `fluen.llm_providers.mistral_ai_provider` (external)
+- `fluen.llm_providers.ollama_provider` (external)
 
 ## Elements
 
@@ -29,35 +28,35 @@ This code defines a factory class used to create instances of various LLM provid
 
 **Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** A factory class used to create LLM provider instances.
 
 **Documentation:**
 
-No documentation available
+LLMProviderFactory offers a class method to create various LLM provider instances based on the given provider name and configuration.
 
-### Classmethod
+### Method
 
 #### `create`
 
-**Scope:** class-level
+**Scope:** class
 
-**Purpose:** No purpose specified
+**Purpose:** Creates an instance of a selected LLM provider.
 
 **Documentation:**
 
-No documentation available
+Class method that receives a provider name and configuration dictionary, verifies the provider exists, and returns an instance of the requested LLM provider class.
 
 ### Variable
 
 #### `_providers`
 
-**Scope:** class-level
+**Scope:** class
 
-**Purpose:** No purpose specified
+**Purpose:** Holds mappings of provider names to their respective classes.
 
 **Documentation:**
 
-No documentation available
+A dictionary mapping string identifiers to LLM provider classes; used to determine which class to instantiate in the create method.
 
 
 [Back to Index](../README.md)

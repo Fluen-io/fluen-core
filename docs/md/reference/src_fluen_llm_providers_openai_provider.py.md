@@ -1,25 +1,21 @@
 # src/fluen/llm_providers/openai_provider.py
 
 **Language:** Python  
-**Last Modified:** 2024-11-12T20:10:07.635858
+**Last Modified:** 2024-11-13T17:57:36.051069
 
 ## Purpose
 
-The primary purpose of this code is to define an asynchronous provider class, OpenAIProvider, that interacts with the OpenAI API to generate text completions and obtain text embeddings using specified models.
+The primary purpose of this code is to serve as a provider for interacting with OpenAI&#39;s APIs to generate text and retrieve embeddings using asynchronous operations.
 
 ## Public API
 
 - `OpenAIProvider` (exposure)
-- `generate` (exposure)
-- `get_embedding` (exposure)
 
 ## Dependencies
 
-- `openai.AsyncOpenAI` (external)
-- `typing.List` (external)
-- `typing.Dict` (external)
-- `typing.Any` (external)
-- `.base_provider.BaseLLMProvider` (internal)
+- `openai` (external)
+- `typing` (external)
+- `base_provider` (external)
 
 ## Elements
 
@@ -29,11 +25,11 @@ The primary purpose of this code is to define an asynchronous provider class, Op
 
 **Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Serves as an interface to interact with OpenAI&#39;s API for generating text and retrieving embeddings.
 
 **Documentation:**
 
-No documentation available
+The OpenAIProvider class inherits from BaseLLMProvider and provides asynchronous methods to communicate with OpenAI&#39;s services for generating text completions and fetching text embeddings.
 
 ### Method
 
@@ -41,53 +37,53 @@ No documentation available
 
 **Scope:** OpenAIProvider
 
-**Purpose:** No purpose specified
+**Purpose:** Initializes the OpenAIProvider with configuration for the API client.
 
 **Documentation:**
 
-No documentation available
+The constructor method for OpenAIProvider which sets up the AsyncOpenAI client using the provided API key and model from the configuration dictionary.
 
 #### `generate`
 
 **Scope:** OpenAIProvider
 
-**Purpose:** No purpose specified
+**Purpose:** Asynchronously generates a text completion based on the given prompt.
 
 **Documentation:**
 
-No documentation available
+The generate method takes a prompt string and uses the OpenAI API to generate a text completion asynchronously, returning the completion as a string.
 
 #### `get_embedding`
 
 **Scope:** OpenAIProvider
 
-**Purpose:** No purpose specified
+**Purpose:** Asynchronously retrieves the embedding for a given text input.
 
 **Documentation:**
 
-No documentation available
+The get_embedding method uses the OpenAI API to obtain an embedding for the provided text, returning the embedding as a list of floats asynchronously.
 
 ### Variable
 
-#### `client`
+#### `self.client`
 
 **Scope:** OpenAIProvider
 
-**Purpose:** No purpose specified
+**Purpose:** Holds the AsyncOpenAI client instance used for API interactions.
 
 **Documentation:**
 
-No documentation available
+Instance variable initialized to manage API requests via the AsyncOpenAI class, requiring an API key.
 
-#### `model`
+#### `self.model`
 
 **Scope:** OpenAIProvider
 
-**Purpose:** No purpose specified
+**Purpose:** Holds the model name identifier to be used in API calls.
 
 **Documentation:**
 
-No documentation available
+Instance variable representing the model to use for API requests, defaulting to &#39;gpt-3.5-turbo&#39; if not provided.
 
 
 [Back to Index](../README.md)

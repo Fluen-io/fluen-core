@@ -4,151 +4,160 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>src/fluen/llm_factory.py - fluen-core</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link href="../assets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
         </div>
-        
         <div class="sidebar-content">
-            <div class="file-info">
-                <p>Python</p>
-                <p>Last modified: 2024-11-03T10:06:00.803035</p>
-            </div>
-
             <div class="element-navigation">
-                    <div class="element-group">
-                        <h3>Class</h3>
-                        <ul>
-                                <li><a href="#llmproviderfactory">LLMProviderFactory</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Classmethod</h3>
-                        <ul>
-                                <li><a href="#create">create</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Variable</h3>
-                        <ul>
-                                <li><a href="#_providers">_providers</a></li>
-                        </ul>
-                    </div>
+                <div class="element-group">
+                    <h3>Class</h3>
+                    <ul>
+                        <li>
+                            <a href="#llmproviderfactory">
+                                LLMProviderFactory
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Variable</h3>
+                    <ul>
+                        <li>
+                            <a href="#_providers">
+                                _providers
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Method</h3>
+                    <ul>
+                        <li>
+                            <a href="#create">
+                                create
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <main class="content">
-        <div class="file-header">
-            <h1>src/fluen/llm_factory.py</h1>
-            <div class="metadata">
-                <span>Language: Python</span>
-                <span>Last Modified: 2024-11-03T10:06:00.803035</span>
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
             </div>
-        </div>
+        </header>
 
-        <section class="file-purpose">
-            <h2>Purpose</h2>
-            <p>This code defines a factory class used to create instances of various LLM provider classes based on a given configuration.</p>
-        </section>
+        <main class="content">
+            <div class="file-header">
+                <h1>src/fluen/llm_factory.py</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Python</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:47:39.735133</p>
+                </div>
+            </div>
 
-            <section class="exposures">
-                <h2>Public API</h2>
-                <ul class="exposure-list">
-                        <li>
-                            <code>LLMProviderFactory</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>LLMProviderFactory.create</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                </ul>
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>The primary purpose of this code is to provide a factory class, LLMProviderFactory, that creates instances of different LLM provider classes based on a provider name and configuration map.</p>
             </section>
 
-            <section class="dependencies">
+            <section class="dependencies-section">
                 <h2>Dependencies</h2>
                 <ul class="dependency-list">
-                        <li>
-                            <span class="dep-name">typing.Dict</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">typing.Any</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">fluen.llm_providers.base_provider.BaseLLMProvider</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">fluen.llm_providers.openai_provider.OpenAIProvider</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">fluen.llm_providers.mistral_ai_provider.MistralAIProvider</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">fluen.llm_providers.ollama_provider.OllamaProvider</span>
-                            <span class="type-badge">external</span>
-                        </li>
+                    <li>
+                        <span class="dep-name">typing</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">fluen.llm_providers.base_provider</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">fluen.llm_providers.openai_provider</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">fluen.llm_providers.mistral_ai_provider</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">fluen.llm_providers.ollama_provider</span>
+                        <span class="type-badge">external</span>
+                    </li>
                 </ul>
             </section>
 
-        <section class="elements">
-            <h2>Elements</h2>
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
+
+            <section class="elements-section">
+                <h2>Elements</h2>
                 <div class="element-type-section">
                     <h3>Class</h3>
-                        <div class="element" id="llmproviderfactory">
-                            <div class="element-header">
-                                <code>LLMProviderFactory</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="llmproviderfactory" class="element">
+                        <div class="element-header">
+                            <code>LLMProviderFactory</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>A factory class used to create LLM provider instances.</p>
+                            <div class="documentation">
+                                LLMProviderFactory offers a class method to create various LLM provider instances based on the given provider name and configuration.
                             </div>
                         </div>
-                </div>
-                <div class="element-type-section">
-                    <h3>Classmethod</h3>
-                        <div class="element" id="create">
-                            <div class="element-header">
-                                <code>create</code>
-                                    <span class="scope-badge">class-level</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
-                            </div>
-                        </div>
+                    </div>
                 </div>
                 <div class="element-type-section">
                     <h3>Variable</h3>
-                        <div class="element" id="_providers">
-                            <div class="element-header">
-                                <code>_providers</code>
-                                    <span class="scope-badge">class-level</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="_providers" class="element">
+                        <div class="element-header">
+                            <code>_providers</code>
+                            <span class="scope-badge">class</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Holds mappings of provider names to their respective classes.</p>
+                            <div class="documentation">
+                                A dictionary mapping string identifiers to LLM provider classes; used to determine which class to instantiate in the create method.
                             </div>
                         </div>
+                    </div>
                 </div>
-        </section>
-    </main>
+                <div class="element-type-section">
+                    <h3>Method</h3>
+                    <div id="create" class="element">
+                        <div class="element-header">
+                            <code>create</code>
+                            <span class="scope-badge">class</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Creates an instance of a selected LLM provider.</p>
+                            <div class="documentation">
+                                Class method that receives a provider name and configuration dictionary, verifies the provider exists, and returns an instance of the requested LLM provider class.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
     <script src="../assets/script.js"></script>
-</body>
+<script>window.lineageData = {"nodes": [{"id": "src/fluen/llm_factory.py", "type": "current"}], "links": []};</script></body>
 </html>

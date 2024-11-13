@@ -4,144 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>.fluen/cache/state.json - fluen-core</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link href="../assets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
         </div>
-        
         <div class="sidebar-content">
-            <div class="file-info">
-                <p>Unknown</p>
-                <p>Last modified: 2024-11-03T10:05:08.885235</p>
-            </div>
-
             <div class="element-navigation">
-                    <div class="element-group">
-                        <h3>Variable</h3>
-                        <ul>
-                                <li><a href="#last_commit">last_commit</a></li>
-                                <li><a href="#last_run_timestamp">last_run_timestamp</a></li>
-                                <li><a href="#files_processed">files_processed</a></li>
-                                <li><a href="#total_files">total_files</a></li>
-                                <li><a href="#manifest_path">manifest_path</a></li>
-                        </ul>
-                    </div>
+                <div class="element-group">
+                    <h3>Variable</h3>
+                    <ul>
+                        <li>
+                            <a href="#last_commit">
+                                last_commit
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#last_run_timestamp">
+                                last_run_timestamp
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#files_processed">
+                                files_processed
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#total_files">
+                                total_files
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#manifest_path">
+                                manifest_path
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <main class="content">
-        <div class="file-header">
-            <h1>.fluen/cache/state.json</h1>
-            <div class="metadata">
-                <span>Language: Unknown</span>
-                <span>Last Modified: 2024-11-03T10:05:08.885235</span>
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
             </div>
-        </div>
+        </header>
 
-        <section class="file-purpose">
-            <h2>Purpose</h2>
-            <p>Represents metadata or a summary of a project&#39;s source code processing status.</p>
-        </section>
+        <main class="content">
+            <div class="file-header">
+                <h1>.fluen/cache/state.json</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Unknown</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:56:29.265561</p>
+                </div>
+            </div>
 
-            <section class="exposures">
-                <h2>Public API</h2>
-                <ul class="exposure-list">
-                        <li>
-                            <code>last_commit</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>last_run_timestamp</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>files_processed</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>total_files</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>manifest_path</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                </ul>
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>This JSON object represents metadata for a project, possibly for tracking purposes in version control or build systems.</p>
             </section>
 
 
-        <section class="elements">
-            <h2>Elements</h2>
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
+
+            <section class="elements-section">
+                <h2>Elements</h2>
                 <div class="element-type-section">
                     <h3>Variable</h3>
-                        <div class="element" id="last_commit">
-                            <div class="element-header">
-                                <code>last_commit</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="last_commit" class="element">
+                        <div class="element-header">
+                            <code>last_commit</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>To store the hash of the latest commit in the repository.</p>
+                            <div class="documentation">
+                                This is a string representing the SHA-1 hash of the most recent commit.
                             </div>
                         </div>
-                        <div class="element" id="last_run_timestamp">
-                            <div class="element-header">
-                                <code>last_run_timestamp</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="last_run_timestamp" class="element">
+                        <div class="element-header">
+                            <code>last_run_timestamp</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>To store the timestamp of the last time a particular process was run.</p>
+                            <div class="documentation">
+                                This is expected to hold a timestamp in a set format, currently null indicating that the process has not run yet.
                             </div>
                         </div>
-                        <div class="element" id="files_processed">
-                            <div class="element-header">
-                                <code>files_processed</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="files_processed" class="element">
+                        <div class="element-header">
+                            <code>files_processed</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>To indicate how many files have been processed so far.</p>
+                            <div class="documentation">
+                                An integer value representing the number of files processed within the context this metadata is tracking.
                             </div>
                         </div>
-                        <div class="element" id="total_files">
-                            <div class="element-header">
-                                <code>total_files</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="total_files" class="element">
+                        <div class="element-header">
+                            <code>total_files</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>To indicate the total number of files that are supposed to be processed.</p>
+                            <div class="documentation">
+                                An integer value representing the total number of files intended to be processed for the current operation.
                             </div>
                         </div>
-                        <div class="element" id="manifest_path">
-                            <div class="element-header">
-                                <code>manifest_path</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="manifest_path" class="element">
+                        <div class="element-header">
+                            <code>manifest_path</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>To store the path to a manifest file, if applicable.</p>
+                            <div class="documentation">
+                                This is currently null and presumably expected to hold a string path to a project's manifest file.
                             </div>
                         </div>
+                    </div>
                 </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
     <script src="../assets/script.js"></script>
-</body>
+<script>window.lineageData = {"nodes": [{"id": ".fluen/cache/state.json", "type": "current"}], "links": []};</script></body>
 </html>

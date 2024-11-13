@@ -1,129 +1,125 @@
 # fluen_config.yml
 
 **Language:** Unknown  
-**Last Modified:** 2024-11-03T10:06:46.988700
+**Last Modified:** 2024-11-13T17:50:50.689991
 
 ## Purpose
 
-This configuration file is designed to set up and control the behavior of a code documentation generator called Fluen, particularly by configuring the large language model (LLM) provider, specifying directories for output, cache, and temporary files, and providing project specific-settings.
+This configuration file is for setting up parameters for an application using GPT models via a provider like OpenAI.
 
 ## Public API
 
-- `llm.provider` (exposure)
-- `llm.api_key` (exposure)
-- `llm.model` (exposure)
-- `output_dir` (exposure)
-- `cache_dir` (exposure)
-- `temp_dir` (exposure)
-- `default_export_type` (exposure)
-- `project.name` (exposure)
-- `project.description` (exposure)
-- `project.ignore_patterns` (exposure)
+- `llm settings` (exposure)
+- `output directories` (exposure)
+- `cache directories` (exposure)
 
+## Dependencies
+
+- `openai` (external)
 
 ## Elements
 
 ### Variable
 
+#### `api_key`
+
+**Scope:** llm
+
+**Purpose:** Stores the API key for authentication.
+
+**Documentation:**
+
+Contains the secret API key used to authenticate requests to the LLM service.
+
 #### `cache_dir`
 
 **Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Specifies the directory where cache data is stored.
 
 **Documentation:**
 
-No documentation available
+Defines the location of the cache used by the application.
 
 #### `default_export_type`
 
 **Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Sets the default type for export operations.
 
 **Documentation:**
 
-No documentation available
+Specifies the format in which data will be exported, defaulting to &#39;html&#39;.
 
-#### `llm.api_key`
+#### `llm`
 
 **Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Configuration block for the language model (LLM) settings.
 
 **Documentation:**
 
-No documentation available
+Holds settings related to the interaction with the language model, including retries, model type, provider, and timeout.
 
-#### `llm.model`
+#### `max_retries`
 
-**Scope:** global
+**Scope:** llm
 
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `llm.provider`
-
-**Scope:** global
-
-**Purpose:** No purpose specified
+**Purpose:** Determines the number of retry attempts for a failed request.
 
 **Documentation:**
 
-No documentation available
+Specifies the number of times a request to the LLM can be retried upon failure.
+
+#### `model`
+
+**Scope:** llm
+
+**Purpose:** Defines the specific version of the model to use.
+
+**Documentation:**
+
+Indicates which version of the GPT model is to be used (gpt-4o).
 
 #### `output_dir`
 
 **Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Designates the output directory for exported data.
 
 **Documentation:**
 
-No documentation available
+The location where processed and exported data is saved.
 
-#### `project.description`
+#### `provider`
 
-**Scope:** global
+**Scope:** llm
 
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `project.ignore_patterns`
-
-**Scope:** global
-
-**Purpose:** No purpose specified
+**Purpose:** Specifies the LLM service provider.
 
 **Documentation:**
 
-No documentation available
-
-#### `project.name`
-
-**Scope:** global
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
+Dictates which service provider, such as OpenAI, will be supplying the LLM functionality.
 
 #### `temp_dir`
 
 **Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Defines the temporary directory for intermediate data.
 
 **Documentation:**
 
-No documentation available
+Stores temporary files used during the execution of the application.
+
+#### `timeout`
+
+**Scope:** llm
+
+**Purpose:** Sets the request timeout duration.
+
+**Documentation:**
+
+Specifies the maximum time in seconds to wait for a response from the LLM.
 
 
 [Back to Index](../README.md)

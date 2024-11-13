@@ -1,15 +1,17 @@
 # src/fluen/llm_providers/base_provider.py
 
 **Language:** Python  
-**Last Modified:** 2024-11-12T20:10:07.635726
+**Last Modified:** 2024-11-13T17:48:17.498187
 
 ## Purpose
 
-The primary purpose of the code is to define an abstract base class for a language model provider interface, specifying the methods that any derived class must implement.
+This code outlines an abstract base class for a language model provider interface. It defines the methods required for generating text from a prompt and obtaining text embeddings.
 
 ## Public API
 
 - `BaseLLMProvider` (exposure)
+- `generate` (exposure)
+- `get_embedding` (exposure)
 
 ## Dependencies
 
@@ -24,33 +26,33 @@ The primary purpose of the code is to define an abstract base class for a langua
 
 **Scope:** module
 
-**Purpose:** No purpose specified
+**Purpose:** To serve as an abstract base class for language model providers.
 
 **Documentation:**
 
-No documentation available
+BaseLLMProvider defines an interface for components that interact with language models. It enforces the implementation of two asynchronous methods: generate and get_embedding, for text generation and embedding extraction respectively.
 
 ### Method
 
 #### `generate`
 
-**Scope:** class
+**Scope:** BaseLLMProvider class
 
-**Purpose:** No purpose specified
+**Purpose:** Abstract method to generate text based on a prompt.
 
 **Documentation:**
 
-No documentation available
+The generate method should be implemented by subclasses to take a text prompt and return generated text, asynchronously.
 
 #### `get_embedding`
 
-**Scope:** class
+**Scope:** BaseLLMProvider class
 
-**Purpose:** No purpose specified
+**Purpose:** Abstract method to obtain text embeddings.
 
 **Documentation:**
 
-No documentation available
+The get_embedding method should be implemented by subclasses to convert input text into a list of floats representing the text&#39;s embedding, asynchronously.
 
 
 [Back to Index](../README.md)

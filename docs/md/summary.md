@@ -6,7 +6,7 @@
 
 ### JavaScript Files
 
-- [src/fluen/generator/templates/default/script.js](reference/src_fluen_generator_templates_default_script.js.md)
+- [src/fluen/generator/templates/default/static/script.js](reference/src_fluen_generator_templates_default_static_script.js.md)
 
 ### Python Files
 
@@ -30,6 +30,8 @@
 - [src/fluen/llm_providers/mistral_ai_provider.py](reference/src_fluen_llm_providers_mistral_ai_provider.py.md)
 - [src/fluen/llm_providers/ollama_provider.py](reference/src_fluen_llm_providers_ollama_provider.py.md)
 - [src/fluen/llm_providers/openai_provider.py](reference/src_fluen_llm_providers_openai_provider.py.md)
+- [src/fluen/models/__init__.py](reference/src_fluen_models___init__.py.md)
+- [src/fluen/models/scan.py](reference/src_fluen_models_scan.py.md)
 - [src/fluen/orchestrator.py](reference/src_fluen_orchestrator.py.md)
 - [src/fluen/state/__init__.py](reference/src_fluen_state___init__.py.md)
 - [src/fluen/state/manager.py](reference/src_fluen_state_manager.py.md)
@@ -44,12 +46,15 @@
 - [fluen_config.example.yml](reference/fluen_config.example.yml.md)
 - [fluen_config.yml](reference/fluen_config.yml.md)
 - [LICENSE](reference/LICENSE.md)
+- [README.md](reference/README.md.md)
 - [requirements.txt](reference/requirements.txt.md)
+- [src/fluen/generator/templates/default/html/empty.html](reference/src_fluen_generator_templates_default_html_empty.html.md)
 - [src/fluen/generator/templates/default/html/index.html](reference/src_fluen_generator_templates_default_html_index.html.md)
 - [src/fluen/generator/templates/default/html/reference.html](reference/src_fluen_generator_templates_default_html_reference.html.md)
 - [src/fluen/generator/templates/default/md/readme.md](reference/src_fluen_generator_templates_default_md_readme.md.md)
 - [src/fluen/generator/templates/default/md/reference.md](reference/src_fluen_generator_templates_default_md_reference.md.md)
-- [src/fluen/generator/templates/default/styles.css](reference/src_fluen_generator_templates_default_styles.css.md)
+- [src/fluen/generator/templates/default/md/summary.md](reference/src_fluen_generator_templates_default_md_summary.md.md)
+- [src/fluen/generator/templates/default/static/styles.css](reference/src_fluen_generator_templates_default_static_styles.css.md)
 
 
 ## Quick Links
@@ -61,7 +66,7 @@
 
 ### [.fluen/cache/state.json](reference/.fluen_cache_state.json.md)
 
-Represents metadata or a summary of a project&#39;s source code processing status.
+This JSON object represents metadata for a project, possibly for tracking purposes in version...
 
 **Public API:**
 - `files_processed` (exposure)
@@ -72,51 +77,54 @@ Represents metadata or a summary of a project&#39;s source code processing statu
 
 ### [LICENSE](reference/LICENSE.md)
 
-The primary purpose of this document is to define the conditions under which software may be...
+The primary purpose of this text is to provide the full terms and conditions of the Apache...
+
+
+### [README.md](reference/README.md.md)
+
+Fluen is a documentation generator powered by LLMs (Large Language Models). It creates...
 
 **Public API:**
-- `TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION` (exposure)
+- `fluen.docs.export` (exposure)
+- `fluen.docs.generate` (exposure)
+- `fluen_config.yml` (exposure)
 
 ### [fluen_config.example.yml](reference/fluen_config.example.yml.md)
 
-This configuration file is used for setting up and managing settings for a project named...
+Configuration file for the Fluen code documentation generator, allowing users to specify...
 
 **Public API:**
 - `cache_dir` (exposure)
 - `default_export_type` (exposure)
-- `llm` (exposure)
+- `llm:api_key` (exposure)
+- `llm:model` (exposure)
+- `llm:provider` (exposure)
 - `output_dir` (exposure)
-- `project` (exposure)
+- `project:description` (exposure)
+- `project:ignore_patterns` (exposure)
+- `project:name` (exposure)
 - `temp_dir` (exposure)
 
 ### [fluen_config.yml](reference/fluen_config.yml.md)
 
-This configuration file is designed to set up and control the behavior of a code documentation...
+This configuration file is for setting up parameters for an application using GPT models via a...
 
 **Public API:**
-- `cache_dir` (exposure)
-- `default_export_type` (exposure)
-- `llm.api_key` (exposure)
-- `llm.model` (exposure)
-- `llm.provider` (exposure)
-- `output_dir` (exposure)
-- `project.description` (exposure)
-- `project.ignore_patterns` (exposure)
-- `project.name` (exposure)
-- `temp_dir` (exposure)
+- `cache directories` (exposure)
+- `llm settings` (exposure)
+- `output directories` (exposure)
 
 ### [requirements.txt](reference/requirements.txt.md)
 
-This code represents a list of dependencies for a Python project. It specifies the external...
+This file lists the dependencies required for a Python project, including their specific versions.
 
 
 ### [setup.py](reference/setup.py.md)
 
-Sets up a Python package named &#39;fluen&#39;, configuring its metadata, dependencies, and entry points.
+This code serves as a setup script for a Python package named &#39;fluen&#39;. It defines the package...
 
 **Public API:**
-- `find_packages` (exposure)
-- `setup` (exposure)
+- `fluen.cli:cli` (exposure)
 
 ### [src/fluen/__init__.py](reference/src_fluen___init__.py.md)
 
@@ -130,21 +138,19 @@ Empty file or package marker
 
 ### [src/fluen/analyzer/file_analyzer.py](reference/src_fluen_analyzer_file_analyzer.py.md)
 
-Purpose not specified
+File in analyzer module
 
 
 ### [src/fluen/analyzer/project_analyzer.py](reference/src_fluen_analyzer_project_analyzer.py.md)
 
-The code provides functionality for analyzing a software project at a project level. It handles...
+Analyzes project files and manages full or incremental analysis based on git changes and state...
 
 **Public API:**
-- `ProjectAnalyzer.__init__` (exposure)
-- `ProjectAnalyzer.analyze` (exposure)
-- `ProjectAnalyzer.analyze_path` (exposure)
+- `ProjectAnalyzer` (exposure)
 
 ### [src/fluen/cli.py](reference/src_fluen_cli.py.md)
 
-This code defines a CLI application for generating and exporting code documentation using large...
+This code defines a command-line interface (CLI) application using Click, designed to handle...
 
 **Public API:**
 - `cli` (exposure)
@@ -154,7 +160,7 @@ This code defines a CLI application for generating and exporting code documentat
 
 ### [src/fluen/config.py](reference/src_fluen_config.py.md)
 
-This code defines configurations for a language model application, allowing for these...
+This code provides a configuration management system for an application that uses a large...
 
 **Public API:**
 - `FluenConfig` (exposure)
@@ -170,76 +176,110 @@ Empty file or package marker
 
 ### [src/fluen/generator/cross_referencer.py](reference/src_fluen_generator_cross_referencer.py.md)
 
-The code is designed to resolve cross-references between documentation elements and generate...
+The primary purpose of this code is to handle cross-referencing between documentation elements...
 
 **Public API:**
-- `CrossReferenceResolver` (exposure)
-- `Reference` (exposure)
+- `CrossReferenceResolver.__init__` (exposure)
+- `CrossReferenceResolver.generate_reference_graph` (exposure)
+- `CrossReferenceResolver.get_incoming_references` (exposure)
+- `CrossReferenceResolver.get_outgoing_references` (exposure)
+- `CrossReferenceResolver.resolve_references` (exposure)
 
 ### [src/fluen/generator/doc_generator.py](reference/src_fluen_generator_doc_generator.py.md)
 
-The primary purpose of this code is to manage the generation of documentation in HTML and...
+The primary purpose of this code is to generate project documentation in HTML and Markdown...
 
 **Public API:**
+- `BaseFormatGenerator` (exposure)
 - `DocumentationGenerator` (exposure)
-- `generate` (exposure)
 - `HTMLGenerator` (exposure)
 - `MarkdownGenerator` (exposure)
 
 ### [src/fluen/generator/manifest.py](reference/src_fluen_generator_manifest.py.md)
 
-The primary purpose of this code is to generate and manage a documentation manifest for a given...
+The primary purpose of this code is to generate a manifest file for a project, which includes...
 
 **Public API:**
 - `DependencyInfo` (exposure)
 - `ElementReference` (exposure)
 - `FileManifest` (exposure)
+- `FileRelationships` (exposure)
 - `ManifestGenerator` (exposure)
 - `ProjectManifest` (exposure)
 
-### [src/fluen/generator/templates/default/html/index.html](reference/src_fluen_generator_templates_default_html_index.html.md)
+### [src/fluen/generator/templates/default/html/empty.html](reference/src_fluen_generator_templates_default_html_empty.html.md)
 
-The primary purpose of this code is to generate a static HTML documentation page for a software...
+This HTML code serves as a static web page template for displaying project documentation, with...
 
 **Public API:**
-- `HTML structure with placeholders for project data` (exposure)
-- `Link to an external JavaScript file` (exposure)
-- `Link to an external stylesheet` (exposure)
-- `Project information such as primary language, frameworks, last update, and git commit` (exposure)
-- `Sidebar navigation menu with links to reference files` (exposure)
-- `Table of project dependencies with version and used-by information` (exposure)
+- `CSS for styling` (exposure)
+- `HTML structure elements` (exposure)
+- `JavaScript for dynamic behavior` (exposure)
+
+### [src/fluen/generator/templates/default/html/index.html](reference/src_fluen_generator_templates_default_html_index.html.md)
+
+The primary purpose of this code is to generate an HTML page for project documentation with a...
+
+**Public API:**
+- `dependencies-section` (exposure)
+- `main-content` (exposure)
+- `project-info` (exposure)
+- `search-input` (exposure)
+- `sidebar` (exposure)
 
 ### [src/fluen/generator/templates/default/html/reference.html](reference/src_fluen_generator_templates_default_html_reference.html.md)
 
-File in html module
+This HTML code serves as a template for generating a documentation page for a project file. It...
 
+**Public API:**
+- `dependencies-section` (exposure)
+- `element-navigation` (exposure)
+- `elements-section` (exposure)
+- `file-header` (exposure)
+- `lineage-section` (exposure)
+- `search-container` (exposure)
+- `sidebar-header` (exposure)
 
 ### [src/fluen/generator/templates/default/md/readme.md](reference/src_fluen_generator_templates_default_md_readme.md.md)
 
-The primary purpose of this code is to generate documentation for a project using templating. It...
+This code acts as a Jinja2 template for generating documentation for a software project. It...
 
 **Public API:**
-- `reference/` (exposure)
-- `Summary.md` (exposure)
+- `Dependencies` (exposure)
+- `Navigation` (exposure)
+- `Project Overview` (exposure)
+- `Project Structure` (exposure)
 
 ### [src/fluen/generator/templates/default/md/reference.md](reference/src_fluen_generator_templates_default_md_reference.md.md)
 
-This template is intended to generate documentation for a code file automatically. It outlines...
+This code serves as a template for generating documentation for a codebase, likely dynamically...
 
 **Public API:**
-- `{{ exposure.name }}` (exposure)
+- `exposed_class_1` (exposure)
+- `exposed_function_1` (exposure)
 
-### [src/fluen/generator/templates/default/script.js](reference/src_fluen_generator_templates_default_script.js.md)
+### [src/fluen/generator/templates/default/md/summary.md](reference/src_fluen_generator_templates_default_md_summary.md.md)
 
-This code implements a search functionality for documentation, and also highlights the current...
+This code is a template script for generating documentation for a project. It aims to create...
+
+**Public API:**
+- `Project Structure` (exposure)
+- `Quick Links` (exposure)
+- `README.md` (exposure)
+- `Reference Documentation` (exposure)
+- `{% set project_overview = &#39;Project Overview&#39; %}` (exposure)
+
+### [src/fluen/generator/templates/default/static/script.js](reference/src_fluen_generator_templates_default_static_script.js.md)
+
+The code provides functionality for searching documentation and visualizing data through a...
 
 **Public API:**
 - `DocumentationSearch` (exposure)
-- `highlightCurrentPage` (exposure)
+- `LineageGraph` (exposure)
 
-### [src/fluen/generator/templates/default/styles.css](reference/src_fluen_generator_templates_default_styles.css.md)
+### [src/fluen/generator/templates/default/static/styles.css](reference/src_fluen_generator_templates_default_static_styles.css.md)
 
-This code provides styles for a webpage layout that includes a sidebar, content area, and search...
+This CSS stylesheet is designed to provide a consistent and responsive layout for a web...
 
 **Public API:**
 - `*` (exposure)
@@ -247,39 +287,31 @@ This code provides styles for a webpage layout that includes a sidebar, content 
 - `.element` (exposure)
 - `.element-header` (exposure)
 - `.element-header code` (exposure)
-- `.file-group` (exposure)
-- `.file-group a` (exposure)
-- `.file-group a:hover` (exposure)
-- `.file-group h3` (exposure)
-- `.file-group li` (exposure)
-- `.file-group ul` (exposure)
-- `.metadata` (exposure)
+- `.lineage-graph` (exposure)
+- `.main-content` (exposure)
+- `.main-header` (exposure)
 - `.scope-badge` (exposure)
 - `.search-active .search-results` (exposure)
 - `.search-container` (exposure)
 - `.search-input` (exposure)
 - `.search-result-item` (exposure)
-- `.search-result-item:hover` (exposure)
 - `.search-results` (exposure)
 - `.sidebar` (exposure)
 - `.sidebar-content` (exposure)
 - `.sidebar-header` (exposure)
 - `.sidebar-header h1` (exposure)
-- `.sidebar-header p` (exposure)
+- `.sidebar-header h1 a` (exposure)
 - `.type-badge` (exposure)
 - `:root` (exposure)
+- `@media (max-width: 768px)` (exposure)
 - `body` (exposure)
 
 ### [src/fluen/generator/templates/template_manager.py](reference/src_fluen_generator_templates_template_manager.py.md)
 
-The primary purpose of the code is to manage the template system for documentation generation...
+The primary purpose of this code is to manage a template system for documentation generation...
 
 **Public API:**
-- `TemplateManager.__init__` (exposure)
-- `TemplateManager._detect_language` (exposure)
-- `TemplateManager._register_filters` (exposure)
-- `TemplateManager.get_default_context` (exposure)
-- `TemplateManager.render_template` (exposure)
+- `TemplateManager` (exposure)
 
 ### [src/fluen/git_integration/__init__.py](reference/src_fluen_git_integration___init__.py.md)
 
@@ -288,7 +320,7 @@ Empty file or package marker
 
 ### [src/fluen/git_integration/manager.py](reference/src_fluen_git_integration_manager.py.md)
 
-This module provides functionality for managing and analyzing Git repositories, including...
+The primary purpose of this code is to provide functionality for managing and analyzing Git...
 
 **Public API:**
 - `GitDiff` (exposure)
@@ -296,7 +328,7 @@ This module provides functionality for managing and analyzing Git repositories, 
 
 ### [src/fluen/llm_factory.py](reference/src_fluen_llm_factory.py.md)
 
-This code defines a factory class used to create instances of various LLM provider classes based...
+The primary purpose of this code is to provide a factory class, LLMProviderFactory, that creates...
 
 **Public API:**
 - `LLMProviderFactory` (exposure)
@@ -309,14 +341,16 @@ Empty file or package marker
 
 ### [src/fluen/llm_providers/base_provider.py](reference/src_fluen_llm_providers_base_provider.py.md)
 
-The primary purpose of the code is to define an abstract base class for a language model...
+This code outlines an abstract base class for a language model provider interface. It defines...
 
 **Public API:**
 - `BaseLLMProvider` (exposure)
+- `generate` (exposure)
+- `get_embedding` (exposure)
 
 ### [src/fluen/llm_providers/mistral_ai_provider.py](reference/src_fluen_llm_providers_mistral_ai_provider.py.md)
 
-The primary purpose of this code is to provide an implementation of the MistralAIProvider class...
+This code provides an implementation of a language model provider using the Mistral service. It...
 
 **Public API:**
 - `generate` (exposure)
@@ -325,22 +359,35 @@ The primary purpose of this code is to provide an implementation of the MistralA
 
 ### [src/fluen/llm_providers/ollama_provider.py](reference/src_fluen_llm_providers_ollama_provider.py.md)
 
-The code defines an asynchronous provider for interacting with an LLM service via HTTP API, with...
-
-**Public API:**
-- `OllamaProvider` (exposure)
-- `OllamaProvider.__init__` (exposure)
-- `OllamaProvider.generate` (exposure)
-- `OllamaProvider.get_embedding` (exposure)
-
-### [src/fluen/llm_providers/openai_provider.py](reference/src_fluen_llm_providers_openai_provider.py.md)
-
-The primary purpose of this code is to define an asynchronous provider class, OpenAIProvider,...
+The primary purpose of this code is to provide an implementation of a language model provider...
 
 **Public API:**
 - `generate` (exposure)
 - `get_embedding` (exposure)
+- `OllamaProvider` (exposure)
+
+### [src/fluen/llm_providers/openai_provider.py](reference/src_fluen_llm_providers_openai_provider.py.md)
+
+The primary purpose of this code is to serve as a provider for interacting with OpenAI&#39;s APIs to...
+
+**Public API:**
 - `OpenAIProvider` (exposure)
+
+### [src/fluen/models/__init__.py](reference/src_fluen_models___init__.py.md)
+
+Empty file or package marker
+
+
+### [src/fluen/models/scan.py](reference/src_fluen_models_scan.py.md)
+
+The code provides functionality for parsing, validating, and handling selectors for a scanning...
+
+**Public API:**
+- `ScanOptions` (exposure)
+- `ScanOptions.is_selective_scan` (exposure)
+- `ScanSelector` (exposure)
+- `ScanSelector.is_element_selector` (exposure)
+- `ScanSelector.is_path_selector` (exposure)
 
 ### [src/fluen/orchestrator.py](reference/src_fluen_orchestrator.py.md)
 
@@ -348,13 +395,8 @@ The primary purpose of this code is to orchestrate the process of generating doc
 
 **Public API:**
 - `main` (exposure)
-- `Orchestrator.__init__` (exposure)
-- `Orchestrator._create_llm_provider` (exposure)
-- `Orchestrator._generate_docs` (exposure)
-- `Orchestrator._initialize_repository` (exposure)
-- `Orchestrator._run_analysis` (exposure)
-- `Orchestrator.generate_documentation` (exposure)
-- `ProcessManager.run` (exposure)
+- `Orchestrator` (exposure)
+- `ProcessManager` (exposure)
 
 ### [src/fluen/state/__init__.py](reference/src_fluen_state___init__.py.md)
 
@@ -363,11 +405,16 @@ Empty file or package marker
 
 ### [src/fluen/state/manager.py](reference/src_fluen_state_manager.py.md)
 
-Manage the state of a documentation generation process by saving, loading, and updating progress...
+This module manages the state of a documentation generation process, allowing for saving,...
 
 **Public API:**
 - `DocumentationState` (exposure)
+- `load` (exposure)
+- `save` (exposure)
+- `set_manifest_path` (exposure)
 - `StateManager` (exposure)
+- `update_commit` (exposure)
+- `update_progress` (exposure)
 
 ### [src/fluen/tests/__init__.py](reference/src_fluen_tests___init__.py.md)
 
@@ -376,7 +423,7 @@ Empty file or package marker
 
 ### [src/fluen/tests/conftest.py](reference/src_fluen_tests_conftest.py.md)
 
-This code defines configuration and shared fixtures for PyTest to facilitate testing by setting...
+This code provides PyTest fixtures for setting up testing environments such as temporary file...
 
 **Public API:**
 - `mock_config` (exposure)
@@ -385,17 +432,16 @@ This code defines configuration and shared fixtures for PyTest to facilitate tes
 
 ### [src/fluen/tests/test_file_analyzer.py](reference/src_fluen_tests_test_file_analyzer.py.md)
 
-Tests for the file analysis functionality in a Python project using mock and asynchronous testing.
+Unit tests for file analysis functionality utilizing a mock LLM provider.
 
 **Public API:**
-- `mock_llm_provider` (exposure)
 - `test_analyze_binary_file` (exposure)
 - `test_analyze_file` (exposure)
 - `test_element_extraction` (exposure)
 
 ### [src/fluen/tests/test_git_manager.py](reference/src_fluen_tests_test_git_manager.py.md)
 
-This code provides test cases for the GitManager functionality, ensuring correct behavior of Git...
+Unit tests for verifying the functionality of GitManager and GitDiff classes for managing Git operations.
 
 **Public API:**
 - `test_get_changes_since_commit` (exposure)
@@ -405,5 +451,5 @@ This code provides test cases for the GitManager functionality, ensuring correct
 
 
 ---
-Generated on 2024-11-12T20:10:07.635990  
-Git commit: c529b8f6
+Generated on 2024-11-13T18:00:12.228147  
+Git commit: 9997683a

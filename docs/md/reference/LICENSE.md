@@ -1,120 +1,199 @@
 # LICENSE
 
 **Language:** Unknown  
-**Last Modified:** 2024-11-03T10:08:02.462404
+**Last Modified:** 2024-11-13T17:54:53.453123
 
 ## Purpose
 
-The primary purpose of this document is to define the conditions under which software may be used, reproduced, and distributed under the Apache License, Version 2.0.
+The primary purpose of this text is to provide the full terms and conditions of the Apache License, Version 2.0, which is a widely used open source software license.
 
-## Public API
-
-- `TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION` (exposure)
 
 
 ## Elements
+
+### Definition
+
+#### `Contribution`
+
+**Scope:** global
+
+**Purpose:** Denotes any work submitted to be included in the original work.
+
+**Documentation:**
+
+Work submitted for inclusion in the main work by a copyright owner or authorized entity.
+
+#### `Contributor`
+
+**Scope:** global
+
+**Purpose:** Identifies individuals or entities submitting contributions.
+
+**Documentation:**
+
+Entities or individuals granting rights to their contributions.
+
+#### `Derivative Works`
+
+**Scope:** global
+
+**Purpose:** Refers to works based on the original work.
+
+**Documentation:**
+
+Works that are modifications or extensions of the original work.
+
+#### `Legal Entity`
+
+**Scope:** global
+
+**Purpose:** Defines the entities controlled by or under common control with the acting entity.
+
+**Documentation:**
+
+Specifies the parties considered part of the &#39;entity&#39; in the context of the license.
+
+#### `License`
+
+**Scope:** global
+
+**Purpose:** Defines the scope and terms of the license.
+
+**Documentation:**
+
+License terms define conditions for use, reproduction, and distribution.
+
+#### `Licensor`
+
+**Scope:** global
+
+**Purpose:** Denotes the copyright owner or authorized entity granting the license.
+
+**Documentation:**
+
+Identifies the party granting rights under the license.
+
+#### `Object`
+
+**Scope:** global
+
+**Purpose:** Refers to any mechanically transformed form of the source.
+
+**Documentation:**
+
+Defines the form resulting from transformations like compilation.
+
+#### `Source`
+
+**Scope:** global
+
+**Purpose:** Refers to the preferred form for making modifications.
+
+**Documentation:**
+
+Defines what constitutes &#39;source&#39; form under the license.
+
+#### `Work`
+
+**Scope:** global
+
+**Purpose:** Defines the work under the license.
+
+**Documentation:**
+
+Work of authorship covered by the license, indicated by a copyright notice.
+
+#### `You`
+
+**Scope:** global
+
+**Purpose:** Refers to the individual or entity exercising permissions.
+
+**Documentation:**
+
+Identifies the party who is the licensee of rights under this license.
 
 ### Section
 
 #### `Accepting Warranty or Additional Liability`
 
-**Scope:** Document scope
+**Scope:** global
 
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `APPENDIX`
-
-**Scope:** Document scope
-
-**Purpose:** No purpose specified
+**Purpose:** Rules for offering warranty or liability.
 
 **Documentation:**
 
-No documentation available
-
-#### `Definitions`
-
-**Scope:** Document scope
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
+Allows redistributors to offer support or warranties at their own risk.
 
 #### `Disclaimer of Warranty`
 
-**Scope:** Document scope
+**Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Denies warranty and liability responsibilities.
 
 **Documentation:**
 
-No documentation available
+Offers the work &#39;as is&#39; with no warranties.
 
 #### `Grant of Copyright License`
 
-**Scope:** Document scope
+**Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Describes the copyright rights granted.
 
 **Documentation:**
 
-No documentation available
+Outlines permissions granted for reproduction, distribution, etc.
 
 #### `Grant of Patent License`
 
-**Scope:** Document scope
+**Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Describes the patent rights granted.
 
 **Documentation:**
 
-No documentation available
+Details rights regarding the use and sale of the work.
 
 #### `Limitation of Liability`
 
-**Scope:** Document scope
+**Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Limits liability for any damages that arise.
 
 **Documentation:**
 
-No documentation available
+Protects contributors from liability for damages incurred from using the work.
 
 #### `Redistribution`
 
-**Scope:** Document scope
+**Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Specifies terms for redistributing the work.
 
 **Documentation:**
 
-No documentation available
+Outlines conditions under which the work and derivatives can be redistributed.
 
 #### `Submission of Contributions`
 
-**Scope:** Document scope
+**Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Describes terms around contributions to the work.
 
 **Documentation:**
 
-No documentation available
+Defines terms for submitting contributions to the main work.
 
 #### `Trademarks`
 
-**Scope:** Document scope
+**Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Clarifies trademark rights.
 
 **Documentation:**
 
-No documentation available
+States that the license does not grant rights to use trademarks of the Licensor.
 
 
 [Back to Index](../README.md)

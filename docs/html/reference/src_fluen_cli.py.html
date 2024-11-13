@@ -4,264 +4,243 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>src/fluen/cli.py - fluen-core</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link href="../assets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
         </div>
-        
         <div class="sidebar-content">
-            <div class="file-info">
-                <p>Python</p>
-                <p>Last modified: 2024-11-12T21:49:36.589685</p>
-            </div>
-
             <div class="element-navigation">
-                    <div class="element-group">
-                        <h3>Class</h3>
-                        <ul>
-                                <li><a href="#fluencontext">FluenContext</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Variable</h3>
-                        <ul>
-                                <li><a href="#pass_fluen_context">pass_fluen_context</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Function</h3>
-                        <ul>
-                                <li><a href="#cli">cli</a></li>
-                                <li><a href="#docs">docs</a></li>
-                                <li><a href="#generate">generate</a></li>
-                                <li><a href="#run_generation">run_generation</a></li>
-                                <li><a href="#export">export</a></li>
-                                <li><a href="#run_export">run_export</a></li>
-                        </ul>
-                    </div>
+                <div class="element-group">
+                    <h3>Class</h3>
+                    <ul>
+                        <li>
+                            <a href="#fluencontext">
+                                FluenContext
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Variable</h3>
+                    <ul>
+                        <li>
+                            <a href="#pass_fluen_context">
+                                pass_fluen_context
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Function</h3>
+                    <ul>
+                        <li>
+                            <a href="#cli">
+                                cli
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#docs">
+                                docs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#generate">
+                                generate
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#export">
+                                export
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <main class="content">
-        <div class="file-header">
-            <h1>src/fluen/cli.py</h1>
-            <div class="metadata">
-                <span>Language: Python</span>
-                <span>Last Modified: 2024-11-12T21:49:36.589685</span>
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
             </div>
-        </div>
+        </header>
 
-        <section class="file-purpose">
-            <h2>Purpose</h2>
-            <p>This script is a command-line interface (CLI) tool for generating and exporting code documentation using a language model approach. It provides commands to generate documentation for a codebase and export it in different formats.</p>
-        </section>
+        <main class="content">
+            <div class="file-header">
+                <h1>src/fluen/cli.py</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Python</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:52:16.642966</p>
+                </div>
+            </div>
 
-            <section class="exposures">
-                <h2>Public API</h2>
-                <ul class="exposure-list">
-                        <li>
-                            <code>cli</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>docs</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>generate</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>export</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                </ul>
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>This code defines a command-line interface (CLI) application using Click, designed to handle documentation generation and export tasks for a codebase, leveraging configuration data and interacting with a progression-enabled console output.</p>
             </section>
 
-            <section class="dependencies">
+            <section class="dependencies-section">
                 <h2>Dependencies</h2>
                 <ul class="dependency-list">
-                        <li>
-                            <span class="dep-name">click</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">pathlib</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">typing</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">fluen.config.FluenConfig</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">rich.console.Console</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">rich.progress.Progress</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">rich.progress.SpinnerColumn</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">rich.progress.TextColumn</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">rich.progress.BarColumn</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">asyncio</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">fluen.orchestrator.Orchestrator</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">fluen.models.scan.ScanSelector</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">fluen.models.scan.ScanOptions</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">.generator.doc_generator.DocumentationGenerator</span>
-                            <span class="type-badge">internal</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">.generator.templates.template_manager.TemplateManager</span>
-                            <span class="type-badge">internal</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">.generator.manifest.ManifestGenerator</span>
-                            <span class="type-badge">internal</span>
-                        </li>
+                    <li>
+                        <span class="dep-name">click</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">pathlib</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">typing</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">fluen.config.FluenConfig</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">rich.console.Console</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">rich.progress.Progress</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">fluen.orchestrator.Orchestrator</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">fluen.models.scan.ScanSelector</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">fluen.models.scan.ScanOptions</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">asyncio</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">fluen.generator.doc_generator.DocumentationGenerator</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">fluen.generator.templates.template_manager.TemplateManager</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">fluen.generator.manifest.ManifestGenerator</span>
+                        <span class="type-badge">external</span>
+                    </li>
                 </ul>
             </section>
 
-        <section class="elements">
-            <h2>Elements</h2>
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
+
+            <section class="elements-section">
+                <h2>Elements</h2>
                 <div class="element-type-section">
                     <h3>Class</h3>
-                        <div class="element" id="fluencontext">
-                            <div class="element-header">
-                                <code>FluenContext</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose">Holds the context information required for the CLI commands, such as configuration and console output settings.</p>
-                                <div class="documentation">
-                                    Initializes with optional FluenConfig, default configuration path, a Rich console instance, and scan options.
-                                </div>
+                    <div id="fluencontext" class="element">
+                        <div class="element-header">
+                            <code>FluenContext</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Stores the configuration, console, and scan options relevant to the Fluen CLI commands.</p>
+                            <div class="documentation">
+                                A context object used in Click to maintain state across CLI commands. It initializes with a configuration file path, a console for rich text output, and optional scan options.
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div class="element-type-section">
                     <h3>Variable</h3>
-                        <div class="element" id="pass_fluen_context">
-                            <div class="element-header">
-                                <code>pass_fluen_context</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose">A Click decorator that ensures the FluenContext instance is passed to CLI command callbacks.</p>
-                                <div class="documentation">
-                                    Uses click.make_pass_decorator on FluenContext with ensure=True.
-                                </div>
+                    <div id="pass_fluen_context" class="element">
+                        <div class="element-header">
+                            <code>pass_fluen_context</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Decorator to pass FluenContext instance to Click command functions.</p>
+                            <div class="documentation">
+                                This Click decorator passes a FluenContext object to functions, ensuring an instance is available for command operations.
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div class="element-type-section">
                     <h3>Function</h3>
-                        <div class="element" id="cli">
-                            <div class="element-header">
-                                <code>cli</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose">Main command group for the CLI tool.</p>
-                                <div class="documentation">
-                                    Provides the entry point for the CLI, handling configuration file setup and directory initialization.
-                                </div>
+                    <div id="cli" class="element">
+                        <div class="element-header">
+                            <code>cli</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Root command group for the CLI tool.</p>
+                            <div class="documentation">
+                                Defines the main command group for the CLI application. It sets up the configuration based on user input or default values.
                             </div>
                         </div>
-                        <div class="element" id="docs">
-                            <div class="element-header">
-                                <code>docs</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose">Command group for documentation-related actions.</p>
-                                <div class="documentation">
-                                    Serves as a holder for commands related to documentation generation and export.
-                                </div>
+                    </div>
+                    <div id="docs" class="element">
+                        <div class="element-header">
+                            <code>docs</code>
+                            <span class="scope-badge">cli</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Sub-command group for documentation related commands.</p>
+                            <div class="documentation">
+                                Serves as a parent group for documentation commands like 'generate' and 'export'.
                             </div>
                         </div>
-                        <div class="element" id="generate">
-                            <div class="element-header">
-                                <code>generate</code>
-                                    <span class="scope-badge">docs</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose">Generates documentation for the specified codebase.</p>
-                                <div class="documentation">
-                                    Handles initialization of scan options, execution of the documentation generation process through an orchestrator, and reporting progress.
-                                </div>
+                    </div>
+                    <div id="generate" class="element">
+                        <div class="element-header">
+                            <code>generate</code>
+                            <span class="scope-badge">docs</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Generates documentation for the provided codebase and outputs progress.</p>
+                            <div class="documentation">
+                                Handles the generation of documentation, managing repository and scan options. Utilizes an orchestrator for the generation process and provides progress updates via rich console.
                             </div>
                         </div>
-                        <div class="element" id="run_generation">
-                            <div class="element-header">
-                                <code>run_generation</code>
-                                    <span class="scope-badge">generate</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose">Async function to run the documentation generation process.</p>
-                                <div class="documentation">
-                                    Uses Rich's Progress to show progress of the documentation generation, reporting success or failure.
-                                </div>
+                    </div>
+                    <div id="export" class="element">
+                        <div class="element-header">
+                            <code>export</code>
+                            <span class="scope-badge">docs</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Exports generated documentation into specified formats like HTML or Markdown.</p>
+                            <div class="documentation">
+                                Manages the exportation of documentation based on a manifest, using a progress bar to indicate stages such as manifest loading, template initialization, and export generation.
                             </div>
                         </div>
-                        <div class="element" id="export">
-                            <div class="element-header">
-                                <code>export</code>
-                                    <span class="scope-badge">docs</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose">Exports generated documentation to the specified format and location.</p>
-                                <div class="documentation">
-                                    Validates if documentation manifest exists, initializes necessary components, and performs the export if possible.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="element" id="run_export">
-                            <div class="element-header">
-                                <code>run_export</code>
-                                    <span class="scope-badge">export</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose">Async function to handle the exportation process of the documentation.</p>
-                                <div class="documentation">
-                                    Coordinates the export process using documentation generator based on the selected output format and directory.
-                                </div>
-                            </div>
-                        </div>
+                    </div>
                 </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
     <script src="../assets/script.js"></script>
-</body>
+<script>window.lineageData = {"nodes": [{"id": "src/fluen/cli.py", "type": "current"}], "links": []};</script></body>
 </html>
