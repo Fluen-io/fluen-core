@@ -1,11 +1,11 @@
 # src/fluen/llm_providers/openai_provider.py
 
 **Language:** Python  
-**Last Modified:** 2024-11-03T10:04:58.858032
+**Last Modified:** 2024-11-12T20:10:07.635858
 
 ## Purpose
 
-The primary purpose of this code is to create an asynchronous provider for interacting with OpenAI&#39;s API, specifically for generating text completions and embeddings.
+The primary purpose of this code is to define an asynchronous provider class, OpenAIProvider, that interacts with the OpenAI API to generate text completions and obtain text embeddings using specified models.
 
 ## Public API
 
@@ -15,9 +15,11 @@ The primary purpose of this code is to create an asynchronous provider for inter
 
 ## Dependencies
 
-- `openai` (external)
-- `typing` (external)
-- `.base_provider` (internal)
+- `openai.AsyncOpenAI` (external)
+- `typing.List` (external)
+- `typing.Dict` (external)
+- `typing.Any` (external)
+- `.base_provider.BaseLLMProvider` (internal)
 
 ## Elements
 
@@ -25,6 +27,7 @@ The primary purpose of this code is to create an asynchronous provider for inter
 
 #### `OpenAIProvider`
 
+**Scope:** global
 
 **Purpose:** No purpose specified
 
@@ -36,6 +39,7 @@ No documentation available
 
 #### `__init__`
 
+**Scope:** OpenAIProvider
 
 **Purpose:** No purpose specified
 
@@ -45,6 +49,7 @@ No documentation available
 
 #### `generate`
 
+**Scope:** OpenAIProvider
 
 **Purpose:** No purpose specified
 
@@ -54,6 +59,7 @@ No documentation available
 
 #### `get_embedding`
 
+**Scope:** OpenAIProvider
 
 **Purpose:** No purpose specified
 
@@ -63,9 +69,9 @@ No documentation available
 
 ### Variable
 
-#### `self.client`
+#### `client`
 
-**Scope:** instance
+**Scope:** OpenAIProvider
 
 **Purpose:** No purpose specified
 
@@ -73,9 +79,9 @@ No documentation available
 
 No documentation available
 
-#### `self.model`
+#### `model`
 
-**Scope:** instance
+**Scope:** OpenAIProvider
 
 **Purpose:** No purpose specified
 

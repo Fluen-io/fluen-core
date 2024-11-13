@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Optional
 import logging
 import time
+from fluen.models.scan import ScanOptions, ScanSelector
 from fluen.llm_providers.base_provider import BaseLLMProvider
 from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TaskID
@@ -33,7 +34,9 @@ class Orchestrator:
         self.state_manager = StateManager(self.config.cache_dir)
         self.template_manager = TemplateManager()
 
-    async def generate_documentation(self, repo_url: Optional[str] = None) -> bool:
+    async def generate_documentation(self, 
+                                   repo_url: Optional[str] = None,
+                                   scan_options: Optional[ScanOptions] = None) -> bool:
         """Main documentation generation process."""
         try:
             with Progress(
@@ -41,42 +44,81 @@ class Orchestrator:
                 TextColumn("[progress.description]{task.description}"),
                 BarColumn(),
                 TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
-                console=self.console
+                console=self.console,
+                expand=True,
+                transient=False  # Keep finished tasks visible
             ) as progress:
-                # Initialize repository
-                init_task = progress.add_task("Initializing repository...", total=None)
-                if not await self._initialize_repository(repo_url):
-                    return False
-                progress.remove_task(init_task)
+                # Single overall progress task
+                overall_task = progress.add_task(
+                    "[cyan]Generating documentation...",
+                    total=100
+                )
 
-                # Initialize components
-                analyze_task = progress.add_task("Analyzing codebase...", total=100)
-                
+                # Initialize repository (10% of progress)
+                progress.update(overall_task, description="[cyan]Initializing repository...")
+                if not await self._initialize_repository(repo_url):
+                    progress.update(
+                        overall_task,
+                        description="[red]Repository initialization failed!",
+                        completed=100
+                    )
+                    return False
+                progress.update(overall_task, completed=10)
+
+                # Initialize components for analysis
                 manifest_generator = ManifestGenerator(
-                    self.git_manager.repo_path,
+                    Path(self.git_manager.repo_path),
                     self.config.output_dir
                 )
                 
                 file_analyzer = FileAnalyzer(self._create_llm_provider())
                 
+                # Setup project analyzer with progress callback (80% of progress)
+                progress.update(overall_task, description="[cyan]Analyzing codebase...")
+                
+                def analysis_progress(current: int, total: int):
+                    if total > 0:
+                        # Scale progress to fit in the 10-90 range (80% of total)
+                        percentage = (current / total * 80) + 10
+                        progress.update(overall_task, completed=percentage)
+
                 project_analyzer = ProjectAnalyzer(
                     Path(self.git_manager.repo_path),
                     self.git_manager,
                     self.state_manager,
                     file_analyzer,
-                    manifest_generator
+                    manifest_generator,
+                    progress_callback=analysis_progress
                 )
 
-                # Analyze project
-                if not await self._run_analysis(project_analyzer, progress, analyze_task):
+                # Run analysis based on scan options
+                analysis_success = False
+                if scan_options and scan_options.is_selective_scan:
+                    analysis_success = await project_analyzer.analyze_path(
+                        Path(scan_options.selector.value),
+                        force=scan_options.selector.force
+                    )
+                else:
+                    force = scan_options.selector.force if scan_options else False
+                    analysis_success = await project_analyzer.analyze(force=force)
+
+                if not analysis_success:
+                    progress.update(
+                        overall_task,
+                        description="[red]Analysis failed!",
+                        completed=100
+                    )
                     return False
 
-                # Generate documentation
-                doc_task = progress.add_task("Generating documentation...", total=100)
-                if not await self._generate_docs(manifest_generator.manifest, progress, doc_task):
-                    return False
+                # Update progress for successful analysis
+                progress.update(
+                    overall_task,
+                    description="[green]Analysis complete! Documentation manifest generated and saved.",
+                    completed=100
+                )
 
-                self.console.print("\n✨ Documentation generated successfully!")
+                self.console.print("\n✨ Documentation generation complete!")
+                self.console.print(f"📚 Manifest output directory: {self.config.output_dir}")
                 return True
 
         except Exception as e:
@@ -114,6 +156,27 @@ class Orchestrator:
             self.logger.error(f"Analysis failed: {e}")
             return False
 
+    async def _run_selective_analysis(self,
+                                    analyzer: ProjectAnalyzer,
+                                    selector: ScanSelector,
+                                    progress: Progress,
+                                    task_id: TaskID) -> bool:
+        """Run selective analysis based on scan selector."""
+        try:
+            if selector.is_path_selector:
+                force = getattr(selector, 'force', False)  # Get force flag from selector
+                return await analyzer.analyze_path(
+                    Path(selector.value),
+                    force=force
+                )
+            elif selector.is_element_selector:
+                self.logger.warning("Element-based scanning not yet implemented")
+                return False
+            return False
+        except Exception as e:
+            self.logger.error(f"Selective analysis failed: {e}")
+            return False
+    
     async def _generate_docs(self,
                            manifest: 'ProjectManifest',
                            progress: Progress,

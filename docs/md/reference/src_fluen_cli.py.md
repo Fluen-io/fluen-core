@@ -1,11 +1,11 @@
 # src/fluen/cli.py
 
 **Language:** Python  
-**Last Modified:** 2024-11-03T10:06:10.841510
+**Last Modified:** 2024-11-12T19:21:12.795352
 
 ## Purpose
 
-This code implements a command-line interface (CLI) for generating and exporting documentation for codebases using an LLM-based approach. It leverages the Click library for creating commands and includes options for specifying configurations and output formats.
+This code defines a CLI application for generating and exporting code documentation using large language models (LLMs).
 
 ## Public API
 
@@ -17,8 +17,8 @@ This code implements a command-line interface (CLI) for generating and exporting
 ## Dependencies
 
 - `click` (external)
-- `pathlib.Path` (external)
-- `typing.Optional` (external)
+- `pathlib` (external)
+- `typing` (external)
 - `fluen.config.FluenConfig` (external)
 - `rich.console.Console` (external)
 - `rich.progress.Progress` (external)
@@ -27,6 +27,8 @@ This code implements a command-line interface (CLI) for generating and exporting
 - `rich.progress.BarColumn` (external)
 - `asyncio` (external)
 - `fluen.orchestrator.Orchestrator` (external)
+- `fluen.models.scan.ScanSelector` (external)
+- `fluen.models.scan.ScanOptions` (external)
 
 ## Elements
 
@@ -34,7 +36,6 @@ This code implements a command-line interface (CLI) for generating and exporting
 
 #### `FluenContext`
 
-**Scope:** global
 
 **Purpose:** No purpose specified
 
@@ -46,7 +47,6 @@ No documentation available
 
 #### `cli`
 
-**Scope:** global
 
 **Purpose:** No purpose specified
 
@@ -56,7 +56,6 @@ No documentation available
 
 #### `docs`
 
-**Scope:** within CLI
 
 **Purpose:** No purpose specified
 
@@ -66,7 +65,6 @@ No documentation available
 
 #### `export`
 
-**Scope:** within docs
 
 **Purpose:** No purpose specified
 
@@ -76,27 +74,6 @@ No documentation available
 
 #### `generate`
 
-**Scope:** within docs
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `run_export`
-
-**Scope:** within export
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `run_generation`
-
-**Scope:** within generate
 
 **Purpose:** No purpose specified
 
@@ -108,7 +85,6 @@ No documentation available
 
 #### `pass_fluen_context`
 
-**Scope:** global
 
 **Purpose:** No purpose specified
 

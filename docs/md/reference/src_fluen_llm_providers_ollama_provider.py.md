@@ -1,22 +1,25 @@
 # src/fluen/llm_providers/ollama_provider.py
 
 **Language:** Python  
-**Last Modified:** 2024-11-03T10:05:48.728722
+**Last Modified:** 2024-11-12T20:10:07.635917
 
 ## Purpose
 
-The primary purpose of this code is to interact with a language model API for generating text completions and obtaining text embeddings using asynchronous HTTP calls.
+The code defines an asynchronous provider for interacting with an LLM service via HTTP API, with methods to generate text completions and obtain text embeddings.
 
 ## Public API
 
 - `OllamaProvider` (exposure)
+- `OllamaProvider.__init__` (exposure)
+- `OllamaProvider.generate` (exposure)
+- `OllamaProvider.get_embedding` (exposure)
 
 ## Dependencies
 
 - `json` (external)
 - `aiohttp` (external)
 - `typing` (external)
-- `base_provider.BaseLLMProvider` (external)
+- `.base_provider` (internal)
 
 ## Elements
 
@@ -24,7 +27,6 @@ The primary purpose of this code is to interact with a language model API for ge
 
 #### `OllamaProvider`
 
-**Scope:** global
 
 **Purpose:** No purpose specified
 

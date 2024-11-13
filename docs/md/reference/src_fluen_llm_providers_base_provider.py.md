@@ -1,11 +1,11 @@
 # src/fluen/llm_providers/base_provider.py
 
 **Language:** Python  
-**Last Modified:** 2024-11-03T10:07:16.175258
+**Last Modified:** 2024-11-12T20:10:07.635726
 
 ## Purpose
 
-The primary purpose of this code is to define an abstract base class for an LLM (Large Language Model) provider, specifying the necessary methods that any LLM provider implementation must include.
+The primary purpose of the code is to define an abstract base class for a language model provider interface, specifying the methods that any derived class must implement.
 
 ## Public API
 
@@ -22,7 +22,7 @@ The primary purpose of this code is to define an abstract base class for an LLM 
 
 #### `BaseLLMProvider`
 
-**Scope:** global
+**Scope:** module
 
 **Purpose:** No purpose specified
 
@@ -34,7 +34,7 @@ No documentation available
 
 #### `generate`
 
-**Scope:** BaseLLMProvider
+**Scope:** class
 
 **Purpose:** No purpose specified
 
@@ -44,7 +44,7 @@ No documentation available
 
 #### `get_embedding`
 
-**Scope:** BaseLLMProvider
+**Scope:** class
 
 **Purpose:** No purpose specified
 

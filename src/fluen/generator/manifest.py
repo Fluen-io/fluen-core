@@ -26,6 +26,8 @@ class ElementReference:
     file_path: str
     line_number: int
     scope: Optional[str] = None
+    purpose: Optional[str] = None
+    documentation: Optional[str] = None
 
 @dataclass
 class FileManifest:
@@ -109,6 +111,8 @@ class ManifestGenerator:
                 ElementReference(
                     name=elem.name,
                     type=elem.type,
+                    purpose=elem.purpose,
+                    documentation=elem.documentation,
                     file_path=relative_path,
                     line_number=elem.line_number,
                     scope=elem.scope
@@ -142,10 +146,10 @@ class ManifestGenerator:
             else:
                 # Update existing dependency usage
                 existing_dep = self.manifest.dependencies[dep.name]
-                if not existing_dep.used_by:
-                    existing_dep.used_by = []
-                if file_manifest.path not in existing_dep.used_by:
-                    existing_dep.used_by.append(file_manifest.path)
+                if not existing_dep['used_by']:
+                    existing_dep['used_by'] = []
+                if file_manifest.path not in existing_dep['used_by']:
+                    existing_dep['used_by'].append(file_manifest.path)
 
     def save(self) -> bool:
         """Save the current manifest to file."""

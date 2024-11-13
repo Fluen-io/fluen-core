@@ -28,7 +28,15 @@ class DocumentationGenerator:
                 return False
 
             generator = self._get_generator(format_type)
-            return await generator.generate()
+            success = await generator.generate()
+            
+            if not success:
+                self.logger.error("Documentation generation failed")
+                return False
+                
+            self.logger.info("Documentation generation completed successfully")
+            return True
+            
         except Exception as e:
             self.logger.error(f"Documentation generation failed: {e}")
             return False

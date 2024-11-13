@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>src/fluen/llm_providers/mistral_ai_provider.py - fluen-core</title>
+    <title>fluen_config.example.yml - fluen-core</title>
     <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
@@ -14,31 +14,20 @@
         
         <div class="sidebar-content">
             <div class="file-info">
-                <p>Python</p>
-                <p>Last modified: 2024-11-12T20:10:07.635960</p>
+                <p>Unknown</p>
+                <p>Last modified: 2024-11-03T10:08:29.803278</p>
             </div>
 
             <div class="element-navigation">
                     <div class="element-group">
-                        <h3>Class</h3>
-                        <ul>
-                                <li><a href="#mistralaiprovider">MistralAIProvider</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Method</h3>
-                        <ul>
-                                <li><a href="#__init__">__init__</a></li>
-                                <li><a href="#generate">generate</a></li>
-                                <li><a href="#get_embedding">get_embedding</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
                         <h3>Variable</h3>
                         <ul>
-                                <li><a href="#config">config</a></li>
-                                <li><a href="#prompt">prompt</a></li>
-                                <li><a href="#text">text</a></li>
+                                <li><a href="#llm">llm</a></li>
+                                <li><a href="#output_dir">output_dir</a></li>
+                                <li><a href="#cache_dir">cache_dir</a></li>
+                                <li><a href="#temp_dir">temp_dir</a></li>
+                                <li><a href="#default_export_type">default_export_type</a></li>
+                                <li><a href="#project">project</a></li>
                         </ul>
                     </div>
             </div>
@@ -47,61 +36,56 @@
 
     <main class="content">
         <div class="file-header">
-            <h1>src/fluen/llm_providers/mistral_ai_provider.py</h1>
+            <h1>fluen_config.example.yml</h1>
             <div class="metadata">
-                <span>Language: Python</span>
-                <span>Last Modified: 2024-11-12T20:10:07.635960</span>
+                <span>Language: Unknown</span>
+                <span>Last Modified: 2024-11-03T10:08:29.803278</span>
             </div>
         </div>
 
         <section class="file-purpose">
             <h2>Purpose</h2>
-            <p>The primary purpose of this code is to provide an implementation of the MistralAIProvider class for interacting with the Mistral API, facilitating text generation and embedding retrieval.</p>
+            <p>This configuration file is used for setting up and managing settings for a project named &#39;Fluen&#39;, which appears to be a code documentation generator utilizing Large Language Models (LLMs).</p>
         </section>
 
             <section class="exposures">
                 <h2>Public API</h2>
                 <ul class="exposure-list">
                         <li>
-                            <code>MistralAIProvider</code>
+                            <code>llm</code>
                             <span class="type-badge">exposure</span>
                         </li>
                         <li>
-                            <code>generate</code>
+                            <code>output_dir</code>
                             <span class="type-badge">exposure</span>
                         </li>
                         <li>
-                            <code>get_embedding</code>
+                            <code>cache_dir</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>temp_dir</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>default_export_type</code>
+                            <span class="type-badge">exposure</span>
+                        </li>
+                        <li>
+                            <code>project</code>
                             <span class="type-badge">exposure</span>
                         </li>
                 </ul>
             </section>
 
-            <section class="dependencies">
-                <h2>Dependencies</h2>
-                <ul class="dependency-list">
-                        <li>
-                            <span class="dep-name">typing</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">mistralai</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">base_provider</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                </ul>
-            </section>
 
         <section class="elements">
             <h2>Elements</h2>
                 <div class="element-type-section">
-                    <h3>Class</h3>
-                        <div class="element" id="mistralaiprovider">
+                    <h3>Variable</h3>
+                        <div class="element" id="llm">
                             <div class="element-header">
-                                <code>MistralAIProvider</code>
+                                <code>llm</code>
                                     <span class="scope-badge">global</span>
                             </div>
                             <div class="element-content">
@@ -111,13 +95,10 @@
                                 </div>
                             </div>
                         </div>
-                </div>
-                <div class="element-type-section">
-                    <h3>Method</h3>
-                        <div class="element" id="__init__">
+                        <div class="element" id="output_dir">
                             <div class="element-header">
-                                <code>__init__</code>
-                                    <span class="scope-badge">class</span>
+                                <code>output_dir</code>
+                                    <span class="scope-badge">global</span>
                             </div>
                             <div class="element-content">
                                 <p class="purpose"></p>
@@ -126,10 +107,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="element" id="generate">
+                        <div class="element" id="cache_dir">
                             <div class="element-header">
-                                <code>generate</code>
-                                    <span class="scope-badge">class</span>
+                                <code>cache_dir</code>
+                                    <span class="scope-badge">global</span>
                             </div>
                             <div class="element-content">
                                 <p class="purpose"></p>
@@ -138,10 +119,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="element" id="get_embedding">
+                        <div class="element" id="temp_dir">
                             <div class="element-header">
-                                <code>get_embedding</code>
-                                    <span class="scope-badge">class</span>
+                                <code>temp_dir</code>
+                                    <span class="scope-badge">global</span>
                             </div>
                             <div class="element-content">
                                 <p class="purpose"></p>
@@ -150,13 +131,10 @@
                                 </div>
                             </div>
                         </div>
-                </div>
-                <div class="element-type-section">
-                    <h3>Variable</h3>
-                        <div class="element" id="config">
+                        <div class="element" id="default_export_type">
                             <div class="element-header">
-                                <code>config</code>
-                                    <span class="scope-badge">method</span>
+                                <code>default_export_type</code>
+                                    <span class="scope-badge">global</span>
                             </div>
                             <div class="element-content">
                                 <p class="purpose"></p>
@@ -165,22 +143,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="element" id="prompt">
+                        <div class="element" id="project">
                             <div class="element-header">
-                                <code>prompt</code>
-                                    <span class="scope-badge">method</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="element" id="text">
-                            <div class="element-header">
-                                <code>text</code>
-                                    <span class="scope-badge">method</span>
+                                <code>project</code>
+                                    <span class="scope-badge">global</span>
                             </div>
                             <div class="element-content">
                                 <p class="purpose"></p>

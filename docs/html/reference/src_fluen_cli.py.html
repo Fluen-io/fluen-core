@@ -15,7 +15,7 @@
         <div class="sidebar-content">
             <div class="file-info">
                 <p>Python</p>
-                <p>Last modified: 2024-11-03T10:06:10.841510</p>
+                <p>Last modified: 2024-11-12T21:49:36.589685</p>
             </div>
 
             <div class="element-navigation">
@@ -51,13 +51,13 @@
             <h1>src/fluen/cli.py</h1>
             <div class="metadata">
                 <span>Language: Python</span>
-                <span>Last Modified: 2024-11-03T10:06:10.841510</span>
+                <span>Last Modified: 2024-11-12T21:49:36.589685</span>
             </div>
         </div>
 
         <section class="file-purpose">
             <h2>Purpose</h2>
-            <p>This code implements a command-line interface (CLI) for generating and exporting documentation for codebases using an LLM-based approach. It leverages the Click library for creating commands and includes options for specifying configurations and output formats.</p>
+            <p>This script is a command-line interface (CLI) tool for generating and exporting code documentation using a language model approach. It provides commands to generate documentation for a codebase and export it in different formats.</p>
         </section>
 
             <section class="exposures">
@@ -90,11 +90,11 @@
                             <span class="type-badge">external</span>
                         </li>
                         <li>
-                            <span class="dep-name">pathlib.Path</span>
+                            <span class="dep-name">pathlib</span>
                             <span class="type-badge">external</span>
                         </li>
                         <li>
-                            <span class="dep-name">typing.Optional</span>
+                            <span class="dep-name">typing</span>
                             <span class="type-badge">external</span>
                         </li>
                         <li>
@@ -129,6 +129,26 @@
                             <span class="dep-name">fluen.orchestrator.Orchestrator</span>
                             <span class="type-badge">external</span>
                         </li>
+                        <li>
+                            <span class="dep-name">fluen.models.scan.ScanSelector</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">fluen.models.scan.ScanOptions</span>
+                            <span class="type-badge">external</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">.generator.doc_generator.DocumentationGenerator</span>
+                            <span class="type-badge">internal</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">.generator.templates.template_manager.TemplateManager</span>
+                            <span class="type-badge">internal</span>
+                        </li>
+                        <li>
+                            <span class="dep-name">.generator.manifest.ManifestGenerator</span>
+                            <span class="type-badge">internal</span>
+                        </li>
                 </ul>
             </section>
 
@@ -142,9 +162,9 @@
                                     <span class="scope-badge">global</span>
                             </div>
                             <div class="element-content">
-                                <p class="purpose"></p>
+                                <p class="purpose">Holds the context information required for the CLI commands, such as configuration and console output settings.</p>
                                 <div class="documentation">
-                                    
+                                    Initializes with optional FluenConfig, default configuration path, a Rich console instance, and scan options.
                                 </div>
                             </div>
                         </div>
@@ -157,9 +177,9 @@
                                     <span class="scope-badge">global</span>
                             </div>
                             <div class="element-content">
-                                <p class="purpose"></p>
+                                <p class="purpose">A Click decorator that ensures the FluenContext instance is passed to CLI command callbacks.</p>
                                 <div class="documentation">
-                                    
+                                    Uses click.make_pass_decorator on FluenContext with ensure=True.
                                 </div>
                             </div>
                         </div>
@@ -172,69 +192,69 @@
                                     <span class="scope-badge">global</span>
                             </div>
                             <div class="element-content">
-                                <p class="purpose"></p>
+                                <p class="purpose">Main command group for the CLI tool.</p>
                                 <div class="documentation">
-                                    
+                                    Provides the entry point for the CLI, handling configuration file setup and directory initialization.
                                 </div>
                             </div>
                         </div>
                         <div class="element" id="docs">
                             <div class="element-header">
                                 <code>docs</code>
-                                    <span class="scope-badge">within CLI</span>
+                                    <span class="scope-badge">global</span>
                             </div>
                             <div class="element-content">
-                                <p class="purpose"></p>
+                                <p class="purpose">Command group for documentation-related actions.</p>
                                 <div class="documentation">
-                                    
+                                    Serves as a holder for commands related to documentation generation and export.
                                 </div>
                             </div>
                         </div>
                         <div class="element" id="generate">
                             <div class="element-header">
                                 <code>generate</code>
-                                    <span class="scope-badge">within docs</span>
+                                    <span class="scope-badge">docs</span>
                             </div>
                             <div class="element-content">
-                                <p class="purpose"></p>
+                                <p class="purpose">Generates documentation for the specified codebase.</p>
                                 <div class="documentation">
-                                    
+                                    Handles initialization of scan options, execution of the documentation generation process through an orchestrator, and reporting progress.
                                 </div>
                             </div>
                         </div>
                         <div class="element" id="run_generation">
                             <div class="element-header">
                                 <code>run_generation</code>
-                                    <span class="scope-badge">within generate</span>
+                                    <span class="scope-badge">generate</span>
                             </div>
                             <div class="element-content">
-                                <p class="purpose"></p>
+                                <p class="purpose">Async function to run the documentation generation process.</p>
                                 <div class="documentation">
-                                    
+                                    Uses Rich's Progress to show progress of the documentation generation, reporting success or failure.
                                 </div>
                             </div>
                         </div>
                         <div class="element" id="export">
                             <div class="element-header">
                                 <code>export</code>
-                                    <span class="scope-badge">within docs</span>
+                                    <span class="scope-badge">docs</span>
                             </div>
                             <div class="element-content">
-                                <p class="purpose"></p>
+                                <p class="purpose">Exports generated documentation to the specified format and location.</p>
                                 <div class="documentation">
-                                    
+                                    Validates if documentation manifest exists, initializes necessary components, and performs the export if possible.
                                 </div>
                             </div>
                         </div>
                         <div class="element" id="run_export">
                             <div class="element-header">
                                 <code>run_export</code>
-                                    <span class="scope-badge">within export</span>
+                                    <span class="scope-badge">export</span>
                             </div>
                             <div class="element-content">
-                                <p class="purpose"></p>
+                                <p class="purpose">Async function to handle the exportation process of the documentation.</p>
                                 <div class="documentation">
-                                    
+                                    Coordinates the export process using documentation generator based on the selected output format and directory.
                                 </div>
                             </div>
                         </div>

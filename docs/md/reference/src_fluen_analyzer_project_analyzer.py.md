@@ -1,26 +1,22 @@
 # src/fluen/analyzer/project_analyzer.py
 
 **Language:** Python  
-**Last Modified:** 2024-11-03T10:07:35.327673
+**Last Modified:** 2024-11-12T20:03:09.037153
 
 ## Purpose
 
-The code provides a mechanism for analyzing a software project, performing either a full analysis or an incremental analysis based on recent file changes, and updates the project&#39;s manifest accordingly.
+The code provides functionality for analyzing a software project at a project level. It handles both full project analysis and incremental updates using Git changes, coordinating file level analysis and manifest updating.
 
 ## Public API
 
-- `ProjectAnalyzer` (exposure)
 - `ProjectAnalyzer.__init__` (exposure)
 - `ProjectAnalyzer.analyze` (exposure)
-- `ProjectAnalyzer._analyze_batch` (exposure)
-- `ProjectAnalyzer._perform_full_analysis` (exposure)
-- `ProjectAnalyzer._perform_incremental_update` (exposure)
-- `ProjectAnalyzer._get_analyzable_files` (exposure)
-- `ProjectAnalyzer._analyze_file` (exposure)
+- `ProjectAnalyzer.analyze_path` (exposure)
 
 ## Dependencies
 
 - `pathlib.Path` (external)
+- `typing.Callable` (external)
 - `typing.Dict` (external)
 - `typing.List` (external)
 - `typing.Optional` (external)
@@ -49,19 +45,9 @@ No documentation available
 
 ### Method
 
-#### `__init__`
+#### `ProjectAnalyzer.__init__`
 
-**Scope:** ProjectAnalyzer
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `_analyze_batch`
-
-**Scope:** ProjectAnalyzer
+**Scope:** class
 
 **Purpose:** No purpose specified
 
@@ -69,19 +55,9 @@ No documentation available
 
 No documentation available
 
-#### `_analyze_file`
+#### `ProjectAnalyzer._analyze_batch`
 
-**Scope:** ProjectAnalyzer
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `_get_analyzable_files`
-
-**Scope:** ProjectAnalyzer
+**Scope:** private
 
 **Purpose:** No purpose specified
 
@@ -89,19 +65,9 @@ No documentation available
 
 No documentation available
 
-#### `_perform_full_analysis`
+#### `ProjectAnalyzer._analyze_file`
 
-**Scope:** ProjectAnalyzer
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `_perform_incremental_update`
-
-**Scope:** ProjectAnalyzer
+**Scope:** private
 
 **Purpose:** No purpose specified
 
@@ -109,21 +75,9 @@ No documentation available
 
 No documentation available
 
-#### `analyze`
+#### `ProjectAnalyzer._get_analyzable_files`
 
-**Scope:** ProjectAnalyzer
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-### Variable
-
-#### `batch_delay`
-
-**Scope:** ProjectAnalyzer
+**Scope:** private
 
 **Purpose:** No purpose specified
 
@@ -131,9 +85,39 @@ No documentation available
 
 No documentation available
 
-#### `batch_size`
+#### `ProjectAnalyzer._perform_full_analysis`
 
-**Scope:** ProjectAnalyzer
+**Scope:** private
+
+**Purpose:** No purpose specified
+
+**Documentation:**
+
+No documentation available
+
+#### `ProjectAnalyzer._perform_incremental_update`
+
+**Scope:** private
+
+**Purpose:** No purpose specified
+
+**Documentation:**
+
+No documentation available
+
+#### `ProjectAnalyzer.analyze`
+
+**Scope:** class
+
+**Purpose:** No purpose specified
+
+**Documentation:**
+
+No documentation available
+
+#### `ProjectAnalyzer.analyze_path`
+
+**Scope:** class
 
 **Purpose:** No purpose specified
 

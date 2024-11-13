@@ -24,7 +24,21 @@
     "GitPython",
     "yaml",
     "YAML format for configuration",
-    "None"
+    "None",
+    "Asyncio",
+    "Click - for CLI interaction",
+    "Rich - for enhanced console output and progress indicators",
+    "Asyncio - for asynchronous execution within command functions",
+    "click",
+    "pathlib",
+    "Python logging",
+    "possibly custom-framework (fluen)",
+    "asyncio framework for asynchronous programming in Python",
+    "Python standard library features such as abstract base classes and type hints",
+    "openai-py",
+    "Python typing",
+    "aiohttp",
+    "AsyncIO"
   ],
   "files": {
     "src/fluen/generator/cross_referencer.py": {
@@ -208,7 +222,7 @@
     "src/fluen/llm_providers/openai_provider.py": {
       "path": "src/fluen/llm_providers/openai_provider.py",
       "language": "Python",
-      "purpose": "The primary purpose of this code is to create an asynchronous provider for interacting with OpenAI's API, specifically for generating text completions and embeddings.",
+      "purpose": "The primary purpose of this code is to define an asynchronous provider class, OpenAIProvider, that interacts with the OpenAI API to generate text completions and obtain text embeddings using specified models.",
       "exposures": [
         {
           "name": "OpenAIProvider",
@@ -234,24 +248,34 @@
       ],
       "dependencies": [
         {
-          "name": "openai",
+          "name": "openai.AsyncOpenAI",
           "type": "external",
           "version": null,
           "used_by": null
         },
         {
-          "name": "typing",
+          "name": "typing.List",
           "type": "external",
           "version": null,
           "used_by": null
         },
         {
-          "name": ".base_provider",
+          "name": "typing.Dict",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing.Any",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": ".base_provider.BaseLLMProvider",
           "type": "internal",
           "version": null,
-          "used_by": [
-            "src/fluen/llm_providers/mistral_ai_provider.py"
-          ]
+          "used_by": null
         }
       ],
       "elements": [
@@ -260,49 +284,50 @@
           "type": "class",
           "file_path": "src/fluen/llm_providers/openai_provider.py",
           "line_number": 6,
-          "scope": null
+          "scope": "global"
         },
         {
           "name": "__init__",
           "type": "method",
           "file_path": "src/fluen/llm_providers/openai_provider.py",
           "line_number": 7,
-          "scope": null
+          "scope": "OpenAIProvider"
         },
         {
           "name": "generate",
           "type": "method",
           "file_path": "src/fluen/llm_providers/openai_provider.py",
           "line_number": 12,
-          "scope": null
+          "scope": "OpenAIProvider"
         },
         {
           "name": "get_embedding",
           "type": "method",
           "file_path": "src/fluen/llm_providers/openai_provider.py",
           "line_number": 18,
-          "scope": null
+          "scope": "OpenAIProvider"
         },
         {
-          "name": "self.client",
+          "name": "client",
           "type": "variable",
           "file_path": "src/fluen/llm_providers/openai_provider.py",
           "line_number": 8,
-          "scope": "instance"
+          "scope": "OpenAIProvider"
         },
         {
-          "name": "self.model",
+          "name": "model",
           "type": "variable",
           "file_path": "src/fluen/llm_providers/openai_provider.py",
           "line_number": 9,
-          "scope": "instance"
+          "scope": "OpenAIProvider"
         }
       ],
       "framework_hints": [
+        "openai-py",
         "asyncio",
-        "OpenAI API client"
+        "Python typing"
       ],
-      "last_modified": "2024-11-03T10:04:58.858032"
+      "last_modified": "2024-11-12T20:10:07.635858"
     },
     "requirements.txt": {
       "path": "requirements.txt",
@@ -692,10 +717,24 @@
     "src/fluen/llm_providers/mistral_ai_provider.py": {
       "path": "src/fluen/llm_providers/mistral_ai_provider.py",
       "language": "Python",
-      "purpose": "This code defines a provider class for interacting with the Mistral API to generate text and obtain text embeddings asynchronously.",
+      "purpose": "The primary purpose of this code is to provide an implementation of the MistralAIProvider class for interacting with the Mistral API, facilitating text generation and embedding retrieval.",
       "exposures": [
         {
           "name": "MistralAIProvider",
+          "type": "exposure",
+          "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "generate",
+          "type": "exposure",
+          "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "get_embedding",
           "type": "exposure",
           "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
           "line_number": 0,
@@ -716,8 +755,8 @@
           "used_by": null
         },
         {
-          "name": ".base_provider",
-          "type": "internal",
+          "name": "base_provider",
+          "type": "external",
           "version": null,
           "used_by": null
         }
@@ -735,46 +774,46 @@
           "type": "method",
           "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
           "line_number": 7,
-          "scope": "MistralAIProvider"
-        },
-        {
-          "name": "generate",
-          "type": "method",
-          "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
-          "line_number": 12,
-          "scope": "MistralAIProvider"
-        },
-        {
-          "name": "get_embedding",
-          "type": "method",
-          "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
-          "line_number": 22,
-          "scope": "MistralAIProvider"
+          "scope": "class"
         },
         {
           "name": "config",
           "type": "variable",
           "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
           "line_number": 7,
-          "scope": "local to __init__"
+          "scope": "method"
         },
         {
-          "name": "client",
-          "type": "variable",
+          "name": "generate",
+          "type": "method",
           "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
-          "line_number": 8,
-          "scope": "class-level in MistralAIProvider"
+          "line_number": 11,
+          "scope": "class"
         },
         {
-          "name": "model",
+          "name": "prompt",
           "type": "variable",
           "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
-          "line_number": 9,
-          "scope": "class-level in MistralAIProvider"
+          "line_number": 11,
+          "scope": "method"
+        },
+        {
+          "name": "get_embedding",
+          "type": "method",
+          "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
+          "line_number": 20,
+          "scope": "class"
+        },
+        {
+          "name": "text",
+          "type": "variable",
+          "file_path": "src/fluen/llm_providers/mistral_ai_provider.py",
+          "line_number": 20,
+          "scope": "method"
         }
       ],
       "framework_hints": [],
-      "last_modified": "2024-11-03T10:05:37.739994"
+      "last_modified": "2024-11-12T20:10:07.635960"
     },
     "src/fluen/git_integration/__init__.py": {
       "path": "src/fluen/git_integration/__init__.py",
@@ -789,10 +828,31 @@
     "src/fluen/llm_providers/ollama_provider.py": {
       "path": "src/fluen/llm_providers/ollama_provider.py",
       "language": "Python",
-      "purpose": "The primary purpose of this code is to interact with a language model API for generating text completions and obtaining text embeddings using asynchronous HTTP calls.",
+      "purpose": "The code defines an asynchronous provider for interacting with an LLM service via HTTP API, with methods to generate text completions and obtain text embeddings.",
       "exposures": [
         {
           "name": "OllamaProvider",
+          "type": "exposure",
+          "file_path": "src/fluen/llm_providers/ollama_provider.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "OllamaProvider.__init__",
+          "type": "exposure",
+          "file_path": "src/fluen/llm_providers/ollama_provider.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "OllamaProvider.generate",
+          "type": "exposure",
+          "file_path": "src/fluen/llm_providers/ollama_provider.py",
+          "line_number": 0,
+          "scope": null
+        },
+        {
+          "name": "OllamaProvider.get_embedding",
           "type": "exposure",
           "file_path": "src/fluen/llm_providers/ollama_provider.py",
           "line_number": 0,
@@ -804,11 +864,7 @@
           "name": "json",
           "type": "external",
           "version": null,
-          "used_by": [
-            "src/fluen/state/manager.py",
-            "src/fluen/generator/manifest.py",
-            "src/fluen/analyzer/file_analyzer.py"
-          ]
+          "used_by": null
         },
         {
           "name": "aiohttp",
@@ -823,8 +879,8 @@
           "used_by": null
         },
         {
-          "name": "base_provider.BaseLLMProvider",
-          "type": "external",
+          "name": ".base_provider",
+          "type": "internal",
           "version": null,
           "used_by": null
         }
@@ -834,64 +890,64 @@
           "name": "OllamaProvider",
           "type": "class",
           "file_path": "src/fluen/llm_providers/ollama_provider.py",
-          "line_number": 6,
-          "scope": "global"
+          "line_number": 7,
+          "scope": null
         },
         {
           "name": "__init__",
           "type": "method",
           "file_path": "src/fluen/llm_providers/ollama_provider.py",
-          "line_number": 7,
+          "line_number": 8,
           "scope": "OllamaProvider"
         },
         {
           "name": "generate",
           "type": "method",
           "file_path": "src/fluen/llm_providers/ollama_provider.py",
-          "line_number": 14,
+          "line_number": 15,
           "scope": "OllamaProvider"
         },
         {
           "name": "get_embedding",
           "type": "method",
           "file_path": "src/fluen/llm_providers/ollama_provider.py",
-          "line_number": 27,
+          "line_number": 26,
           "scope": "OllamaProvider"
         },
         {
           "name": "api_base_url",
           "type": "variable",
           "file_path": "src/fluen/llm_providers/ollama_provider.py",
-          "line_number": 8,
+          "line_number": 9,
           "scope": "OllamaProvider"
         },
         {
           "name": "model",
           "type": "variable",
           "file_path": "src/fluen/llm_providers/ollama_provider.py",
-          "line_number": 9,
+          "line_number": 10,
           "scope": "OllamaProvider"
         },
         {
           "name": "max_retries",
           "type": "variable",
           "file_path": "src/fluen/llm_providers/ollama_provider.py",
-          "line_number": 10,
+          "line_number": 11,
           "scope": "OllamaProvider"
         },
         {
           "name": "timeout",
           "type": "variable",
           "file_path": "src/fluen/llm_providers/ollama_provider.py",
-          "line_number": 11,
+          "line_number": 12,
           "scope": "OllamaProvider"
         }
       ],
       "framework_hints": [
-        "asyncio",
-        "aiohttp (for async HTTP requests)"
+        "aiohttp",
+        "asyncio"
       ],
-      "last_modified": "2024-11-03T10:05:48.728722"
+      "last_modified": "2024-11-12T20:10:07.635917"
     },
     "src/fluen/llm_factory.py": {
       "path": "src/fluen/llm_factory.py",
@@ -1341,35 +1397,43 @@
     "src/fluen/cli.py": {
       "path": "src/fluen/cli.py",
       "language": "Python",
-      "purpose": "This code implements a command-line interface (CLI) for generating and exporting documentation for codebases using an LLM-based approach. It leverages the Click library for creating commands and includes options for specifying configurations and output formats.",
+      "purpose": "This code is a command-line interface (CLI) tool for generating and exporting code documentation using an LLM-based approach via the Fluen library.",
       "exposures": [
         {
           "name": "cli",
           "type": "exposure",
           "file_path": "src/fluen/cli.py",
           "line_number": 0,
-          "scope": null
-        },
-        {
-          "name": "docs",
-          "type": "exposure",
-          "file_path": "src/fluen/cli.py",
-          "line_number": 0,
-          "scope": null
+          "scope": null,
+          "purpose": null,
+          "documentation": null
         },
         {
           "name": "generate",
           "type": "exposure",
           "file_path": "src/fluen/cli.py",
           "line_number": 0,
-          "scope": null
+          "scope": null,
+          "purpose": null,
+          "documentation": null
         },
         {
           "name": "export",
           "type": "exposure",
           "file_path": "src/fluen/cli.py",
           "line_number": 0,
-          "scope": null
+          "scope": null,
+          "purpose": null,
+          "documentation": null
+        },
+        {
+          "name": "FluenContext",
+          "type": "exposure",
+          "file_path": "src/fluen/cli.py",
+          "line_number": 0,
+          "scope": null,
+          "purpose": null,
+          "documentation": null
         }
       ],
       "dependencies": [
@@ -1395,62 +1459,76 @@
           "name": "fluen.config.FluenConfig",
           "type": "external",
           "version": null,
-          "used_by": [
-            "src/fluen/orchestrator.py"
-          ]
+          "used_by": null
         },
         {
           "name": "rich.console.Console",
           "type": "external",
           "version": null,
-          "used_by": [
-            "src/fluen/orchestrator.py"
-          ]
+          "used_by": null
         },
         {
           "name": "rich.progress.Progress",
           "type": "external",
           "version": null,
-          "used_by": [
-            "src/fluen/orchestrator.py"
-          ]
+          "used_by": null
         },
         {
           "name": "rich.progress.SpinnerColumn",
           "type": "external",
           "version": null,
-          "used_by": [
-            "src/fluen/orchestrator.py"
-          ]
+          "used_by": null
         },
         {
           "name": "rich.progress.TextColumn",
           "type": "external",
           "version": null,
-          "used_by": [
-            "src/fluen/orchestrator.py"
-          ]
+          "used_by": null
         },
         {
           "name": "rich.progress.BarColumn",
           "type": "external",
           "version": null,
-          "used_by": [
-            "src/fluen/orchestrator.py"
-          ]
+          "used_by": null
         },
         {
           "name": "asyncio",
           "type": "external",
           "version": null,
-          "used_by": [
-            "src/fluen/orchestrator.py",
-            "src/fluen/analyzer/project_analyzer.py",
-            "src/fluen/analyzer/file_analyzer.py"
-          ]
+          "used_by": null
         },
         {
           "name": "fluen.orchestrator.Orchestrator",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.models.scan.ScanSelector",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.models.scan.ScanOptions",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.generator.doc_generator.DocumentationGenerator",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.generator.templates.template_manager.TemplateManager",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "fluen.generator.manifest.ManifestGenerator",
           "type": "external",
           "version": null,
           "used_by": null
@@ -1461,65 +1539,63 @@
           "name": "FluenContext",
           "type": "class",
           "file_path": "src/fluen/cli.py",
-          "line_number": 14,
-          "scope": "global"
+          "line_number": 10,
+          "scope": "global",
+          "purpose": "Context object to retain configuration and various states throughout the CLI operations.",
+          "documentation": "Holds configuration path and data, console object for output, and scan options."
         },
         {
           "name": "pass_fluen_context",
           "type": "variable",
           "file_path": "src/fluen/cli.py",
-          "line_number": 21,
-          "scope": "global"
+          "line_number": 18,
+          "scope": "global",
+          "purpose": "Click decorator to inject FluenContext into command functions.",
+          "documentation": "Uses click's make_pass_decorator to create a context-pass decorator for commands."
         },
         {
           "name": "cli",
           "type": "function",
           "file_path": "src/fluen/cli.py",
-          "line_number": 23,
-          "scope": "global"
+          "line_number": 20,
+          "scope": "global",
+          "purpose": "Entry point for the CLI; initializes configuration.",
+          "documentation": "Defines the main CLI group and handles the loading of configurations when launched with a config path."
         },
         {
           "name": "docs",
           "type": "function",
           "file_path": "src/fluen/cli.py",
-          "line_number": 32,
-          "scope": "within CLI"
+          "line_number": 29,
+          "scope": "global",
+          "purpose": "Defines a sub-command group under the CLI for documentation-related actions.",
+          "documentation": "Serves as a placeholder for all commands related to documentation generation and export."
         },
         {
           "name": "generate",
           "type": "function",
           "file_path": "src/fluen/cli.py",
-          "line_number": 37,
-          "scope": "within docs"
-        },
-        {
-          "name": "run_generation",
-          "type": "function",
-          "file_path": "src/fluen/cli.py",
-          "line_number": 43,
-          "scope": "within generate"
+          "line_number": 34,
+          "scope": "global",
+          "purpose": "Command to generate code documentation for a codebase.",
+          "documentation": "Initializes scanning options and triggers the orchestrator to generate documentation. It makes use of async tasks to manage progress display and report success or failure."
         },
         {
           "name": "export",
           "type": "function",
           "file_path": "src/fluen/cli.py",
-          "line_number": 77,
-          "scope": "within docs"
-        },
-        {
-          "name": "run_export",
-          "type": "function",
-          "file_path": "src/fluen/cli.py",
-          "line_number": 109,
-          "scope": "within export"
+          "line_number": 79,
+          "scope": "global",
+          "purpose": "Command to export generated documentation to a specified format.",
+          "documentation": "Loads an existing manifest, initializes necessary components, and triggers the export process with progress reporting."
         }
       ],
       "framework_hints": [
-        "Click",
-        "Rich",
+        "click",
+        "rich",
         "asyncio"
       ],
-      "last_modified": "2024-11-03T10:06:10.841510"
+      "last_modified": "2024-11-12T22:32:40.027764"
     },
     "src/fluen/state/manager.py": {
       "path": "src/fluen/state/manager.py",
@@ -2280,7 +2356,7 @@
       "dependencies": [],
       "elements": [],
       "framework_hints": [],
-      "last_modified": "2024-11-03T10:06:48.991805"
+      "last_modified": "2024-11-12T20:10:07.635650"
     },
     "src/fluen/tests/test_file_analyzer.py": {
       "path": "src/fluen/tests/test_file_analyzer.py",
@@ -2398,7 +2474,7 @@
     "src/fluen/llm_providers/base_provider.py": {
       "path": "src/fluen/llm_providers/base_provider.py",
       "language": "Python",
-      "purpose": "The primary purpose of this code is to define an abstract base class for an LLM (Large Language Model) provider, specifying the necessary methods that any LLM provider implementation must include.",
+      "purpose": "The primary purpose of the code is to define an abstract base class for a language model provider interface, specifying the methods that any derived class must implement.",
       "exposures": [
         {
           "name": "BaseLLMProvider",
@@ -2427,28 +2503,28 @@
           "name": "BaseLLMProvider",
           "type": "class",
           "file_path": "src/fluen/llm_providers/base_provider.py",
-          "line_number": 5,
-          "scope": "global"
+          "line_number": 6,
+          "scope": "module"
         },
         {
           "name": "generate",
           "type": "method",
           "file_path": "src/fluen/llm_providers/base_provider.py",
-          "line_number": 7,
-          "scope": "BaseLLMProvider"
+          "line_number": 8,
+          "scope": "class"
         },
         {
           "name": "get_embedding",
           "type": "method",
           "file_path": "src/fluen/llm_providers/base_provider.py",
-          "line_number": 10,
-          "scope": "BaseLLMProvider"
+          "line_number": 12,
+          "scope": "class"
         }
       ],
       "framework_hints": [
-        "asyncio"
+        "Python standard library features such as abstract base classes and type hints"
       ],
-      "last_modified": "2024-11-03T10:07:16.175258"
+      "last_modified": "2024-11-12T20:10:07.635726"
     },
     "src/fluen/generator/manifest.py": {
       "path": "src/fluen/generator/manifest.py",
@@ -2893,15 +2969,8 @@
     "src/fluen/analyzer/project_analyzer.py": {
       "path": "src/fluen/analyzer/project_analyzer.py",
       "language": "Python",
-      "purpose": "The code provides a mechanism for analyzing a software project, performing either a full analysis or an incremental analysis based on recent file changes, and updates the project's manifest accordingly.",
+      "purpose": "The code provides functionality for analyzing a software project at a project level. It handles both full project analysis and incremental updates using Git changes, coordinating file level analysis and manifest updating.",
       "exposures": [
-        {
-          "name": "ProjectAnalyzer",
-          "type": "exposure",
-          "file_path": "src/fluen/analyzer/project_analyzer.py",
-          "line_number": 0,
-          "scope": null
-        },
         {
           "name": "ProjectAnalyzer.__init__",
           "type": "exposure",
@@ -2917,35 +2986,7 @@
           "scope": null
         },
         {
-          "name": "ProjectAnalyzer._analyze_batch",
-          "type": "exposure",
-          "file_path": "src/fluen/analyzer/project_analyzer.py",
-          "line_number": 0,
-          "scope": null
-        },
-        {
-          "name": "ProjectAnalyzer._perform_full_analysis",
-          "type": "exposure",
-          "file_path": "src/fluen/analyzer/project_analyzer.py",
-          "line_number": 0,
-          "scope": null
-        },
-        {
-          "name": "ProjectAnalyzer._perform_incremental_update",
-          "type": "exposure",
-          "file_path": "src/fluen/analyzer/project_analyzer.py",
-          "line_number": 0,
-          "scope": null
-        },
-        {
-          "name": "ProjectAnalyzer._get_analyzable_files",
-          "type": "exposure",
-          "file_path": "src/fluen/analyzer/project_analyzer.py",
-          "line_number": 0,
-          "scope": null
-        },
-        {
-          "name": "ProjectAnalyzer._analyze_file",
+          "name": "ProjectAnalyzer.analyze_path",
           "type": "exposure",
           "file_path": "src/fluen/analyzer/project_analyzer.py",
           "line_number": 0,
@@ -2955,6 +2996,12 @@
       "dependencies": [
         {
           "name": "pathlib.Path",
+          "type": "external",
+          "version": null,
+          "used_by": null
+        },
+        {
+          "name": "typing.Callable",
           "type": "external",
           "version": null,
           "used_by": null
@@ -3031,78 +3078,70 @@
           "name": "ProjectAnalyzer",
           "type": "class",
           "file_path": "src/fluen/analyzer/project_analyzer.py",
-          "line_number": 16,
+          "line_number": 18,
           "scope": "global"
         },
         {
-          "name": "__init__",
+          "name": "ProjectAnalyzer.__init__",
           "type": "method",
           "file_path": "src/fluen/analyzer/project_analyzer.py",
-          "line_number": 17,
-          "scope": "ProjectAnalyzer"
+          "line_number": 19,
+          "scope": "class"
         },
         {
-          "name": "analyze",
+          "name": "ProjectAnalyzer.analyze",
           "type": "method",
           "file_path": "src/fluen/analyzer/project_analyzer.py",
-          "line_number": 28,
-          "scope": "ProjectAnalyzer"
+          "line_number": 31,
+          "scope": "class"
         },
         {
-          "name": "_perform_full_analysis",
+          "name": "ProjectAnalyzer._analyze_batch",
           "type": "method",
           "file_path": "src/fluen/analyzer/project_analyzer.py",
-          "line_number": 65,
-          "scope": "ProjectAnalyzer"
+          "line_number": 53,
+          "scope": "private"
         },
         {
-          "name": "_perform_incremental_update",
+          "name": "ProjectAnalyzer._perform_full_analysis",
+          "type": "method",
+          "file_path": "src/fluen/analyzer/project_analyzer.py",
+          "line_number": 71,
+          "scope": "private"
+        },
+        {
+          "name": "ProjectAnalyzer._perform_incremental_update",
           "type": "method",
           "file_path": "src/fluen/analyzer/project_analyzer.py",
           "line_number": 134,
-          "scope": "ProjectAnalyzer"
+          "scope": "private"
         },
         {
-          "name": "_analyze_batch",
+          "name": "ProjectAnalyzer._get_analyzable_files",
           "type": "method",
           "file_path": "src/fluen/analyzer/project_analyzer.py",
-          "line_number": 48,
-          "scope": "ProjectAnalyzer"
+          "line_number": 192,
+          "scope": "private"
         },
         {
-          "name": "_get_analyzable_files",
+          "name": "ProjectAnalyzer._analyze_file",
           "type": "method",
           "file_path": "src/fluen/analyzer/project_analyzer.py",
-          "line_number": 196,
-          "scope": "ProjectAnalyzer"
+          "line_number": 208,
+          "scope": "private"
         },
         {
-          "name": "_analyze_file",
+          "name": "ProjectAnalyzer.analyze_path",
           "type": "method",
           "file_path": "src/fluen/analyzer/project_analyzer.py",
-          "line_number": 211,
-          "scope": "ProjectAnalyzer"
-        },
-        {
-          "name": "batch_size",
-          "type": "variable",
-          "file_path": "src/fluen/analyzer/project_analyzer.py",
-          "line_number": 25,
-          "scope": "ProjectAnalyzer"
-        },
-        {
-          "name": "batch_delay",
-          "type": "variable",
-          "file_path": "src/fluen/analyzer/project_analyzer.py",
-          "line_number": 26,
-          "scope": "ProjectAnalyzer"
+          "line_number": 219,
+          "scope": "class"
         }
       ],
       "framework_hints": [
-        "asyncio for asynchronous operations",
-        "logging for error and process logging"
+        "asyncio framework for asynchronous programming in Python"
       ],
-      "last_modified": "2024-11-03T10:07:35.327673"
+      "last_modified": "2024-11-12T20:03:09.037153"
     },
     "src/fluen/git_integration/manager.py": {
       "path": "src/fluen/git_integration/manager.py",
@@ -3342,79 +3381,12 @@
     "src/fluen/analyzer/file_analyzer.py": {
       "path": "src/fluen/analyzer/file_analyzer.py",
       "language": "Python",
-      "purpose": "File in analyzer module",
+      "purpose": "Purpose not specified",
       "exposures": [],
-      "dependencies": [
-        {
-          "name": "pathlib",
-          "type": "external",
-          "version": null,
-          "used_by": null
-        },
-        {
-          "name": "re",
-          "type": "external",
-          "version": null,
-          "used_by": null
-        },
-        {
-          "name": "typing",
-          "type": "external",
-          "version": null,
-          "used_by": null
-        },
-        {
-          "name": "dataclasses",
-          "type": "external",
-          "version": null,
-          "used_by": null
-        },
-        {
-          "name": "logging",
-          "type": "external",
-          "version": null,
-          "used_by": null
-        },
-        {
-          "name": "mimetypes",
-          "type": "external",
-          "version": null,
-          "used_by": null
-        },
-        {
-          "name": "json",
-          "type": "external",
-          "version": null,
-          "used_by": null
-        },
-        {
-          "name": "asyncio",
-          "type": "external",
-          "version": null,
-          "used_by": null
-        },
-        {
-          "name": "time",
-          "type": "external",
-          "version": null,
-          "used_by": null
-        },
-        {
-          "name": "git",
-          "type": "external",
-          "version": null,
-          "used_by": null
-        },
-        {
-          "name": "fluen",
-          "type": "external",
-          "version": null,
-          "used_by": null
-        }
-      ],
+      "dependencies": [],
       "elements": [],
       "framework_hints": [],
-      "last_modified": "2024-11-03T10:08:18.129904"
+      "last_modified": "2024-11-12T20:03:09.037206"
     },
     "src/fluen/config.py": {
       "path": "src/fluen/config.py",
@@ -4161,7 +4133,7 @@
       "dependencies": [],
       "elements": [],
       "framework_hints": [],
-      "last_modified": "2024-11-03T10:09:15.050649"
+      "last_modified": "2024-11-12T20:03:09.037090"
     },
     "src/fluen/generator/templates/default/script.js": {
       "path": "src/fluen/generator/templates/default/script.js",
@@ -4306,7 +4278,9 @@
         "src/fluen/generator/doc_generator.py",
         "src/fluen/git_integration/manager.py",
         "src/fluen/analyzer/file_analyzer.py",
-        "src/fluen/config.py"
+        "src/fluen/config.py",
+        "src/fluen/cli.py",
+        "src/fluen/analyzer/project_analyzer.py"
       ]
     },
     "typing": {
@@ -4322,7 +4296,8 @@
         "src/fluen/generator/doc_generator.py",
         "src/fluen/git_integration/manager.py",
         "src/fluen/analyzer/file_analyzer.py",
-        "src/fluen/config.py"
+        "src/fluen/config.py",
+        "src/fluen/cli.py"
       ]
     },
     "dataclasses": {
@@ -4376,7 +4351,8 @@
       "type": "internal",
       "version": null,
       "used_by": [
-        "src/fluen/llm_providers/mistral_ai_provider.py"
+        "src/fluen/llm_providers/mistral_ai_provider.py",
+        "src/fluen/llm_providers/ollama_provider.py"
       ]
     },
     "click": {
@@ -4515,7 +4491,9 @@
       "name": "mistralai",
       "type": "external",
       "version": null,
-      "used_by": null
+      "used_by": [
+        "src/fluen/llm_providers/mistral_ai_provider.py"
+      ]
     },
     "json": {
       "name": "json",
@@ -4524,14 +4502,17 @@
       "used_by": [
         "src/fluen/state/manager.py",
         "src/fluen/generator/manifest.py",
-        "src/fluen/analyzer/file_analyzer.py"
+        "src/fluen/analyzer/file_analyzer.py",
+        "src/fluen/llm_providers/ollama_provider.py"
       ]
     },
     "aiohttp": {
       "name": "aiohttp",
       "type": "external",
       "version": null,
-      "used_by": null
+      "used_by": [
+        "src/fluen/llm_providers/ollama_provider.py"
+      ]
     },
     "base_provider.BaseLLMProvider": {
       "name": "base_provider.BaseLLMProvider",
@@ -4547,7 +4528,8 @@
         "src/fluen/generator/templates/template_manager.py",
         "src/fluen/state/manager.py",
         "src/fluen/generator/manifest.py",
-        "src/fluen/analyzer/project_analyzer.py"
+        "src/fluen/analyzer/project_analyzer.py",
+        "src/fluen/llm_providers/openai_provider.py"
       ]
     },
     "typing.Any": {
@@ -4557,7 +4539,8 @@
       "used_by": [
         "src/fluen/generator/templates/template_manager.py",
         "src/fluen/state/manager.py",
-        "src/fluen/generator/manifest.py"
+        "src/fluen/generator/manifest.py",
+        "src/fluen/llm_providers/openai_provider.py"
       ]
     },
     "fluen.llm_providers.base_provider.BaseLLMProvider": {
@@ -4731,7 +4714,8 @@
       "type": "external",
       "version": null,
       "used_by": [
-        "src/fluen/orchestrator.py"
+        "src/fluen/orchestrator.py",
+        "src/fluen/cli.py"
       ]
     },
     "rich.console.Console": {
@@ -4739,7 +4723,8 @@
       "type": "external",
       "version": null,
       "used_by": [
-        "src/fluen/orchestrator.py"
+        "src/fluen/orchestrator.py",
+        "src/fluen/cli.py"
       ]
     },
     "rich.progress.Progress": {
@@ -4747,7 +4732,8 @@
       "type": "external",
       "version": null,
       "used_by": [
-        "src/fluen/orchestrator.py"
+        "src/fluen/orchestrator.py",
+        "src/fluen/cli.py"
       ]
     },
     "rich.progress.SpinnerColumn": {
@@ -4755,7 +4741,8 @@
       "type": "external",
       "version": null,
       "used_by": [
-        "src/fluen/orchestrator.py"
+        "src/fluen/orchestrator.py",
+        "src/fluen/cli.py"
       ]
     },
     "rich.progress.TextColumn": {
@@ -4763,7 +4750,8 @@
       "type": "external",
       "version": null,
       "used_by": [
-        "src/fluen/orchestrator.py"
+        "src/fluen/orchestrator.py",
+        "src/fluen/cli.py"
       ]
     },
     "rich.progress.BarColumn": {
@@ -4771,7 +4759,8 @@
       "type": "external",
       "version": null,
       "used_by": [
-        "src/fluen/orchestrator.py"
+        "src/fluen/orchestrator.py",
+        "src/fluen/cli.py"
       ]
     },
     "asyncio": {
@@ -4781,14 +4770,17 @@
       "used_by": [
         "src/fluen/orchestrator.py",
         "src/fluen/analyzer/project_analyzer.py",
-        "src/fluen/analyzer/file_analyzer.py"
+        "src/fluen/analyzer/file_analyzer.py",
+        "src/fluen/cli.py"
       ]
     },
     "fluen.orchestrator.Orchestrator": {
       "name": "fluen.orchestrator.Orchestrator",
       "type": "external",
       "version": null,
-      "used_by": null
+      "used_by": [
+        "src/fluen/cli.py"
+      ]
     },
     "asdict": {
       "name": "asdict",
@@ -4873,7 +4865,8 @@
       "type": "external",
       "version": null,
       "used_by": [
-        "src/fluen/analyzer/project_analyzer.py"
+        "src/fluen/analyzer/project_analyzer.py",
+        "src/fluen/cli.py"
       ]
     },
     "fluen.generator.manifest.ProjectManifest": {
@@ -4888,14 +4881,17 @@
       "name": "fluen.generator.doc_generator.DocumentationGenerator",
       "type": "external",
       "version": null,
-      "used_by": null
+      "used_by": [
+        "src/fluen/cli.py"
+      ]
     },
     "fluen.generator.templates.template_manager.TemplateManager": {
       "name": "fluen.generator.templates.template_manager.TemplateManager",
       "type": "external",
       "version": null,
       "used_by": [
-        "src/fluen/generator/doc_generator.py"
+        "src/fluen/generator/doc_generator.py",
+        "src/fluen/cli.py"
       ]
     },
     "fluen.generator.cross_referencer.CrossReferenceResolver": {
@@ -4938,14 +4934,17 @@
       "name": "abc",
       "type": "external",
       "version": null,
-      "used_by": null
+      "used_by": [
+        "src/fluen/llm_providers/base_provider.py"
+      ]
     },
     "typing.List": {
       "name": "typing.List",
       "type": "external",
       "version": null,
       "used_by": [
-        "src/fluen/analyzer/project_analyzer.py"
+        "src/fluen/analyzer/project_analyzer.py",
+        "src/fluen/llm_providers/openai_provider.py"
       ]
     },
     "dataclasses.dataclass": {
@@ -4984,7 +4983,9 @@
       "name": "typing.Set",
       "type": "external",
       "version": null,
-      "used_by": null
+      "used_by": [
+        "src/fluen/analyzer/project_analyzer.py"
+      ]
     },
     "git (from GitPython)": {
       "name": "git (from GitPython)",
@@ -4996,13 +4997,17 @@
       "name": "mimetypes",
       "type": "external",
       "version": null,
-      "used_by": null
+      "used_by": [
+        "src/fluen/analyzer/file_analyzer.py"
+      ]
     },
     "fluen": {
       "name": "fluen",
       "type": "external",
       "version": null,
-      "used_by": null
+      "used_by": [
+        "src/fluen/analyzer/file_analyzer.py"
+      ]
     },
     "yaml": {
       "name": "yaml",
@@ -5039,8 +5044,162 @@
       "type": "external",
       "version": null,
       "used_by": null
+    },
+    "fluen.config": {
+      "name": "fluen.config",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/cli.py"
+      ]
+    },
+    "rich.console": {
+      "name": "rich.console",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/cli.py"
+      ]
+    },
+    "rich.progress": {
+      "name": "rich.progress",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/cli.py"
+      ]
+    },
+    "fluen.orchestrator": {
+      "name": "fluen.orchestrator",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/cli.py"
+      ]
+    },
+    "fluen.models.scan": {
+      "name": "fluen.models.scan",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/cli.py"
+      ]
+    },
+    "generator.doc_generator": {
+      "name": "generator.doc_generator",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "generator.templates.template_manager": {
+      "name": "generator.templates.template_manager",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "generator.manifest": {
+      "name": "generator.manifest",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "typing - Optional": {
+      "name": "typing - Optional",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.config - FluenConfig": {
+      "name": "fluen.config - FluenConfig",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "rich.console - Console": {
+      "name": "rich.console - Console",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "rich.progress - Progress, SpinnerColumn, TextColumn, BarColumn": {
+      "name": "rich.progress - Progress, SpinnerColumn, TextColumn, BarColumn",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.orchestrator - Orchestrator": {
+      "name": "fluen.orchestrator - Orchestrator",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.models.scan - ScanSelector, ScanOptions": {
+      "name": "fluen.models.scan - ScanSelector, ScanOptions",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    "fluen.models.scan.ScanSelector": {
+      "name": "fluen.models.scan.ScanSelector",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/cli.py"
+      ]
+    },
+    "fluen.models.scan.ScanOptions": {
+      "name": "fluen.models.scan.ScanOptions",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/cli.py"
+      ]
+    },
+    "typing.Callable": {
+      "name": "typing.Callable",
+      "type": "external",
+      "version": null,
+      "used_by": [
+        "src/fluen/analyzer/project_analyzer.py"
+      ]
+    },
+    "openai.AsyncOpenAI": {
+      "name": "openai.AsyncOpenAI",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    ".base_provider.BaseLLMProvider": {
+      "name": ".base_provider.BaseLLMProvider",
+      "type": "internal",
+      "version": null,
+      "used_by": null
+    },
+    "base_provider": {
+      "name": "base_provider",
+      "type": "external",
+      "version": null,
+      "used_by": null
+    },
+    ".generator.doc_generator.DocumentationGenerator": {
+      "name": ".generator.doc_generator.DocumentationGenerator",
+      "type": "internal",
+      "version": null,
+      "used_by": null
+    },
+    ".generator.templates.template_manager.TemplateManager": {
+      "name": ".generator.templates.template_manager.TemplateManager",
+      "type": "internal",
+      "version": null,
+      "used_by": null
+    },
+    ".generator.manifest.ManifestGenerator": {
+      "name": ".generator.manifest.ManifestGenerator",
+      "type": "internal",
+      "version": null,
+      "used_by": null
     }
   },
-  "last_updated": "2024-11-03T10:31:29.857455",
+  "last_updated": "2024-11-12T22:32:40.027914",
   "git_commit": "c529b8f6ffedbe5fc7ad8b4c4096e38f342f3cff"
 }
