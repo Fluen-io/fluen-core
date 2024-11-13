@@ -4,123 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>src/fluen/llm_providers/base_provider.py - fluen-core</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link href="../assets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
         </div>
-        
         <div class="sidebar-content">
-            <div class="file-info">
-                <p>Python</p>
-                <p>Last modified: 2024-11-12T20:10:07.635726</p>
-            </div>
-
             <div class="element-navigation">
-                    <div class="element-group">
-                        <h3>Class</h3>
-                        <ul>
-                                <li><a href="#basellmprovider">BaseLLMProvider</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Method</h3>
-                        <ul>
-                                <li><a href="#generate">generate</a></li>
-                                <li><a href="#get_embedding">get_embedding</a></li>
-                        </ul>
-                    </div>
-            </div>
-        </div>
-    </nav>
-
-    <main class="content">
-        <div class="file-header">
-            <h1>src/fluen/llm_providers/base_provider.py</h1>
-            <div class="metadata">
-                <span>Language: Python</span>
-                <span>Last Modified: 2024-11-12T20:10:07.635726</span>
-            </div>
-        </div>
-
-        <section class="file-purpose">
-            <h2>Purpose</h2>
-            <p>The primary purpose of the code is to define an abstract base class for a language model provider interface, specifying the methods that any derived class must implement.</p>
-        </section>
-
-            <section class="exposures">
-                <h2>Public API</h2>
-                <ul class="exposure-list">
+                <div class="element-group">
+                    <h3>Class</h3>
+                    <ul>
                         <li>
-                            <code>BaseLLMProvider</code>
-                            <span class="type-badge">exposure</span>
+                            <a href="#basellmprovider">
+                                BaseLLMProvider
+                            </a>
                         </li>
-                </ul>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Method</h3>
+                    <ul>
+                        <li>
+                            <a href="#generate">
+                                generate
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#get_embedding">
+                                get_embedding
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="file-header">
+                <h1>src/fluen/llm_providers/base_provider.py</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Python</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:48:17.498187</p>
+                </div>
+            </div>
+
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>This code outlines an abstract base class for a language model provider interface. It defines the methods required for generating text from a prompt and obtaining text embeddings.</p>
             </section>
 
-            <section class="dependencies">
+            <section class="dependencies-section">
                 <h2>Dependencies</h2>
                 <ul class="dependency-list">
-                        <li>
-                            <span class="dep-name">abc</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">typing</span>
-                            <span class="type-badge">external</span>
-                        </li>
+                    <li>
+                        <span class="dep-name">abc</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">typing</span>
+                        <span class="type-badge">external</span>
+                    </li>
                 </ul>
             </section>
 
-        <section class="elements">
-            <h2>Elements</h2>
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
+
+            <section class="elements-section">
+                <h2>Elements</h2>
                 <div class="element-type-section">
                     <h3>Class</h3>
-                        <div class="element" id="basellmprovider">
-                            <div class="element-header">
-                                <code>BaseLLMProvider</code>
-                                    <span class="scope-badge">module</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="basellmprovider" class="element">
+                        <div class="element-header">
+                            <code>BaseLLMProvider</code>
+                            <span class="scope-badge">module</span>
+                        </div>
+                        <div class="element-content">
+                            <p>To serve as an abstract base class for language model providers.</p>
+                            <div class="documentation">
+                                BaseLLMProvider defines an interface for components that interact with language models. It enforces the implementation of two asynchronous methods: generate and get_embedding, for text generation and embedding extraction respectively.
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div class="element-type-section">
                     <h3>Method</h3>
-                        <div class="element" id="generate">
-                            <div class="element-header">
-                                <code>generate</code>
-                                    <span class="scope-badge">class</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="generate" class="element">
+                        <div class="element-header">
+                            <code>generate</code>
+                            <span class="scope-badge">BaseLLMProvider class</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Abstract method to generate text based on a prompt.</p>
+                            <div class="documentation">
+                                The generate method should be implemented by subclasses to take a text prompt and return generated text, asynchronously.
                             </div>
                         </div>
-                        <div class="element" id="get_embedding">
-                            <div class="element-header">
-                                <code>get_embedding</code>
-                                    <span class="scope-badge">class</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="get_embedding" class="element">
+                        <div class="element-header">
+                            <code>get_embedding</code>
+                            <span class="scope-badge">BaseLLMProvider class</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Abstract method to obtain text embeddings.</p>
+                            <div class="documentation">
+                                The get_embedding method should be implemented by subclasses to convert input text into a list of floats representing the text's embedding, asynchronously.
                             </div>
                         </div>
+                    </div>
                 </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
     <script src="../assets/script.js"></script>
-</body>
+<script>window.lineageData = {"nodes": [{"id": "src/fluen/llm_providers/base_provider.py", "type": "current"}], "links": []};</script></body>
 </html>

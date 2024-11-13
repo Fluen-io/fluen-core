@@ -1,163 +1,183 @@
 # src/fluen/generator/templates/default/html/index.html
 
 **Language:** Unknown  
-**Last Modified:** 2024-11-03T10:05:24.867075
+**Last Modified:** 2024-11-13T17:57:01.056457
 
 ## Purpose
 
-The primary purpose of this code is to generate a static HTML documentation page for a software project, which includes project information, a navigation sidebar, and a list of dependencies.
+The primary purpose of this code is to generate an HTML page for project documentation with a focus on providing navigation and information about the project, including file references and dependencies.
 
 ## Public API
 
-- `HTML structure with placeholders for project data` (exposure)
-- `Sidebar navigation menu with links to reference files` (exposure)
-- `Project information such as primary language, frameworks, last update, and git commit` (exposure)
-- `Table of project dependencies with version and used-by information` (exposure)
-- `Link to an external stylesheet` (exposure)
-- `Link to an external JavaScript file` (exposure)
+- `sidebar` (exposure)
+- `main-content` (exposure)
+- `search-input` (exposure)
+- `project-info` (exposure)
+- `dependencies-section` (exposure)
 
 ## Dependencies
 
-- `assets/styles.css` (external)
-- `assets/script.js` (external)
+- `d3.js` (external)
 
 ## Elements
 
-### Attribute
+### Document Type Declaration
 
-#### `lang`
-
-**Scope:** html
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-### Declaration
-
-#### `DOCTYPE declaration`
+#### `&lt;!DOCTYPE html&gt;`
 
 **Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Specifies the document type and version of HTML used.
 
 **Documentation:**
 
-No documentation available
+Indicates the use of HTML5 for this document.
 
 ### Element
 
-#### `body`
-
-**Scope:** html
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `head`
-
-**Scope:** html
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `html`
+#### `&lt;body&gt;`
 
 **Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Contains the main content of the HTML document.
 
 **Documentation:**
 
-No documentation available
+Encloses all visible elements of the webpage, including the sidebar and main content.
 
-#### `link to stylesheet`
-
-**Scope:** head
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `main.content`
+#### `&lt;div class=&#34;main-content&#34;&gt;`
 
 **Scope:** body
 
-**Purpose:** No purpose specified
+**Purpose:** Holds the primary content of the webpage, including the header, search function, and project metadata.
 
 **Documentation:**
 
-No documentation available
+Contains elements for searching the documentation and displaying detailed project information.
 
-#### `meta charset`
-
-**Scope:** head
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `meta viewport`
-
-**Scope:** head
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `nav.sidebar`
+#### `&lt;div class=&#34;sidebar&#34;&gt;`
 
 **Scope:** body
 
-**Purpose:** No purpose specified
+**Purpose:** Provides a navigation sidebar displaying project information and file links.
 
 **Documentation:**
 
-No documentation available
+Includes project name, primary language, and a list of files categorized by type.
 
-#### `script`
+#### `&lt;head&gt;`
 
-**Scope:** body
+**Scope:** global
 
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `section.dependencies`
-
-**Scope:** main
-
-**Purpose:** No purpose specified
+**Purpose:** Contains metadata and links to resources related to the HTML document.
 
 **Documentation:**
 
-No documentation available
+Holds the document metadata including character set, viewport settings, title, and stylesheet link.
 
-#### `title`
+#### `&lt;html lang=&#34;en&#34;&gt;`
+
+**Scope:** global
+
+**Purpose:** Defines the root of an HTML document and sets the language to English.
+
+**Documentation:**
+
+This tag encloses all other HTML content and sets the language attribute.
+
+#### `&lt;input type=&#34;text&#34; class=&#34;search-input&#34;&gt;`
+
+**Scope:** main-header
+
+**Purpose:** Provides a text input for searching the documentation.
+
+**Documentation:**
+
+Search box with placeholder text that gains focus when &#39;/&#39; is pressed.
+
+#### `&lt;link&gt;`
 
 **Scope:** head
 
-**Purpose:** No purpose specified
+**Purpose:** Links a CSS stylesheet for styling the HTML document.
 
 **Documentation:**
 
-No documentation available
+Dynamically determines the CSS file path based on the &#39;is_reference&#39; condition.
+
+#### `&lt;script src=&#34;assets/script.js&#34;&gt;&lt;/script&gt;`
+
+**Scope:** body
+
+**Purpose:** Links a local JavaScript file for executing additional client-side logic.
+
+**Documentation:**
+
+Includes a local script file for augmenting the functionality of the documentation page.
+
+#### `&lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js&#34;&gt;&lt;/script&gt;`
+
+**Scope:** body
+
+**Purpose:** Imports the D3.js library for potential data-driven document manipulations.
+
+**Documentation:**
+
+Includes an external D3.js script, a JavaScript library for visualizations and data manipulation.
+
+#### `&lt;section class=&#34;dependencies-section&#34;&gt;`
+
+**Scope:** main-content
+
+**Purpose:** Displays a table of the project&#39;s dependencies.
+
+**Documentation:**
+
+Includes a table listing dependency names, types, versions, and files that use them.
+
+#### `&lt;title&gt;{{ project.name }} Documentation&lt;/title&gt;`
+
+**Scope:** head
+
+**Purpose:** Sets the title of the HTML document, dynamically populated with the project&#39;s name.
+
+**Documentation:**
+
+Uses a templating engine to insert the project&#39;s name into the title element.
+
+### Template Tag
+
+#### `{% for name, dep in dependencies.items()|default({}.items()) %}`
+
+**Scope:** dependencies-section
+
+**Purpose:** Iterates over the project dependencies to generate HTML table rows.
+
+**Documentation:**
+
+Jinja2 loop that dynamically generates a table listing project dependencies.
+
+#### `{% for type, files in files_by_type.items()|default({}.items()) %}`
+
+**Scope:** sidebar-content
+
+**Purpose:** Iterates over file groups, executing code for each group.
+
+**Documentation:**
+
+Jinja2 template loop that iterates over file types and lists files associated with each type.
+
+### Template Variable
+
+#### `{{ project.name }}`
+
+**Scope:** project-info
+
+**Purpose:** Dynamically inserts the project&#39;s name into the HTML.
+
+**Documentation:**
+
+Uses a templating language to populate the page with the project&#39;s name where specified.
 
 
 [Back to Index](../README.md)

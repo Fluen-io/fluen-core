@@ -4,73 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ project.name }} Documentation</title>
-    <link rel="stylesheet" href="assets/styles.css">
+    <link href="{{ '../assets/styles.css' if is_reference else 'assets/styles.css' }}" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
             <h1>{{ project.name }}</h1>
             <p>{{ project.primary_language }} Project</p>
         </div>
         <div class="sidebar-content">
-            <h2>Files</h2>
-            {% for type, files in files_by_type.items()|default({}.items()) %}
-            <div class="file-group">
-                <h3>{{ type }}</h3>
-                <ul>
-                    {% for file in files %}
-                    <li><a href="reference/{{ file|replace('/', '_') }}.html">{{ file }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endfor %}
-        </div>
-    </nav>
-    
-    <main class="content">
-        <div class="project-info">
-            <h1>{{ project.name }}</h1>
-            <div class="metadata">
-                <p><strong>Primary Language:</strong> {{ project.primary_language }}</p>
-                <p><strong>Frameworks:</strong> {{ project.frameworks|join(', ') }}</p>
-                <p><strong>Last Updated:</strong> {{ generation_time }}</p>
-                <p><strong>Git Commit:</strong> {{ git_commit[:8] }}</p>
+            <div class="file-groups">
+                {% for type, files in files_by_type.items()|default({}.items()) %}
+                <div class="file-group">
+                    <h3>{{ type }}</h3>
+                    <ul>
+                        {% for file in files %}
+                        <li>
+                            <a href="reference/{{ file|replace('/', '_') }}.html">{{ file }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
             </div>
         </div>
+    </div>
 
-        <section class="dependencies">
-            <h2>Project Dependencies</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Version</th>
-                        <th>Used By</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for name, dep in dependencies.items()|default({}.items()) %}
-                    <tr>
-                        <td>{{ name }}</td>
-                        <td>{{ dep.type }}</td>
-                        <td>{{ dep.version or 'N/A' }}</td>
-                        <td>
-                            <ul>
-                                {% if dep.used_by %}
-                                {% for file in dep.used_by %}
-                                <li><a href="reference/{{ file|replace('/', '_') }}.html">{{ file }}</a></li>
-                                {% endfor %}
-                                {% endif %}
-                            </ul>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </section>
-    </main>
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </header>
 
+        <main class="content">
+            <div class="project-info">
+                <h1>{{ project.name }}</h1>
+                <div class="metadata">
+                    <p><strong>Primary Language:</strong> {{ project.primary_language }}</p>
+                    <p><strong>Frameworks:</strong> {{ project.frameworks|join(', ') }}</p>
+                    <p><strong>Last Updated:</strong> {{ generation_time }}</p>
+                    <p><strong>Git Commit:</strong> {{ git_commit[:8] }}</p>
+                </div>
+            </div>
+
+            <section class="dependencies-section">
+                <h2>Project Dependencies</h2>
+                <div class="dependencies-grid">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Version</th>
+                                <th>Used By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for name, dep in dependencies.items()|default({}.items()) %}
+                            <tr>
+                                <td>{{ name }}</td>
+                                <td>{{ dep.type }}</td>
+                                <td>{{ dep.version or 'N/A' }}</td>
+                                <td>
+                                    {% if dep.used_by %}
+                                    <ul class="used-by-list">
+                                        {% for file in dep.used_by %}
+                                        <li>
+                                            <a href="reference/{{ file|replace('/', '_') }}.html">{{ file }}</a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <script src="assets/script.js"></script>
 </body>
 </html>

@@ -4,281 +4,356 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>src/fluen/generator/templates/default/html/index.html - fluen-core</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link href="../assets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
         </div>
-        
         <div class="sidebar-content">
-            <div class="file-info">
-                <p>Unknown</p>
-                <p>Last modified: 2024-11-03T10:05:24.867075</p>
-            </div>
-
             <div class="element-navigation">
-                    <div class="element-group">
-                        <h3>Declaration</h3>
-                        <ul>
-                                <li><a href="#doctype-declaration">DOCTYPE declaration</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Element</h3>
-                        <ul>
-                                <li><a href="#html">html</a></li>
-                                <li><a href="#head">head</a></li>
-                                <li><a href="#meta-charset">meta charset</a></li>
-                                <li><a href="#meta-viewport">meta viewport</a></li>
-                                <li><a href="#title">title</a></li>
-                                <li><a href="#link-to-stylesheet">link to stylesheet</a></li>
-                                <li><a href="#body">body</a></li>
-                                <li><a href="#nav.sidebar">nav.sidebar</a></li>
-                                <li><a href="#main.content">main.content</a></li>
-                                <li><a href="#section.dependencies">section.dependencies</a></li>
-                                <li><a href="#script">script</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Attribute</h3>
-                        <ul>
-                                <li><a href="#lang">lang</a></li>
-                        </ul>
-                    </div>
+                <div class="element-group">
+                    <h3>Document Type Declaration</h3>
+                    <ul>
+                        <li>
+                            <a href="#&lt;!doctype-html&gt;">
+                                &lt;!DOCTYPE html&gt;
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Element</h3>
+                    <ul>
+                        <li>
+                            <a href="#&lt;html-lang=&#34;en&#34;&gt;">
+                                &lt;html lang=&#34;en&#34;&gt;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#&lt;head&gt;">
+                                &lt;head&gt;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#&lt;title&gt;{{-project.name-}}-documentation&lt;/title&gt;">
+                                &lt;title&gt;{{ project.name }} Documentation&lt;/title&gt;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#&lt;link&gt;">
+                                &lt;link&gt;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#&lt;body&gt;">
+                                &lt;body&gt;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#&lt;div-class=&#34;sidebar&#34;&gt;">
+                                &lt;div class=&#34;sidebar&#34;&gt;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#&lt;div-class=&#34;main-content&#34;&gt;">
+                                &lt;div class=&#34;main-content&#34;&gt;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#&lt;input-type=&#34;text&#34;-class=&#34;search-input&#34;&gt;">
+                                &lt;input type=&#34;text&#34; class=&#34;search-input&#34;&gt;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#&lt;section-class=&#34;dependencies-section&#34;&gt;">
+                                &lt;section class=&#34;dependencies-section&#34;&gt;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#&lt;script-src=&#34;https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js&#34;&gt;&lt;/script&gt;">
+                                &lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js&#34;&gt;&lt;/script&gt;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#&lt;script-src=&#34;assets/script.js&#34;&gt;&lt;/script&gt;">
+                                &lt;script src=&#34;assets/script.js&#34;&gt;&lt;/script&gt;
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Template Tag</h3>
+                    <ul>
+                        <li>
+                            <a href="#{%-for-type,-files-in-files_by_type.items()|default({}.items())-%}">
+                                {% for type, files in files_by_type.items()|default({}.items()) %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#{%-for-name,-dep-in-dependencies.items()|default({}.items())-%}">
+                                {% for name, dep in dependencies.items()|default({}.items()) %}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Template Variable</h3>
+                    <ul>
+                        <li>
+                            <a href="#{{-project.name-}}">
+                                {{ project.name }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <main class="content">
-        <div class="file-header">
-            <h1>src/fluen/generator/templates/default/html/index.html</h1>
-            <div class="metadata">
-                <span>Language: Unknown</span>
-                <span>Last Modified: 2024-11-03T10:05:24.867075</span>
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
             </div>
-        </div>
+        </header>
 
-        <section class="file-purpose">
-            <h2>Purpose</h2>
-            <p>The primary purpose of this code is to generate a static HTML documentation page for a software project, which includes project information, a navigation sidebar, and a list of dependencies.</p>
-        </section>
+        <main class="content">
+            <div class="file-header">
+                <h1>src/fluen/generator/templates/default/html/index.html</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Unknown</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:57:01.056457</p>
+                </div>
+            </div>
 
-            <section class="exposures">
-                <h2>Public API</h2>
-                <ul class="exposure-list">
-                        <li>
-                            <code>HTML structure with placeholders for project data</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>Sidebar navigation menu with links to reference files</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>Project information such as primary language, frameworks, last update, and git commit</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>Table of project dependencies with version and used-by information</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>Link to an external stylesheet</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>Link to an external JavaScript file</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                </ul>
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>The primary purpose of this code is to generate an HTML page for project documentation with a focus on providing navigation and information about the project, including file references and dependencies.</p>
             </section>
 
-            <section class="dependencies">
+            <section class="dependencies-section">
                 <h2>Dependencies</h2>
                 <ul class="dependency-list">
-                        <li>
-                            <span class="dep-name">assets/styles.css</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">assets/script.js</span>
-                            <span class="type-badge">external</span>
-                        </li>
+                    <li>
+                        <span class="dep-name">d3.js</span>
+                        <span class="type-badge">external</span>
+                    </li>
                 </ul>
             </section>
 
-        <section class="elements">
-            <h2>Elements</h2>
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
+
+            <section class="elements-section">
+                <h2>Elements</h2>
                 <div class="element-type-section">
-                    <h3>Declaration</h3>
-                        <div class="element" id="doctype-declaration">
-                            <div class="element-header">
-                                <code>DOCTYPE declaration</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <h3>Document Type Declaration</h3>
+                    <div id="&lt;!doctype-html&gt;" class="element">
+                        <div class="element-header">
+                            <code>&lt;!DOCTYPE html&gt;</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Specifies the document type and version of HTML used.</p>
+                            <div class="documentation">
+                                Indicates the use of HTML5 for this document.
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div class="element-type-section">
                     <h3>Element</h3>
-                        <div class="element" id="html">
-                            <div class="element-header">
-                                <code>html</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="&lt;html-lang=&#34;en&#34;&gt;" class="element">
+                        <div class="element-header">
+                            <code>&lt;html lang=&#34;en&#34;&gt;</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Defines the root of an HTML document and sets the language to English.</p>
+                            <div class="documentation">
+                                This tag encloses all other HTML content and sets the language attribute.
                             </div>
                         </div>
-                        <div class="element" id="head">
-                            <div class="element-header">
-                                <code>head</code>
-                                    <span class="scope-badge">html</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="&lt;head&gt;" class="element">
+                        <div class="element-header">
+                            <code>&lt;head&gt;</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Contains metadata and links to resources related to the HTML document.</p>
+                            <div class="documentation">
+                                Holds the document metadata including character set, viewport settings, title, and stylesheet link.
                             </div>
                         </div>
-                        <div class="element" id="meta-charset">
-                            <div class="element-header">
-                                <code>meta charset</code>
-                                    <span class="scope-badge">head</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="&lt;title&gt;{{-project.name-}}-documentation&lt;/title&gt;" class="element">
+                        <div class="element-header">
+                            <code>&lt;title&gt;{{ project.name }} Documentation&lt;/title&gt;</code>
+                            <span class="scope-badge">head</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Sets the title of the HTML document, dynamically populated with the project&#39;s name.</p>
+                            <div class="documentation">
+                                Uses a templating engine to insert the project's name into the title element.
                             </div>
                         </div>
-                        <div class="element" id="meta-viewport">
-                            <div class="element-header">
-                                <code>meta viewport</code>
-                                    <span class="scope-badge">head</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="&lt;link&gt;" class="element">
+                        <div class="element-header">
+                            <code>&lt;link&gt;</code>
+                            <span class="scope-badge">head</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Links a CSS stylesheet for styling the HTML document.</p>
+                            <div class="documentation">
+                                Dynamically determines the CSS file path based on the 'is_reference' condition.
                             </div>
                         </div>
-                        <div class="element" id="title">
-                            <div class="element-header">
-                                <code>title</code>
-                                    <span class="scope-badge">head</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="&lt;body&gt;" class="element">
+                        <div class="element-header">
+                            <code>&lt;body&gt;</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Contains the main content of the HTML document.</p>
+                            <div class="documentation">
+                                Encloses all visible elements of the webpage, including the sidebar and main content.
                             </div>
                         </div>
-                        <div class="element" id="link-to-stylesheet">
-                            <div class="element-header">
-                                <code>link to stylesheet</code>
-                                    <span class="scope-badge">head</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="&lt;div-class=&#34;sidebar&#34;&gt;" class="element">
+                        <div class="element-header">
+                            <code>&lt;div class=&#34;sidebar&#34;&gt;</code>
+                            <span class="scope-badge">body</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Provides a navigation sidebar displaying project information and file links.</p>
+                            <div class="documentation">
+                                Includes project name, primary language, and a list of files categorized by type.
                             </div>
                         </div>
-                        <div class="element" id="body">
-                            <div class="element-header">
-                                <code>body</code>
-                                    <span class="scope-badge">html</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="&lt;div-class=&#34;main-content&#34;&gt;" class="element">
+                        <div class="element-header">
+                            <code>&lt;div class=&#34;main-content&#34;&gt;</code>
+                            <span class="scope-badge">body</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Holds the primary content of the webpage, including the header, search function, and project metadata.</p>
+                            <div class="documentation">
+                                Contains elements for searching the documentation and displaying detailed project information.
                             </div>
                         </div>
-                        <div class="element" id="nav.sidebar">
-                            <div class="element-header">
-                                <code>nav.sidebar</code>
-                                    <span class="scope-badge">body</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="&lt;input-type=&#34;text&#34;-class=&#34;search-input&#34;&gt;" class="element">
+                        <div class="element-header">
+                            <code>&lt;input type=&#34;text&#34; class=&#34;search-input&#34;&gt;</code>
+                            <span class="scope-badge">main-header</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Provides a text input for searching the documentation.</p>
+                            <div class="documentation">
+                                Search box with placeholder text that gains focus when '/' is pressed.
                             </div>
                         </div>
-                        <div class="element" id="main.content">
-                            <div class="element-header">
-                                <code>main.content</code>
-                                    <span class="scope-badge">body</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="&lt;section-class=&#34;dependencies-section&#34;&gt;" class="element">
+                        <div class="element-header">
+                            <code>&lt;section class=&#34;dependencies-section&#34;&gt;</code>
+                            <span class="scope-badge">main-content</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Displays a table of the project&#39;s dependencies.</p>
+                            <div class="documentation">
+                                Includes a table listing dependency names, types, versions, and files that use them.
                             </div>
                         </div>
-                        <div class="element" id="section.dependencies">
-                            <div class="element-header">
-                                <code>section.dependencies</code>
-                                    <span class="scope-badge">main</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="&lt;script-src=&#34;https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js&#34;&gt;&lt;/script&gt;" class="element">
+                        <div class="element-header">
+                            <code>&lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js&#34;&gt;&lt;/script&gt;</code>
+                            <span class="scope-badge">body</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Imports the D3.js library for potential data-driven document manipulations.</p>
+                            <div class="documentation">
+                                Includes an external D3.js script, a JavaScript library for visualizations and data manipulation.
                             </div>
                         </div>
-                        <div class="element" id="script">
-                            <div class="element-header">
-                                <code>script</code>
-                                    <span class="scope-badge">body</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="&lt;script-src=&#34;assets/script.js&#34;&gt;&lt;/script&gt;" class="element">
+                        <div class="element-header">
+                            <code>&lt;script src=&#34;assets/script.js&#34;&gt;&lt;/script&gt;</code>
+                            <span class="scope-badge">body</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Links a local JavaScript file for executing additional client-side logic.</p>
+                            <div class="documentation">
+                                Includes a local script file for augmenting the functionality of the documentation page.
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div class="element-type-section">
-                    <h3>Attribute</h3>
-                        <div class="element" id="lang">
-                            <div class="element-header">
-                                <code>lang</code>
-                                    <span class="scope-badge">html</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <h3>Template Tag</h3>
+                    <div id="{%-for-type,-files-in-files_by_type.items()|default({}.items())-%}" class="element">
+                        <div class="element-header">
+                            <code>{% for type, files in files_by_type.items()|default({}.items()) %}</code>
+                            <span class="scope-badge">sidebar-content</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Iterates over file groups, executing code for each group.</p>
+                            <div class="documentation">
+                                Jinja2 template loop that iterates over file types and lists files associated with each type.
                             </div>
                         </div>
+                    </div>
+                    <div id="{%-for-name,-dep-in-dependencies.items()|default({}.items())-%}" class="element">
+                        <div class="element-header">
+                            <code>{% for name, dep in dependencies.items()|default({}.items()) %}</code>
+                            <span class="scope-badge">dependencies-section</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Iterates over the project dependencies to generate HTML table rows.</p>
+                            <div class="documentation">
+                                Jinja2 loop that dynamically generates a table listing project dependencies.
+                            </div>
+                        </div>
+                    </div>
                 </div>
-        </section>
-    </main>
+                <div class="element-type-section">
+                    <h3>Template Variable</h3>
+                    <div id="{{-project.name-}}" class="element">
+                        <div class="element-header">
+                            <code>{{ project.name }}</code>
+                            <span class="scope-badge">project-info</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Dynamically inserts the project&#39;s name into the HTML.</p>
+                            <div class="documentation">
+                                Uses a templating language to populate the page with the project's name where specified.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
     <script src="../assets/script.js"></script>
-</body>
+<script>window.lineageData = {"nodes": [{"id": "src/fluen/generator/templates/default/html/index.html", "type": "current"}], "links": []};</script></body>
 </html>

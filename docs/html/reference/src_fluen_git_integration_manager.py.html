@@ -4,251 +4,237 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>src/fluen/git_integration/manager.py - fluen-core</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link href="../assets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
         </div>
-        
         <div class="sidebar-content">
-            <div class="file-info">
-                <p>Python</p>
-                <p>Last modified: 2024-11-03T10:07:48.020934</p>
-            </div>
-
             <div class="element-navigation">
-                    <div class="element-group">
-                        <h3>Class</h3>
-                        <ul>
-                                <li><a href="#gitdiff">GitDiff</a></li>
-                                <li><a href="#gitmanager">GitManager</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Method</h3>
-                        <ul>
-                                <li><a href="#__init__">__init__</a></li>
-                                <li><a href="#initialize">initialize</a></li>
-                                <li><a href="#clone">clone</a></li>
-                                <li><a href="#get_current_commit">get_current_commit</a></li>
-                                <li><a href="#get_changes_since_commit">get_changes_since_commit</a></li>
-                                <li><a href="#get_file_content">get_file_content</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Variable</h3>
-                        <ul>
-                                <li><a href="#repo_path">repo_path</a></li>
-                                <li><a href="#repo">repo</a></li>
-                                <li><a href="#logger">logger</a></li>
-                        </ul>
-                    </div>
-            </div>
-        </div>
-    </nav>
-
-    <main class="content">
-        <div class="file-header">
-            <h1>src/fluen/git_integration/manager.py</h1>
-            <div class="metadata">
-                <span>Language: Python</span>
-                <span>Last Modified: 2024-11-03T10:07:48.020934</span>
-            </div>
-        </div>
-
-        <section class="file-purpose">
-            <h2>Purpose</h2>
-            <p>This module provides functionality for managing and analyzing Git repositories, including connecting to a Git repository, cloning repositories, retrieving the current commit, getting changes since a specific commit, and retrieving file content at a specific commit.</p>
-        </section>
-
-            <section class="exposures">
-                <h2>Public API</h2>
-                <ul class="exposure-list">
+                <div class="element-group">
+                    <h3>Class</h3>
+                    <ul>
                         <li>
-                            <code>GitDiff</code>
-                            <span class="type-badge">exposure</span>
+                            <a href="#gitdiff">
+                                GitDiff
+                            </a>
                         </li>
                         <li>
-                            <code>GitManager</code>
-                            <span class="type-badge">exposure</span>
+                            <a href="#gitmanager">
+                                GitManager
+                            </a>
                         </li>
-                </ul>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Method</h3>
+                    <ul>
+                        <li>
+                            <a href="#__init__">
+                                __init__
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#initialize">
+                                initialize
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#clone">
+                                clone
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#get_current_commit">
+                                get_current_commit
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#get_changes_since_commit">
+                                get_changes_since_commit
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#get_file_content">
+                                get_file_content
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="file-header">
+                <h1>src/fluen/git_integration/manager.py</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Python</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:47:58.174156</p>
+                </div>
+            </div>
+
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>The primary purpose of this code is to provide functionality for managing and analyzing Git repositories, including initialization, cloning, and retrieving changes between commits.</p>
             </section>
 
-            <section class="dependencies">
+            <section class="dependencies-section">
                 <h2>Dependencies</h2>
                 <ul class="dependency-list">
-                        <li>
-                            <span class="dep-name">git (from GitPython)</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">pathlib</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">typing</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">dataclasses</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">logging</span>
-                            <span class="type-badge">external</span>
-                        </li>
+                    <li>
+                        <span class="dep-name">git</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">pathlib</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">typing</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">dataclasses</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">logging</span>
+                        <span class="type-badge">external</span>
+                    </li>
                 </ul>
             </section>
 
-        <section class="elements">
-            <h2>Elements</h2>
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
+
+            <section class="elements-section">
+                <h2>Elements</h2>
                 <div class="element-type-section">
                     <h3>Class</h3>
-                        <div class="element" id="gitdiff">
-                            <div class="element-header">
-                                <code>GitDiff</code>
-                                    <span class="scope-badge">public</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="gitdiff" class="element">
+                        <div class="element-header">
+                            <code>GitDiff</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Represents changes between commits in a Git repository.</p>
+                            <div class="documentation">
+                                GitDiff is a data class that stores lists of added, modified, and deleted files, as well as the raw diff string for Git commit comparisons.
                             </div>
                         </div>
-                        <div class="element" id="gitmanager">
-                            <div class="element-header">
-                                <code>GitManager</code>
-                                    <span class="scope-badge">public</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="gitmanager" class="element">
+                        <div class="element-header">
+                            <code>GitManager</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Manages Git repository operations such as initialization, cloning, and fetching commit differences.</p>
+                            <div class="documentation">
+                                GitManager provides methods to initialize a repository, clone it, get the current commit hash, retrieve changes since a given commit, and fetch file contents at specific commits.
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div class="element-type-section">
                     <h3>Method</h3>
-                        <div class="element" id="__init__">
-                            <div class="element-header">
-                                <code>__init__</code>
-                                    <span class="scope-badge">public</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="__init__" class="element">
+                        <div class="element-header">
+                            <code>__init__</code>
+                            <span class="scope-badge">GitManager</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Initializes a GitManager instance with an optional repository path.</p>
+                            <div class="documentation">
+                                Sets up the GitManager with a specified or current directory as the repository path and initializes logging.
                             </div>
                         </div>
-                        <div class="element" id="initialize">
-                            <div class="element-header">
-                                <code>initialize</code>
-                                    <span class="scope-badge">public</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="initialize" class="element">
+                        <div class="element-header">
+                            <code>initialize</code>
+                            <span class="scope-badge">GitManager</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Establishes a connection to a Git repository.</p>
+                            <div class="documentation">
+                                Attempts to open a Git repository at the given path. Logs an error if the repository is invalid.
                             </div>
                         </div>
-                        <div class="element" id="clone">
-                            <div class="element-header">
-                                <code>clone</code>
-                                    <span class="scope-badge">public</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="clone" class="element">
+                        <div class="element-header">
+                            <code>clone</code>
+                            <span class="scope-badge">GitManager</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Clones a remote Git repository to a specified path.</p>
+                            <div class="documentation">
+                                Clones the repository from a given URL to the target path. Logs errors if the operation fails.
                             </div>
                         </div>
-                        <div class="element" id="get_current_commit">
-                            <div class="element-header">
-                                <code>get_current_commit</code>
-                                    <span class="scope-badge">public</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="get_current_commit" class="element">
+                        <div class="element-header">
+                            <code>get_current_commit</code>
+                            <span class="scope-badge">GitManager</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Fetches the hash of the current commit in the repository.</p>
+                            <div class="documentation">
+                                Returns the hexadecimal hash of the current commit from the HEAD of the repository.
                             </div>
                         </div>
-                        <div class="element" id="get_changes_since_commit">
-                            <div class="element-header">
-                                <code>get_changes_since_commit</code>
-                                    <span class="scope-badge">public</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="get_changes_since_commit" class="element">
+                        <div class="element-header">
+                            <code>get_changes_since_commit</code>
+                            <span class="scope-badge">GitManager</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Retrieves changes between the current HEAD and a specified commit.</p>
+                            <div class="documentation">
+                                Compares the current HEAD with a given commit hash, returning lists of added, modified, and deleted files along with the raw diff.
                             </div>
                         </div>
-                        <div class="element" id="get_file_content">
-                            <div class="element-header">
-                                <code>get_file_content</code>
-                                    <span class="scope-badge">public</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="get_file_content" class="element">
+                        <div class="element-header">
+                            <code>get_file_content</code>
+                            <span class="scope-badge">GitManager</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Retrieves the contents of a file at a specific commit.</p>
+                            <div class="documentation">
+                                Returns the content of a specified file either at the current HEAD or a specific commit. Logs errors if the file cannot be read.
                             </div>
                         </div>
+                    </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Variable</h3>
-                        <div class="element" id="repo_path">
-                            <div class="element-header">
-                                <code>repo_path</code>
-                                    <span class="scope-badge">private</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="element" id="repo">
-                            <div class="element-header">
-                                <code>repo</code>
-                                    <span class="scope-badge">private</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="element" id="logger">
-                            <div class="element-header">
-                                <code>logger</code>
-                                    <span class="scope-badge">private</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
     <script src="../assets/script.js"></script>
-</body>
+<script>window.lineageData = {"nodes": [{"id": "src/fluen/git_integration/manager.py", "type": "current"}], "links": []};</script></body>
 </html>

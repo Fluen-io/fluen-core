@@ -1,20 +1,20 @@
 # src/fluen/git_integration/manager.py
 
 **Language:** Python  
-**Last Modified:** 2024-11-03T10:07:48.020934
+**Last Modified:** 2024-11-13T17:47:58.174156
 
 ## Purpose
 
-This module provides functionality for managing and analyzing Git repositories, including connecting to a Git repository, cloning repositories, retrieving the current commit, getting changes since a specific commit, and retrieving file content at a specific commit.
+The primary purpose of this code is to provide functionality for managing and analyzing Git repositories, including initialization, cloning, and retrieving changes between commits.
 
 ## Public API
 
-- `GitDiff` (exposure)
 - `GitManager` (exposure)
+- `GitDiff` (exposure)
 
 ## Dependencies
 
-- `git (from GitPython)` (external)
+- `git` (external)
 - `pathlib` (external)
 - `typing` (external)
 - `dataclasses` (external)
@@ -26,117 +26,85 @@ This module provides functionality for managing and analyzing Git repositories, 
 
 #### `GitDiff`
 
-**Scope:** public
+**Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Represents changes between commits in a Git repository.
 
 **Documentation:**
 
-No documentation available
+GitDiff is a data class that stores lists of added, modified, and deleted files, as well as the raw diff string for Git commit comparisons.
 
 #### `GitManager`
 
-**Scope:** public
+**Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Manages Git repository operations such as initialization, cloning, and fetching commit differences.
 
 **Documentation:**
 
-No documentation available
+GitManager provides methods to initialize a repository, clone it, get the current commit hash, retrieve changes since a given commit, and fetch file contents at specific commits.
 
 ### Method
 
 #### `__init__`
 
-**Scope:** public
+**Scope:** GitManager
 
-**Purpose:** No purpose specified
+**Purpose:** Initializes a GitManager instance with an optional repository path.
 
 **Documentation:**
 
-No documentation available
+Sets up the GitManager with a specified or current directory as the repository path and initializes logging.
 
 #### `clone`
 
-**Scope:** public
+**Scope:** GitManager
 
-**Purpose:** No purpose specified
+**Purpose:** Clones a remote Git repository to a specified path.
 
 **Documentation:**
 
-No documentation available
+Clones the repository from a given URL to the target path. Logs errors if the operation fails.
 
 #### `get_changes_since_commit`
 
-**Scope:** public
+**Scope:** GitManager
 
-**Purpose:** No purpose specified
+**Purpose:** Retrieves changes between the current HEAD and a specified commit.
 
 **Documentation:**
 
-No documentation available
+Compares the current HEAD with a given commit hash, returning lists of added, modified, and deleted files along with the raw diff.
 
 #### `get_current_commit`
 
-**Scope:** public
+**Scope:** GitManager
 
-**Purpose:** No purpose specified
+**Purpose:** Fetches the hash of the current commit in the repository.
 
 **Documentation:**
 
-No documentation available
+Returns the hexadecimal hash of the current commit from the HEAD of the repository.
 
 #### `get_file_content`
 
-**Scope:** public
+**Scope:** GitManager
 
-**Purpose:** No purpose specified
+**Purpose:** Retrieves the contents of a file at a specific commit.
 
 **Documentation:**
 
-No documentation available
+Returns the content of a specified file either at the current HEAD or a specific commit. Logs errors if the file cannot be read.
 
 #### `initialize`
 
-**Scope:** public
+**Scope:** GitManager
 
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-### Variable
-
-#### `logger`
-
-**Scope:** private
-
-**Purpose:** No purpose specified
+**Purpose:** Establishes a connection to a Git repository.
 
 **Documentation:**
 
-No documentation available
-
-#### `repo`
-
-**Scope:** private
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `repo_path`
-
-**Scope:** private
-
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
+Attempts to open a Git repository at the given path. Logs an error if the repository is invalid.
 
 
 [Back to Index](../README.md)

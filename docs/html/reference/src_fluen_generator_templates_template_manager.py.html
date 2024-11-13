@@ -4,227 +4,241 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>src/fluen/generator/templates/template_manager.py - fluen-core</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link href="../assets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
         </div>
-        
         <div class="sidebar-content">
-            <div class="file-info">
-                <p>Python</p>
-                <p>Last modified: 2024-11-03T10:06:10.841417</p>
-            </div>
-
             <div class="element-navigation">
-                    <div class="element-group">
-                        <h3>Class</h3>
-                        <ul>
-                                <li><a href="#templatemanager">TemplateManager</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Method</h3>
-                        <ul>
-                                <li><a href="#__init__">__init__</a></li>
-                                <li><a href="#_register_filters">_register_filters</a></li>
-                                <li><a href="#_detect_language">_detect_language</a></li>
-                                <li><a href="#render_template">render_template</a></li>
-                                <li><a href="#get_default_context">get_default_context</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Variable</h3>
-                        <ul>
-                                <li><a href="#loaders">loaders</a></li>
-                        </ul>
-                    </div>
+                <div class="element-group">
+                    <h3>Class</h3>
+                    <ul>
+                        <li>
+                            <a href="#templatemanager">
+                                TemplateManager
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Method</h3>
+                    <ul>
+                        <li>
+                            <a href="#__init__">
+                                __init__
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#_register_filters">
+                                _register_filters
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#_detect_language">
+                                _detect_language
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#render_template">
+                                render_template
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#get_default_context">
+                                get_default_context
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Variable</h3>
+                    <ul>
+                        <li>
+                            <a href="#logger">
+                                logger
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#env">
+                                env
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <main class="content">
-        <div class="file-header">
-            <h1>src/fluen/generator/templates/template_manager.py</h1>
-            <div class="metadata">
-                <span>Language: Python</span>
-                <span>Last Modified: 2024-11-03T10:06:10.841417</span>
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
             </div>
-        </div>
+        </header>
 
-        <section class="file-purpose">
-            <h2>Purpose</h2>
-            <p>The primary purpose of the code is to manage the template system for documentation generation using the Jinja2 templating engine.</p>
-        </section>
+        <main class="content">
+            <div class="file-header">
+                <h1>src/fluen/generator/templates/template_manager.py</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Python</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:52:32.533661</p>
+                </div>
+            </div>
 
-            <section class="exposures">
-                <h2>Public API</h2>
-                <ul class="exposure-list">
-                        <li>
-                            <code>TemplateManager.__init__</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>TemplateManager._register_filters</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>TemplateManager._detect_language</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>TemplateManager.render_template</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>TemplateManager.get_default_context</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                </ul>
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>The primary purpose of this code is to manage a template system for documentation generation using Jinja2 templates.</p>
             </section>
 
-            <section class="dependencies">
+            <section class="dependencies-section">
                 <h2>Dependencies</h2>
                 <ul class="dependency-list">
-                        <li>
-                            <span class="dep-name">pathlib.Path</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">typing.Dict</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">typing.Any</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">typing.Optional</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">jinja2.Environment</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">jinja2.FileSystemLoader</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">jinja2.PackageLoader</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">jinja2.ChoiceLoader</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">logging</span>
-                            <span class="type-badge">external</span>
-                        </li>
+                    <li>
+                        <span class="dep-name">pathlib</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">typing</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">jinja2</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">logging</span>
+                        <span class="type-badge">external</span>
+                    </li>
                 </ul>
             </section>
 
-        <section class="elements">
-            <h2>Elements</h2>
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
+
+            <section class="elements-section">
+                <h2>Elements</h2>
                 <div class="element-type-section">
                     <h3>Class</h3>
-                        <div class="element" id="templatemanager">
-                            <div class="element-header">
-                                <code>TemplateManager</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="templatemanager" class="element">
+                        <div class="element-header">
+                            <code>TemplateManager</code>
+                            <span class="scope-badge">public</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Manage the Jinja2 environment and render templates for documentation generation.</p>
+                            <div class="documentation">
+                                This class sets up template loaders, registers custom filters, and provides methods to render templates and get default context for template rendering.
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div class="element-type-section">
                     <h3>Method</h3>
-                        <div class="element" id="__init__">
-                            <div class="element-header">
-                                <code>__init__</code>
-                                    <span class="scope-badge">TemplateManager</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="__init__" class="element">
+                        <div class="element-header">
+                            <code>__init__</code>
+                            <span class="scope-badge">private</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Initialize the TemplateManager with custom or default template directory and prepare the Jinja environment.</p>
+                            <div class="documentation">
+                                The initializer sets up the template loaders, configures the environment with autoescaping and block trimming options, and registers custom filters for templates.
                             </div>
                         </div>
-                        <div class="element" id="_register_filters">
-                            <div class="element-header">
-                                <code>_register_filters</code>
-                                    <span class="scope-badge">TemplateManager</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="_register_filters" class="element">
+                        <div class="element-header">
+                            <code>_register_filters</code>
+                            <span class="scope-badge">private</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Register custom Jinja2 filters for use in templates.</p>
+                            <div class="documentation">
+                                This method adds custom filters to the Jinja environment such as 'format_type', 'anchor_id', and 'code_language'.
                             </div>
                         </div>
-                        <div class="element" id="_detect_language">
-                            <div class="element-header">
-                                <code>_detect_language</code>
-                                    <span class="scope-badge">TemplateManager</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="_detect_language" class="element">
+                        <div class="element-header">
+                            <code>_detect_language</code>
+                            <span class="scope-badge">private</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Determine the programming language based on the file extension for syntax highlighting.</p>
+                            <div class="documentation">
+                                This method uses a mapping of file extensions to language names to detect and return the appropriate language for syntax highlighting in templates.
                             </div>
                         </div>
-                        <div class="element" id="render_template">
-                            <div class="element-header">
-                                <code>render_template</code>
-                                    <span class="scope-badge">TemplateManager</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="render_template" class="element">
+                        <div class="element-header">
+                            <code>render_template</code>
+                            <span class="scope-badge">public</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Render a Jinja2 template using the provided context.</p>
+                            <div class="documentation">
+                                This method retrieves a template by name, renders it with the provided context, and returns the rendered template as a string. It logs an error and raises an exception if rendering fails.
                             </div>
                         </div>
-                        <div class="element" id="get_default_context">
-                            <div class="element-header">
-                                <code>get_default_context</code>
-                                    <span class="scope-badge">TemplateManager</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="get_default_context" class="element">
+                        <div class="element-header">
+                            <code>get_default_context</code>
+                            <span class="scope-badge">public</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Provide a default context for templates based on the ProjectManifest.</p>
+                            <div class="documentation">
+                                This method generates a default context dictionary using information from the ProjectManifest, including project details, generation time, and git commit.
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div class="element-type-section">
                     <h3>Variable</h3>
-                        <div class="element" id="loaders">
-                            <div class="element-header">
-                                <code>loaders</code>
-                                    <span class="scope-badge">TemplateManager.__init__</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="logger" class="element">
+                        <div class="element-header">
+                            <code>logger</code>
+                            <span class="scope-badge">private</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Log system for the TemplateManager to record errors and important events.</p>
+                            <div class="documentation">
+                                A logging.Logger instance initialized with the module's name for tracking operations and errors within the TemplateManager.
                             </div>
                         </div>
+                    </div>
+                    <div id="env" class="element">
+                        <div class="element-header">
+                            <code>env</code>
+                            <span class="scope-badge">private</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Jinja2 environment instance for managing templates.</p>
+                            <div class="documentation">
+                                This instance of jinja2.Environment is configured with custom loaders and filter registrations to manage and render templates.
+                            </div>
+                        </div>
+                    </div>
                 </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
     <script src="../assets/script.js"></script>
-</body>
+<script>window.lineageData = {"nodes": [{"id": "src/fluen/generator/templates/template_manager.py", "type": "current"}], "links": []};</script></body>
 </html>

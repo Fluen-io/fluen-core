@@ -141,7 +141,8 @@ def export(ctx: FluenContext, type: Optional[str], output: Optional[Path]):
                 doc_generator = DocumentationGenerator(
                     manifest=manifest,
                     output_dir=output_dir,
-                    template_manager=template_manager
+                    template_manager=template_manager,
+                    manifest_generator=manifest_generator
                 )
 
                 # Run export

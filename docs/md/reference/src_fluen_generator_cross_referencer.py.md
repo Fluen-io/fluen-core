@@ -1,25 +1,33 @@
 # src/fluen/generator/cross_referencer.py
 
 **Language:** Python  
-**Last Modified:** 2024-11-03T10:04:47.800434
+**Last Modified:** 2024-11-13T17:51:31.391853
 
 ## Purpose
 
-The code is designed to resolve cross-references between documentation elements and generate reference graphs.
+The primary purpose of this code is to handle cross-referencing between documentation elements within a project, allowing for easy resolution and linking of references in documentation content.
 
 ## Public API
 
-- `CrossReferenceResolver` (exposure)
-- `Reference` (exposure)
+- `CrossReferenceResolver.__init__` (exposure)
+- `CrossReferenceResolver.resolve_references` (exposure)
+- `CrossReferenceResolver.get_incoming_references` (exposure)
+- `CrossReferenceResolver.get_outgoing_references` (exposure)
+- `CrossReferenceResolver.generate_reference_graph` (exposure)
 
 ## Dependencies
 
-- `pathlib` (external)
-- `typing` (external)
-- `dataclasses` (external)
+- `pathlib.Path` (external)
+- `typing.Dict` (external)
+- `typing.List` (external)
+- `typing.Optional` (external)
+- `typing.Set` (external)
+- `typing.Tuple` (external)
+- `dataclasses.dataclass` (external)
 - `re` (external)
 - `logging` (external)
-- `fluen.generator.manifest` (external)
+- `fluen.generator.manifest.ElementReference` (external)
+- `fluen.generator.manifest.ProjectManifest` (external)
 
 ## Elements
 
@@ -27,105 +35,105 @@ The code is designed to resolve cross-references between documentation elements 
 
 #### `CrossReferenceResolver`
 
-**Scope:** public
+**Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Resolves and manages cross-references between documentation elements.
 
 **Documentation:**
 
-No documentation available
+The CrossReferenceResolver class holds the logic for building a map of references, resolving them within content, and generating reference graphs.
 
 #### `Reference`
 
-**Scope:** public
+**Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Represents a reference to a documentation element.
 
 **Documentation:**
 
-No documentation available
+This dataclass models a reference to an element in the documentation by storing its source and target filenames, name, type, and line number.
 
 ### Method
 
 #### `__init__`
 
-**Scope:** private
+**Scope:** CrossReferenceResolver
 
-**Purpose:** No purpose specified
+**Purpose:** Initializes the CrossReferenceResolver with a given manifest.
 
 **Documentation:**
 
-No documentation available
+Constructor for the CrossReferenceResolver class. Sets up the manifest, logger, and builds the reference map.
 
 #### `_add_reference`
 
-**Scope:** private
+**Scope:** CrossReferenceResolver
 
-**Purpose:** No purpose specified
+**Purpose:** Adds a reference to the internal reference map.
 
 **Documentation:**
 
-No documentation available
+Helper method to add a given documentation element as a reference to the reference map, including necessary details.
 
 #### `_build_reference_map`
 
-**Scope:** private
+**Scope:** CrossReferenceResolver
 
-**Purpose:** No purpose specified
+**Purpose:** Builds a map of all referenceable elements in the documentation.
 
 **Documentation:**
 
-No documentation available
+This private method constructs the reference map by iterating through the project manifest&#39;s files and their exposures and elements.
 
 #### `_find_best_reference`
 
-**Scope:** private
+**Scope:** CrossReferenceResolver
 
-**Purpose:** No purpose specified
+**Purpose:** Determines the best reference to use from a list of possible references.
 
 **Documentation:**
 
-No documentation available
+Private method to find the most appropriate reference for an element, preferring those within the current file.
 
 #### `generate_reference_graph`
 
-**Scope:** public
+**Scope:** CrossReferenceResolver
 
-**Purpose:** No purpose specified
+**Purpose:** Generates a graph representing dependencies between files based on references.
 
 **Documentation:**
 
-No documentation available
+Returns a dictionary representing a graph where keys are file paths and values are sets of file paths they depend on.
 
 #### `get_incoming_references`
 
-**Scope:** public
+**Scope:** CrossReferenceResolver
 
-**Purpose:** No purpose specified
+**Purpose:** Retrieves all references pointing to elements in a specified file.
 
 **Documentation:**
 
-No documentation available
+Returns a dictionary of names mapped to lists of References that point to elements within the specified file path.
 
 #### `get_outgoing_references`
 
-**Scope:** public
+**Scope:** CrossReferenceResolver
 
-**Purpose:** No purpose specified
+**Purpose:** Retrieves all references originating from the specified file.
 
 **Documentation:**
 
-No documentation available
+Returns a dictionary of names mapped to lists of References that originate from elements within the specified file path and list their dependencies.
 
 #### `resolve_references`
 
-**Scope:** public
+**Scope:** CrossReferenceResolver
 
-**Purpose:** No purpose specified
+**Purpose:** Resolves references in the given content string and returns the modified content.
 
 **Documentation:**
 
-No documentation available
+This public method replaces reference placeholders in the content with appropriate hyperlinks and returns any unresolved references.
 
 
 [Back to Index](../README.md)

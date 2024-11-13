@@ -4,201 +4,192 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>setup.py - fluen-core</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link href="../assets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
         </div>
-        
         <div class="sidebar-content">
-            <div class="file-info">
-                <p>Python</p>
-                <p>Last modified: 2024-11-03T10:06:00.803106</p>
-            </div>
-
             <div class="element-navigation">
-                    <div class="element-group">
-                        <h3>Function</h3>
-                        <ul>
-                                <li><a href="#setup">setup</a></li>
-                                <li><a href="#find_packages">find_packages</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Variable</h3>
-                        <ul>
-                                <li><a href="#install_requires">install_requires</a></li>
-                                <li><a href="#extras_require">extras_require</a></li>
-                                <li><a href="#entry_points">entry_points</a></li>
-                        </ul>
-                    </div>
-            </div>
-        </div>
-    </nav>
-
-    <main class="content">
-        <div class="file-header">
-            <h1>setup.py</h1>
-            <div class="metadata">
-                <span>Language: Python</span>
-                <span>Last Modified: 2024-11-03T10:06:00.803106</span>
-            </div>
-        </div>
-
-        <section class="file-purpose">
-            <h2>Purpose</h2>
-            <p>Sets up a Python package named &#39;fluen&#39;, configuring its metadata, dependencies, and entry points.</p>
-        </section>
-
-            <section class="exposures">
-                <h2>Public API</h2>
-                <ul class="exposure-list">
+                <div class="element-group">
+                    <h3>Function</h3>
+                    <ul>
                         <li>
-                            <code>setup</code>
-                            <span class="type-badge">exposure</span>
+                            <a href="#setup">
+                                setup
+                            </a>
                         </li>
                         <li>
-                            <code>find_packages</code>
-                            <span class="type-badge">exposure</span>
+                            <a href="#find_packages">
+                                find_packages
+                            </a>
                         </li>
-                </ul>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Variable</h3>
+                    <ul>
+                        <li>
+                            <a href="#long_description">
+                                long_description
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="file-header">
+                <h1>setup.py</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Python</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:52:32.533384</p>
+                </div>
+            </div>
+
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>This code serves as a setup script for a Python package named &#39;fluen&#39;. It defines the package metadata, dependencies, and configurations required to distribute the package.</p>
             </section>
 
-            <section class="dependencies">
+            <section class="dependencies-section">
                 <h2>Dependencies</h2>
                 <ul class="dependency-list">
-                        <li>
-                            <span class="dep-name">click&gt;=8.0.0</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">gitpython&gt;=3.1.0</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">pyyaml&gt;=6.0</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">rich&gt;=10.0.0</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">jinja2&gt;=3.0.0</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">aiohttp&gt;=3.8.0</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">openai&gt;=1.0.0</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">mistralai&gt;=0.0.7</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">dev dependencies: pytest&gt;=7.0.0</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">pytest-asyncio&gt;=0.21.0</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">pytest-cov&gt;=4.0.0</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">black&gt;=23.0.0</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">mypy&gt;=1.0.0</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">flake8&gt;=6.0.0</span>
-                            <span class="type-badge">external</span>
-                        </li>
+                    <li>
+                        <span class="dep-name">setuptools</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">click&gt;=8.0.0</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">gitpython&gt;=3.1.0</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">pyyaml&gt;=6.0</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">rich&gt;=10.0.0</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">jinja2&gt;=3.0.0</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">aiohttp&gt;=3.8.0</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">openai&gt;=1.0.0</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">mistralai&gt;=0.0.7</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">pytest&gt;=7.0.0</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">pytest-asyncio&gt;=0.21.0</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">pytest-cov&gt;=4.0.0</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">black&gt;=23.0.0</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">mypy&gt;=1.0.0</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">flake8&gt;=6.0.0</span>
+                        <span class="type-badge">external</span>
+                    </li>
                 </ul>
             </section>
 
-        <section class="elements">
-            <h2>Elements</h2>
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
+
+            <section class="elements-section">
+                <h2>Elements</h2>
                 <div class="element-type-section">
                     <h3>Function</h3>
-                        <div class="element" id="setup">
-                            <div class="element-header">
-                                <code>setup</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="setup" class="element">
+                        <div class="element-header">
+                            <code>setup</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Used to configure various aspects of the Python package.</p>
+                            <div class="documentation">
+                                The 'setup' function is part of 'setuptools' and is used to specify package metadata, dependencies, and configurations for distribution. Key parameters include: 'name', 'version', 'packages', 'python_requires', 'install_requires', 'extras_require', 'entry_points', and metadata such as 'author', 'description', etc.
                             </div>
                         </div>
-                        <div class="element" id="find_packages">
-                            <div class="element-header">
-                                <code>find_packages</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="find_packages" class="element">
+                        <div class="element-header">
+                            <code>find_packages</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Discovers all packages and sub-packages in a directory.</p>
+                            <div class="documentation">
+                                The 'find_packages' function is from 'setuptools' and automatically identifies packages and sub-packages by searching for '__init__.py' files in directories. It is used here with the 'where' argument set to 'src' to look for packages under the 'src' directory.
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div class="element-type-section">
                     <h3>Variable</h3>
-                        <div class="element" id="install_requires">
-                            <div class="element-header">
-                                <code>install_requires</code>
-                                    <span class="scope-badge">within setup()</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="long_description" class="element">
+                        <div class="element-header">
+                            <code>long_description</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Holds the content of the README file for the package&#39;s long description.</p>
+                            <div class="documentation">
+                                The 'long_description' variable is assigned the contents of 'README.md', which is utilized in the metadata for more comprehensive package documentation.
                             </div>
                         </div>
-                        <div class="element" id="extras_require">
-                            <div class="element-header">
-                                <code>extras_require</code>
-                                    <span class="scope-badge">within setup()</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="element" id="entry_points">
-                            <div class="element-header">
-                                <code>entry_points</code>
-                                    <span class="scope-badge">within setup()</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
-                            </div>
-                        </div>
+                    </div>
                 </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
     <script src="../assets/script.js"></script>
-</body>
+<script>window.lineageData = {"nodes": [{"id": "setup.py", "type": "current"}], "links": []};</script></body>
 </html>

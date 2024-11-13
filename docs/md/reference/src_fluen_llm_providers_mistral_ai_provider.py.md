@@ -1,11 +1,11 @@
 # src/fluen/llm_providers/mistral_ai_provider.py
 
 **Language:** Python  
-**Last Modified:** 2024-11-12T20:10:07.635960
+**Last Modified:** 2024-11-13T18:00:08.218384
 
 ## Purpose
 
-The primary purpose of this code is to provide an implementation of the MistralAIProvider class for interacting with the Mistral API, facilitating text generation and embedding retrieval.
+This code provides an implementation of a language model provider using the Mistral service. It includes functionality for generating text responses and obtaining text embeddings asynchronously.
 
 ## Public API
 
@@ -27,75 +27,65 @@ The primary purpose of this code is to provide an implementation of the MistralA
 
 **Scope:** global
 
-**Purpose:** No purpose specified
+**Purpose:** Implements a language model provider based on Mistral for generating text and embeddings.
 
 **Documentation:**
 
-No documentation available
+The MistralAIProvider class inherits from BaseLLMProvider and is used to interact with the Mistral AI service. It supports asynchronous generation of text responses from prompts and text embeddings.
 
 ### Method
 
 #### `__init__`
 
-**Scope:** class
+**Scope:** MistralAIProvider
 
-**Purpose:** No purpose specified
+**Purpose:** Initializes the MistralAIProvider with configuration options.
 
 **Documentation:**
 
-No documentation available
+The constructor for MistralAIProvider takes a configuration dictionary to set up the Mistral client. It retrieves the API key and model name from the configuration dictionary.
 
 #### `generate`
 
-**Scope:** class
+**Scope:** MistralAIProvider
 
-**Purpose:** No purpose specified
+**Purpose:** Asynchronously generates text based on a given prompt.
 
 **Documentation:**
 
-No documentation available
+The generate method takes a prompt string and uses the Mistral client to generate a response. It handles any exceptions raised during the process and provides error messages.
 
 #### `get_embedding`
 
-**Scope:** class
+**Scope:** MistralAIProvider
 
-**Purpose:** No purpose specified
+**Purpose:** Asynchronously retrieves an embedding for the given text.
 
 **Documentation:**
 
-No documentation available
+The get_embedding method takes a text string and requests an embedding vector from the Mistral service. It also handles exceptions and provides error messages if the embedding cannot be generated.
 
 ### Variable
 
-#### `config`
+#### `client`
 
-**Scope:** method
+**Scope:** MistralAIProvider
 
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `prompt`
-
-**Scope:** method
-
-**Purpose:** No purpose specified
+**Purpose:** Stores the Mistral client instance.
 
 **Documentation:**
 
-No documentation available
+The client attribute of MistralAIProvider holds an instance of the Mistral client, initialized with the given API key for interacting with Mistral services.
 
-#### `text`
+#### `model`
 
-**Scope:** method
+**Scope:** MistralAIProvider
 
-**Purpose:** No purpose specified
+**Purpose:** Holds the name of the language model to be used for text generation.
 
 **Documentation:**
 
-No documentation available
+The model attribute stores the model name specified in the configuration, defaulting to &#39;mistral-small-latest&#39; if none is provided.
 
 
 [Back to Index](../README.md)

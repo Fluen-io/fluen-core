@@ -1,21 +1,16 @@
 # src/fluen/orchestrator.py
 
 **Language:** Python  
-**Last Modified:** 2024-11-03T10:06:46.988840
+**Last Modified:** 2024-11-13T17:58:04.783917
 
 ## Purpose
 
-The primary purpose of this code is to orchestrate the process of generating documentation for a software project. It handles tasks such as cloning or initializing a repository, analyzing the codebase, and generating documentation output.
+The primary purpose of this code is to orchestrate the process of generating documentation for a codebase. It manages the various stages of this process, such as initializing a repository, analyzing the codebase, and generating documentation.
 
 ## Public API
 
-- `Orchestrator.__init__` (exposure)
-- `Orchestrator.generate_documentation` (exposure)
-- `Orchestrator._initialize_repository` (exposure)
-- `Orchestrator._run_analysis` (exposure)
-- `Orchestrator._generate_docs` (exposure)
-- `Orchestrator._create_llm_provider` (exposure)
-- `ProcessManager.run` (exposure)
+- `Orchestrator` (exposure)
+- `ProcessManager` (exposure)
 - `main` (exposure)
 
 ## Dependencies
@@ -27,10 +22,9 @@ The primary purpose of this code is to orchestrate the process of generating doc
 - `time` (external)
 - `rich.console.Console` (external)
 - `rich.progress.Progress` (external)
-- `rich.progress.SpinnerColumn` (external)
-- `rich.progress.TextColumn` (external)
-- `rich.progress.BarColumn` (external)
-- `rich.progress.TaskID` (external)
+- `fluen.models.scan.ScanOptions` (external)
+- `fluen.models.scan.ScanSelector` (external)
+- `fluen.llm_providers.base_provider.BaseLLMProvider` (external)
 - `fluen.config.FluenConfig` (external)
 - `fluen.git_integration.manager.GitManager` (external)
 - `fluen.state.manager.StateManager` (external)
@@ -41,7 +35,6 @@ The primary purpose of this code is to orchestrate the process of generating doc
 - `fluen.generator.doc_generator.DocumentationGenerator` (external)
 - `fluen.generator.templates.template_manager.TemplateManager` (external)
 - `fluen.generator.cross_referencer.CrossReferenceResolver` (external)
-- `fluen.llm_providers.base_provider.BaseLLMProvider` (external)
 
 ## Elements
 
@@ -49,107 +42,117 @@ The primary purpose of this code is to orchestrate the process of generating doc
 
 #### `Orchestrator`
 
-**Scope:** global
+**Scope:** public
 
-**Purpose:** No purpose specified
+**Purpose:** Manages the overall process of documentation generation.
 
 **Documentation:**
 
-No documentation available
+The Orchestrator class initializes required components and orchestrates various steps to generate documentation for a project. It handles repository initialization, code analysis, and documentation generation.
 
 #### `ProcessManager`
 
-**Scope:** global
+**Scope:** public
 
-**Purpose:** No purpose specified
+**Purpose:** Static management for running the documentation generation process.
 
 **Documentation:**
 
-No documentation available
+Provides a static method to run the documentation generation process with specified configuration.
 
 ### Function
 
 #### `main`
 
-**Scope:** global
+**Scope:** public
 
-**Purpose:** No purpose specified
+**Purpose:** Entry point for running the process from the command line.
 
 **Documentation:**
 
-No documentation available
+Parses command-line arguments for configuration path and initiates the process using asyncio.
 
 ### Method
 
-#### `Orchestrator.__init__`
+#### `__init__`
 
-**Scope:** Orchestrator
+**Scope:** public
 
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `Orchestrator._create_llm_provider`
-
-**Scope:** Orchestrator
-
-**Purpose:** No purpose specified
+**Purpose:** Constructor for the Orchestrator class.
 
 **Documentation:**
 
-No documentation available
+Initializes the Orchestrator with configuration settings and sets up necessary components like GitManager, StateManager, and TemplateManager.
 
-#### `Orchestrator._generate_docs`
+#### `_create_llm_provider`
 
-**Scope:** Orchestrator
+**Scope:** private
 
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `Orchestrator._initialize_repository`
-
-**Scope:** Orchestrator
-
-**Purpose:** No purpose specified
+**Purpose:** Creates an LLM provider instance utilizing the LLMProviderFactory.
 
 **Documentation:**
 
-No documentation available
+Instantiates and configures a language model provider based on the configuration settings.
 
-#### `Orchestrator._run_analysis`
+#### `_generate_docs`
 
-**Scope:** Orchestrator
+**Scope:** private
 
-**Purpose:** No purpose specified
-
-**Documentation:**
-
-No documentation available
-
-#### `Orchestrator.generate_documentation`
-
-**Scope:** Orchestrator
-
-**Purpose:** No purpose specified
+**Purpose:** Generates documentation from the analysis results stored in the project manifest.
 
 **Documentation:**
 
-No documentation available
+Uses a documentation generator to produce documentation output based on analysis results.
 
-#### `ProcessManager.run`
+#### `_initialize_repository`
 
-**Scope:** ProcessManager
+**Scope:** private
 
-**Purpose:** No purpose specified
+**Purpose:** Initializes the Git repository for analysis.
 
 **Documentation:**
 
-No documentation available
+Clones or initializes the repository needed for documentation generation based on provided URL or default settings.
+
+#### `_run_analysis`
+
+**Scope:** private
+
+**Purpose:** Executes project analysis as part of the documentation generation.
+
+**Documentation:**
+
+Performs analysis on the repository using specified analyzers and updates progress accordingly.
+
+#### `_run_selective_analysis`
+
+**Scope:** private
+
+**Purpose:** Runs a selective analysis based on the provided ScanSelector.
+
+**Documentation:**
+
+Performs targeted analysis on specific parts of the codebase as defined by the scan options.
+
+#### `generate_documentation`
+
+**Scope:** public
+
+**Purpose:** Main method to start the documentation generation process.
+
+**Documentation:**
+
+Handles the complete flow of generating documentation including repository setup, file analysis, and documentation export.
+
+#### `run`
+
+**Scope:** public
+
+**Purpose:** Runs the documentation generation process with a provided configuration path.
+
+**Documentation:**
+
+Loads configuration and initiates the Orchestrator to start the documentation generation.
 
 
 [Back to Index](../README.md)

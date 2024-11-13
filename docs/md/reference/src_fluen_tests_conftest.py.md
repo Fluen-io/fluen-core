@@ -1,11 +1,11 @@
 # src/fluen/tests/conftest.py
 
 **Language:** Python  
-**Last Modified:** 2024-11-03T10:06:32.451269
+**Last Modified:** 2024-11-13T17:54:34.183543
 
 ## Purpose
 
-This code defines configuration and shared fixtures for PyTest to facilitate testing by setting up temporary environments and sample data structures.
+This code provides PyTest fixtures for setting up testing environments such as temporary file systems, sample Git repositories, and mock configurations.
 
 ## Public API
 
@@ -25,37 +25,59 @@ This code defines configuration and shared fixtures for PyTest to facilitate tes
 
 ## Elements
 
-### Fixture
+### Class
+
+#### `FluenConfig`
+
+**Scope:** external dependency
+
+**Purpose:** Configuration class used within the mock_config fixture.
+
+**Documentation:**
+
+Represents application configurations, presumably imported from the config module.
+
+#### `LLMConfig`
+
+**Scope:** external dependency
+
+**Purpose:** Configuration class for LLM provider details used within mock_config.
+
+**Documentation:**
+
+Holds details about the LLM service provider and model information, imported from the config module.
+
+### Function
 
 #### `mock_config`
 
-**Scope:** module
+**Scope:** module-level
 
-**Purpose:** No purpose specified
+**Purpose:** Creates a mock configuration object for testing.
 
 **Documentation:**
 
-No documentation available
+This fixture returns a FluenConfig instance initialized with a mock LLMConfig and various directory paths.
 
 #### `sample_repo`
 
-**Scope:** module
+**Scope:** module-level
 
-**Purpose:** No purpose specified
+**Purpose:** Creates a sample Git repository within a temporary directory for testing purposes.
 
 **Documentation:**
 
-No documentation available
+This fixture initializes a Git repository, populates it with sample files and commits, then yields the directory Path.
 
 #### `temp_dir`
 
-**Scope:** module
+**Scope:** module-level
 
-**Purpose:** No purpose specified
+**Purpose:** Provides a temporary directory for tests.
 
 **Documentation:**
 
-No documentation available
+This fixture sets up a temporary directory using Python&#39;s tempfile module and yields the Path object of the directory, ensuring cleanup afterwards.
 
 
 [Back to Index](../README.md)

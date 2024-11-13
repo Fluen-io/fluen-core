@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>src/fluen/generator/templates/default/static/styles.css - fluen-core</title>
+    <link href="../assets/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
+        </div>
+        <div class="sidebar-content">
+            <div class="element-navigation">
+                <div class="element-group">
+                    <h3>Variable</h3>
+                    <ul>
+                        <li>
+                            <a href="#:root">
+                                :root
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Universal Selector</h3>
+                    <ul>
+                        <li>
+                            <a href="#*">
+                                *
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Element</h3>
+                    <ul>
+                        <li>
+                            <a href="#body">
+                                body
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Class</h3>
+                    <ul>
+                        <li>
+                            <a href="#.sidebar">
+                                .sidebar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.sidebar-header">
+                                .sidebar-header
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.sidebar-content">
+                                .sidebar-content
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.main-content">
+                                .main-content
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.main-header">
+                                .main-header
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.content">
+                                .content
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.search-container">
+                                .search-container
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.search-input">
+                                .search-input
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.search-results">
+                                .search-results
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.search-result-item">
+                                .search-result-item
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.lineage-graph">
+                                .lineage-graph
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.element">
+                                .element
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.element-header">
+                                .element-header
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.type-badge">
+                                .type-badge
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.scope-badge">
+                                .scope-badge
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Element Selector</h3>
+                    <ul>
+                        <li>
+                            <a href="#.sidebar-header-h1">
+                                .sidebar-header h1
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.sidebar-header-h1-a">
+                                .sidebar-header h1 a
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#.element-header-code">
+                                .element-header code
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Class Selector</h3>
+                    <ul>
+                        <li>
+                            <a href="#.search-active-.search-results">
+                                .search-active .search-results
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Media Query</h3>
+                    <ul>
+                        <li>
+                            <a href="#@media-(max-width:-768px)">
+                                @media (max-width: 768px)
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="file-header">
+                <h1>src/fluen/generator/templates/default/static/styles.css</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Unknown</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:58:42.874315</p>
+                </div>
+            </div>
+
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>This CSS stylesheet is designed to provide a consistent and responsive layout for a web application, including a sidebar navigation, main content area, and various interactive UI features.</p>
+            </section>
+
+
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
+
+            <section class="elements-section">
+                <h2>Elements</h2>
+                <div class="element-type-section">
+                    <h3>Variable</h3>
+                    <div id=":root" class="element">
+                        <div class="element-header">
+                            <code>:root</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Defines CSS variables for colors, dimensions, and reusable values.</p>
+                            <div class="documentation">
+                                CSS variables (custom properties) are defined for use throughout the stylesheet, providing a centralized way to manage theme and layout values.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Universal Selector</h3>
+                    <div id="*" class="element">
+                        <div class="element-header">
+                            <code>*</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Applies a reset style to all elements.</p>
+                            <div class="documentation">
+                                This selector removes default margin, padding, and changes box-sizing to border-box for all elements, ensuring a consistent starting point for styling.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Element</h3>
+                    <div id="body" class="element">
+                        <div class="element-header">
+                            <code>body</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Sets base styles for the body element.</p>
+                            <div class="documentation">
+                                Configures default font, color, alignment, and background for the document body.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Class</h3>
+                    <div id=".sidebar" class="element">
+                        <div class="element-header">
+                            <code>.sidebar</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles a fixed-position sidebar.</p>
+                            <div class="documentation">
+                                Configures position, dimensions, background, and layout for a sidebar element.
+                            </div>
+                        </div>
+                    </div>
+                    <div id=".sidebar-header" class="element">
+                        <div class="element-header">
+                            <code>.sidebar-header</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles the header section within the sidebar.</p>
+                            <div class="documentation">
+                                Adds padding and a bottom border to distinguish the header section in the sidebar.
+                            </div>
+                        </div>
+                    </div>
+                    <div id=".sidebar-content" class="element">
+                        <div class="element-header">
+                            <code>.sidebar-content</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles the sidebar&#39;s scrollable content area.</p>
+                            <div class="documentation">
+                                Sets the sidebar's main content area with padding and scroll overflow.
+                            </div>
+                        </div>
+                    </div>
+                    <div id=".main-content" class="element">
+                        <div class="element-header">
+                            <code>.main-content</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles the main content area.</p>
+                            <div class="documentation">
+                                Adjusts the layout to account for the fixed sidebar width.
+                            </div>
+                        </div>
+                    </div>
+                    <div id=".main-header" class="element">
+                        <div class="element-header">
+                            <code>.main-header</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles the fixed-position main header.</p>
+                            <div class="documentation">
+                                Configures positioning, background, border, alignment, and z-index of the main header.
+                            </div>
+                        </div>
+                    </div>
+                    <div id=".content" class="element">
+                        <div class="element-header">
+                            <code>.content</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles the inner content area.</p>
+                            <div class="documentation">
+                                Applies top margin and padding to shift below the fixed header.
+                            </div>
+                        </div>
+                    </div>
+                    <div id=".search-container" class="element">
+                        <div class="element-header">
+                            <code>.search-container</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Defines the layout for a search container.</p>
+                            <div class="documentation">
+                                Positions a search input with relative positioning to accommodate absolute-positioned results.
+                            </div>
+                        </div>
+                    </div>
+                    <div id=".search-input" class="element">
+                        <div class="element-header">
+                            <code>.search-input</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles the search input field.</p>
+                            <div class="documentation">
+                                Configures padding, border, font size, and transition effects for focus states.
+                            </div>
+                        </div>
+                    </div>
+                    <div id=".search-results" class="element">
+                        <div class="element-header">
+                            <code>.search-results</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles the dropdown search results.</p>
+                            <div class="documentation">
+                                Configures dropdown styling, including positioning, borders, shadow, and display properties.
+                            </div>
+                        </div>
+                    </div>
+                    <div id=".search-result-item" class="element">
+                        <div class="element-header">
+                            <code>.search-result-item</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles individual search results.</p>
+                            <div class="documentation">
+                                Sets padding, border, and hover background effects for items in search results.
+                            </div>
+                        </div>
+                    </div>
+                    <div id=".lineage-graph" class="element">
+                        <div class="element-header">
+                            <code>.lineage-graph</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles a lineage graph element.</p>
+                            <div class="documentation">
+                                Configures layout, borders, and dimensions for a graphical element, presumably a graph or chart.
+                            </div>
+                        </div>
+                    </div>
+                    <div id=".element" class="element">
+                        <div class="element-header">
+                            <code>.element</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles generic UI elements.</p>
+                            <div class="documentation">
+                                Sets appearance, borders, spacing, and hover effects for reusable elements.
+                            </div>
+                        </div>
+                    </div>
+                    <div id=".element-header" class="element">
+                        <div class="element-header">
+                            <code>.element-header</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles headers within elements.</p>
+                            <div class="documentation">
+                                Aligns header content and sets spacing.
+                            </div>
+                        </div>
+                    </div>
+                    <div id=".type-badge" class="element">
+                        <div class="element-header">
+                            <code>.type-badge</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles a type badge element.</p>
+                            <div class="documentation">
+                                Configures the appearance of type badges with color and size properties.
+                            </div>
+                        </div>
+                    </div>
+                    <div id=".scope-badge" class="element">
+                        <div class="element-header">
+                            <code>.scope-badge</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles a scope badge element.</p>
+                            <div class="documentation">
+                                Applies appearance settings to scope badges, distinct from type badges.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Element Selector</h3>
+                    <div id=".sidebar-header-h1" class="element">
+                        <div class="element-header">
+                            <code>.sidebar-header h1</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles h1 elements within the sidebar header.</p>
+                            <div class="documentation">
+                                Configures font size and bottom margin for h1 elements, typically used for sidebar titles.
+                            </div>
+                        </div>
+                    </div>
+                    <div id=".sidebar-header-h1-a" class="element">
+                        <div class="element-header">
+                            <code>.sidebar-header h1 a</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles links within the sidebar header h1.</p>
+                            <div class="documentation">
+                                Ensures links within the sidebar header h1 have the primary color and no text decoration.
+                            </div>
+                        </div>
+                    </div>
+                    <div id=".element-header-code" class="element">
+                        <div class="element-header">
+                            <code>.element-header code</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Styles code elements within headers.</p>
+                            <div class="documentation">
+                                Sets font size and color for inline code in element headers.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Class Selector</h3>
+                    <div id=".search-active-.search-results" class="element">
+                        <div class="element-header">
+                            <code>.search-active .search-results</code>
+                            <span class="scope-badge">component</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Toggles display of search results when active.</p>
+                            <div class="documentation">
+                                Changes the display property to block when the parent has the search-active class.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="element-type-section">
+                    <h3>Media Query</h3>
+                    <div id="@media-(max-width:-768px)" class="element">
+                        <div class="element-header">
+                            <code>@media (max-width: 768px)</code>
+                            <span class="scope-badge">responsive</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Applies styles for devices with width up to 768px.</p>
+                            <div class="documentation">
+                                Adjusts sidebar and main content to be responsive on smaller screens.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
+    <script src="../assets/script.js"></script>
+<script>window.lineageData = {"nodes": [{"id": "src/fluen/generator/templates/default/static/styles.css", "type": "current"}], "links": []};</script></body>
+</html>

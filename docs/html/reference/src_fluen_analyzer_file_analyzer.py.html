@@ -4,46 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>src/fluen/analyzer/file_analyzer.py - fluen-core</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link href="../assets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
         </div>
-        
         <div class="sidebar-content">
-            <div class="file-info">
-                <p>Python</p>
-                <p>Last modified: 2024-11-12T20:03:09.037206</p>
-            </div>
-
             <div class="element-navigation">
             </div>
         </div>
-    </nav>
+    </div>
 
-    <main class="content">
-        <div class="file-header">
-            <h1>src/fluen/analyzer/file_analyzer.py</h1>
-            <div class="metadata">
-                <span>Language: Python</span>
-                <span>Last Modified: 2024-11-12T20:03:09.037206</span>
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
             </div>
-        </div>
+        </header>
 
-        <section class="file-purpose">
-            <h2>Purpose</h2>
-            <p>Purpose not specified</p>
-        </section>
+        <main class="content">
+            <div class="file-header">
+                <h1>src/fluen/analyzer/file_analyzer.py</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Python</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:56:07.421406</p>
+                </div>
+            </div>
 
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>File in analyzer module</p>
+            </section>
 
+            <section class="dependencies-section">
+                <h2>Dependencies</h2>
+                <ul class="dependency-list">
+                    <li>
+                        <span class="dep-name">pathlib</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">re</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">typing</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">dataclasses</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">logging</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">mimetypes</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">json</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">asyncio</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">time</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">git</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">fluen</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                </ul>
+            </section>
 
-        <section class="elements">
-            <h2>Elements</h2>
-        </section>
-    </main>
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
 
+            <section class="elements-section">
+                <h2>Elements</h2>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
     <script src="../assets/script.js"></script>
-</body>
+<script>window.lineageData = {"nodes": [{"id": "src/fluen/analyzer/file_analyzer.py", "type": "current"}], "links": []};</script></body>
 </html>

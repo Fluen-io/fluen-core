@@ -4,161 +4,289 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>fluen_config.example.yml - fluen-core</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link href="../assets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
         </div>
-        
         <div class="sidebar-content">
-            <div class="file-info">
-                <p>Unknown</p>
-                <p>Last modified: 2024-11-03T10:08:29.803278</p>
-            </div>
-
             <div class="element-navigation">
-                    <div class="element-group">
-                        <h3>Variable</h3>
-                        <ul>
-                                <li><a href="#llm">llm</a></li>
-                                <li><a href="#output_dir">output_dir</a></li>
-                                <li><a href="#cache_dir">cache_dir</a></li>
-                                <li><a href="#temp_dir">temp_dir</a></li>
-                                <li><a href="#default_export_type">default_export_type</a></li>
-                                <li><a href="#project">project</a></li>
-                        </ul>
-                    </div>
+                <div class="element-group">
+                    <h3>Variable</h3>
+                    <ul>
+                        <li>
+                            <a href="#llm">
+                                llm
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#provider">
+                                provider
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#api_key">
+                                api_key
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#model">
+                                model
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#output_dir">
+                                output_dir
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#cache_dir">
+                                cache_dir
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#temp_dir">
+                                temp_dir
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#default_export_type">
+                                default_export_type
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#project">
+                                project
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#name">
+                                name
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#description">
+                                description
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#ignore_patterns">
+                                ignore_patterns
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <main class="content">
-        <div class="file-header">
-            <h1>fluen_config.example.yml</h1>
-            <div class="metadata">
-                <span>Language: Unknown</span>
-                <span>Last Modified: 2024-11-03T10:08:29.803278</span>
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
             </div>
-        </div>
+        </header>
 
-        <section class="file-purpose">
-            <h2>Purpose</h2>
-            <p>This configuration file is used for setting up and managing settings for a project named &#39;Fluen&#39;, which appears to be a code documentation generator utilizing Large Language Models (LLMs).</p>
-        </section>
+        <main class="content">
+            <div class="file-header">
+                <h1>fluen_config.example.yml</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Unknown</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:47:28.482281</p>
+                </div>
+            </div>
 
-            <section class="exposures">
-                <h2>Public API</h2>
-                <ul class="exposure-list">
-                        <li>
-                            <code>llm</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>output_dir</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>cache_dir</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>temp_dir</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>default_export_type</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
-                        <li>
-                            <code>project</code>
-                            <span class="type-badge">exposure</span>
-                        </li>
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>Configuration file for the Fluen code documentation generator, allowing users to specify settings related to LLM provider selection, documentation output formats, caching, and project-specific configurations.</p>
+            </section>
+
+            <section class="dependencies-section">
+                <h2>Dependencies</h2>
+                <ul class="dependency-list">
+                    <li>
+                        <span class="dep-name">OpenAI API</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">Mistral API</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">Ollama API</span>
+                        <span class="type-badge">external</span>
+                    </li>
                 </ul>
             </section>
 
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
 
-        <section class="elements">
-            <h2>Elements</h2>
+            <section class="elements-section">
+                <h2>Elements</h2>
                 <div class="element-type-section">
                     <h3>Variable</h3>
-                        <div class="element" id="llm">
-                            <div class="element-header">
-                                <code>llm</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="llm" class="element">
+                        <div class="element-header">
+                            <code>llm</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Configuration object for specifying LLM provider details.</p>
+                            <div class="documentation">
+                                This object holds specific configurations for different LLM providers such as OpenAI, Mistral, or Ollama, including provider type, API keys, and model selections.
                             </div>
                         </div>
-                        <div class="element" id="output_dir">
-                            <div class="element-header">
-                                <code>output_dir</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="provider" class="element">
+                        <div class="element-header">
+                            <code>provider</code>
+                            <span class="scope-badge">llm</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Specifies the LLM provider to be used.</p>
+                            <div class="documentation">
+                                Allows selection among 'openai', 'mistral', or 'ollama'. Users should uncomment the relevant lines based on the chosen provider.
                             </div>
                         </div>
-                        <div class="element" id="cache_dir">
-                            <div class="element-header">
-                                <code>cache_dir</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="api_key" class="element">
+                        <div class="element-header">
+                            <code>api_key</code>
+                            <span class="scope-badge">llm</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Holds the API key for authentication with the chosen LLM provider.</p>
+                            <div class="documentation">
+                                Users are required to enter their API key for the selected provider to enable access to the LLM services.
                             </div>
                         </div>
-                        <div class="element" id="temp_dir">
-                            <div class="element-header">
-                                <code>temp_dir</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="model" class="element">
+                        <div class="element-header">
+                            <code>model</code>
+                            <span class="scope-badge">llm</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Defines the model to be used with the selected LLM provider.</p>
+                            <div class="documentation">
+                                Different models can be specified based on provider and use case needs. Possible values include 'gpt-3.5-turbo', 'gpt-4', 'mistral-small-latest', etc.
                             </div>
                         </div>
-                        <div class="element" id="default_export_type">
-                            <div class="element-header">
-                                <code>default_export_type</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="output_dir" class="element">
+                        <div class="element-header">
+                            <code>output_dir</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Specifies the directory for documentation output files.</p>
+                            <div class="documentation">
+                                The path where generated documentation will be stored. Users can customize this to match their project structure.
                             </div>
                         </div>
-                        <div class="element" id="project">
-                            <div class="element-header">
-                                <code>project</code>
-                                    <span class="scope-badge">global</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="cache_dir" class="element">
+                        <div class="element-header">
+                            <code>cache_dir</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Defines the directory for storing cache files.</p>
+                            <div class="documentation">
+                                Used to store intermediate analysis results to speed up subsequent operations.
                             </div>
                         </div>
+                    </div>
+                    <div id="temp_dir" class="element">
+                        <div class="element-header">
+                            <code>temp_dir</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Defines the directory for storing temporary files.</p>
+                            <div class="documentation">
+                                Temporary processing files are stored here and can be cleaned regularly to free up space.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="default_export_type" class="element">
+                        <div class="element-header">
+                            <code>default_export_type</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Sets the default format for documentation output.</p>
+                            <div class="documentation">
+                                Users can choose between 'html' and 'md' formats based on their needs for documentation presentation.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="project" class="element">
+                        <div class="element-header">
+                            <code>project</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Encapsulates project-specific settings.</p>
+                            <div class="documentation">
+                                Contains metadata about the project including name, description, and ignore patterns to exclude certain files/directories from processing.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="name" class="element">
+                        <div class="element-header">
+                            <code>name</code>
+                            <span class="scope-badge">project</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Defines the name of the project.</p>
+                            <div class="documentation">
+                                Serves as an identifier for the project within the Fluen tool.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="description" class="element">
+                        <div class="element-header">
+                            <code>description</code>
+                            <span class="scope-badge">project</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Provides a brief description of the project.</p>
+                            <div class="documentation">
+                                Descriptive text about the project to give context to users or integrators.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ignore_patterns" class="element">
+                        <div class="element-header">
+                            <code>ignore_patterns</code>
+                            <span class="scope-badge">project</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Lists files and directories to ignore during processing.</p>
+                            <div class="documentation">
+                                Patterns matching files or directories that should be excluded from analysis, useful for ignoring build artifacts or configuration files.
+                            </div>
+                        </div>
+                    </div>
                 </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
     <script src="../assets/script.js"></script>
-</body>
+<script>window.lineageData = {"nodes": [{"id": "fluen_config.example.yml", "type": "current"}], "links": []};</script></body>
 </html>

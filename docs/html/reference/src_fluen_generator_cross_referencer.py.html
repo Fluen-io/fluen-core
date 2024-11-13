@@ -4,234 +4,295 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>src/fluen/generator/cross_referencer.py - fluen-core</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link href="../assets/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="sidebar">
+    <div class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
+            <p>Python Project</p>
         </div>
-        
         <div class="sidebar-content">
-            <div class="file-info">
-                <p>Python</p>
-                <p>Last modified: 2024-11-03T10:04:47.800434</p>
-            </div>
-
             <div class="element-navigation">
-                    <div class="element-group">
-                        <h3>Class</h3>
-                        <ul>
-                                <li><a href="#reference">Reference</a></li>
-                                <li><a href="#crossreferenceresolver">CrossReferenceResolver</a></li>
-                        </ul>
-                    </div>
-                    <div class="element-group">
-                        <h3>Method</h3>
-                        <ul>
-                                <li><a href="#__init__">__init__</a></li>
-                                <li><a href="#_build_reference_map">_build_reference_map</a></li>
-                                <li><a href="#_add_reference">_add_reference</a></li>
-                                <li><a href="#resolve_references">resolve_references</a></li>
-                                <li><a href="#_find_best_reference">_find_best_reference</a></li>
-                                <li><a href="#get_incoming_references">get_incoming_references</a></li>
-                                <li><a href="#get_outgoing_references">get_outgoing_references</a></li>
-                                <li><a href="#generate_reference_graph">generate_reference_graph</a></li>
-                        </ul>
-                    </div>
-            </div>
-        </div>
-    </nav>
-
-    <main class="content">
-        <div class="file-header">
-            <h1>src/fluen/generator/cross_referencer.py</h1>
-            <div class="metadata">
-                <span>Language: Python</span>
-                <span>Last Modified: 2024-11-03T10:04:47.800434</span>
-            </div>
-        </div>
-
-        <section class="file-purpose">
-            <h2>Purpose</h2>
-            <p>The code is designed to resolve cross-references between documentation elements and generate reference graphs.</p>
-        </section>
-
-            <section class="exposures">
-                <h2>Public API</h2>
-                <ul class="exposure-list">
+                <div class="element-group">
+                    <h3>Class</h3>
+                    <ul>
                         <li>
-                            <code>CrossReferenceResolver</code>
-                            <span class="type-badge">exposure</span>
+                            <a href="#reference">
+                                Reference
+                            </a>
                         </li>
                         <li>
-                            <code>Reference</code>
-                            <span class="type-badge">exposure</span>
+                            <a href="#crossreferenceresolver">
+                                CrossReferenceResolver
+                            </a>
                         </li>
-                </ul>
+                    </ul>
+                </div>
+                <div class="element-group">
+                    <h3>Method</h3>
+                    <ul>
+                        <li>
+                            <a href="#__init__">
+                                __init__
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#_build_reference_map">
+                                _build_reference_map
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#_add_reference">
+                                _add_reference
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#resolve_references">
+                                resolve_references
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#_find_best_reference">
+                                _find_best_reference
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#get_incoming_references">
+                                get_incoming_references
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#get_outgoing_references">
+                                get_outgoing_references
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#generate_reference_graph">
+                                generate_reference_graph
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="main-header">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="file-header">
+                <h1>src/fluen/generator/cross_referencer.py</h1>
+                <div class="metadata">
+                    <p><strong>Language:</strong> Python</p>
+                    <p><strong>Last Modified:</strong> 2024-11-13T17:51:31.391853</p>
+                </div>
+            </div>
+
+            <section class="purpose-section">
+                <h2>Purpose</h2>
+                <p>The primary purpose of this code is to handle cross-referencing between documentation elements within a project, allowing for easy resolution and linking of references in documentation content.</p>
             </section>
 
-            <section class="dependencies">
+            <section class="dependencies-section">
                 <h2>Dependencies</h2>
                 <ul class="dependency-list">
-                        <li>
-                            <span class="dep-name">pathlib</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">typing</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">dataclasses</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">re</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">logging</span>
-                            <span class="type-badge">external</span>
-                        </li>
-                        <li>
-                            <span class="dep-name">fluen.generator.manifest</span>
-                            <span class="type-badge">external</span>
-                        </li>
+                    <li>
+                        <span class="dep-name">pathlib.Path</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">typing.Dict</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">typing.List</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">typing.Optional</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">typing.Set</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">typing.Tuple</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">dataclasses.dataclass</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">re</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">logging</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">fluen.generator.manifest.ElementReference</span>
+                        <span class="type-badge">external</span>
+                    </li>
+                    <li>
+                        <span class="dep-name">fluen.generator.manifest.ProjectManifest</span>
+                        <span class="type-badge">external</span>
+                    </li>
                 </ul>
             </section>
 
-        <section class="elements">
-            <h2>Elements</h2>
+            <section class="dependency-section">
+                <h2>Visualization</h2>
+                <div class="graph-wrapper">
+                    <div id="dependencyGraph" class="dependency-graph"></div>
+                </div>
+            </section>
+
+            <section class="elements-section">
+                <h2>Elements</h2>
                 <div class="element-type-section">
                     <h3>Class</h3>
-                        <div class="element" id="reference">
-                            <div class="element-header">
-                                <code>Reference</code>
-                                    <span class="scope-badge">public</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="reference" class="element">
+                        <div class="element-header">
+                            <code>Reference</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Represents a reference to a documentation element.</p>
+                            <div class="documentation">
+                                This dataclass models a reference to an element in the documentation by storing its source and target filenames, name, type, and line number.
                             </div>
                         </div>
-                        <div class="element" id="crossreferenceresolver">
-                            <div class="element-header">
-                                <code>CrossReferenceResolver</code>
-                                    <span class="scope-badge">public</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="crossreferenceresolver" class="element">
+                        <div class="element-header">
+                            <code>CrossReferenceResolver</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Resolves and manages cross-references between documentation elements.</p>
+                            <div class="documentation">
+                                The CrossReferenceResolver class holds the logic for building a map of references, resolving them within content, and generating reference graphs.
                             </div>
                         </div>
+                    </div>
                 </div>
                 <div class="element-type-section">
                     <h3>Method</h3>
-                        <div class="element" id="__init__">
-                            <div class="element-header">
-                                <code>__init__</code>
-                                    <span class="scope-badge">private</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    <div id="__init__" class="element">
+                        <div class="element-header">
+                            <code>__init__</code>
+                            <span class="scope-badge">CrossReferenceResolver</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Initializes the CrossReferenceResolver with a given manifest.</p>
+                            <div class="documentation">
+                                Constructor for the CrossReferenceResolver class. Sets up the manifest, logger, and builds the reference map.
                             </div>
                         </div>
-                        <div class="element" id="_build_reference_map">
-                            <div class="element-header">
-                                <code>_build_reference_map</code>
-                                    <span class="scope-badge">private</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="_build_reference_map" class="element">
+                        <div class="element-header">
+                            <code>_build_reference_map</code>
+                            <span class="scope-badge">CrossReferenceResolver</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Builds a map of all referenceable elements in the documentation.</p>
+                            <div class="documentation">
+                                This private method constructs the reference map by iterating through the project manifest's files and their exposures and elements.
                             </div>
                         </div>
-                        <div class="element" id="_add_reference">
-                            <div class="element-header">
-                                <code>_add_reference</code>
-                                    <span class="scope-badge">private</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="_add_reference" class="element">
+                        <div class="element-header">
+                            <code>_add_reference</code>
+                            <span class="scope-badge">CrossReferenceResolver</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Adds a reference to the internal reference map.</p>
+                            <div class="documentation">
+                                Helper method to add a given documentation element as a reference to the reference map, including necessary details.
                             </div>
                         </div>
-                        <div class="element" id="resolve_references">
-                            <div class="element-header">
-                                <code>resolve_references</code>
-                                    <span class="scope-badge">public</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="resolve_references" class="element">
+                        <div class="element-header">
+                            <code>resolve_references</code>
+                            <span class="scope-badge">CrossReferenceResolver</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Resolves references in the given content string and returns the modified content.</p>
+                            <div class="documentation">
+                                This public method replaces reference placeholders in the content with appropriate hyperlinks and returns any unresolved references.
                             </div>
                         </div>
-                        <div class="element" id="_find_best_reference">
-                            <div class="element-header">
-                                <code>_find_best_reference</code>
-                                    <span class="scope-badge">private</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="_find_best_reference" class="element">
+                        <div class="element-header">
+                            <code>_find_best_reference</code>
+                            <span class="scope-badge">CrossReferenceResolver</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Determines the best reference to use from a list of possible references.</p>
+                            <div class="documentation">
+                                Private method to find the most appropriate reference for an element, preferring those within the current file.
                             </div>
                         </div>
-                        <div class="element" id="get_incoming_references">
-                            <div class="element-header">
-                                <code>get_incoming_references</code>
-                                    <span class="scope-badge">public</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="get_incoming_references" class="element">
+                        <div class="element-header">
+                            <code>get_incoming_references</code>
+                            <span class="scope-badge">CrossReferenceResolver</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Retrieves all references pointing to elements in a specified file.</p>
+                            <div class="documentation">
+                                Returns a dictionary of names mapped to lists of References that point to elements within the specified file path.
                             </div>
                         </div>
-                        <div class="element" id="get_outgoing_references">
-                            <div class="element-header">
-                                <code>get_outgoing_references</code>
-                                    <span class="scope-badge">public</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="get_outgoing_references" class="element">
+                        <div class="element-header">
+                            <code>get_outgoing_references</code>
+                            <span class="scope-badge">CrossReferenceResolver</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Retrieves all references originating from the specified file.</p>
+                            <div class="documentation">
+                                Returns a dictionary of names mapped to lists of References that originate from elements within the specified file path and list their dependencies.
                             </div>
                         </div>
-                        <div class="element" id="generate_reference_graph">
-                            <div class="element-header">
-                                <code>generate_reference_graph</code>
-                                    <span class="scope-badge">public</span>
-                            </div>
-                            <div class="element-content">
-                                <p class="purpose"></p>
-                                <div class="documentation">
-                                    
-                                </div>
+                    </div>
+                    <div id="generate_reference_graph" class="element">
+                        <div class="element-header">
+                            <code>generate_reference_graph</code>
+                            <span class="scope-badge">CrossReferenceResolver</span>
+                        </div>
+                        <div class="element-content">
+                            <p>Generates a graph representing dependencies between files based on references.</p>
+                            <div class="documentation">
+                                Returns a dictionary representing a graph where keys are file paths and values are sets of file paths they depend on.
                             </div>
                         </div>
+                    </div>
                 </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 
+    <!-- Add D3.js before other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Add default graph data in case the server doesn't provide it -->
+    
     <script src="../assets/script.js"></script>
-</body>
+<script>window.lineageData = {"nodes": [{"id": "src/fluen/generator/cross_referencer.py", "type": "current"}], "links": []};</script></body>
 </html>
