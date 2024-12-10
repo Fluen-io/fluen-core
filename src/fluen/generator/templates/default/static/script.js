@@ -519,10 +519,133 @@ class DependencyGraph {
     }
 }
 
+// Theme handling
+class ThemeManager {
+    constructor() {
+        this.themeToggle = document.getElementById('themeToggle');
+        this.sunIcon = document.querySelector('.sun-icon');
+        this.moonIcon = document.querySelector('.moon-icon');
+        
+        // Initialize theme from localStorage or system preference
+        this.initializeTheme();
+        this.setupListeners();
+    }
+
+    initializeTheme() {
+        // Check localStorage first
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            this.setTheme(savedTheme);
+        } else {
+            // Check system preference
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            this.setTheme(prefersDark ? 'dark' : 'light');
+        }
+    }
+
+    setupListeners() {
+        // Theme toggle button
+        this.themeToggle?.addEventListener('click', () => {
+            const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            this.setTheme(newTheme);
+        });
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            if (!localStorage.getItem('theme')) {
+                this.setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    }
+
+    setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        
+        // Update toggle button icons
+        if (this.sunIcon && this.moonIcon) {
+            if (theme === 'dark') {
+                this.sunIcon.style.display = 'none';
+                this.moonIcon.style.display = 'block';
+            } else {
+                this.sunIcon.style.display = 'block';
+                this.moonIcon.style.display = 'none';
+            }
+        }
+    }
+}
+
+// Tab handling
+class TabManager {
+    constructor() {
+        this.tabsContainer = document.querySelector('.tabs');
+        this.tabPanes = document.querySelectorAll('.tab-pane');
+        
+        this.setupListeners();
+        this.initFromHash();
+    }
+
+    setupListeners() {
+        this.tabsContainer?.addEventListener('click', (e) => {
+            const tabButton = e.target.closest('.tab');
+            if (!tabButton) return;
+
+            const tabId = tabButton.dataset.tab;
+            this.activateTab(tabId);
+            
+            // Update URL hash without scrolling
+            history.pushState(null, null, `#${tabId}`);
+        });
+
+        // Listen for hash changes
+        window.addEventListener('hashchange', () => this.initFromHash());
+    }
+
+    initFromHash() {
+        const hash = window.location.hash.slice(1);
+        if (hash && document.querySelector(`[data-tab="${hash}"]`)) {
+            this.activateTab(hash);
+        } else {
+            // Default to first tab
+            const firstTab = document.querySelector('.tab');
+            if (firstTab) {
+                this.activateTab(firstTab.dataset.tab);
+            }
+        }
+    }
+
+    activateTab(tabId) {
+        // Update tab buttons
+        const tabs = this.tabsContainer?.querySelectorAll('.tab');
+        tabs?.forEach(tab => {
+            if (tab.dataset.tab === tabId) {
+                tab.classList.add('active');
+                tab.setAttribute('aria-selected', 'true');
+            } else {
+                tab.classList.remove('active');
+                tab.setAttribute('aria-selected', 'false');
+            }
+        });
+
+        // Update tab panes
+        this.tabPanes?.forEach(pane => {
+            if (pane.id === tabId) {
+                pane.classList.add('active');
+            } else {
+                pane.classList.remove('active');
+            }
+        });
+    }
+}
+
 // Initialize components
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize search first
     const searchInstance = new DocumentationSearch();
+
+    // Initialize new components
+    const themeManager = new ThemeManager();
+    const tabManager = new TabManager();
     
     // Wait for manifest to be loaded before initializing graph
     const waitForManifest = setInterval(() => {
@@ -538,4 +661,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }, 100);
+
+    // Add keyboard shortcut for search
+    document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement !== searchInput) {
+            e.preventDefault();
+            searchInput?.focus();
+        }
+    });
 });

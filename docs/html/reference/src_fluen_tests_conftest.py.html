@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>src/fluen/tests/conftest.py - fluen-core</title>
-    <link href="../assets/styles.css" rel="stylesheet">
+    <title>src/fluen/tests/conftest.py | fluen-core Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="../assets/logo-placeholder.png" alt="Fluen" width="32" height="32">
+                <a href="../index.html" class="logo-text">Fluen Documentation</a>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search documentation... (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
             <p>Python Project</p>
         </div>
+
         <div class="sidebar-content">
-            <div class="element-navigation">
-                <div class="element-group">
+            <nav class="file-navigation">
+                <div class="nav-section">
                     <h3>Function</h3>
                     <ul>
                         <li>
@@ -34,7 +66,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Class</h3>
                     <ul>
                         <li>
@@ -49,149 +81,196 @@
                         </li>
                     </ul>
                 </div>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- File header -->
+        <div class="file-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">fluen-core</a>
+                <span class="separator">/</span>
+                <span class="current">src/fluen/tests/conftest.py</span>
+            </div>
+
+            <div class="file-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Language</span>
+                    <span class="metadata-value">Python</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Last Modified</span>
+                    <span class="metadata-value">2024-11-13T17:54:34.183543</span>
+                </div>
+            </div>
+
+            <div class="file-purpose">
+                <h1>src/fluen/tests/conftest.py</h1>
+                <p>This code provides PyTest fixtures for setting up testing environments such as temporary file systems, sample Git repositories, and mock configurations.</p>
             </div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <header class="main-header">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
-                <div class="search-results"></div>
-            </div>
-        </header>
-
-        <main class="content">
-            <div class="file-header">
-                <h1>src/fluen/tests/conftest.py</h1>
-                <div class="metadata">
-                    <p><strong>Language:</strong> Python</p>
-                    <p><strong>Last Modified:</strong> 2024-11-13T17:54:34.183543</p>
+        <!-- Dependencies section -->
+        <section class="file-dependencies">
+            <h2>Dependencies</h2>
+            <div class="dependencies-list">
+                <div class="dependency-item">
+                    <span class="dependency-name">pytest</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">pathlib</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">tempfile</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">shutil</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">git</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">typing</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">config</span>
+                    <span class="dependency-type">external</span>
                 </div>
             </div>
+        </section>
 
-            <section class="purpose-section">
-                <h2>Purpose</h2>
-                <p>This code provides PyTest fixtures for setting up testing environments such as temporary file systems, sample Git repositories, and mock configurations.</p>
-            </section>
+        <!-- Dependency visualization -->
+        <section class="dependency-section">
+            <h2>Visualization</h2>
+            <div class="graph-wrapper">
+                <div id="dependencyGraph" class="dependency-graph"></div>
+            </div>
+        </section>
 
-            <section class="dependencies-section">
-                <h2>Dependencies</h2>
-                <ul class="dependency-list">
-                    <li>
-                        <span class="dep-name">pytest</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">pathlib</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">tempfile</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">shutil</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">git</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">typing</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">config</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="dependency-section">
-                <h2>Visualization</h2>
-                <div class="graph-wrapper">
-                    <div id="dependencyGraph" class="dependency-graph"></div>
-                </div>
-            </section>
-
-            <section class="elements-section">
-                <h2>Elements</h2>
-                <div class="element-type-section">
-                    <h3>Function</h3>
-                    <div id="temp_dir" class="element">
-                        <div class="element-header">
+        <!-- Code elements -->
+        <section class="code-elements">
+            <h2>Code Elements</h2>
+            <div class="element-group">
+                <h3>Function</h3>
+                
+                <div id="temp_dir" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>temp_dir</code>
                             <span class="scope-badge">module-level</span>
                         </div>
-                        <div class="element-content">
-                            <p>Provides a temporary directory for tests.</p>
-                            <div class="documentation">
-                                This fixture sets up a temporary directory using Python's tempfile module and yields the Path object of the directory, ensuring cleanup afterwards.
-                            </div>
+                        <span class="line-number">Line 11</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Provides a temporary directory for tests.
+                        </div>
+
+                        <div class="element-documentation">
+                            This fixture sets up a temporary directory using Python's tempfile module and yields the Path object of the directory, ensuring cleanup afterwards.
                         </div>
                     </div>
-                    <div id="sample_repo" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="sample_repo" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>sample_repo</code>
                             <span class="scope-badge">module-level</span>
                         </div>
-                        <div class="element-content">
-                            <p>Creates a sample Git repository within a temporary directory for testing purposes.</p>
-                            <div class="documentation">
-                                This fixture initializes a Git repository, populates it with sample files and commits, then yields the directory Path.
-                            </div>
+                        <span class="line-number">Line 16</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Creates a sample Git repository within a temporary directory for testing purposes.
+                        </div>
+
+                        <div class="element-documentation">
+                            This fixture initializes a Git repository, populates it with sample files and commits, then yields the directory Path.
                         </div>
                     </div>
-                    <div id="mock_config" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="mock_config" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>mock_config</code>
                             <span class="scope-badge">module-level</span>
                         </div>
-                        <div class="element-content">
-                            <p>Creates a mock configuration object for testing.</p>
-                            <div class="documentation">
-                                This fixture returns a FluenConfig instance initialized with a mock LLMConfig and various directory paths.
-                            </div>
+                        <span class="line-number">Line 57</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Creates a mock configuration object for testing.
+                        </div>
+
+                        <div class="element-documentation">
+                            This fixture returns a FluenConfig instance initialized with a mock LLMConfig and various directory paths.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Class</h3>
-                    <div id="fluenconfig" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Class</h3>
+                
+                <div id="fluenconfig" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>FluenConfig</code>
                             <span class="scope-badge">external dependency</span>
                         </div>
-                        <div class="element-content">
-                            <p>Configuration class used within the mock_config fixture.</p>
-                            <div class="documentation">
-                                Represents application configurations, presumably imported from the config module.
-                            </div>
-                        </div>
+                        <span class="line-number">Line 9</span>
                     </div>
-                    <div id="llmconfig" class="element">
-                        <div class="element-header">
-                            <code>LLMConfig</code>
-                            <span class="scope-badge">external dependency</span>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Configuration class used within the mock_config fixture.
                         </div>
-                        <div class="element-content">
-                            <p>Configuration class for LLM provider details used within mock_config.</p>
-                            <div class="documentation">
-                                Holds details about the LLM service provider and model information, imported from the config module.
-                            </div>
+
+                        <div class="element-documentation">
+                            Represents application configurations, presumably imported from the config module.
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+                <div id="llmconfig" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>LLMConfig</code>
+                            <span class="scope-badge">external dependency</span>
+                        </div>
+                        <span class="line-number">Line 9</span>
+                    </div>
 
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Configuration class for LLM provider details used within mock_config.
+                        </div>
+
+                        <div class="element-documentation">
+                            Holds details about the LLM service provider and model information, imported from the config module.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <p>Powered by <a href="https://fluen.io" target="_blank">Fluen.io</a></p>
+        </footer>
+    </main>
     <!-- Add D3.js before other scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <!-- Add default graph data in case the server doesn't provide it -->
-    
+
     <script src="../assets/script.js"></script>
 <script>window.lineageData = {"nodes": [{"id": "src/fluen/tests/conftest.py", "type": "current"}], "links": []};</script></body>
 </html>

@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LICENSE - fluen-core</title>
-    <link href="../assets/styles.css" rel="stylesheet">
+    <title>LICENSE | fluen-core Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="../assets/logo-placeholder.png" alt="Fluen" width="32" height="32">
+                <a href="../index.html" class="logo-text">Fluen Documentation</a>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search documentation... (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
             <p>Python Project</p>
         </div>
+
         <div class="sidebar-content">
-            <div class="element-navigation">
-                <div class="element-group">
+            <nav class="file-navigation">
+                <div class="nav-section">
                     <h3>Definition</h3>
                     <ul>
                         <li>
@@ -69,7 +101,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Section</h3>
                     <ul>
                         <li>
@@ -114,272 +146,410 @@
                         </li>
                     </ul>
                 </div>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- File header -->
+        <div class="file-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">fluen-core</a>
+                <span class="separator">/</span>
+                <span class="current">LICENSE</span>
+            </div>
+
+            <div class="file-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Language</span>
+                    <span class="metadata-value">Unknown</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Last Modified</span>
+                    <span class="metadata-value">2024-11-13T17:54:53.453123</span>
+                </div>
+            </div>
+
+            <div class="file-purpose">
+                <h1>LICENSE</h1>
+                <p>The primary purpose of this text is to provide the full terms and conditions of the Apache License, Version 2.0, which is a widely used open source software license.</p>
             </div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <header class="main-header">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
-                <div class="search-results"></div>
+        <!-- Dependencies section -->
+
+        <!-- Dependency visualization -->
+        <section class="dependency-section">
+            <h2>Visualization</h2>
+            <div class="graph-wrapper">
+                <div id="dependencyGraph" class="dependency-graph"></div>
             </div>
-        </header>
+        </section>
 
-        <main class="content">
-            <div class="file-header">
-                <h1>LICENSE</h1>
-                <div class="metadata">
-                    <p><strong>Language:</strong> Unknown</p>
-                    <p><strong>Last Modified:</strong> 2024-11-13T17:54:53.453123</p>
-                </div>
-            </div>
-
-            <section class="purpose-section">
-                <h2>Purpose</h2>
-                <p>The primary purpose of this text is to provide the full terms and conditions of the Apache License, Version 2.0, which is a widely used open source software license.</p>
-            </section>
-
-
-            <section class="dependency-section">
-                <h2>Visualization</h2>
-                <div class="graph-wrapper">
-                    <div id="dependencyGraph" class="dependency-graph"></div>
-                </div>
-            </section>
-
-            <section class="elements-section">
-                <h2>Elements</h2>
-                <div class="element-type-section">
-                    <h3>Definition</h3>
-                    <div id="license" class="element">
-                        <div class="element-header">
+        <!-- Code elements -->
+        <section class="code-elements">
+            <h2>Code Elements</h2>
+            <div class="element-group">
+                <h3>Definition</h3>
+                
+                <div id="license" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>License</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Defines the scope and terms of the license.</p>
-                            <div class="documentation">
-                                License terms define conditions for use, reproduction, and distribution.
-                            </div>
+                        <span class="line-number">Line 5</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Defines the scope and terms of the license.
+                        </div>
+
+                        <div class="element-documentation">
+                            License terms define conditions for use, reproduction, and distribution.
                         </div>
                     </div>
-                    <div id="licensor" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="licensor" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>Licensor</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Denotes the copyright owner or authorized entity granting the license.</p>
-                            <div class="documentation">
-                                Identifies the party granting rights under the license.
-                            </div>
+                        <span class="line-number">Line 11</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Denotes the copyright owner or authorized entity granting the license.
+                        </div>
+
+                        <div class="element-documentation">
+                            Identifies the party granting rights under the license.
                         </div>
                     </div>
-                    <div id="legal-entity" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="legal-entity" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>Legal Entity</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Defines the entities controlled by or under common control with the acting entity.</p>
-                            <div class="documentation">
-                                Specifies the parties considered part of the 'entity' in the context of the license.
-                            </div>
+                        <span class="line-number">Line 14</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Defines the entities controlled by or under common control with the acting entity.
+                        </div>
+
+                        <div class="element-documentation">
+                            Specifies the parties considered part of the 'entity' in the context of the license.
                         </div>
                     </div>
-                    <div id="you" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="you" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>You</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Refers to the individual or entity exercising permissions.</p>
-                            <div class="documentation">
-                                Identifies the party who is the licensee of rights under this license.
-                            </div>
+                        <span class="line-number">Line 20</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Refers to the individual or entity exercising permissions.
+                        </div>
+
+                        <div class="element-documentation">
+                            Identifies the party who is the licensee of rights under this license.
                         </div>
                     </div>
-                    <div id="source" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="source" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>Source</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Refers to the preferred form for making modifications.</p>
-                            <div class="documentation">
-                                Defines what constitutes 'source' form under the license.
-                            </div>
+                        <span class="line-number">Line 23</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Refers to the preferred form for making modifications.
+                        </div>
+
+                        <div class="element-documentation">
+                            Defines what constitutes 'source' form under the license.
                         </div>
                     </div>
-                    <div id="object" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="object" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>Object</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Refers to any mechanically transformed form of the source.</p>
-                            <div class="documentation">
-                                Defines the form resulting from transformations like compilation.
-                            </div>
+                        <span class="line-number">Line 27</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Refers to any mechanically transformed form of the source.
+                        </div>
+
+                        <div class="element-documentation">
+                            Defines the form resulting from transformations like compilation.
                         </div>
                     </div>
-                    <div id="work" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="work" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>Work</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Defines the work under the license.</p>
-                            <div class="documentation">
-                                Work of authorship covered by the license, indicated by a copyright notice.
-                            </div>
+                        <span class="line-number">Line 32</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Defines the work under the license.
+                        </div>
+
+                        <div class="element-documentation">
+                            Work of authorship covered by the license, indicated by a copyright notice.
                         </div>
                     </div>
-                    <div id="derivative-works" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="derivative-works" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>Derivative Works</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Refers to works based on the original work.</p>
-                            <div class="documentation">
-                                Works that are modifications or extensions of the original work.
-                            </div>
+                        <span class="line-number">Line 37</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Refers to works based on the original work.
+                        </div>
+
+                        <div class="element-documentation">
+                            Works that are modifications or extensions of the original work.
                         </div>
                     </div>
-                    <div id="contribution" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="contribution" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>Contribution</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Denotes any work submitted to be included in the original work.</p>
-                            <div class="documentation">
-                                Work submitted for inclusion in the main work by a copyright owner or authorized entity.
-                            </div>
+                        <span class="line-number">Line 44</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Denotes any work submitted to be included in the original work.
+                        </div>
+
+                        <div class="element-documentation">
+                            Work submitted for inclusion in the main work by a copyright owner or authorized entity.
                         </div>
                     </div>
-                    <div id="contributor" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="contributor" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>Contributor</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Identifies individuals or entities submitting contributions.</p>
-                            <div class="documentation">
-                                Entities or individuals granting rights to their contributions.
-                            </div>
+                        <span class="line-number">Line 53</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Identifies individuals or entities submitting contributions.
+                        </div>
+
+                        <div class="element-documentation">
+                            Entities or individuals granting rights to their contributions.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Section</h3>
-                    <div id="grant-of-copyright-license" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Section</h3>
+                
+                <div id="grant-of-copyright-license" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>Grant of Copyright License</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Describes the copyright rights granted.</p>
-                            <div class="documentation">
-                                Outlines permissions granted for reproduction, distribution, etc.
-                            </div>
-                        </div>
+                        <span class="line-number">Line 57</span>
                     </div>
-                    <div id="grant-of-patent-license" class="element">
-                        <div class="element-header">
-                            <code>Grant of Patent License</code>
-                            <span class="scope-badge">global</span>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Describes the copyright rights granted.
                         </div>
-                        <div class="element-content">
-                            <p>Describes the patent rights granted.</p>
-                            <div class="documentation">
-                                Details rights regarding the use and sale of the work.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="redistribution" class="element">
-                        <div class="element-header">
-                            <code>Redistribution</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Specifies terms for redistributing the work.</p>
-                            <div class="documentation">
-                                Outlines conditions under which the work and derivatives can be redistributed.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="submission-of-contributions" class="element">
-                        <div class="element-header">
-                            <code>Submission of Contributions</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Describes terms around contributions to the work.</p>
-                            <div class="documentation">
-                                Defines terms for submitting contributions to the main work.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="trademarks" class="element">
-                        <div class="element-header">
-                            <code>Trademarks</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Clarifies trademark rights.</p>
-                            <div class="documentation">
-                                States that the license does not grant rights to use trademarks of the Licensor.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="disclaimer-of-warranty" class="element">
-                        <div class="element-header">
-                            <code>Disclaimer of Warranty</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Denies warranty and liability responsibilities.</p>
-                            <div class="documentation">
-                                Offers the work 'as is' with no warranties.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="limitation-of-liability" class="element">
-                        <div class="element-header">
-                            <code>Limitation of Liability</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Limits liability for any damages that arise.</p>
-                            <div class="documentation">
-                                Protects contributors from liability for damages incurred from using the work.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="accepting-warranty-or-additional-liability" class="element">
-                        <div class="element-header">
-                            <code>Accepting Warranty or Additional Liability</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Rules for offering warranty or liability.</p>
-                            <div class="documentation">
-                                Allows redistributors to offer support or warranties at their own risk.
-                            </div>
+
+                        <div class="element-documentation">
+                            Outlines permissions granted for reproduction, distribution, etc.
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+                <div id="grant-of-patent-license" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>Grant of Patent License</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 65</span>
+                    </div>
 
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Describes the patent rights granted.
+                        </div>
+
+                        <div class="element-documentation">
+                            Details rights regarding the use and sale of the work.
+                        </div>
+                    </div>
+                </div>
+                <div id="redistribution" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>Redistribution</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 75</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Specifies terms for redistributing the work.
+                        </div>
+
+                        <div class="element-documentation">
+                            Outlines conditions under which the work and derivatives can be redistributed.
+                        </div>
+                    </div>
+                </div>
+                <div id="submission-of-contributions" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>Submission of Contributions</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 107</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Describes terms around contributions to the work.
+                        </div>
+
+                        <div class="element-documentation">
+                            Defines terms for submitting contributions to the main work.
+                        </div>
+                    </div>
+                </div>
+                <div id="trademarks" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>Trademarks</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 114</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Clarifies trademark rights.
+                        </div>
+
+                        <div class="element-documentation">
+                            States that the license does not grant rights to use trademarks of the Licensor.
+                        </div>
+                    </div>
+                </div>
+                <div id="disclaimer-of-warranty" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>Disclaimer of Warranty</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 119</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Denies warranty and liability responsibilities.
+                        </div>
+
+                        <div class="element-documentation">
+                            Offers the work 'as is' with no warranties.
+                        </div>
+                    </div>
+                </div>
+                <div id="limitation-of-liability" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>Limitation of Liability</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 127</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Limits liability for any damages that arise.
+                        </div>
+
+                        <div class="element-documentation">
+                            Protects contributors from liability for damages incurred from using the work.
+                        </div>
+                    </div>
+                </div>
+                <div id="accepting-warranty-or-additional-liability" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>Accepting Warranty or Additional Liability</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 138</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Rules for offering warranty or liability.
+                        </div>
+
+                        <div class="element-documentation">
+                            Allows redistributors to offer support or warranties at their own risk.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <p>Powered by <a href="https://fluen.io" target="_blank">Fluen.io</a></p>
+        </footer>
+    </main>
     <!-- Add D3.js before other scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <!-- Add default graph data in case the server doesn't provide it -->
-    
+
     <script src="../assets/script.js"></script>
 <script>window.lineageData = {"nodes": [{"id": "LICENSE", "type": "current"}], "links": []};</script></body>
 </html>

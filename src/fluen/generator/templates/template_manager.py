@@ -6,6 +6,8 @@ Manages the template system for documentation generation.
 from pathlib import Path
 from typing import Dict, Any, Optional
 from jinja2 import Environment, FileSystemLoader, PackageLoader, ChoiceLoader
+from markdown import markdown
+import bleach
 import logging
 
 from fluen.generator.manifest import ProjectManifest
@@ -40,6 +42,32 @@ class TemplateManager:
         self.env.filters['format_type'] = lambda t: t.replace('_', ' ').title()
         self.env.filters['anchor_id'] = lambda s: s.lower().replace(' ', '-')
         self.env.filters['code_language'] = lambda path: self._detect_language(path)
+
+        # Add markdown filter with safe HTML subset
+        def markdown_filter(text):
+            # Convert markdown to HTML
+            html = markdown(text, extensions=['tables', 'fenced_code'])
+            
+            # Sanitize HTML output
+            allowed_tags = [
+                'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 
+                'strong', 'em', 'ul', 'ol', 'li', 'code', 'pre',
+                'a', 'table', 'thead', 'tbody', 'tr', 'th', 'td'
+            ]
+            allowed_attributes = {
+                'a': ['href', 'title'],
+                'code': ['class'],
+                'pre': ['class']
+            }
+            
+            return bleach.clean(
+                html,
+                tags=allowed_tags,
+                attributes=allowed_attributes,
+                strip=True
+            )
+            
+        self.env.filters['markdown'] = markdown_filter
         
     def _detect_language(self, path: str) -> str:
         """Detect language for syntax highlighting."""
@@ -76,7 +104,7 @@ class TemplateManager:
                 'name': manifest.name,
                 'primary_language': manifest.primary_language,
                 'frameworks': manifest.frameworks,
-                'root_path': manifest.root_path,
+                'root_path': manifest.root_path
             },
             'generation_time': manifest.last_updated,
             'git_commit': manifest.git_commit

@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>src/fluen/generator/templates/default/md/readme.md - fluen-core</title>
-    <link href="../assets/styles.css" rel="stylesheet">
+    <title>src/fluen/generator/templates/default/md/readme.md | fluen-core Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="../assets/logo-placeholder.png" alt="Fluen" width="32" height="32">
+                <a href="../index.html" class="logo-text">Fluen Documentation</a>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search documentation... (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
             <p>Python Project</p>
         </div>
+
         <div class="sidebar-content">
-            <div class="element-navigation">
-                <div class="element-group">
+            <nav class="file-navigation">
+                <div class="nav-section">
                     <h3>Variable</h3>
                     <ul>
                         <li>
@@ -54,146 +86,206 @@
                         </li>
                     </ul>
                 </div>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- File header -->
+        <div class="file-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">fluen-core</a>
+                <span class="separator">/</span>
+                <span class="current">src/fluen/generator/templates/default/md/readme.md</span>
+            </div>
+
+            <div class="file-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Language</span>
+                    <span class="metadata-value">Unknown</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Last Modified</span>
+                    <span class="metadata-value">2024-11-13T17:52:52.027884</span>
+                </div>
+            </div>
+
+            <div class="file-purpose">
+                <h1>src/fluen/generator/templates/default/md/readme.md</h1>
+                <p>This code acts as a Jinja2 template for generating documentation for a software project. It creates a structured Markdown file with sections for project overview, project structure, dependencies, and navigation.</p>
             </div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <header class="main-header">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
-                <div class="search-results"></div>
-            </div>
-        </header>
-
-        <main class="content">
-            <div class="file-header">
-                <h1>src/fluen/generator/templates/default/md/readme.md</h1>
-                <div class="metadata">
-                    <p><strong>Language:</strong> Unknown</p>
-                    <p><strong>Last Modified:</strong> 2024-11-13T17:52:52.027884</p>
+        <!-- Dependencies section -->
+        <section class="file-dependencies">
+            <h2>Dependencies</h2>
+            <div class="dependencies-list">
+                <div class="dependency-item">
+                    <span class="dependency-name">Jinja2</span>
+                    <span class="dependency-type">external</span>
                 </div>
             </div>
+        </section>
 
-            <section class="purpose-section">
-                <h2>Purpose</h2>
-                <p>This code acts as a Jinja2 template for generating documentation for a software project. It creates a structured Markdown file with sections for project overview, project structure, dependencies, and navigation.</p>
-            </section>
+        <!-- Dependency visualization -->
+        <section class="dependency-section">
+            <h2>Visualization</h2>
+            <div class="graph-wrapper">
+                <div id="dependencyGraph" class="dependency-graph"></div>
+            </div>
+        </section>
 
-            <section class="dependencies-section">
-                <h2>Dependencies</h2>
-                <ul class="dependency-list">
-                    <li>
-                        <span class="dep-name">Jinja2</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="dependency-section">
-                <h2>Visualization</h2>
-                <div class="graph-wrapper">
-                    <div id="dependencyGraph" class="dependency-graph"></div>
-                </div>
-            </section>
-
-            <section class="elements-section">
-                <h2>Elements</h2>
-                <div class="element-type-section">
-                    <h3>Variable</h3>
-                    <div id="project.name" class="element">
-                        <div class="element-header">
+        <!-- Code elements -->
+        <section class="code-elements">
+            <h2>Code Elements</h2>
+            <div class="element-group">
+                <h3>Variable</h3>
+                
+                <div id="project.name" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>project.name</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Holds the name of the project.</p>
-                            <div class="documentation">
-                                Used to display the project name in the documentation. Defaults to 'Project' if not provided.
-                            </div>
-                        </div>
+                        <span class="line-number">Line 1</span>
                     </div>
-                    <div id="project.primary_language" class="element">
-                        <div class="element-header">
-                            <code>project.primary_language</code>
-                            <span class="scope-badge">global</span>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Holds the name of the project.
                         </div>
-                        <div class="element-content">
-                            <p>Specifies the primary programming language of the project.</p>
-                            <div class="documentation">
-                                Displayed in the Project Overview section. Defaults to 'Not specified' if not set.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="project.frameworks" class="element">
-                        <div class="element-header">
-                            <code>project.frameworks</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Lists frameworks used in the project.</p>
-                            <div class="documentation">
-                                Displayed in the Project Overview section. It combines frameworks into a string separated by commas or defaults to 'None specified'.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="generation_time" class="element">
-                        <div class="element-header">
-                            <code>generation_time</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Records the last update time of the documentation generation.</p>
-                            <div class="documentation">
-                                Displayed in the Project Overview section. Defaults to 'Not specified'.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="git_commit" class="element">
-                        <div class="element-header">
-                            <code>git_commit</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Holds the current git commit hash of the project.</p>
-                            <div class="documentation">
-                                Displayed in the Project Overview section as an 8-character short form. Defaults to 'Unknown'.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="files_by_type" class="element">
-                        <div class="element-header">
-                            <code>files_by_type</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Categorizes the project files by their type.</p>
-                            <div class="documentation">
-                                Used to generate a section for each file type, listing all files with links to their respective documentation pages.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="dependencies" class="element">
-                        <div class="element-header">
-                            <code>dependencies</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Holds information about the project dependencies.</p>
-                            <div class="documentation">
-                                Used to render a table listing each dependency's name, type, version, and the files that use it, or defaults to 'No dependencies found'.
-                            </div>
+
+                        <div class="element-documentation">
+                            Used to display the project name in the documentation. Defaults to 'Project' if not provided.
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+                <div id="project.primary_language" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>project.primary_language</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 5</span>
+                    </div>
 
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Specifies the primary programming language of the project.
+                        </div>
+
+                        <div class="element-documentation">
+                            Displayed in the Project Overview section. Defaults to 'Not specified' if not set.
+                        </div>
+                    </div>
+                </div>
+                <div id="project.frameworks" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>project.frameworks</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 6</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Lists frameworks used in the project.
+                        </div>
+
+                        <div class="element-documentation">
+                            Displayed in the Project Overview section. It combines frameworks into a string separated by commas or defaults to 'None specified'.
+                        </div>
+                    </div>
+                </div>
+                <div id="generation_time" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>generation_time</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 7</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Records the last update time of the documentation generation.
+                        </div>
+
+                        <div class="element-documentation">
+                            Displayed in the Project Overview section. Defaults to 'Not specified'.
+                        </div>
+                    </div>
+                </div>
+                <div id="git_commit" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>git_commit</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 8</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Holds the current git commit hash of the project.
+                        </div>
+
+                        <div class="element-documentation">
+                            Displayed in the Project Overview section as an 8-character short form. Defaults to 'Unknown'.
+                        </div>
+                    </div>
+                </div>
+                <div id="files_by_type" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>files_by_type</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 11</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Categorizes the project files by their type.
+                        </div>
+
+                        <div class="element-documentation">
+                            Used to generate a section for each file type, listing all files with links to their respective documentation pages.
+                        </div>
+                    </div>
+                </div>
+                <div id="dependencies" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>dependencies</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 22</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Holds information about the project dependencies.
+                        </div>
+
+                        <div class="element-documentation">
+                            Used to render a table listing each dependency's name, type, version, and the files that use it, or defaults to 'No dependencies found'.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <p>Powered by <a href="https://fluen.io" target="_blank">Fluen.io</a></p>
+        </footer>
+    </main>
     <!-- Add D3.js before other scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <!-- Add default graph data in case the server doesn't provide it -->
-    
+
     <script src="../assets/script.js"></script>
 <script>window.lineageData = {"nodes": [{"id": "src/fluen/generator/templates/default/md/readme.md", "type": "current"}], "links": []};</script></body>
 </html>

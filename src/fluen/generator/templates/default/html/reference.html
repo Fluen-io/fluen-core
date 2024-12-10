@@ -3,19 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ file.path }} - {{ project.name }}</title>
-    <link href="../assets/styles.css" rel="stylesheet">
+    <title>{{ file.path }} | {{ project.name }} Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="../assets/logo-placeholder.png" alt="Fluen" width="32" height="32">
+                <a href="../index.html" class="logo-text">Fluen Documentation</a>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search documentation... (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">{{ project.name }}</a></h1>
             <p>{{ project.primary_language }} Project</p>
         </div>
+
         <div class="sidebar-content">
-            <div class="element-navigation">
+            <nav class="file-navigation">
                 {% for type, elements in elements_by_type.items()|default({}.items()) %}
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>{{ type|format_type }}</h3>
                     <ul>
                         {% for element in elements %}
@@ -28,87 +60,111 @@
                     </ul>
                 </div>
                 {% endfor %}
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- File header -->
+        <div class="file-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">{{ project.name }}</a>
+                <span class="separator">/</span>
+                <span class="current">{{ file.path }}</span>
+            </div>
+
+            <div class="file-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Language</span>
+                    <span class="metadata-value">{{ file.language }}</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Last Modified</span>
+                    <span class="metadata-value">{{ file.last_modified }}</span>
+                </div>
+            </div>
+
+            <div class="file-purpose">
+                <h1>{{ file.path }}</h1>
+                <p>{{ file.purpose }}</p>
             </div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <header class="main-header">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
-                <div class="search-results"></div>
-            </div>
-        </header>
-
-        <main class="content">
-            <div class="file-header">
-                <h1>{{ file.path }}</h1>
-                <div class="metadata">
-                    <p><strong>Language:</strong> {{ file.language }}</p>
-                    <p><strong>Last Modified:</strong> {{ file.last_modified }}</p>
+        <!-- Dependencies section -->
+        {% if file.dependencies %}
+        <section class="file-dependencies">
+            <h2>Dependencies</h2>
+            <div class="dependencies-list">
+                {% for dep in file.dependencies %}
+                <div class="dependency-item">
+                    <span class="dependency-name">{{ dep.name }}</span>
+                    <span class="dependency-type">{{ dep.type }}</span>
+                    {% if dep.version %}
+                    <span class="version-badge">{{ dep.version }}</span>
+                    {% endif %}
                 </div>
+                {% endfor %}
             </div>
+        </section>
+        {% endif %}
 
-            <section class="purpose-section">
-                <h2>Purpose</h2>
-                <p>{{ file.purpose }}</p>
-            </section>
+        <!-- Dependency visualization -->
+        <section class="dependency-section">
+            <h2>Visualization</h2>
+            <div class="graph-wrapper">
+                <div id="dependencyGraph" class="dependency-graph"></div>
+            </div>
+        </section>
 
-            {% if file.dependencies %}
-            <section class="dependencies-section">
-                <h2>Dependencies</h2>
-                <ul class="dependency-list">
-                    {% for dep in file.dependencies %}
-                    <li>
-                        <span class="dep-name">{{ dep.name }}</span>
-                        <span class="type-badge">{{ dep.type }}</span>
-                        {% if dep.version %}
-                        <span class="version-badge">{{ dep.version }}</span>
-                        {% endif %}
-                    </li>
-                    {% endfor %}
-                </ul>
-            </section>
-            {% endif %}
-
-            <section class="dependency-section">
-                <h2>Visualization</h2>
-                <div class="graph-wrapper">
-                    <div id="dependencyGraph" class="dependency-graph"></div>
-                </div>
-            </section>
-
-            <section class="elements-section">
-                <h2>Elements</h2>
-                {% for type, elements in elements_by_type.items()|default({}.items()) %}
-                <div class="element-type-section">
-                    <h3>{{ type|format_type }}</h3>
-                    {% for element in elements %}
-                    <div id="{{ element.get('name', '')|anchor_id }}" class="element">
-                        <div class="element-header">
+        <!-- Code elements -->
+        <section class="code-elements">
+            <h2>Code Elements</h2>
+            {% for type, elements in elements_by_type.items()|default({}.items()) %}
+            <div class="element-group">
+                <h3>{{ type|format_type }}</h3>
+                
+                {% for element in elements %}
+                <div id="{{ element.get('name', '')|anchor_id }}" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>{{ element.get('name', '') }}</code>
                             {% if element.get('scope') %}
                             <span class="scope-badge">{{ element.get('scope') }}</span>
                             {% endif %}
                         </div>
-                        <div class="element-content">
-                            <p>{{ element.get('purpose', '') }}</p>
-                            <div class="documentation">
-                                {{ element.get('documentation', '')|safe }}
-                            </div>
-                        </div>
+                        {% if element.get('line_number') %}
+                        <span class="line-number">Line {{ element.get('line_number') }}</span>
+                        {% endif %}
                     </div>
-                    {% endfor %}
+
+                    <div class="element-content">
+                        {% if element.get('purpose') %}
+                        <div class="element-purpose">
+                            {{ element.get('purpose') }}
+                        </div>
+                        {% endif %}
+
+                        {% if element.get('documentation') %}
+                        <div class="element-documentation">
+                            {{ element.get('documentation')|safe }}
+                        </div>
+                        {% endif %}
+                    </div>
                 </div>
                 {% endfor %}
-            </section>
-        </main>
-    </div>
+            </div>
+            {% endfor %}
+        </section>
 
+        <footer class="site-footer">
+            <p>Powered by <a href="https://fluen.io" target="_blank">Fluen.io</a></p>
+        </footer>
+    </main>
     <!-- Add D3.js before other scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <!-- Add default graph data in case the server doesn't provide it -->
-    
+
     <script src="../assets/script.js"></script>
 </body>
 </html>

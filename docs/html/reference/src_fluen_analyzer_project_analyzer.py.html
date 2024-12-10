@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>src/fluen/analyzer/project_analyzer.py - fluen-core</title>
-    <link href="../assets/styles.css" rel="stylesheet">
+    <title>src/fluen/analyzer/project_analyzer.py | fluen-core Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="../assets/logo-placeholder.png" alt="Fluen" width="32" height="32">
+                <a href="../index.html" class="logo-text">Fluen Documentation</a>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search documentation... (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
             <p>Python Project</p>
         </div>
+
         <div class="sidebar-content">
-            <div class="element-navigation">
-                <div class="element-group">
+            <nav class="file-navigation">
+                <div class="nav-section">
                     <h3>Class</h3>
                     <ul>
                         <li>
@@ -24,7 +56,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Method</h3>
                     <ul>
                         <li>
@@ -74,233 +106,315 @@
                         </li>
                     </ul>
                 </div>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- File header -->
+        <div class="file-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">fluen-core</a>
+                <span class="separator">/</span>
+                <span class="current">src/fluen/analyzer/project_analyzer.py</span>
+            </div>
+
+            <div class="file-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Language</span>
+                    <span class="metadata-value">Python</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Last Modified</span>
+                    <span class="metadata-value">2024-11-13T17:59:05.370177</span>
+                </div>
+            </div>
+
+            <div class="file-purpose">
+                <h1>src/fluen/analyzer/project_analyzer.py</h1>
+                <p>Analyzes project files and manages full or incremental analysis based on git changes and state management.</p>
             </div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <header class="main-header">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
-                <div class="search-results"></div>
-            </div>
-        </header>
-
-        <main class="content">
-            <div class="file-header">
-                <h1>src/fluen/analyzer/project_analyzer.py</h1>
-                <div class="metadata">
-                    <p><strong>Language:</strong> Python</p>
-                    <p><strong>Last Modified:</strong> 2024-11-13T17:59:05.370177</p>
+        <!-- Dependencies section -->
+        <section class="file-dependencies">
+            <h2>Dependencies</h2>
+            <div class="dependencies-list">
+                <div class="dependency-item">
+                    <span class="dependency-name">pathlib.Path</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">typing.Callable</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">typing.Dict</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">typing.List</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">typing.Optional</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">typing.Set</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">asyncio</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">logging</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.git_integration.manager.GitManager</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.state.manager.StateManager</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.analyzer.file_analyzer.FileAnalysis</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.analyzer.file_analyzer.FileAnalyzer</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.generator.manifest.ManifestGenerator</span>
+                    <span class="dependency-type">external</span>
                 </div>
             </div>
+        </section>
 
-            <section class="purpose-section">
-                <h2>Purpose</h2>
-                <p>Analyzes project files and manages full or incremental analysis based on git changes and state management.</p>
-            </section>
+        <!-- Dependency visualization -->
+        <section class="dependency-section">
+            <h2>Visualization</h2>
+            <div class="graph-wrapper">
+                <div id="dependencyGraph" class="dependency-graph"></div>
+            </div>
+        </section>
 
-            <section class="dependencies-section">
-                <h2>Dependencies</h2>
-                <ul class="dependency-list">
-                    <li>
-                        <span class="dep-name">pathlib.Path</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">typing.Callable</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">typing.Dict</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">typing.List</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">typing.Optional</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">typing.Set</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">asyncio</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">logging</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.git_integration.manager.GitManager</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.state.manager.StateManager</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.analyzer.file_analyzer.FileAnalysis</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.analyzer.file_analyzer.FileAnalyzer</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.generator.manifest.ManifestGenerator</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="dependency-section">
-                <h2>Visualization</h2>
-                <div class="graph-wrapper">
-                    <div id="dependencyGraph" class="dependency-graph"></div>
-                </div>
-            </section>
-
-            <section class="elements-section">
-                <h2>Elements</h2>
-                <div class="element-type-section">
-                    <h3>Class</h3>
-                    <div id="projectanalyzer" class="element">
-                        <div class="element-header">
+        <!-- Code elements -->
+        <section class="code-elements">
+            <h2>Code Elements</h2>
+            <div class="element-group">
+                <h3>Class</h3>
+                
+                <div id="projectanalyzer" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>ProjectAnalyzer</code>
                             <span class="scope-badge">module</span>
                         </div>
-                        <div class="element-content">
-                            <p>Handles project-level analysis, including both full and incremental, based on file changes detected through git.</p>
-                            <div class="documentation">
-                                This class coordinates analysis of files in a project directory, utilizing git to identify change sets and state management for tracking progress. It uses batching and asyncio for efficient analysis operations.
-                            </div>
+                        <span class="line-number">Line 17</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Handles project-level analysis, including both full and incremental, based on file changes detected through git.
+                        </div>
+
+                        <div class="element-documentation">
+                            This class coordinates analysis of files in a project directory, utilizing git to identify change sets and state management for tracking progress. It uses batching and asyncio for efficient analysis operations.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Method</h3>
-                    <div id="__init__" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Method</h3>
+                
+                <div id="__init__" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>__init__</code>
                             <span class="scope-badge">class</span>
                         </div>
-                        <div class="element-content">
-                            <p>Initializes the ProjectAnalyzer with required managers and settings.</p>
-                            <div class="documentation">
-                                Sets up the initial state for ProjectAnalyzer, including the project root path and several manager instances for git management, state management, file analysis, and manifest generation. Optionally takes a callback for progress updates.
-                            </div>
-                        </div>
+                        <span class="line-number">Line 18</span>
                     </div>
-                    <div id="analyze" class="element">
-                        <div class="element-header">
-                            <code>analyze</code>
-                            <span class="scope-badge">class</span>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Initializes the ProjectAnalyzer with required managers and settings.
                         </div>
-                        <div class="element-content">
-                            <p>Performs full project analysis or an incremental update based on git status.</p>
-                            <div class="documentation">
-                                This asynchronous method determines if a full analysis of the project is needed or if an incremental update suffices based on changes detected since the last analysis.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="_analyze_batch" class="element">
-                        <div class="element-header">
-                            <code>_analyze_batch</code>
-                            <span class="scope-badge">class</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Analyzes a batch of files asynchronously with rate limiting.</p>
-                            <div class="documentation">
-                                Handles analysis of a batch of files, potentially using async rate limiting to manage performance, and returns analysis results for each file.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="_perform_full_analysis" class="element">
-                        <div class="element-header">
-                            <code>_perform_full_analysis</code>
-                            <span class="scope-badge">class</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Executes a full analysis of the entire project directory.</p>
-                            <div class="documentation">
-                                Collects all relevant project files and performs a thorough analysis in batches, updating the manifest and progress state accordingly. Handles the main entry point for a full scan.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="_perform_incremental_update" class="element">
-                        <div class="element-header">
-                            <code>_perform_incremental_update</code>
-                            <span class="scope-badge">class</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Updates analysis results incrementally based on detected git changes.</p>
-                            <div class="documentation">
-                                Focuses on files added or modified since the last successful analysis commit and updates the manifest with updated analysis information.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="_get_analyzable_files" class="element">
-                        <div class="element-header">
-                            <code>_get_analyzable_files</code>
-                            <span class="scope-badge">class</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Retrieves a set of files to analyze from the project directory, excluding certain patterns.</p>
-                            <div class="documentation">
-                                Scans the project directory and returns files suitable for analysis, ignoring certain patterns like cache files, git directories, and virtual environments.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="_analyze_file" class="element">
-                        <div class="element-header">
-                            <code>_analyze_file</code>
-                            <span class="scope-badge">class</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Analyzes a single file and returns the analysis result.</p>
-                            <div class="documentation">
-                                Asynchronously analyzes a given file path and returns the analysis outcome if successful, while handling exceptions.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="analyze_path" class="element">
-                        <div class="element-header">
-                            <code>analyze_path</code>
-                            <span class="scope-badge">class</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Analyzes a specific path, either a file or directory, with git-based change detection.</p>
-                            <div class="documentation">
-                                This method allows analyzing specific paths, adhering to git changes for optimization unless forced, and updates analysis results accordingly.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="_get_changed_files" class="element">
-                        <div class="element-header">
-                            <code>_get_changed_files</code>
-                            <span class="scope-badge">class</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Determines which files have changed since the last commit.</p>
-                            <div class="documentation">
-                                Uses git history to identify files that changed since the last stored commit and only returns these for analysis, unless errors occur.
-                            </div>
+
+                        <div class="element-documentation">
+                            Sets up the initial state for ProjectAnalyzer, including the project root path and several manager instances for git management, state management, file analysis, and manifest generation. Optionally takes a callback for progress updates.
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+                <div id="analyze" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>analyze</code>
+                            <span class="scope-badge">class</span>
+                        </div>
+                        <span class="line-number">Line 32</span>
+                    </div>
 
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Performs full project analysis or an incremental update based on git status.
+                        </div>
+
+                        <div class="element-documentation">
+                            This asynchronous method determines if a full analysis of the project is needed or if an incremental update suffices based on changes detected since the last analysis.
+                        </div>
+                    </div>
+                </div>
+                <div id="_analyze_batch" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>_analyze_batch</code>
+                            <span class="scope-badge">class</span>
+                        </div>
+                        <span class="line-number">Line 50</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Analyzes a batch of files asynchronously with rate limiting.
+                        </div>
+
+                        <div class="element-documentation">
+                            Handles analysis of a batch of files, potentially using async rate limiting to manage performance, and returns analysis results for each file.
+                        </div>
+                    </div>
+                </div>
+                <div id="_perform_full_analysis" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>_perform_full_analysis</code>
+                            <span class="scope-badge">class</span>
+                        </div>
+                        <span class="line-number">Line 69</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Executes a full analysis of the entire project directory.
+                        </div>
+
+                        <div class="element-documentation">
+                            Collects all relevant project files and performs a thorough analysis in batches, updating the manifest and progress state accordingly. Handles the main entry point for a full scan.
+                        </div>
+                    </div>
+                </div>
+                <div id="_perform_incremental_update" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>_perform_incremental_update</code>
+                            <span class="scope-badge">class</span>
+                        </div>
+                        <span class="line-number">Line 125</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Updates analysis results incrementally based on detected git changes.
+                        </div>
+
+                        <div class="element-documentation">
+                            Focuses on files added or modified since the last successful analysis commit and updates the manifest with updated analysis information.
+                        </div>
+                    </div>
+                </div>
+                <div id="_get_analyzable_files" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>_get_analyzable_files</code>
+                            <span class="scope-badge">class</span>
+                        </div>
+                        <span class="line-number">Line 180</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Retrieves a set of files to analyze from the project directory, excluding certain patterns.
+                        </div>
+
+                        <div class="element-documentation">
+                            Scans the project directory and returns files suitable for analysis, ignoring certain patterns like cache files, git directories, and virtual environments.
+                        </div>
+                    </div>
+                </div>
+                <div id="_analyze_file" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>_analyze_file</code>
+                            <span class="scope-badge">class</span>
+                        </div>
+                        <span class="line-number">Line 198</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Analyzes a single file and returns the analysis result.
+                        </div>
+
+                        <div class="element-documentation">
+                            Asynchronously analyzes a given file path and returns the analysis outcome if successful, while handling exceptions.
+                        </div>
+                    </div>
+                </div>
+                <div id="analyze_path" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>analyze_path</code>
+                            <span class="scope-badge">class</span>
+                        </div>
+                        <span class="line-number">Line 208</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Analyzes a specific path, either a file or directory, with git-based change detection.
+                        </div>
+
+                        <div class="element-documentation">
+                            This method allows analyzing specific paths, adhering to git changes for optimization unless forced, and updates analysis results accordingly.
+                        </div>
+                    </div>
+                </div>
+                <div id="_get_changed_files" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>_get_changed_files</code>
+                            <span class="scope-badge">class</span>
+                        </div>
+                        <span class="line-number">Line 267</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Determines which files have changed since the last commit.
+                        </div>
+
+                        <div class="element-documentation">
+                            Uses git history to identify files that changed since the last stored commit and only returns these for analysis, unless errors occur.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <p>Powered by <a href="https://fluen.io" target="_blank">Fluen.io</a></p>
+        </footer>
+    </main>
     <!-- Add D3.js before other scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <!-- Add default graph data in case the server doesn't provide it -->
-    
+
     <script src="../assets/script.js"></script>
 <script>window.lineageData = {"nodes": [{"id": "src/fluen/analyzer/project_analyzer.py", "type": "current"}], "links": []};</script></body>
 </html>

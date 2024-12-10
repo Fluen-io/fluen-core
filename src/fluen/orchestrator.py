@@ -68,7 +68,8 @@ class Orchestrator:
                 # Initialize components for analysis
                 manifest_generator = ManifestGenerator(
                     Path(self.git_manager.repo_path),
-                    self.config.output_dir
+                    self.config.output_dir,
+                    llm_provider=self._create_llm_provider()
                 )
                 
                 file_analyzer = FileAnalyzer(self._create_llm_provider())

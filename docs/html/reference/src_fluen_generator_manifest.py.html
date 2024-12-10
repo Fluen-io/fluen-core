@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>src/fluen/generator/manifest.py - fluen-core</title>
-    <link href="../assets/styles.css" rel="stylesheet">
+    <title>src/fluen/generator/manifest.py | fluen-core Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="../assets/logo-placeholder.png" alt="Fluen" width="32" height="32">
+                <a href="../index.html" class="logo-text">Fluen Documentation</a>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search documentation... (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
             <p>Python Project</p>
         </div>
+
         <div class="sidebar-content">
-            <div class="element-navigation">
-                <div class="element-group">
+            <nav class="file-navigation">
+                <div class="nav-section">
                     <h3>Class</h3>
                     <ul>
                         <li>
@@ -49,7 +81,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Method</h3>
                     <ul>
                         <li>
@@ -104,301 +136,425 @@
                         </li>
                     </ul>
                 </div>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- File header -->
+        <div class="file-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">fluen-core</a>
+                <span class="separator">/</span>
+                <span class="current">src/fluen/generator/manifest.py</span>
+            </div>
+
+            <div class="file-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Language</span>
+                    <span class="metadata-value">Python</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Last Modified</span>
+                    <span class="metadata-value">2024-11-13T17:54:26.635081</span>
+                </div>
+            </div>
+
+            <div class="file-purpose">
+                <h1>src/fluen/generator/manifest.py</h1>
+                <p>The primary purpose of this code is to generate a manifest file for a project, which includes detailed information about files, their dependencies, relationships, and other metadata. This manifest can be saved in both JSON and JSONP formats.</p>
             </div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <header class="main-header">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
-                <div class="search-results"></div>
-            </div>
-        </header>
-
-        <main class="content">
-            <div class="file-header">
-                <h1>src/fluen/generator/manifest.py</h1>
-                <div class="metadata">
-                    <p><strong>Language:</strong> Python</p>
-                    <p><strong>Last Modified:</strong> 2024-11-13T17:54:26.635081</p>
+        <!-- Dependencies section -->
+        <section class="file-dependencies">
+            <h2>Dependencies</h2>
+            <div class="dependencies-list">
+                <div class="dependency-item">
+                    <span class="dependency-name">pathlib.Path</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">typing.Dict</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">typing.List</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">typing.Any</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">typing.Optional</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">typing.Set</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">dataclasses.dataclass</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">dataclasses.asdict</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">json</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">logging</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">datetime.datetime</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.analyzer.file_analyzer.FileAnalysis</span>
+                    <span class="dependency-type">external</span>
                 </div>
             </div>
+        </section>
 
-            <section class="purpose-section">
-                <h2>Purpose</h2>
-                <p>The primary purpose of this code is to generate a manifest file for a project, which includes detailed information about files, their dependencies, relationships, and other metadata. This manifest can be saved in both JSON and JSONP formats.</p>
-            </section>
+        <!-- Dependency visualization -->
+        <section class="dependency-section">
+            <h2>Visualization</h2>
+            <div class="graph-wrapper">
+                <div id="dependencyGraph" class="dependency-graph"></div>
+            </div>
+        </section>
 
-            <section class="dependencies-section">
-                <h2>Dependencies</h2>
-                <ul class="dependency-list">
-                    <li>
-                        <span class="dep-name">pathlib.Path</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">typing.Dict</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">typing.List</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">typing.Any</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">typing.Optional</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">typing.Set</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">dataclasses.dataclass</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">dataclasses.asdict</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">json</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">logging</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">datetime.datetime</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.analyzer.file_analyzer.FileAnalysis</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="dependency-section">
-                <h2>Visualization</h2>
-                <div class="graph-wrapper">
-                    <div id="dependencyGraph" class="dependency-graph"></div>
-                </div>
-            </section>
-
-            <section class="elements-section">
-                <h2>Elements</h2>
-                <div class="element-type-section">
-                    <h3>Class</h3>
-                    <div id="dependencyinfo" class="element">
-                        <div class="element-header">
+        <!-- Code elements -->
+        <section class="code-elements">
+            <h2>Code Elements</h2>
+            <div class="element-group">
+                <h3>Class</h3>
+                
+                <div id="dependencyinfo" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>DependencyInfo</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Represents a dependency with information such as name, type, version, and usage across files.</p>
-                            <div class="documentation">
-                                Stores the details of a dependency, including which files use it.
-                            </div>
+                        <span class="line-number">Line 11</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Represents a dependency with information such as name, type, version, and usage across files.
+                        </div>
+
+                        <div class="element-documentation">
+                            Stores the details of a dependency, including which files use it.
                         </div>
                     </div>
-                    <div id="elementreference" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="elementreference" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>ElementReference</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Represents a code element reference, including details like name, type, file path, line number, etc.</p>
-                            <div class="documentation">
-                                Used to track different elements within the files such as functions, classes, or variables.
-                            </div>
+                        <span class="line-number">Line 18</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Represents a code element reference, including details like name, type, file path, line number, etc.
+                        </div>
+
+                        <div class="element-documentation">
+                            Used to track different elements within the files such as functions, classes, or variables.
                         </div>
                     </div>
-                    <div id="filerelationships" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="filerelationships" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>FileRelationships</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Tracks the relationships of a file with other files, including which files it depends on and which files depend on it.</p>
-                            <div class="documentation">
-                                Maintains a record of imports and dependencies for each file.
-                            </div>
+                        <span class="line-number">Line 27</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Tracks the relationships of a file with other files, including which files it depends on and which files depend on it.
+                        </div>
+
+                        <div class="element-documentation">
+                            Maintains a record of imports and dependencies for each file.
                         </div>
                     </div>
-                    <div id="filemanifest" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="filemanifest" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>FileManifest</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Represents metadata about a file, including its path, language, purpose, dependencies, and relationships with other files.</p>
-                            <div class="documentation">
-                                Holds detailed information about a single file in the context of the project.
-                            </div>
+                        <span class="line-number">Line 34</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Represents metadata about a file, including its path, language, purpose, dependencies, and relationships with other files.
+                        </div>
+
+                        <div class="element-documentation">
+                            Holds detailed information about a single file in the context of the project.
                         </div>
                     </div>
-                    <div id="projectmanifest" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="projectmanifest" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>ProjectManifest</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Stores the entire project metadata, including language, frameworks, files, dependencies, and more.</p>
-                            <div class="documentation">
-                                Collects comprehensive data about the project, combining individual file manifests.
-                            </div>
+                        <span class="line-number">Line 46</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Stores the entire project metadata, including language, frameworks, files, dependencies, and more.
+                        </div>
+
+                        <div class="element-documentation">
+                            Collects comprehensive data about the project, combining individual file manifests.
                         </div>
                     </div>
-                    <div id="manifestgenerator" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="manifestgenerator" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>ManifestGenerator</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Handles the creation, updating, and saving of project manifests.</p>
-                            <div class="documentation">
-                                This is the core class responsible for managing the project manifest lifecycle, including initialization, updates, and saving.
-                            </div>
+                        <span class="line-number">Line 56</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Handles the creation, updating, and saving of project manifests.
+                        </div>
+
+                        <div class="element-documentation">
+                            This is the core class responsible for managing the project manifest lifecycle, including initialization, updates, and saving.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Method</h3>
-                    <div id="__init__" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Method</h3>
+                
+                <div id="__init__" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>__init__</code>
                             <span class="scope-badge">ManifestGenerator</span>
                         </div>
-                        <div class="element-content">
-                            <p>Initializes the ManifestGenerator with project and output directories.</p>
-                            <div class="documentation">
-                                Sets up paths and logger for managing the manifest.
-                            </div>
-                        </div>
+                        <span class="line-number">Line 57</span>
                     </div>
-                    <div id="initialize_manifest" class="element">
-                        <div class="element-header">
-                            <code>initialize_manifest</code>
-                            <span class="scope-badge">ManifestGenerator</span>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Initializes the ManifestGenerator with project and output directories.
                         </div>
-                        <div class="element-content">
-                            <p>Creates a new ProjectManifest instance with given project name and git commit.</p>
-                            <div class="documentation">
-                                Sets up the initial manifest structure for a project to start adding files and dependencies.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="load_existing_manifest" class="element">
-                        <div class="element-header">
-                            <code>load_existing_manifest</code>
-                            <span class="scope-badge">ManifestGenerator</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Attempts to load an existing manifest from disk.</p>
-                            <div class="documentation">
-                                Checks for an existing manifest file and loads its content into the ProjectManifest instance.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="add_file_analysis" class="element">
-                        <div class="element-header">
-                            <code>add_file_analysis</code>
-                            <span class="scope-badge">ManifestGenerator</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Adds or updates the analysis of a file in the project manifest and tracks relationships.</p>
-                            <div class="documentation">
-                                Incorporates file analysis results into the project manifest, updating file and project-level metadata.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="_update_project_information" class="element">
-                        <div class="element-header">
-                            <code>_update_project_information</code>
-                            <span class="scope-badge">ManifestGenerator</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Updates project-level metadata based on file manifest information.</p>
-                            <div class="documentation">
-                                Adjusts overarching project details such as primary language and framework usage with new file data.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="_update_relationships" class="element">
-                        <div class="element-header">
-                            <code>_update_relationships</code>
-                            <span class="scope-badge">ManifestGenerator</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Maintains the file dependency graph by updating dependencies for a given file path.</p>
-                            <div class="documentation">
-                                Updates the internal relationship graph to reflect dependencies and dependents for a file.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="_resolve_dependencies" class="element">
-                        <div class="element-header">
-                            <code>_resolve_dependencies</code>
-                            <span class="scope-badge">ManifestGenerator</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Resolves file dependencies, especially relative imports, into concrete file paths.</p>
-                            <div class="documentation">
-                                Converts relative import paths into absolute ones that can be mapped within the project structure.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="get_file_relationships" class="element">
-                        <div class="element-header">
-                            <code>get_file_relationships</code>
-                            <span class="scope-badge">ManifestGenerator</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Retrieves relationship data for a specific file.</p>
-                            <div class="documentation">
-                                Returns a structured representation of how a file relates to others in terms of dependencies and dependents.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="_get_display_name" class="element">
-                        <div class="element-header">
-                            <code>_get_display_name</code>
-                            <span class="scope-badge">ManifestGenerator</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Provides a shortened display name for a file path.</p>
-                            <div class="documentation">
-                                Transforms full file paths into simpler, more readable strings for display purposes.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="save" class="element">
-                        <div class="element-header">
-                            <code>save</code>
-                            <span class="scope-badge">ManifestGenerator</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Saves the current project manifest in both JSON and JSONP formats.</p>
-                            <div class="documentation">
-                                Writes the manifest to disk, ensuring directories are present and formats are correctly structured.
-                            </div>
+
+                        <div class="element-documentation">
+                            Sets up paths and logger for managing the manifest.
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+                <div id="initialize_manifest" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>initialize_manifest</code>
+                            <span class="scope-badge">ManifestGenerator</span>
+                        </div>
+                        <span class="line-number">Line 65</span>
+                    </div>
 
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Creates a new ProjectManifest instance with given project name and git commit.
+                        </div>
+
+                        <div class="element-documentation">
+                            Sets up the initial manifest structure for a project to start adding files and dependencies.
+                        </div>
+                    </div>
+                </div>
+                <div id="load_existing_manifest" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>load_existing_manifest</code>
+                            <span class="scope-badge">ManifestGenerator</span>
+                        </div>
+                        <span class="line-number">Line 78</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Attempts to load an existing manifest from disk.
+                        </div>
+
+                        <div class="element-documentation">
+                            Checks for an existing manifest file and loads its content into the ProjectManifest instance.
+                        </div>
+                    </div>
+                </div>
+                <div id="add_file_analysis" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>add_file_analysis</code>
+                            <span class="scope-badge">ManifestGenerator</span>
+                        </div>
+                        <span class="line-number">Line 89</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Adds or updates the analysis of a file in the project manifest and tracks relationships.
+                        </div>
+
+                        <div class="element-documentation">
+                            Incorporates file analysis results into the project manifest, updating file and project-level metadata.
+                        </div>
+                    </div>
+                </div>
+                <div id="_update_project_information" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>_update_project_information</code>
+                            <span class="scope-badge">ManifestGenerator</span>
+                        </div>
+                        <span class="line-number">Line 130</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Updates project-level metadata based on file manifest information.
+                        </div>
+
+                        <div class="element-documentation">
+                            Adjusts overarching project details such as primary language and framework usage with new file data.
+                        </div>
+                    </div>
+                </div>
+                <div id="_update_relationships" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>_update_relationships</code>
+                            <span class="scope-badge">ManifestGenerator</span>
+                        </div>
+                        <span class="line-number">Line 148</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Maintains the file dependency graph by updating dependencies for a given file path.
+                        </div>
+
+                        <div class="element-documentation">
+                            Updates the internal relationship graph to reflect dependencies and dependents for a file.
+                        </div>
+                    </div>
+                </div>
+                <div id="_resolve_dependencies" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>_resolve_dependencies</code>
+                            <span class="scope-badge">ManifestGenerator</span>
+                        </div>
+                        <span class="line-number">Line 175</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Resolves file dependencies, especially relative imports, into concrete file paths.
+                        </div>
+
+                        <div class="element-documentation">
+                            Converts relative import paths into absolute ones that can be mapped within the project structure.
+                        </div>
+                    </div>
+                </div>
+                <div id="get_file_relationships" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>get_file_relationships</code>
+                            <span class="scope-badge">ManifestGenerator</span>
+                        </div>
+                        <span class="line-number">Line 194</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Retrieves relationship data for a specific file.
+                        </div>
+
+                        <div class="element-documentation">
+                            Returns a structured representation of how a file relates to others in terms of dependencies and dependents.
+                        </div>
+                    </div>
+                </div>
+                <div id="_get_display_name" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>_get_display_name</code>
+                            <span class="scope-badge">ManifestGenerator</span>
+                        </div>
+                        <span class="line-number">Line 218</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Provides a shortened display name for a file path.
+                        </div>
+
+                        <div class="element-documentation">
+                            Transforms full file paths into simpler, more readable strings for display purposes.
+                        </div>
+                    </div>
+                </div>
+                <div id="save" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>save</code>
+                            <span class="scope-badge">ManifestGenerator</span>
+                        </div>
+                        <span class="line-number">Line 223</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Saves the current project manifest in both JSON and JSONP formats.
+                        </div>
+
+                        <div class="element-documentation">
+                            Writes the manifest to disk, ensuring directories are present and formats are correctly structured.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <p>Powered by <a href="https://fluen.io" target="_blank">Fluen.io</a></p>
+        </footer>
+    </main>
     <!-- Add D3.js before other scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <!-- Add default graph data in case the server doesn't provide it -->
-    
+
     <script src="../assets/script.js"></script>
 <script>window.lineageData = {"nodes": [{"id": "src/fluen/generator/manifest.py", "type": "current"}], "links": []};</script></body>
 </html>

@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fluen_config.yml - fluen-core</title>
-    <link href="../assets/styles.css" rel="stylesheet">
+    <title>fluen_config.yml | fluen-core Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="../assets/logo-placeholder.png" alt="Fluen" width="32" height="32">
+                <a href="../index.html" class="logo-text">Fluen Documentation</a>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search documentation... (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
             <p>Python Project</p>
         </div>
+
         <div class="sidebar-content">
-            <div class="element-navigation">
-                <div class="element-group">
+            <nav class="file-navigation">
+                <div class="nav-section">
                     <h3>Variable</h3>
                     <ul>
                         <li>
@@ -69,182 +101,263 @@
                         </li>
                     </ul>
                 </div>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- File header -->
+        <div class="file-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">fluen-core</a>
+                <span class="separator">/</span>
+                <span class="current">fluen_config.yml</span>
+            </div>
+
+            <div class="file-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Language</span>
+                    <span class="metadata-value">Unknown</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Last Modified</span>
+                    <span class="metadata-value">2024-11-13T17:50:50.689991</span>
+                </div>
+            </div>
+
+            <div class="file-purpose">
+                <h1>fluen_config.yml</h1>
+                <p>This configuration file is for setting up parameters for an application using GPT models via a provider like OpenAI.</p>
             </div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <header class="main-header">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
-                <div class="search-results"></div>
-            </div>
-        </header>
-
-        <main class="content">
-            <div class="file-header">
-                <h1>fluen_config.yml</h1>
-                <div class="metadata">
-                    <p><strong>Language:</strong> Unknown</p>
-                    <p><strong>Last Modified:</strong> 2024-11-13T17:50:50.689991</p>
+        <!-- Dependencies section -->
+        <section class="file-dependencies">
+            <h2>Dependencies</h2>
+            <div class="dependencies-list">
+                <div class="dependency-item">
+                    <span class="dependency-name">openai</span>
+                    <span class="dependency-type">external</span>
                 </div>
             </div>
+        </section>
 
-            <section class="purpose-section">
-                <h2>Purpose</h2>
-                <p>This configuration file is for setting up parameters for an application using GPT models via a provider like OpenAI.</p>
-            </section>
+        <!-- Dependency visualization -->
+        <section class="dependency-section">
+            <h2>Visualization</h2>
+            <div class="graph-wrapper">
+                <div id="dependencyGraph" class="dependency-graph"></div>
+            </div>
+        </section>
 
-            <section class="dependencies-section">
-                <h2>Dependencies</h2>
-                <ul class="dependency-list">
-                    <li>
-                        <span class="dep-name">openai</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="dependency-section">
-                <h2>Visualization</h2>
-                <div class="graph-wrapper">
-                    <div id="dependencyGraph" class="dependency-graph"></div>
-                </div>
-            </section>
-
-            <section class="elements-section">
-                <h2>Elements</h2>
-                <div class="element-type-section">
-                    <h3>Variable</h3>
-                    <div id="cache_dir" class="element">
-                        <div class="element-header">
+        <!-- Code elements -->
+        <section class="code-elements">
+            <h2>Code Elements</h2>
+            <div class="element-group">
+                <h3>Variable</h3>
+                
+                <div id="cache_dir" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>cache_dir</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Specifies the directory where cache data is stored.</p>
-                            <div class="documentation">
-                                Defines the location of the cache used by the application.
-                            </div>
-                        </div>
+                        <span class="line-number">Line 1</span>
                     </div>
-                    <div id="default_export_type" class="element">
-                        <div class="element-header">
-                            <code>default_export_type</code>
-                            <span class="scope-badge">global</span>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Specifies the directory where cache data is stored.
                         </div>
-                        <div class="element-content">
-                            <p>Sets the default type for export operations.</p>
-                            <div class="documentation">
-                                Specifies the format in which data will be exported, defaulting to 'html'.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="llm" class="element">
-                        <div class="element-header">
-                            <code>llm</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Configuration block for the language model (LLM) settings.</p>
-                            <div class="documentation">
-                                Holds settings related to the interaction with the language model, including retries, model type, provider, and timeout.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="max_retries" class="element">
-                        <div class="element-header">
-                            <code>max_retries</code>
-                            <span class="scope-badge">llm</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Determines the number of retry attempts for a failed request.</p>
-                            <div class="documentation">
-                                Specifies the number of times a request to the LLM can be retried upon failure.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="model" class="element">
-                        <div class="element-header">
-                            <code>model</code>
-                            <span class="scope-badge">llm</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Defines the specific version of the model to use.</p>
-                            <div class="documentation">
-                                Indicates which version of the GPT model is to be used (gpt-4o).
-                            </div>
-                        </div>
-                    </div>
-                    <div id="provider" class="element">
-                        <div class="element-header">
-                            <code>provider</code>
-                            <span class="scope-badge">llm</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Specifies the LLM service provider.</p>
-                            <div class="documentation">
-                                Dictates which service provider, such as OpenAI, will be supplying the LLM functionality.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="timeout" class="element">
-                        <div class="element-header">
-                            <code>timeout</code>
-                            <span class="scope-badge">llm</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Sets the request timeout duration.</p>
-                            <div class="documentation">
-                                Specifies the maximum time in seconds to wait for a response from the LLM.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="api_key" class="element">
-                        <div class="element-header">
-                            <code>api_key</code>
-                            <span class="scope-badge">llm</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Stores the API key for authentication.</p>
-                            <div class="documentation">
-                                Contains the secret API key used to authenticate requests to the LLM service.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="output_dir" class="element">
-                        <div class="element-header">
-                            <code>output_dir</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Designates the output directory for exported data.</p>
-                            <div class="documentation">
-                                The location where processed and exported data is saved.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="temp_dir" class="element">
-                        <div class="element-header">
-                            <code>temp_dir</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Defines the temporary directory for intermediate data.</p>
-                            <div class="documentation">
-                                Stores temporary files used during the execution of the application.
-                            </div>
+
+                        <div class="element-documentation">
+                            Defines the location of the cache used by the application.
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+                <div id="default_export_type" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>default_export_type</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 2</span>
+                    </div>
 
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Sets the default type for export operations.
+                        </div>
+
+                        <div class="element-documentation">
+                            Specifies the format in which data will be exported, defaulting to 'html'.
+                        </div>
+                    </div>
+                </div>
+                <div id="llm" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>llm</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 3</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Configuration block for the language model (LLM) settings.
+                        </div>
+
+                        <div class="element-documentation">
+                            Holds settings related to the interaction with the language model, including retries, model type, provider, and timeout.
+                        </div>
+                    </div>
+                </div>
+                <div id="max_retries" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>max_retries</code>
+                            <span class="scope-badge">llm</span>
+                        </div>
+                        <span class="line-number">Line 4</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Determines the number of retry attempts for a failed request.
+                        </div>
+
+                        <div class="element-documentation">
+                            Specifies the number of times a request to the LLM can be retried upon failure.
+                        </div>
+                    </div>
+                </div>
+                <div id="model" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>model</code>
+                            <span class="scope-badge">llm</span>
+                        </div>
+                        <span class="line-number">Line 5</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Defines the specific version of the model to use.
+                        </div>
+
+                        <div class="element-documentation">
+                            Indicates which version of the GPT model is to be used (gpt-4o).
+                        </div>
+                    </div>
+                </div>
+                <div id="provider" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>provider</code>
+                            <span class="scope-badge">llm</span>
+                        </div>
+                        <span class="line-number">Line 6</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Specifies the LLM service provider.
+                        </div>
+
+                        <div class="element-documentation">
+                            Dictates which service provider, such as OpenAI, will be supplying the LLM functionality.
+                        </div>
+                    </div>
+                </div>
+                <div id="timeout" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>timeout</code>
+                            <span class="scope-badge">llm</span>
+                        </div>
+                        <span class="line-number">Line 7</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Sets the request timeout duration.
+                        </div>
+
+                        <div class="element-documentation">
+                            Specifies the maximum time in seconds to wait for a response from the LLM.
+                        </div>
+                    </div>
+                </div>
+                <div id="api_key" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>api_key</code>
+                            <span class="scope-badge">llm</span>
+                        </div>
+                        <span class="line-number">Line 8</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Stores the API key for authentication.
+                        </div>
+
+                        <div class="element-documentation">
+                            Contains the secret API key used to authenticate requests to the LLM service.
+                        </div>
+                    </div>
+                </div>
+                <div id="output_dir" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>output_dir</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 9</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Designates the output directory for exported data.
+                        </div>
+
+                        <div class="element-documentation">
+                            The location where processed and exported data is saved.
+                        </div>
+                    </div>
+                </div>
+                <div id="temp_dir" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>temp_dir</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 10</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Defines the temporary directory for intermediate data.
+                        </div>
+
+                        <div class="element-documentation">
+                            Stores temporary files used during the execution of the application.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <p>Powered by <a href="https://fluen.io" target="_blank">Fluen.io</a></p>
+        </footer>
+    </main>
     <!-- Add D3.js before other scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <!-- Add default graph data in case the server doesn't provide it -->
-    
+
     <script src="../assets/script.js"></script>
 <script>window.lineageData = {"nodes": [{"id": "fluen_config.yml", "type": "current"}], "links": []};</script></body>
 </html>

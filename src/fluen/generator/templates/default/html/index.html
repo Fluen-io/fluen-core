@@ -4,90 +4,241 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ project.name }} Documentation</title>
-    <link href="{{ '../assets/styles.css' if is_reference else 'assets/styles.css' }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="assets/logo-placeholder.png" alt="Fluen" width="32" height="32">
+                <span class="logo-text">Fluen Documentation</span>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search documentation... (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
         <div class="sidebar-header">
             <h1>{{ project.name }}</h1>
             <p>{{ project.primary_language }} Project</p>
         </div>
+
         <div class="sidebar-content">
-            <div class="file-groups">
-                {% for type, files in files_by_type.items()|default({}.items()) %}
-                <div class="file-group">
-                    <h3>{{ type }}</h3>
-                    <ul>
-                        {% for file in files %}
-                        <li>
-                            <a href="reference/{{ file|replace('/', '_') }}.html">{{ file }}</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
+            {% for type, files in files_by_type.items()|default({}.items()) %}
+            <div class="file-group">
+                <h3>{{ type }}</h3>
+                <ul>
+                    {% for file in files %}
+                    <li><a href="reference/{{ file|replace('/', '_') }}.html">{{ file }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <div class="project-overview">
+            <h1>{{ project.name }}</h1>
+            <p class="project-description">{{ project_insights.overview|markdown|safe }}</p>
+            
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Primary Language</span>
+                    <span class="metadata-value">{{ project.primary_language }}</span>
                 </div>
-                {% endfor %}
+                <div class="metadata-item">
+                    <span class="metadata-label">Last Updated</span>
+                    <span class="metadata-value">{{ generation_time }}</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Git Commit</span>
+                    <span class="metadata-value">{{ git_commit[:8] }}</span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <header class="main-header">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
-                <div class="search-results"></div>
-            </div>
-        </header>
+        <div class="tabs-container">
+            <nav class="tabs" role="tablist">
+                <button class="tab active" data-tab="features">Features</button>
+                <button class="tab" data-tab="architecture">Architecture</button>
+                <button class="tab" data-tab="tech-stack">Tech Stack</button>
+                <button class="tab" data-tab="dependencies">Dependencies</button>
+            </nav>
 
-        <main class="content">
-            <div class="project-info">
-                <h1>{{ project.name }}</h1>
-                <div class="metadata">
-                    <p><strong>Primary Language:</strong> {{ project.primary_language }}</p>
-                    <p><strong>Frameworks:</strong> {{ project.frameworks|join(', ') }}</p>
-                    <p><strong>Last Updated:</strong> {{ generation_time }}</p>
-                    <p><strong>Git Commit:</strong> {{ git_commit[:8] }}</p>
+            <div class="tab-content">
+                <div class="tab-pane active" id="features">
+                    <div class="features-grid">
+                        {% for feature in project_insights.key_features %}
+                        <div class="feature-card">
+                            <div class="feature-header">
+                                <h3>{{ feature.name }}</h3>
+                                <span class="feature-status {{ feature.status|lower }}">{{ feature.status|lower }}</span>
+                            </div>
+                            <p class="feature-category">{{ feature.category }}</p>
+                            <p class="feature-description">{{ feature.description|markdown|safe }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
-            </div>
-
-            <section class="dependencies-section">
-                <h2>Project Dependencies</h2>
-                <div class="dependencies-grid">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Type</th>
-                                <th>Version</th>
-                                <th>Used By</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for name, dep in dependencies.items()|default({}.items()) %}
-                            <tr>
-                                <td>{{ name }}</td>
-                                <td>{{ dep.type }}</td>
-                                <td>{{ dep.version or 'N/A' }}</td>
-                                <td>
-                                    {% if dep.used_by %}
-                                    <ul class="used-by-list">
-                                        {% for file in dep.used_by %}
-                                        <li>
-                                            <a href="reference/{{ file|replace('/', '_') }}.html">{{ file }}</a>
-                                        </li>
-                                        {% endfor %}
-                                    </ul>
+            
+                <div class="tab-pane" id="architecture">
+                    <div class="architecture-content">
+                        <div class="architecture-summary">
+                            <h3>Overview</h3>
+                            <p>{{ project_insights.architecture.summary|markdown|safe }}</p>
+                        </div>
+                        
+                        <div class="component-section">
+                            <h3>Primary Components</h3>
+                            <div class="components-grid">
+                                {% for component in project_insights.architecture.primary_components %}
+                                <div class="component-card">
+                                    <h4>{{ component.name }}</h4>
+                                    <p>{{ component.responsibility }}</p>
+                                    {% if component.dependencies %}
+                                    <div class="component-deps">
+                                        <strong>Dependencies:</strong>
+                                        <ul>
+                                            {% for dep in component.dependencies %}
+                                            <li>{{ dep }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
                                     {% endif %}
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+            
+                        <div class="patterns-section">
+                            <h3>Design Patterns</h3>
+                            <div class="patterns-grid">
+                                {% for pattern in project_insights.architecture.design_patterns %}
+                                <div class="pattern-card">
+                                    <h4>{{ pattern.name }}</h4>
+                                    <p>{{ pattern.purpose }}</p>
+                                    <span class="pattern-location">Found in: {{ pattern.location }}</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
-        </main>
-    </div>
+            
+                <div class="tab-pane" id="tech-stack">
+                    <div class="tech-stack-content">
+                        <div class="tech-section">
+                            <h3>Languages</h3>
+                            <div class="tech-grid">
+                                {% for lang in project_insights.tech_stack.languages %}
+                                <div class="tech-card">
+                                    <h4>{{ lang.name }}</h4>
+                                    <p>{{ lang.purpose }}</p>
+                                    {% if lang.key_features_used %}
+                                    <div class="features-used">
+                                        <strong>Key Features:</strong>
+                                        <ul>
+                                            {% for feature in lang.key_features_used %}
+                                            <li>{{ feature }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+            
+                        <div class="tech-section">
+                            <h3>Frameworks</h3>
+                            <div class="tech-grid">
+                                {% for framework in project_insights.tech_stack.frameworks %}
+                                <div class="tech-card">
+                                    <h4>{{ framework.name }}</h4>
+                                    <p>{{ framework.purpose }}</p>
+                                    {% if framework.key_features_used %}
+                                    <div class="features-used">
+                                        <strong>Key Features:</strong>
+                                        <ul>
+                                            {% for feature in framework.key_features_used %}
+                                            <li>{{ feature }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+            
+                        <div class="tech-section">
+                            <h3>Code Patterns</h3>
+                            <div class="patterns-grid">
+                                {% for pattern in project_insights.code_patterns %}
+                                <div class="pattern-card">
+                                    <h4>{{ pattern.name }}</h4>
+                                    <p>{{ pattern.description }}</p>
+                                    <span class="example-location">Example: {{ pattern.example_location }}</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="dependencies" role="tabpanel">
+                    <div class="dependencies-grid">
+                        {% for name, dep in dependencies.items()|default({}.items()) %}
+                        <div class="dependency-card">
+                            <div class="dependency-header">
+                                <h3>{{ name }}</h3>
+                                <span class="dependency-type">{{ dep.type }}</span>
+                            </div>
+                            <div class="dependency-version">{{ dep.version or 'N/A' }}</div>
+                            {% if dep.used_by %}
+                            <div class="dependency-usage">
+                                <h4>Used By:</h4>
+                                <ul>
+                                    {% for file in dep.used_by %}
+                                    <li><a href="reference/{{ file|replace('/', '_') }}.html">{{ file }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+        <footer class="site-footer">
+            <p>Powered by <a href="https://fluen.io" target="_blank">Fluen.io</a></p>
+        </footer>
+    </main>
+
     <script src="assets/script.js"></script>
 </body>
 </html>

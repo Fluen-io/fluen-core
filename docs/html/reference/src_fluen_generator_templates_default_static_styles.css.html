@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>src/fluen/generator/templates/default/static/styles.css - fluen-core</title>
-    <link href="../assets/styles.css" rel="stylesheet">
+    <title>src/fluen/generator/templates/default/static/styles.css | fluen-core Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="../assets/logo-placeholder.png" alt="Fluen" width="32" height="32">
+                <a href="../index.html" class="logo-text">Fluen Documentation</a>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search documentation... (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
             <p>Python Project</p>
         </div>
+
         <div class="sidebar-content">
-            <div class="element-navigation">
-                <div class="element-group">
+            <nav class="file-navigation">
+                <div class="nav-section">
                     <h3>Variable</h3>
                     <ul>
                         <li>
@@ -24,7 +56,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Universal Selector</h3>
                     <ul>
                         <li>
@@ -34,7 +66,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Element</h3>
                     <ul>
                         <li>
@@ -44,7 +76,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Class</h3>
                     <ul>
                         <li>
@@ -124,7 +156,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Element Selector</h3>
                     <ul>
                         <li>
@@ -144,7 +176,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Class Selector</h3>
                     <ul>
                         <li>
@@ -154,7 +186,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Media Query</h3>
                     <ul>
                         <li>
@@ -164,347 +196,525 @@
                         </li>
                     </ul>
                 </div>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- File header -->
+        <div class="file-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">fluen-core</a>
+                <span class="separator">/</span>
+                <span class="current">src/fluen/generator/templates/default/static/styles.css</span>
+            </div>
+
+            <div class="file-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Language</span>
+                    <span class="metadata-value">Unknown</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Last Modified</span>
+                    <span class="metadata-value">2024-11-13T17:58:42.874315</span>
+                </div>
+            </div>
+
+            <div class="file-purpose">
+                <h1>src/fluen/generator/templates/default/static/styles.css</h1>
+                <p>This CSS stylesheet is designed to provide a consistent and responsive layout for a web application, including a sidebar navigation, main content area, and various interactive UI features.</p>
             </div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <header class="main-header">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
-                <div class="search-results"></div>
+        <!-- Dependencies section -->
+
+        <!-- Dependency visualization -->
+        <section class="dependency-section">
+            <h2>Visualization</h2>
+            <div class="graph-wrapper">
+                <div id="dependencyGraph" class="dependency-graph"></div>
             </div>
-        </header>
+        </section>
 
-        <main class="content">
-            <div class="file-header">
-                <h1>src/fluen/generator/templates/default/static/styles.css</h1>
-                <div class="metadata">
-                    <p><strong>Language:</strong> Unknown</p>
-                    <p><strong>Last Modified:</strong> 2024-11-13T17:58:42.874315</p>
-                </div>
-            </div>
-
-            <section class="purpose-section">
-                <h2>Purpose</h2>
-                <p>This CSS stylesheet is designed to provide a consistent and responsive layout for a web application, including a sidebar navigation, main content area, and various interactive UI features.</p>
-            </section>
-
-
-            <section class="dependency-section">
-                <h2>Visualization</h2>
-                <div class="graph-wrapper">
-                    <div id="dependencyGraph" class="dependency-graph"></div>
-                </div>
-            </section>
-
-            <section class="elements-section">
-                <h2>Elements</h2>
-                <div class="element-type-section">
-                    <h3>Variable</h3>
-                    <div id=":root" class="element">
-                        <div class="element-header">
+        <!-- Code elements -->
+        <section class="code-elements">
+            <h2>Code Elements</h2>
+            <div class="element-group">
+                <h3>Variable</h3>
+                
+                <div id=":root" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>:root</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Defines CSS variables for colors, dimensions, and reusable values.</p>
-                            <div class="documentation">
-                                CSS variables (custom properties) are defined for use throughout the stylesheet, providing a centralized way to manage theme and layout values.
-                            </div>
+                        <span class="line-number">Line 1</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Defines CSS variables for colors, dimensions, and reusable values.
+                        </div>
+
+                        <div class="element-documentation">
+                            CSS variables (custom properties) are defined for use throughout the stylesheet, providing a centralized way to manage theme and layout values.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Universal Selector</h3>
-                    <div id="*" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Universal Selector</h3>
+                
+                <div id="*" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>*</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Applies a reset style to all elements.</p>
-                            <div class="documentation">
-                                This selector removes default margin, padding, and changes box-sizing to border-box for all elements, ensuring a consistent starting point for styling.
-                            </div>
+                        <span class="line-number">Line 10</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Applies a reset style to all elements.
+                        </div>
+
+                        <div class="element-documentation">
+                            This selector removes default margin, padding, and changes box-sizing to border-box for all elements, ensuring a consistent starting point for styling.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Element</h3>
-                    <div id="body" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Element</h3>
+                
+                <div id="body" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>body</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Sets base styles for the body element.</p>
-                            <div class="documentation">
-                                Configures default font, color, alignment, and background for the document body.
-                            </div>
+                        <span class="line-number">Line 16</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Sets base styles for the body element.
+                        </div>
+
+                        <div class="element-documentation">
+                            Configures default font, color, alignment, and background for the document body.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Class</h3>
-                    <div id=".sidebar" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Class</h3>
+                
+                <div id=".sidebar" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.sidebar</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles a fixed-position sidebar.</p>
-                            <div class="documentation">
-                                Configures position, dimensions, background, and layout for a sidebar element.
-                            </div>
+                        <span class="line-number">Line 25</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles a fixed-position sidebar.
+                        </div>
+
+                        <div class="element-documentation">
+                            Configures position, dimensions, background, and layout for a sidebar element.
                         </div>
                     </div>
-                    <div id=".sidebar-header" class="element">
-                        <div class="element-header">
+                </div>
+                <div id=".sidebar-header" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.sidebar-header</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles the header section within the sidebar.</p>
-                            <div class="documentation">
-                                Adds padding and a bottom border to distinguish the header section in the sidebar.
-                            </div>
+                        <span class="line-number">Line 32</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles the header section within the sidebar.
+                        </div>
+
+                        <div class="element-documentation">
+                            Adds padding and a bottom border to distinguish the header section in the sidebar.
                         </div>
                     </div>
-                    <div id=".sidebar-content" class="element">
-                        <div class="element-header">
+                </div>
+                <div id=".sidebar-content" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.sidebar-content</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles the sidebar&#39;s scrollable content area.</p>
-                            <div class="documentation">
-                                Sets the sidebar's main content area with padding and scroll overflow.
-                            </div>
+                        <span class="line-number">Line 44</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles the sidebar&#39;s scrollable content area.
+                        </div>
+
+                        <div class="element-documentation">
+                            Sets the sidebar's main content area with padding and scroll overflow.
                         </div>
                     </div>
-                    <div id=".main-content" class="element">
-                        <div class="element-header">
+                </div>
+                <div id=".main-content" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.main-content</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles the main content area.</p>
-                            <div class="documentation">
-                                Adjusts the layout to account for the fixed sidebar width.
-                            </div>
+                        <span class="line-number">Line 50</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles the main content area.
+                        </div>
+
+                        <div class="element-documentation">
+                            Adjusts the layout to account for the fixed sidebar width.
                         </div>
                     </div>
-                    <div id=".main-header" class="element">
-                        <div class="element-header">
+                </div>
+                <div id=".main-header" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.main-header</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles the fixed-position main header.</p>
-                            <div class="documentation">
-                                Configures positioning, background, border, alignment, and z-index of the main header.
-                            </div>
+                        <span class="line-number">Line 55</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles the fixed-position main header.
+                        </div>
+
+                        <div class="element-documentation">
+                            Configures positioning, background, border, alignment, and z-index of the main header.
                         </div>
                     </div>
-                    <div id=".content" class="element">
-                        <div class="element-header">
+                </div>
+                <div id=".content" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.content</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles the inner content area.</p>
-                            <div class="documentation">
-                                Applies top margin and padding to shift below the fixed header.
-                            </div>
+                        <span class="line-number">Line 66</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles the inner content area.
+                        </div>
+
+                        <div class="element-documentation">
+                            Applies top margin and padding to shift below the fixed header.
                         </div>
                     </div>
-                    <div id=".search-container" class="element">
-                        <div class="element-header">
+                </div>
+                <div id=".search-container" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.search-container</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Defines the layout for a search container.</p>
-                            <div class="documentation">
-                                Positions a search input with relative positioning to accommodate absolute-positioned results.
-                            </div>
+                        <span class="line-number">Line 71</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Defines the layout for a search container.
+                        </div>
+
+                        <div class="element-documentation">
+                            Positions a search input with relative positioning to accommodate absolute-positioned results.
                         </div>
                     </div>
-                    <div id=".search-input" class="element">
-                        <div class="element-header">
+                </div>
+                <div id=".search-input" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.search-input</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles the search input field.</p>
-                            <div class="documentation">
-                                Configures padding, border, font size, and transition effects for focus states.
-                            </div>
+                        <span class="line-number">Line 76</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles the search input field.
+                        </div>
+
+                        <div class="element-documentation">
+                            Configures padding, border, font size, and transition effects for focus states.
                         </div>
                     </div>
-                    <div id=".search-results" class="element">
-                        <div class="element-header">
+                </div>
+                <div id=".search-results" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.search-results</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles the dropdown search results.</p>
-                            <div class="documentation">
-                                Configures dropdown styling, including positioning, borders, shadow, and display properties.
-                            </div>
+                        <span class="line-number">Line 85</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles the dropdown search results.
+                        </div>
+
+                        <div class="element-documentation">
+                            Configures dropdown styling, including positioning, borders, shadow, and display properties.
                         </div>
                     </div>
-                    <div id=".search-result-item" class="element">
-                        <div class="element-header">
+                </div>
+                <div id=".search-result-item" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.search-result-item</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles individual search results.</p>
-                            <div class="documentation">
-                                Sets padding, border, and hover background effects for items in search results.
-                            </div>
+                        <span class="line-number">Line 100</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles individual search results.
+                        </div>
+
+                        <div class="element-documentation">
+                            Sets padding, border, and hover background effects for items in search results.
                         </div>
                     </div>
-                    <div id=".lineage-graph" class="element">
-                        <div class="element-header">
+                </div>
+                <div id=".lineage-graph" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.lineage-graph</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles a lineage graph element.</p>
-                            <div class="documentation">
-                                Configures layout, borders, and dimensions for a graphical element, presumably a graph or chart.
-                            </div>
+                        <span class="line-number">Line 109</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles a lineage graph element.
+                        </div>
+
+                        <div class="element-documentation">
+                            Configures layout, borders, and dimensions for a graphical element, presumably a graph or chart.
                         </div>
                     </div>
-                    <div id=".element" class="element">
-                        <div class="element-header">
+                </div>
+                <div id=".element" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.element</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles generic UI elements.</p>
-                            <div class="documentation">
-                                Sets appearance, borders, spacing, and hover effects for reusable elements.
-                            </div>
+                        <span class="line-number">Line 116</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles generic UI elements.
+                        </div>
+
+                        <div class="element-documentation">
+                            Sets appearance, borders, spacing, and hover effects for reusable elements.
                         </div>
                     </div>
-                    <div id=".element-header" class="element">
-                        <div class="element-header">
+                </div>
+                <div id=".element-header" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.element-header</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles headers within elements.</p>
-                            <div class="documentation">
-                                Aligns header content and sets spacing.
-                            </div>
+                        <span class="line-number">Line 125</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles headers within elements.
+                        </div>
+
+                        <div class="element-documentation">
+                            Aligns header content and sets spacing.
                         </div>
                     </div>
-                    <div id=".type-badge" class="element">
-                        <div class="element-header">
+                </div>
+                <div id=".type-badge" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.type-badge</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles a type badge element.</p>
-                            <div class="documentation">
-                                Configures the appearance of type badges with color and size properties.
-                            </div>
+                        <span class="line-number">Line 134</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles a type badge element.
+                        </div>
+
+                        <div class="element-documentation">
+                            Configures the appearance of type badges with color and size properties.
                         </div>
                     </div>
-                    <div id=".scope-badge" class="element">
-                        <div class="element-header">
+                </div>
+                <div id=".scope-badge" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.scope-badge</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles a scope badge element.</p>
-                            <div class="documentation">
-                                Applies appearance settings to scope badges, distinct from type badges.
-                            </div>
+                        <span class="line-number">Line 139</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles a scope badge element.
+                        </div>
+
+                        <div class="element-documentation">
+                            Applies appearance settings to scope badges, distinct from type badges.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Element Selector</h3>
-                    <div id=".sidebar-header-h1" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Element Selector</h3>
+                
+                <div id=".sidebar-header-h1" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.sidebar-header h1</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles h1 elements within the sidebar header.</p>
-                            <div class="documentation">
-                                Configures font size and bottom margin for h1 elements, typically used for sidebar titles.
-                            </div>
+                        <span class="line-number">Line 36</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles h1 elements within the sidebar header.
+                        </div>
+
+                        <div class="element-documentation">
+                            Configures font size and bottom margin for h1 elements, typically used for sidebar titles.
                         </div>
                     </div>
-                    <div id=".sidebar-header-h1-a" class="element">
-                        <div class="element-header">
+                </div>
+                <div id=".sidebar-header-h1-a" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.sidebar-header h1 a</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles links within the sidebar header h1.</p>
-                            <div class="documentation">
-                                Ensures links within the sidebar header h1 have the primary color and no text decoration.
-                            </div>
+                        <span class="line-number">Line 40</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles links within the sidebar header h1.
+                        </div>
+
+                        <div class="element-documentation">
+                            Ensures links within the sidebar header h1 have the primary color and no text decoration.
                         </div>
                     </div>
-                    <div id=".element-header-code" class="element">
-                        <div class="element-header">
+                </div>
+                <div id=".element-header-code" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.element-header code</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Styles code elements within headers.</p>
-                            <div class="documentation">
-                                Sets font size and color for inline code in element headers.
-                            </div>
+                        <span class="line-number">Line 130</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Styles code elements within headers.
+                        </div>
+
+                        <div class="element-documentation">
+                            Sets font size and color for inline code in element headers.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Class Selector</h3>
-                    <div id=".search-active-.search-results" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Class Selector</h3>
+                
+                <div id=".search-active-.search-results" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>.search-active .search-results</code>
                             <span class="scope-badge">component</span>
                         </div>
-                        <div class="element-content">
-                            <p>Toggles display of search results when active.</p>
-                            <div class="documentation">
-                                Changes the display property to block when the parent has the search-active class.
-                            </div>
+                        <span class="line-number">Line 95</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Toggles display of search results when active.
+                        </div>
+
+                        <div class="element-documentation">
+                            Changes the display property to block when the parent has the search-active class.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Media Query</h3>
-                    <div id="@media-(max-width:-768px)" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Media Query</h3>
+                
+                <div id="@media-(max-width:-768px)" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>@media (max-width: 768px)</code>
                             <span class="scope-badge">responsive</span>
                         </div>
-                        <div class="element-content">
-                            <p>Applies styles for devices with width up to 768px.</p>
-                            <div class="documentation">
-                                Adjusts sidebar and main content to be responsive on smaller screens.
-                            </div>
+                        <span class="line-number">Line 145</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Applies styles for devices with width up to 768px.
+                        </div>
+
+                        <div class="element-documentation">
+                            Adjusts sidebar and main content to be responsive on smaller screens.
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </section>
 
+        <footer class="site-footer">
+            <p>Powered by <a href="https://fluen.io" target="_blank">Fluen.io</a></p>
+        </footer>
+    </main>
     <!-- Add D3.js before other scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <!-- Add default graph data in case the server doesn't provide it -->
-    
+
     <script src="../assets/script.js"></script>
 <script>window.lineageData = {"nodes": [{"id": "src/fluen/generator/templates/default/static/styles.css", "type": "current"}], "links": []};</script></body>
 </html>

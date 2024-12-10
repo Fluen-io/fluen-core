@@ -11,6 +11,8 @@ import logging
 from datetime import datetime
 
 from fluen.analyzer.file_analyzer import FileAnalysis
+from fluen.analyzer.manifest_enricher import ManifestEnricher
+from fluen.llm_providers.base_provider import BaseLLMProvider
 
 @dataclass
 class DependencyInfo:
@@ -49,7 +51,23 @@ class FileManifest:
     relationships: FileRelationships
 
 @dataclass
+class ArchitectureInsights:
+    """Represents architectural insights about the project"""
+    summary: str
+    primary_components: List[Dict[str, str]]
+
+@dataclass
+class ProjectInsights:
+    """Represents enriched project insights from LLM analysis"""
+    overview: str
+    key_features: List[str]
+    architecture: ArchitectureInsights
+    code_organization: str
+    tech_stack_analysis: str
+
+@dataclass
 class ProjectManifest:
+    """Represents the complete project documentation manifest."""
     name: str
     root_path: str
     primary_language: str
@@ -58,9 +76,53 @@ class ProjectManifest:
     dependencies: Dict[str, DependencyInfo]
     last_updated: str
     git_commit: str
+    project_insights: Optional[ProjectInsights] = None  # Make it optional for backward compatibility
+
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> 'ProjectManifest':
+        """Create a ProjectManifest instance from a dictionary."""
+        # Handle project insights if present
+        project_insights = None
+        if 'project_insights' in data:
+            insights_data = data['project_insights']
+            architecture = ArchitectureInsights(
+                summary=insights_data['architecture']['summary'],
+                primary_components=insights_data['architecture']['primary_components']
+            )
+            project_insights = ProjectInsights(
+                overview=insights_data['overview'],
+                key_features=insights_data['key_features'],
+                architecture=architecture,
+                code_organization=insights_data['code_organization'],
+                tech_stack_analysis=insights_data['tech_stack_analysis']
+            )
+
+        # Create FileManifest objects
+        files = {
+            path: FileManifest(**file_data) if isinstance(file_data, dict) else file_data
+            for path, file_data in data['files'].items()
+        }
+
+        # Create DependencyInfo objects
+        dependencies = {
+            name: DependencyInfo(**dep_data) if isinstance(dep_data, dict) else dep_data
+            for name, dep_data in data['dependencies'].items()
+        }
+
+        return cls(
+            name=data['name'],
+            root_path=data['root_path'],
+            primary_language=data['primary_language'],
+            frameworks=data['frameworks'],
+            files=files,
+            dependencies=dependencies,
+            last_updated=data['last_updated'],
+            git_commit=data['git_commit'],
+            project_insights=project_insights
+        )
 
 class ManifestGenerator:
-    def __init__(self, project_root: Path, output_dir: Path):
+    def __init__(self, project_root: Path, output_dir: Path, llm_provider: Optional['BaseLLMProvider'] = None):
         self.project_root = project_root
         self.output_dir = output_dir
         self.manifest_path = output_dir / "manifest.json"
@@ -69,6 +131,7 @@ class ManifestGenerator:
         self.logger = logging.getLogger(__name__)
         self.manifest: Optional[ProjectManifest] = None
         self.relationship_graph: Dict[str, FileRelationships] = {}
+        self.enricher = ManifestEnricher(llm_provider) if llm_provider else None
 
     def initialize_manifest(self, project_name: str, git_commit: str) -> ProjectManifest:
         """Initialize a new project manifest."""
@@ -305,16 +368,25 @@ class ManifestGenerator:
         """Get a shorter display name for a file path."""
         return Path(file_path).stem
 
-    def save(self) -> bool:
-        """Save the current manifest to both JSON and JSONP formats."""
+    async def save(self) -> bool:
+        """Save the current manifest to file with enrichments if LLM provider available."""
         try:
             if not self.manifest:
                 raise ValueError("No manifest to save")
 
             self.manifest.last_updated = datetime.utcnow().isoformat()
+            
+            # Convert manifest to dictionary
             manifest_dict = asdict(self.manifest)
-
-            # Create directories if they don't exist
+            
+            # Enrich manifest if LLM provider is available
+            if self.enricher:
+                try:
+                    manifest_dict = await self.enricher.enrich_manifest(manifest_dict)
+                except Exception as e:
+                    self.logger.error(f"Failed to enrich manifest: {e}")
+                    # Continue with un-enriched manifest
+            
             self.manifest_path.parent.mkdir(parents=True, exist_ok=True)
             self.manifest_jsonp_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -327,7 +399,6 @@ class ManifestGenerator:
                 f.write(f"window.loadDocumentationManifest({json.dumps(manifest_dict, indent=2)});")
             
             return True
-            
         except Exception as e:
             self.logger.error(f"Failed to save manifest: {e}")
             return False
