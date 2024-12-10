@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>src/fluen/generator/templates/default/md/summary.md - fluen-core</title>
-    <link href="../assets/styles.css" rel="stylesheet">
+    <title>src/fluen/generator/templates/default/md/summary.md | fluen-core Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="../assets/logo-placeholder.png" alt="Fluen" width="32" height="32">
+                <a href="../index.html" class="logo-text">Fluen Documentation</a>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search documentation... (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
             <p>Python Project</p>
         </div>
+
         <div class="sidebar-content">
-            <div class="element-navigation">
-                <div class="element-group">
+            <nav class="file-navigation">
+                <div class="nav-section">
                     <h3>Variable</h3>
                     <ul>
                         <li>
@@ -54,146 +86,206 @@
                         </li>
                     </ul>
                 </div>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- File header -->
+        <div class="file-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">fluen-core</a>
+                <span class="separator">/</span>
+                <span class="current">src/fluen/generator/templates/default/md/summary.md</span>
+            </div>
+
+            <div class="file-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Language</span>
+                    <span class="metadata-value">Unknown</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Last Modified</span>
+                    <span class="metadata-value">2024-11-13T17:49:55.775867</span>
+                </div>
+            </div>
+
+            <div class="file-purpose">
+                <h1>src/fluen/generator/templates/default/md/summary.md</h1>
+                <p>This code is a template script for generating documentation for a project. It aims to create structured documentation by organizing project files, identifying exposed elements, and linking them for easy reference.</p>
             </div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <header class="main-header">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
-                <div class="search-results"></div>
-            </div>
-        </header>
-
-        <main class="content">
-            <div class="file-header">
-                <h1>src/fluen/generator/templates/default/md/summary.md</h1>
-                <div class="metadata">
-                    <p><strong>Language:</strong> Unknown</p>
-                    <p><strong>Last Modified:</strong> 2024-11-13T17:49:55.775867</p>
+        <!-- Dependencies section -->
+        <section class="file-dependencies">
+            <h2>Dependencies</h2>
+            <div class="dependencies-list">
+                <div class="dependency-item">
+                    <span class="dependency-name">Jinja2</span>
+                    <span class="dependency-type">external</span>
                 </div>
             </div>
+        </section>
 
-            <section class="purpose-section">
-                <h2>Purpose</h2>
-                <p>This code is a template script for generating documentation for a project. It aims to create structured documentation by organizing project files, identifying exposed elements, and linking them for easy reference.</p>
-            </section>
+        <!-- Dependency visualization -->
+        <section class="dependency-section">
+            <h2>Visualization</h2>
+            <div class="graph-wrapper">
+                <div id="dependencyGraph" class="dependency-graph"></div>
+            </div>
+        </section>
 
-            <section class="dependencies-section">
-                <h2>Dependencies</h2>
-                <ul class="dependency-list">
-                    <li>
-                        <span class="dep-name">Jinja2</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="dependency-section">
-                <h2>Visualization</h2>
-                <div class="graph-wrapper">
-                    <div id="dependencyGraph" class="dependency-graph"></div>
-                </div>
-            </section>
-
-            <section class="elements-section">
-                <h2>Elements</h2>
-                <div class="element-type-section">
-                    <h3>Variable</h3>
-                    <div id="project.name" class="element">
-                        <div class="element-header">
+        <!-- Code elements -->
+        <section class="code-elements">
+            <h2>Code Elements</h2>
+            <div class="element-group">
+                <h3>Variable</h3>
+                
+                <div id="project.name" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>project.name</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Represents the name of the project being documented.</p>
-                            <div class="documentation">
-                                If 'project.name' is provided, it is inserted into the documentation header. Defaults to 'Project' if undefined.
-                            </div>
-                        </div>
+                        <span class="line-number">Line 3</span>
                     </div>
-                    <div id="groups.items" class="element">
-                        <div class="element-header">
-                            <code>groups.items</code>
-                            <span class="scope-badge">global</span>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Represents the name of the project being documented.
                         </div>
-                        <div class="element-content">
-                            <p>Contains collections of file groups organized by language.</p>
-                            <div class="documentation">
-                                Used to iterate through and document files organized by programming language.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="files.items" class="element">
-                        <div class="element-header">
-                            <code>files.items</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Contains a manifest of files to document with potential metadata about each file.</p>
-                            <div class="documentation">
-                                Used to generate reference documentation links and purpose descriptions for each documented file.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="file_manifest.purpose" class="element">
-                        <div class="element-header">
-                            <code>file_manifest.purpose</code>
-                            <span class="scope-badge">local</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Holds brief descriptive text about a specific file&#39;s function or purpose.</p>
-                            <div class="documentation">
-                                This description is truncated to 100 characters for summary purposes in the documentation.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="file_manifest.exposures" class="element">
-                        <div class="element-header">
-                            <code>file_manifest.exposures</code>
-                            <span class="scope-badge">local</span>
-                        </div>
-                        <div class="element-content">
-                            <p>A list of public API elements exposed by a specific file.</p>
-                            <div class="documentation">
-                                Each exposure contains metadata like name and type to be listed in the documentation.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="generation_time" class="element">
-                        <div class="element-header">
-                            <code>generation_time</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Stores the date and time when the documentation is generated.</p>
-                            <div class="documentation">
-                                The value is inserted into the footer of the generated documentation.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="git_commit" class="element">
-                        <div class="element-header">
-                            <code>git_commit</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Contains the short hash of the current Git commit.</p>
-                            <div class="documentation">
-                                This is included in the footer to indicate the code version at the time of documentation.
-                            </div>
+
+                        <div class="element-documentation">
+                            If 'project.name' is provided, it is inserted into the documentation header. Defaults to 'Project' if undefined.
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+                <div id="groups.items" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>groups.items</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 7</span>
+                    </div>
 
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Contains collections of file groups organized by language.
+                        </div>
+
+                        <div class="element-documentation">
+                            Used to iterate through and document files organized by programming language.
+                        </div>
+                    </div>
+                </div>
+                <div id="files.items" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>files.items</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 18</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Contains a manifest of files to document with potential metadata about each file.
+                        </div>
+
+                        <div class="element-documentation">
+                            Used to generate reference documentation links and purpose descriptions for each documented file.
+                        </div>
+                    </div>
+                </div>
+                <div id="file_manifest.purpose" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>file_manifest.purpose</code>
+                            <span class="scope-badge">local</span>
+                        </div>
+                        <span class="line-number">Line 22</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Holds brief descriptive text about a specific file&#39;s function or purpose.
+                        </div>
+
+                        <div class="element-documentation">
+                            This description is truncated to 100 characters for summary purposes in the documentation.
+                        </div>
+                    </div>
+                </div>
+                <div id="file_manifest.exposures" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>file_manifest.exposures</code>
+                            <span class="scope-badge">local</span>
+                        </div>
+                        <span class="line-number">Line 25</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            A list of public API elements exposed by a specific file.
+                        </div>
+
+                        <div class="element-documentation">
+                            Each exposure contains metadata like name and type to be listed in the documentation.
+                        </div>
+                    </div>
+                </div>
+                <div id="generation_time" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>generation_time</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 36</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Stores the date and time when the documentation is generated.
+                        </div>
+
+                        <div class="element-documentation">
+                            The value is inserted into the footer of the generated documentation.
+                        </div>
+                    </div>
+                </div>
+                <div id="git_commit" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>git_commit</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 37</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Contains the short hash of the current Git commit.
+                        </div>
+
+                        <div class="element-documentation">
+                            This is included in the footer to indicate the code version at the time of documentation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <p>Powered by <a href="https://fluen.io" target="_blank">Fluen.io</a></p>
+        </footer>
+    </main>
     <!-- Add D3.js before other scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <!-- Add default graph data in case the server doesn't provide it -->
-    
+
     <script src="../assets/script.js"></script>
 <script>window.lineageData = {"nodes": [{"id": "src/fluen/generator/templates/default/md/summary.md", "type": "current"}], "links": []};</script></body>
 </html>

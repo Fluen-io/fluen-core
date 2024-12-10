@@ -145,7 +145,9 @@ class ProjectAnalyzer:
             # Process changed files
             analysis_tasks = []
             for file_path in files_to_analyze:
-                task = self._analyze_file(Path(file_path))
+                # Convert relative path to absolute path within project root
+                abs_path = (self.project_root / file_path).resolve()
+                task = self._analyze_file(abs_path)
                 analysis_tasks.append(task)
             
             # Handle results
@@ -154,8 +156,12 @@ class ProjectAnalyzer:
                     result = await task
                     if result:
                         file_path, analysis = result
-                        relative_path = str(file_path.relative_to(self.project_root))
-                        self.manifest_generator.add_file_analysis(analysis, relative_path)
+                        # Ensure we store relative paths in manifest
+                        try:
+                            relative_path = str(file_path.relative_to(self.project_root.resolve()))
+                            self.manifest_generator.add_file_analysis(analysis, relative_path)
+                        except ValueError as e:
+                            self.logger.error(f"Path resolution error: {e}")
                 except Exception as e:
                     self.logger.error(f"Failed to process incremental analysis result: {e}")
                 
@@ -167,7 +173,7 @@ class ProjectAnalyzer:
                     del self.manifest_generator.manifest.files[deleted_file]
             
             # Save updated manifest
-            if self.manifest_generator.save():
+            if await self.manifest_generator.save():
                 self.state_manager.update_commit(current_commit)
                 return True
                 

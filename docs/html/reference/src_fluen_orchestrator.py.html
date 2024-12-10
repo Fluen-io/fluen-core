@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>src/fluen/orchestrator.py - fluen-core</title>
-    <link href="../assets/styles.css" rel="stylesheet">
+    <title>src/fluen/orchestrator.py | fluen-core Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="../assets/logo-placeholder.png" alt="Fluen" width="32" height="32">
+                <a href="../index.html" class="logo-text">Fluen Documentation</a>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search documentation... (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
             <p>Python Project</p>
         </div>
+
         <div class="sidebar-content">
-            <div class="element-navigation">
-                <div class="element-group">
+            <nav class="file-navigation">
+                <div class="nav-section">
                     <h3>Class</h3>
                     <ul>
                         <li>
@@ -29,7 +61,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Method</h3>
                     <ul>
                         <li>
@@ -74,7 +106,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Function</h3>
                     <ul>
                         <li>
@@ -84,276 +116,366 @@
                         </li>
                     </ul>
                 </div>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- File header -->
+        <div class="file-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">fluen-core</a>
+                <span class="separator">/</span>
+                <span class="current">src/fluen/orchestrator.py</span>
+            </div>
+
+            <div class="file-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Language</span>
+                    <span class="metadata-value">Python</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Last Modified</span>
+                    <span class="metadata-value">2024-11-13T17:58:04.783917</span>
+                </div>
+            </div>
+
+            <div class="file-purpose">
+                <h1>src/fluen/orchestrator.py</h1>
+                <p>The primary purpose of this code is to orchestrate the process of generating documentation for a codebase. It manages the various stages of this process, such as initializing a repository, analyzing the codebase, and generating documentation.</p>
             </div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <header class="main-header">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
-                <div class="search-results"></div>
-            </div>
-        </header>
-
-        <main class="content">
-            <div class="file-header">
-                <h1>src/fluen/orchestrator.py</h1>
-                <div class="metadata">
-                    <p><strong>Language:</strong> Python</p>
-                    <p><strong>Last Modified:</strong> 2024-11-13T17:58:04.783917</p>
+        <!-- Dependencies section -->
+        <section class="file-dependencies">
+            <h2>Dependencies</h2>
+            <div class="dependencies-list">
+                <div class="dependency-item">
+                    <span class="dependency-name">asyncio</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">pathlib.Path</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">typing.Optional</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">logging</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">time</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">rich.console.Console</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">rich.progress.Progress</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.models.scan.ScanOptions</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.models.scan.ScanSelector</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.llm_providers.base_provider.BaseLLMProvider</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.config.FluenConfig</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.git_integration.manager.GitManager</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.state.manager.StateManager</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.analyzer.file_analyzer.FileAnalyzer</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.analyzer.project_analyzer.ProjectAnalyzer</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.generator.manifest.ManifestGenerator</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.generator.manifest.ProjectManifest</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.generator.doc_generator.DocumentationGenerator</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.generator.templates.template_manager.TemplateManager</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">fluen.generator.cross_referencer.CrossReferenceResolver</span>
+                    <span class="dependency-type">external</span>
                 </div>
             </div>
+        </section>
 
-            <section class="purpose-section">
-                <h2>Purpose</h2>
-                <p>The primary purpose of this code is to orchestrate the process of generating documentation for a codebase. It manages the various stages of this process, such as initializing a repository, analyzing the codebase, and generating documentation.</p>
-            </section>
+        <!-- Dependency visualization -->
+        <section class="dependency-section">
+            <h2>Visualization</h2>
+            <div class="graph-wrapper">
+                <div id="dependencyGraph" class="dependency-graph"></div>
+            </div>
+        </section>
 
-            <section class="dependencies-section">
-                <h2>Dependencies</h2>
-                <ul class="dependency-list">
-                    <li>
-                        <span class="dep-name">asyncio</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">pathlib.Path</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">typing.Optional</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">logging</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">time</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">rich.console.Console</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">rich.progress.Progress</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.models.scan.ScanOptions</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.models.scan.ScanSelector</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.llm_providers.base_provider.BaseLLMProvider</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.config.FluenConfig</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.git_integration.manager.GitManager</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.state.manager.StateManager</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.analyzer.file_analyzer.FileAnalyzer</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.analyzer.project_analyzer.ProjectAnalyzer</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.generator.manifest.ManifestGenerator</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.generator.manifest.ProjectManifest</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.generator.doc_generator.DocumentationGenerator</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.generator.templates.template_manager.TemplateManager</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">fluen.generator.cross_referencer.CrossReferenceResolver</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="dependency-section">
-                <h2>Visualization</h2>
-                <div class="graph-wrapper">
-                    <div id="dependencyGraph" class="dependency-graph"></div>
-                </div>
-            </section>
-
-            <section class="elements-section">
-                <h2>Elements</h2>
-                <div class="element-type-section">
-                    <h3>Class</h3>
-                    <div id="orchestrator" class="element">
-                        <div class="element-header">
+        <!-- Code elements -->
+        <section class="code-elements">
+            <h2>Code Elements</h2>
+            <div class="element-group">
+                <h3>Class</h3>
+                
+                <div id="orchestrator" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>Orchestrator</code>
                             <span class="scope-badge">public</span>
                         </div>
-                        <div class="element-content">
-                            <p>Manages the overall process of documentation generation.</p>
-                            <div class="documentation">
-                                The Orchestrator class initializes required components and orchestrates various steps to generate documentation for a project. It handles repository initialization, code analysis, and documentation generation.
-                            </div>
+                        <span class="line-number">Line 27</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Manages the overall process of documentation generation.
+                        </div>
+
+                        <div class="element-documentation">
+                            The Orchestrator class initializes required components and orchestrates various steps to generate documentation for a project. It handles repository initialization, code analysis, and documentation generation.
                         </div>
                     </div>
-                    <div id="processmanager" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="processmanager" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>ProcessManager</code>
                             <span class="scope-badge">public</span>
                         </div>
-                        <div class="element-content">
-                            <p>Static management for running the documentation generation process.</p>
-                            <div class="documentation">
-                                Provides a static method to run the documentation generation process with specified configuration.
-                            </div>
+                        <span class="line-number">Line 212</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Static management for running the documentation generation process.
+                        </div>
+
+                        <div class="element-documentation">
+                            Provides a static method to run the documentation generation process with specified configuration.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Method</h3>
-                    <div id="__init__" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Method</h3>
+                
+                <div id="__init__" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>__init__</code>
                             <span class="scope-badge">public</span>
                         </div>
-                        <div class="element-content">
-                            <p>Constructor for the Orchestrator class.</p>
-                            <div class="documentation">
-                                Initializes the Orchestrator with configuration settings and sets up necessary components like GitManager, StateManager, and TemplateManager.
-                            </div>
+                        <span class="line-number">Line 28</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Constructor for the Orchestrator class.
+                        </div>
+
+                        <div class="element-documentation">
+                            Initializes the Orchestrator with configuration settings and sets up necessary components like GitManager, StateManager, and TemplateManager.
                         </div>
                     </div>
-                    <div id="generate_documentation" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="generate_documentation" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>generate_documentation</code>
                             <span class="scope-badge">public</span>
                         </div>
-                        <div class="element-content">
-                            <p>Main method to start the documentation generation process.</p>
-                            <div class="documentation">
-                                Handles the complete flow of generating documentation including repository setup, file analysis, and documentation export.
-                            </div>
+                        <span class="line-number">Line 38</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Main method to start the documentation generation process.
+                        </div>
+
+                        <div class="element-documentation">
+                            Handles the complete flow of generating documentation including repository setup, file analysis, and documentation export.
                         </div>
                     </div>
-                    <div id="_initialize_repository" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="_initialize_repository" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>_initialize_repository</code>
                             <span class="scope-badge">private</span>
                         </div>
-                        <div class="element-content">
-                            <p>Initializes the Git repository for analysis.</p>
-                            <div class="documentation">
-                                Clones or initializes the repository needed for documentation generation based on provided URL or default settings.
-                            </div>
+                        <span class="line-number">Line 133</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Initializes the Git repository for analysis.
+                        </div>
+
+                        <div class="element-documentation">
+                            Clones or initializes the repository needed for documentation generation based on provided URL or default settings.
                         </div>
                     </div>
-                    <div id="_run_analysis" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="_run_analysis" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>_run_analysis</code>
                             <span class="scope-badge">private</span>
                         </div>
-                        <div class="element-content">
-                            <p>Executes project analysis as part of the documentation generation.</p>
-                            <div class="documentation">
-                                Performs analysis on the repository using specified analyzers and updates progress accordingly.
-                            </div>
+                        <span class="line-number">Line 147</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Executes project analysis as part of the documentation generation.
+                        </div>
+
+                        <div class="element-documentation">
+                            Performs analysis on the repository using specified analyzers and updates progress accordingly.
                         </div>
                     </div>
-                    <div id="_run_selective_analysis" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="_run_selective_analysis" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>_run_selective_analysis</code>
                             <span class="scope-badge">private</span>
                         </div>
-                        <div class="element-content">
-                            <p>Runs a selective analysis based on the provided ScanSelector.</p>
-                            <div class="documentation">
-                                Performs targeted analysis on specific parts of the codebase as defined by the scan options.
-                            </div>
+                        <span class="line-number">Line 161</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Runs a selective analysis based on the provided ScanSelector.
+                        </div>
+
+                        <div class="element-documentation">
+                            Performs targeted analysis on specific parts of the codebase as defined by the scan options.
                         </div>
                     </div>
-                    <div id="_generate_docs" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="_generate_docs" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>_generate_docs</code>
                             <span class="scope-badge">private</span>
                         </div>
-                        <div class="element-content">
-                            <p>Generates documentation from the analysis results stored in the project manifest.</p>
-                            <div class="documentation">
-                                Uses a documentation generator to produce documentation output based on analysis results.
-                            </div>
+                        <span class="line-number">Line 181</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Generates documentation from the analysis results stored in the project manifest.
+                        </div>
+
+                        <div class="element-documentation">
+                            Uses a documentation generator to produce documentation output based on analysis results.
                         </div>
                     </div>
-                    <div id="_create_llm_provider" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="_create_llm_provider" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>_create_llm_provider</code>
                             <span class="scope-badge">private</span>
                         </div>
-                        <div class="element-content">
-                            <p>Creates an LLM provider instance utilizing the LLMProviderFactory.</p>
-                            <div class="documentation">
-                                Instantiates and configures a language model provider based on the configuration settings.
-                            </div>
+                        <span class="line-number">Line 204</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Creates an LLM provider instance utilizing the LLMProviderFactory.
+                        </div>
+
+                        <div class="element-documentation">
+                            Instantiates and configures a language model provider based on the configuration settings.
                         </div>
                     </div>
-                    <div id="run" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="run" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>run</code>
                             <span class="scope-badge">public</span>
                         </div>
-                        <div class="element-content">
-                            <p>Runs the documentation generation process with a provided configuration path.</p>
-                            <div class="documentation">
-                                Loads configuration and initiates the Orchestrator to start the documentation generation.
-                            </div>
+                        <span class="line-number">Line 213</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Runs the documentation generation process with a provided configuration path.
+                        </div>
+
+                        <div class="element-documentation">
+                            Loads configuration and initiates the Orchestrator to start the documentation generation.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Function</h3>
-                    <div id="main" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Function</h3>
+                
+                <div id="main" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>main</code>
                             <span class="scope-badge">public</span>
                         </div>
-                        <div class="element-content">
-                            <p>Entry point for running the process from the command line.</p>
-                            <div class="documentation">
-                                Parses command-line arguments for configuration path and initiates the process using asyncio.
-                            </div>
+                        <span class="line-number">Line 224</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Entry point for running the process from the command line.
+                        </div>
+
+                        <div class="element-documentation">
+                            Parses command-line arguments for configuration path and initiates the process using asyncio.
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </section>
 
+        <footer class="site-footer">
+            <p>Powered by <a href="https://fluen.io" target="_blank">Fluen.io</a></p>
+        </footer>
+    </main>
     <!-- Add D3.js before other scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <!-- Add default graph data in case the server doesn't provide it -->
-    
+
     <script src="../assets/script.js"></script>
 <script>window.lineageData = {"nodes": [{"id": "src/fluen/orchestrator.py", "type": "current"}], "links": []};</script></body>
 </html>

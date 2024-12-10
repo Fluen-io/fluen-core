@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>src/fluen/generator/templates/default/html/empty.html - fluen-core</title>
-    <link href="../assets/styles.css" rel="stylesheet">
+    <title>src/fluen/generator/templates/default/html/empty.html | fluen-core Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="../assets/logo-placeholder.png" alt="Fluen" width="32" height="32">
+                <a href="../index.html" class="logo-text">Fluen Documentation</a>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search documentation... (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
             <p>Python Project</p>
         </div>
+
         <div class="sidebar-content">
-            <div class="element-navigation">
-                <div class="element-group">
+            <nav class="file-navigation">
+                <div class="nav-section">
                     <h3>Declaration</h3>
                     <ul>
                         <li>
@@ -24,7 +56,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Element</h3>
                     <ul>
                         <li>
@@ -109,273 +141,404 @@
                         </li>
                     </ul>
                 </div>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- File header -->
+        <div class="file-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">fluen-core</a>
+                <span class="separator">/</span>
+                <span class="current">src/fluen/generator/templates/default/html/empty.html</span>
+            </div>
+
+            <div class="file-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Language</span>
+                    <span class="metadata-value">Unknown</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Last Modified</span>
+                    <span class="metadata-value">2024-11-13T17:48:47.148809</span>
+                </div>
+            </div>
+
+            <div class="file-purpose">
+                <h1>src/fluen/generator/templates/default/html/empty.html</h1>
+                <p>This HTML code serves as a static web page template for displaying project documentation, with placeholders for dynamic content rendering.</p>
             </div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <header class="main-header">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
-                <div class="search-results"></div>
-            </div>
-        </header>
-
-        <main class="content">
-            <div class="file-header">
-                <h1>src/fluen/generator/templates/default/html/empty.html</h1>
-                <div class="metadata">
-                    <p><strong>Language:</strong> Unknown</p>
-                    <p><strong>Last Modified:</strong> 2024-11-13T17:48:47.148809</p>
+        <!-- Dependencies section -->
+        <section class="file-dependencies">
+            <h2>Dependencies</h2>
+            <div class="dependencies-list">
+                <div class="dependency-item">
+                    <span class="dependency-name">assets/styles.css</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">assets/script.js</span>
+                    <span class="dependency-type">external</span>
                 </div>
             </div>
+        </section>
 
-            <section class="purpose-section">
-                <h2>Purpose</h2>
-                <p>This HTML code serves as a static web page template for displaying project documentation, with placeholders for dynamic content rendering.</p>
-            </section>
+        <!-- Dependency visualization -->
+        <section class="dependency-section">
+            <h2>Visualization</h2>
+            <div class="graph-wrapper">
+                <div id="dependencyGraph" class="dependency-graph"></div>
+            </div>
+        </section>
 
-            <section class="dependencies-section">
-                <h2>Dependencies</h2>
-                <ul class="dependency-list">
-                    <li>
-                        <span class="dep-name">assets/styles.css</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">assets/script.js</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="dependency-section">
-                <h2>Visualization</h2>
-                <div class="graph-wrapper">
-                    <div id="dependencyGraph" class="dependency-graph"></div>
-                </div>
-            </section>
-
-            <section class="elements-section">
-                <h2>Elements</h2>
-                <div class="element-type-section">
-                    <h3>Declaration</h3>
-                    <div id="&lt;!doctype-html&gt;" class="element">
-                        <div class="element-header">
+        <!-- Code elements -->
+        <section class="code-elements">
+            <h2>Code Elements</h2>
+            <div class="element-group">
+                <h3>Declaration</h3>
+                
+                <div id="&lt;!doctype-html&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>&lt;!DOCTYPE html&gt;</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Defines the document type and version for browsers.</p>
-                            <div class="documentation">
-                                Specifies that the document is an HTML5 document.
-                            </div>
+                        <span class="line-number">Line 1</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Defines the document type and version for browsers.
+                        </div>
+
+                        <div class="element-documentation">
+                            Specifies that the document is an HTML5 document.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Element</h3>
-                    <div id="&lt;html&gt;" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Element</h3>
+                
+                <div id="&lt;html&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>&lt;html&gt;</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Root element of the HTML document.</p>
-                            <div class="documentation">
-                                Contains all other HTML elements.
-                            </div>
-                        </div>
+                        <span class="line-number">Line 2</span>
                     </div>
-                    <div id="&lt;head&gt;" class="element">
-                        <div class="element-header">
-                            <code>&lt;head&gt;</code>
-                            <span class="scope-badge">global</span>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Root element of the HTML document.
                         </div>
-                        <div class="element-content">
-                            <p>Container for metadata (data about data) of the HTML document.</p>
-                            <div class="documentation">
-                                Includes information like the document's title, linked CSS, and other meta-information.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="&lt;meta-charset=&#34;utf-8&#34;&gt;" class="element">
-                        <div class="element-header">
-                            <code>&lt;meta charset=&#34;UTF-8&#34;&gt;</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Sets the character encoding for the HTML document.</p>
-                            <div class="documentation">
-                                Ensures the document is interpreted using UTF-8 character encoding.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="&lt;meta-name=&#34;viewport&#34;-content=&#34;width=device-width,-initial-scale=1.0&#34;&gt;" class="element">
-                        <div class="element-header">
-                            <code>&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Sets the viewport settings for responsive web design.</p>
-                            <div class="documentation">
-                                Ensures proper rendering and touch zooming for the page across different devices.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="&lt;title&gt;{{-project.name-}}-documentation&lt;/title&gt;" class="element">
-                        <div class="element-header">
-                            <code>&lt;title&gt;{{ project.name }} Documentation&lt;/title&gt;</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Defines the title of the HTML document as seen in browsers.</p>
-                            <div class="documentation">
-                                Utilizes a placeholder to dynamically insert the project name into the page title.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="&lt;link-rel=&#34;stylesheet&#34;-href=&#34;assets/styles.css&#34;&gt;" class="element">
-                        <div class="element-header">
-                            <code>&lt;link rel=&#34;stylesheet&#34; href=&#34;assets/styles.css&#34;&gt;</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Links a CSS file for styling the HTML document.</p>
-                            <div class="documentation">
-                                Applies styles from an external CSS file located at assets/styles.css.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="&lt;body&gt;" class="element">
-                        <div class="element-header">
-                            <code>&lt;body&gt;</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Container for the main content of the HTML document.</p>
-                            <div class="documentation">
-                                Contains all content visible on the page, including navigation, main content, etc.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="&lt;nav-class=&#34;sidebar&#34;&gt;" class="element">
-                        <div class="element-header">
-                            <code>&lt;nav class=&#34;sidebar&#34;&gt;</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Defines a navigation section of the webpage.</p>
-                            <div class="documentation">
-                                Serves as a sidebar navigation section, holding project name and language details.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="&lt;div-class=&#34;sidebar-header&#34;&gt;" class="element">
-                        <div class="element-header">
-                            <code>&lt;div class=&#34;sidebar-header&#34;&gt;</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Container for the header of the navigation sidebar.</p>
-                            <div class="documentation">
-                                Contains header information, including project name and language.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="&lt;h1&gt;{{-project.name-}}&lt;/h1&gt;" class="element">
-                        <div class="element-header">
-                            <code>&lt;h1&gt;{{ project.name }}&lt;/h1&gt;</code>
-                            <span class="scope-badge">localized within sidebar-header</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Displays the project name.</p>
-                            <div class="documentation">
-                                Placeholder for dynamically rendering the project name in the navigation sidebar.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="&lt;p&gt;{{-project.primary_language-}}-project&lt;/p&gt;" class="element">
-                        <div class="element-header">
-                            <code>&lt;p&gt;{{ project.primary_language }} Project&lt;/p&gt;</code>
-                            <span class="scope-badge">localized within sidebar-header</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Displays the project&#39;s primary language.</p>
-                            <div class="documentation">
-                                Placeholder for dynamically rendering the project's primary language in the navigation sidebar.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="&lt;main-class=&#34;content&#34;&gt;" class="element">
-                        <div class="element-header">
-                            <code>&lt;main class=&#34;content&#34;&gt;</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Container for the main content of the web page.</p>
-                            <div class="documentation">
-                                Holds the central content area of the page including project details and notices.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="&lt;div-class=&#34;project-info&#34;&gt;" class="element">
-                        <div class="element-header">
-                            <code>&lt;div class=&#34;project-info&#34;&gt;</code>
-                            <span class="scope-badge">localized within content</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Contains project-specific information.</p>
-                            <div class="documentation">
-                                Displays project information such as name, language, last update time, and commit.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="&lt;div-class=&#34;metadata&#34;&gt;" class="element">
-                        <div class="element-header">
-                            <code>&lt;div class=&#34;metadata&#34;&gt;</code>
-                            <span class="scope-badge">localized within project-info</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Holds additional project metadata</p>
-                            <div class="documentation">
-                                Displays metadata elements detailing about project attributes like language and commit details.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="&lt;section-class=&#34;empty-notice&#34;&gt;" class="element">
-                        <div class="element-header">
-                            <code>&lt;section class=&#34;empty-notice&#34;&gt;</code>
-                            <span class="scope-badge">localized within content</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Displays a notice when no files are available for documentation.</p>
-                            <div class="documentation">
-                                Informs users why no documentation files were found and provides potential reasons.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="&lt;script-src=&#34;assets/script.js&#34;&gt;&lt;/script&gt;" class="element">
-                        <div class="element-header">
-                            <code>&lt;script src=&#34;assets/script.js&#34;&gt;&lt;/script&gt;</code>
-                            <span class="scope-badge">global</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Link JavaScript file for additional functionality.</p>
-                            <div class="documentation">
-                                References an external JavaScript file located at assets/script.js for dynamic behavior.
-                            </div>
+
+                        <div class="element-documentation">
+                            Contains all other HTML elements.
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+                <div id="&lt;head&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>&lt;head&gt;</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 3</span>
+                    </div>
 
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Container for metadata (data about data) of the HTML document.
+                        </div>
+
+                        <div class="element-documentation">
+                            Includes information like the document's title, linked CSS, and other meta-information.
+                        </div>
+                    </div>
+                </div>
+                <div id="&lt;meta-charset=&#34;utf-8&#34;&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>&lt;meta charset=&#34;UTF-8&#34;&gt;</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 4</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Sets the character encoding for the HTML document.
+                        </div>
+
+                        <div class="element-documentation">
+                            Ensures the document is interpreted using UTF-8 character encoding.
+                        </div>
+                    </div>
+                </div>
+                <div id="&lt;meta-name=&#34;viewport&#34;-content=&#34;width=device-width,-initial-scale=1.0&#34;&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 5</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Sets the viewport settings for responsive web design.
+                        </div>
+
+                        <div class="element-documentation">
+                            Ensures proper rendering and touch zooming for the page across different devices.
+                        </div>
+                    </div>
+                </div>
+                <div id="&lt;title&gt;{{-project.name-}}-documentation&lt;/title&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>&lt;title&gt;{{ project.name }} Documentation&lt;/title&gt;</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 6</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Defines the title of the HTML document as seen in browsers.
+                        </div>
+
+                        <div class="element-documentation">
+                            Utilizes a placeholder to dynamically insert the project name into the page title.
+                        </div>
+                    </div>
+                </div>
+                <div id="&lt;link-rel=&#34;stylesheet&#34;-href=&#34;assets/styles.css&#34;&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>&lt;link rel=&#34;stylesheet&#34; href=&#34;assets/styles.css&#34;&gt;</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 7</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Links a CSS file for styling the HTML document.
+                        </div>
+
+                        <div class="element-documentation">
+                            Applies styles from an external CSS file located at assets/styles.css.
+                        </div>
+                    </div>
+                </div>
+                <div id="&lt;body&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>&lt;body&gt;</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 8</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Container for the main content of the HTML document.
+                        </div>
+
+                        <div class="element-documentation">
+                            Contains all content visible on the page, including navigation, main content, etc.
+                        </div>
+                    </div>
+                </div>
+                <div id="&lt;nav-class=&#34;sidebar&#34;&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>&lt;nav class=&#34;sidebar&#34;&gt;</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 9</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Defines a navigation section of the webpage.
+                        </div>
+
+                        <div class="element-documentation">
+                            Serves as a sidebar navigation section, holding project name and language details.
+                        </div>
+                    </div>
+                </div>
+                <div id="&lt;div-class=&#34;sidebar-header&#34;&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>&lt;div class=&#34;sidebar-header&#34;&gt;</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 10</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Container for the header of the navigation sidebar.
+                        </div>
+
+                        <div class="element-documentation">
+                            Contains header information, including project name and language.
+                        </div>
+                    </div>
+                </div>
+                <div id="&lt;h1&gt;{{-project.name-}}&lt;/h1&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>&lt;h1&gt;{{ project.name }}&lt;/h1&gt;</code>
+                            <span class="scope-badge">localized within sidebar-header</span>
+                        </div>
+                        <span class="line-number">Line 11</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Displays the project name.
+                        </div>
+
+                        <div class="element-documentation">
+                            Placeholder for dynamically rendering the project name in the navigation sidebar.
+                        </div>
+                    </div>
+                </div>
+                <div id="&lt;p&gt;{{-project.primary_language-}}-project&lt;/p&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>&lt;p&gt;{{ project.primary_language }} Project&lt;/p&gt;</code>
+                            <span class="scope-badge">localized within sidebar-header</span>
+                        </div>
+                        <span class="line-number">Line 12</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Displays the project&#39;s primary language.
+                        </div>
+
+                        <div class="element-documentation">
+                            Placeholder for dynamically rendering the project's primary language in the navigation sidebar.
+                        </div>
+                    </div>
+                </div>
+                <div id="&lt;main-class=&#34;content&#34;&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>&lt;main class=&#34;content&#34;&gt;</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 14</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Container for the main content of the web page.
+                        </div>
+
+                        <div class="element-documentation">
+                            Holds the central content area of the page including project details and notices.
+                        </div>
+                    </div>
+                </div>
+                <div id="&lt;div-class=&#34;project-info&#34;&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>&lt;div class=&#34;project-info&#34;&gt;</code>
+                            <span class="scope-badge">localized within content</span>
+                        </div>
+                        <span class="line-number">Line 15</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Contains project-specific information.
+                        </div>
+
+                        <div class="element-documentation">
+                            Displays project information such as name, language, last update time, and commit.
+                        </div>
+                    </div>
+                </div>
+                <div id="&lt;div-class=&#34;metadata&#34;&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>&lt;div class=&#34;metadata&#34;&gt;</code>
+                            <span class="scope-badge">localized within project-info</span>
+                        </div>
+                        <span class="line-number">Line 17</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Holds additional project metadata
+                        </div>
+
+                        <div class="element-documentation">
+                            Displays metadata elements detailing about project attributes like language and commit details.
+                        </div>
+                    </div>
+                </div>
+                <div id="&lt;section-class=&#34;empty-notice&#34;&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>&lt;section class=&#34;empty-notice&#34;&gt;</code>
+                            <span class="scope-badge">localized within content</span>
+                        </div>
+                        <span class="line-number">Line 24</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Displays a notice when no files are available for documentation.
+                        </div>
+
+                        <div class="element-documentation">
+                            Informs users why no documentation files were found and provides potential reasons.
+                        </div>
+                    </div>
+                </div>
+                <div id="&lt;script-src=&#34;assets/script.js&#34;&gt;&lt;/script&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>&lt;script src=&#34;assets/script.js&#34;&gt;&lt;/script&gt;</code>
+                            <span class="scope-badge">global</span>
+                        </div>
+                        <span class="line-number">Line 33</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Link JavaScript file for additional functionality.
+                        </div>
+
+                        <div class="element-documentation">
+                            References an external JavaScript file located at assets/script.js for dynamic behavior.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <p>Powered by <a href="https://fluen.io" target="_blank">Fluen.io</a></p>
+        </footer>
+    </main>
     <!-- Add D3.js before other scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <!-- Add default graph data in case the server doesn't provide it -->
-    
+
     <script src="../assets/script.js"></script>
 <script>window.lineageData = {"nodes": [{"id": "src/fluen/generator/templates/default/html/empty.html", "type": "current"}], "links": []};</script></body>
 </html>

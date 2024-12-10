@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>src/fluen/generator/templates/default/html/reference.html - fluen-core</title>
-    <link href="../assets/styles.css" rel="stylesheet">
+    <title>src/fluen/generator/templates/default/html/reference.html | fluen-core Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="../assets/logo-placeholder.png" alt="Fluen" width="32" height="32">
+                <a href="../index.html" class="logo-text">Fluen Documentation</a>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search documentation... (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
             <p>Python Project</p>
         </div>
+
         <div class="sidebar-content">
-            <div class="element-navigation">
-                <div class="element-group">
+            <nav class="file-navigation">
+                <div class="nav-section">
                     <h3>Tag</h3>
                     <ul>
                         <li>
@@ -54,7 +86,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>External Resource</h3>
                     <ul>
                         <li>
@@ -64,169 +96,237 @@
                         </li>
                     </ul>
                 </div>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- File header -->
+        <div class="file-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">fluen-core</a>
+                <span class="separator">/</span>
+                <span class="current">src/fluen/generator/templates/default/html/reference.html</span>
+            </div>
+
+            <div class="file-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Language</span>
+                    <span class="metadata-value">Unknown</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Last Modified</span>
+                    <span class="metadata-value">2024-11-13T17:57:21.609799</span>
+                </div>
+            </div>
+
+            <div class="file-purpose">
+                <h1>src/fluen/generator/templates/default/html/reference.html</h1>
+                <p>This HTML code serves as a template for generating a documentation page for a project file. It provides structural representation and displays file metadata, project information, dependencies, and elements with interactive navigation.</p>
             </div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <header class="main-header">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
-                <div class="search-results"></div>
-            </div>
-        </header>
-
-        <main class="content">
-            <div class="file-header">
-                <h1>src/fluen/generator/templates/default/html/reference.html</h1>
-                <div class="metadata">
-                    <p><strong>Language:</strong> Unknown</p>
-                    <p><strong>Last Modified:</strong> 2024-11-13T17:57:21.609799</p>
+        <!-- Dependencies section -->
+        <section class="file-dependencies">
+            <h2>Dependencies</h2>
+            <div class="dependencies-list">
+                <div class="dependency-item">
+                    <span class="dependency-name">d3.js (from https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js)</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">stylesheet (from ../assets/styles.css)</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">script (from ../assets/script.js)</span>
+                    <span class="dependency-type">external</span>
                 </div>
             </div>
+        </section>
 
-            <section class="purpose-section">
-                <h2>Purpose</h2>
-                <p>This HTML code serves as a template for generating a documentation page for a project file. It provides structural representation and displays file metadata, project information, dependencies, and elements with interactive navigation.</p>
-            </section>
+        <!-- Dependency visualization -->
+        <section class="dependency-section">
+            <h2>Visualization</h2>
+            <div class="graph-wrapper">
+                <div id="dependencyGraph" class="dependency-graph"></div>
+            </div>
+        </section>
 
-            <section class="dependencies-section">
-                <h2>Dependencies</h2>
-                <ul class="dependency-list">
-                    <li>
-                        <span class="dep-name">d3.js (from https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js)</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">stylesheet (from ../assets/styles.css)</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">script (from ../assets/script.js)</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="dependency-section">
-                <h2>Visualization</h2>
-                <div class="graph-wrapper">
-                    <div id="dependencyGraph" class="dependency-graph"></div>
-                </div>
-            </section>
-
-            <section class="elements-section">
-                <h2>Elements</h2>
-                <div class="element-type-section">
-                    <h3>Tag</h3>
-                    <div id="&lt;html&gt;" class="element">
-                        <div class="element-header">
+        <!-- Code elements -->
+        <section class="code-elements">
+            <h2>Code Elements</h2>
+            <div class="element-group">
+                <h3>Tag</h3>
+                
+                <div id="&lt;html&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>&lt;html&gt;</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Defines the root of an HTML document.</p>
-                            <div class="documentation">
-                                The <html> element represents the root of an HTML or XHTML document. All other elements must be descendants of this element.
-                            </div>
+                        <span class="line-number">Line 1</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Defines the root of an HTML document.
+                        </div>
+
+                        <div class="element-documentation">
+                            The <html> element represents the root of an HTML or XHTML document. All other elements must be descendants of this element.
                         </div>
                     </div>
-                    <div id="&lt;head&gt;" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="&lt;head&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>&lt;head&gt;</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Contains metadata/information for the document.</p>
-                            <div class="documentation">
-                                The <head> element can contain a <title> element, style or link to CSS, metadata, and script references.
-                            </div>
+                        <span class="line-number">Line 2</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Contains metadata/information for the document.
+                        </div>
+
+                        <div class="element-documentation">
+                            The <head> element can contain a <title> element, style or link to CSS, metadata, and script references.
                         </div>
                     </div>
-                    <div id="&lt;title&gt;" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="&lt;title&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>&lt;title&gt;</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Specifies a title for the document displayed in the browser&#39;s title bar or tab.</p>
-                            <div class="documentation">
-                                Dynamically generates the document's title using the file path and project name.
-                            </div>
+                        <span class="line-number">Line 6</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Specifies a title for the document displayed in the browser&#39;s title bar or tab.
+                        </div>
+
+                        <div class="element-documentation">
+                            Dynamically generates the document's title using the file path and project name.
                         </div>
                     </div>
-                    <div id="&lt;link&gt;" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="&lt;link&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>&lt;link&gt;</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Links an external stylesheet to the HTML document.</p>
-                            <div class="documentation">
-                                The <link> element specifies the relationship between the current document and an external resource (stylesheet in this case).
-                            </div>
+                        <span class="line-number">Line 7</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Links an external stylesheet to the HTML document.
+                        </div>
+
+                        <div class="element-documentation">
+                            The <link> element specifies the relationship between the current document and an external resource (stylesheet in this case).
                         </div>
                     </div>
-                    <div id="&lt;body&gt;" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="&lt;body&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>&lt;body&gt;</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Represents the document&#39;s body and contains all contents such as text, images, links, etc.</p>
-                            <div class="documentation">
-                                Encompasses the visible content of the document, including sections for sidebar, main content, and various elements.
-                            </div>
+                        <span class="line-number">Line 8</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Represents the document&#39;s body and contains all contents such as text, images, links, etc.
+                        </div>
+
+                        <div class="element-documentation">
+                            Encompasses the visible content of the document, including sections for sidebar, main content, and various elements.
                         </div>
                     </div>
-                    <div id="&lt;div-class=&#34;sidebar&#34;&gt;" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="&lt;div-class=&#34;sidebar&#34;&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>&lt;div class=&#34;sidebar&#34;&gt;</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Defines a container for the sidebar, displaying project information and navigation.</p>
-                            <div class="documentation">
-                                The sidebar contains a header with project information and a navigation section with links to different elements in the documentation.
-                            </div>
+                        <span class="line-number">Line 9</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Defines a container for the sidebar, displaying project information and navigation.
+                        </div>
+
+                        <div class="element-documentation">
+                            The sidebar contains a header with project information and a navigation section with links to different elements in the documentation.
                         </div>
                     </div>
-                    <div id="&lt;input-type=&#34;text&#34;-class=&#34;search-input&#34;&gt;" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="&lt;input-type=&#34;text&#34;-class=&#34;search-input&#34;&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>&lt;input type=&#34;text&#34; class=&#34;search-input&#34;&gt;</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>An input field for searching the documentation.</p>
-                            <div class="documentation">
-                                Allows users to search within the documentation by typing keywords. Automatically gains focus when '/' is pressed.
-                            </div>
+                        <span class="line-number">Line 30</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            An input field for searching the documentation.
+                        </div>
+
+                        <div class="element-documentation">
+                            Allows users to search within the documentation by typing keywords. Automatically gains focus when '/' is pressed.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>External Resource</h3>
-                    <div id="&lt;script-src=&#34;https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js&#34;&gt;&lt;/script&gt;" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>External Resource</h3>
+                
+                <div id="&lt;script-src=&#34;https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js&#34;&gt;&lt;/script&gt;" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>&lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js&#34;&gt;&lt;/script&gt;</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Includes the D3.js library for data visualization.</p>
-                            <div class="documentation">
-                                Loads the D3.js library, which might be used for rendering interactive data visualizations like graphs.
-                            </div>
+                        <span class="line-number">Line 76</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Includes the D3.js library for data visualization.
+                        </div>
+
+                        <div class="element-documentation">
+                            Loads the D3.js library, which might be used for rendering interactive data visualizations like graphs.
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </section>
 
+        <footer class="site-footer">
+            <p>Powered by <a href="https://fluen.io" target="_blank">Fluen.io</a></p>
+        </footer>
+    </main>
     <!-- Add D3.js before other scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <!-- Add default graph data in case the server doesn't provide it -->
-    
+
     <script src="../assets/script.js"></script>
 <script>window.lineageData = {"nodes": [{"id": "src/fluen/generator/templates/default/html/reference.html", "type": "current"}], "links": []};</script></body>
 </html>

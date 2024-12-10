@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>src/fluen/llm_providers/ollama_provider.py - fluen-core</title>
-    <link href="../assets/styles.css" rel="stylesheet">
+    <title>src/fluen/llm_providers/ollama_provider.py | fluen-core Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="../assets/logo-placeholder.png" alt="Fluen" width="32" height="32">
+                <a href="../index.html" class="logo-text">Fluen Documentation</a>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search documentation... (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
             <p>Python Project</p>
         </div>
+
         <div class="sidebar-content">
-            <div class="element-navigation">
-                <div class="element-group">
+            <nav class="file-navigation">
+                <div class="nav-section">
                     <h3>Class</h3>
                     <ul>
                         <li>
@@ -24,7 +56,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Method</h3>
                     <ul>
                         <li>
@@ -44,7 +76,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Variable</h3>
                     <ul>
                         <li>
@@ -69,176 +101,245 @@
                         </li>
                     </ul>
                 </div>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- File header -->
+        <div class="file-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">fluen-core</a>
+                <span class="separator">/</span>
+                <span class="current">src/fluen/llm_providers/ollama_provider.py</span>
+            </div>
+
+            <div class="file-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Language</span>
+                    <span class="metadata-value">Python</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Last Modified</span>
+                    <span class="metadata-value">2024-11-13T17:54:02.187307</span>
+                </div>
+            </div>
+
+            <div class="file-purpose">
+                <h1>src/fluen/llm_providers/ollama_provider.py</h1>
+                <p>The primary purpose of this code is to provide an implementation of a language model provider that interacts with an asynchronous HTTP API to generate text and retrieve embeddings using a specified language model.</p>
             </div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <header class="main-header">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
-                <div class="search-results"></div>
-            </div>
-        </header>
-
-        <main class="content">
-            <div class="file-header">
-                <h1>src/fluen/llm_providers/ollama_provider.py</h1>
-                <div class="metadata">
-                    <p><strong>Language:</strong> Python</p>
-                    <p><strong>Last Modified:</strong> 2024-11-13T17:54:02.187307</p>
+        <!-- Dependencies section -->
+        <section class="file-dependencies">
+            <h2>Dependencies</h2>
+            <div class="dependencies-list">
+                <div class="dependency-item">
+                    <span class="dependency-name">json</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">aiohttp</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">typing</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">BaseLLMProvider</span>
+                    <span class="dependency-type">external</span>
                 </div>
             </div>
+        </section>
 
-            <section class="purpose-section">
-                <h2>Purpose</h2>
-                <p>The primary purpose of this code is to provide an implementation of a language model provider that interacts with an asynchronous HTTP API to generate text and retrieve embeddings using a specified language model.</p>
-            </section>
+        <!-- Dependency visualization -->
+        <section class="dependency-section">
+            <h2>Visualization</h2>
+            <div class="graph-wrapper">
+                <div id="dependencyGraph" class="dependency-graph"></div>
+            </div>
+        </section>
 
-            <section class="dependencies-section">
-                <h2>Dependencies</h2>
-                <ul class="dependency-list">
-                    <li>
-                        <span class="dep-name">json</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">aiohttp</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">typing</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">BaseLLMProvider</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="dependency-section">
-                <h2>Visualization</h2>
-                <div class="graph-wrapper">
-                    <div id="dependencyGraph" class="dependency-graph"></div>
-                </div>
-            </section>
-
-            <section class="elements-section">
-                <h2>Elements</h2>
-                <div class="element-type-section">
-                    <h3>Class</h3>
-                    <div id="ollamaprovider" class="element">
-                        <div class="element-header">
+        <!-- Code elements -->
+        <section class="code-elements">
+            <h2>Code Elements</h2>
+            <div class="element-group">
+                <h3>Class</h3>
+                
+                <div id="ollamaprovider" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>OllamaProvider</code>
                             <span class="scope-badge">class-level</span>
                         </div>
-                        <div class="element-content">
-                            <p>Implements methods to communicate with a remote language model service.</p>
-                            <div class="documentation">
-                                This class inherits from BaseLLMProvider and provides methods to generate text and get embeddings by interacting with a remote service through HTTP requests.
-                            </div>
+                        <span class="line-number">Line 7</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Implements methods to communicate with a remote language model service.
+                        </div>
+
+                        <div class="element-documentation">
+                            This class inherits from BaseLLMProvider and provides methods to generate text and get embeddings by interacting with a remote service through HTTP requests.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Method</h3>
-                    <div id="__init__" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Method</h3>
+                
+                <div id="__init__" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>__init__</code>
                             <span class="scope-badge">OllamaProvider</span>
                         </div>
-                        <div class="element-content">
-                            <p>Initializes the OllamaProvider instance with configuration settings.</p>
-                            <div class="documentation">
-                                Sets up necessary configuration parameters like API base URL, model name, maximum retries, and timeout values for API requests.
-                            </div>
+                        <span class="line-number">Line 8</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Initializes the OllamaProvider instance with configuration settings.
+                        </div>
+
+                        <div class="element-documentation">
+                            Sets up necessary configuration parameters like API base URL, model name, maximum retries, and timeout values for API requests.
                         </div>
                     </div>
-                    <div id="generate" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="generate" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>generate</code>
                             <span class="scope-badge">OllamaProvider</span>
                         </div>
-                        <div class="element-content">
-                            <p>Generates text based on a given prompt.</p>
-                            <div class="documentation">
-                                Makes an asynchronous POST request to the /generate API endpoint with the provided prompt and retrieves the generated text.
-                            </div>
+                        <span class="line-number">Line 14</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Generates text based on a given prompt.
+                        </div>
+
+                        <div class="element-documentation">
+                            Makes an asynchronous POST request to the /generate API endpoint with the provided prompt and retrieves the generated text.
                         </div>
                     </div>
-                    <div id="get_embedding" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="get_embedding" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>get_embedding</code>
                             <span class="scope-badge">OllamaProvider</span>
                         </div>
-                        <div class="element-content">
-                            <p>Retrieves the embedding for a given text.</p>
-                            <div class="documentation">
-                                Makes an asynchronous POST request to the /embeddings API endpoint with the provided text and retrieves the corresponding embedding.
-                            </div>
+                        <span class="line-number">Line 26</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Retrieves the embedding for a given text.
+                        </div>
+
+                        <div class="element-documentation">
+                            Makes an asynchronous POST request to the /embeddings API endpoint with the provided text and retrieves the corresponding embedding.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Variable</h3>
-                    <div id="api_base_url" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Variable</h3>
+                
+                <div id="api_base_url" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>api_base_url</code>
                             <span class="scope-badge">OllamaProvider</span>
                         </div>
-                        <div class="element-content">
-                            <p>Stores the base URL for API requests.</p>
-                            <div class="documentation">
-                                Initialized from the provided configuration, defaults to 'http://localhost:11434/api'.
-                            </div>
-                        </div>
+                        <span class="line-number">Line 9</span>
                     </div>
-                    <div id="model" class="element">
-                        <div class="element-header">
-                            <code>model</code>
-                            <span class="scope-badge">OllamaProvider</span>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Stores the base URL for API requests.
                         </div>
-                        <div class="element-content">
-                            <p>Defines the model to be used for generating responses and embeddings.</p>
-                            <div class="documentation">
-                                Retrieved from the configuration, defaults to 'gemma'.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="max_retries" class="element">
-                        <div class="element-header">
-                            <code>max_retries</code>
-                            <span class="scope-badge">OllamaProvider</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Specifies the maximum number of retries for API requests.</p>
-                            <div class="documentation">
-                                Configured through the initialization configuration, defaults to 3 retries.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="timeout" class="element">
-                        <div class="element-header">
-                            <code>timeout</code>
-                            <span class="scope-badge">OllamaProvider</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Sets the request timeout duration in seconds.</p>
-                            <div class="documentation">
-                                Configured through the initialization configuration, defaults to 60 seconds.
-                            </div>
+
+                        <div class="element-documentation">
+                            Initialized from the provided configuration, defaults to 'http://localhost:11434/api'.
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+                <div id="model" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>model</code>
+                            <span class="scope-badge">OllamaProvider</span>
+                        </div>
+                        <span class="line-number">Line 10</span>
+                    </div>
 
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Defines the model to be used for generating responses and embeddings.
+                        </div>
+
+                        <div class="element-documentation">
+                            Retrieved from the configuration, defaults to 'gemma'.
+                        </div>
+                    </div>
+                </div>
+                <div id="max_retries" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>max_retries</code>
+                            <span class="scope-badge">OllamaProvider</span>
+                        </div>
+                        <span class="line-number">Line 11</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Specifies the maximum number of retries for API requests.
+                        </div>
+
+                        <div class="element-documentation">
+                            Configured through the initialization configuration, defaults to 3 retries.
+                        </div>
+                    </div>
+                </div>
+                <div id="timeout" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>timeout</code>
+                            <span class="scope-badge">OllamaProvider</span>
+                        </div>
+                        <span class="line-number">Line 12</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Sets the request timeout duration in seconds.
+                        </div>
+
+                        <div class="element-documentation">
+                            Configured through the initialization configuration, defaults to 60 seconds.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <p>Powered by <a href="https://fluen.io" target="_blank">Fluen.io</a></p>
+        </footer>
+    </main>
     <!-- Add D3.js before other scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <!-- Add default graph data in case the server doesn't provide it -->
-    
+
     <script src="../assets/script.js"></script>
 <script>window.lineageData = {"nodes": [{"id": "src/fluen/llm_providers/ollama_provider.py", "type": "current"}], "links": []};</script></body>
 </html>

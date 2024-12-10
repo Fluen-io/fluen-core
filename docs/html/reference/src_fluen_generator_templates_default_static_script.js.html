@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>src/fluen/generator/templates/default/static/script.js - fluen-core</title>
-    <link href="../assets/styles.css" rel="stylesheet">
+    <title>src/fluen/generator/templates/default/static/script.js | fluen-core Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="../assets/logo-placeholder.png" alt="Fluen" width="32" height="32">
+                <a href="../index.html" class="logo-text">Fluen Documentation</a>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search documentation... (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
             <p>Python Project</p>
         </div>
+
         <div class="sidebar-content">
-            <div class="element-navigation">
-                <div class="element-group">
+            <nav class="file-navigation">
+                <div class="nav-section">
                     <h3>Class</h3>
                     <ul>
                         <li>
@@ -29,7 +61,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Method</h3>
                     <ul>
                         <li>
@@ -124,305 +156,457 @@
                         </li>
                     </ul>
                 </div>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- File header -->
+        <div class="file-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">fluen-core</a>
+                <span class="separator">/</span>
+                <span class="current">src/fluen/generator/templates/default/static/script.js</span>
+            </div>
+
+            <div class="file-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Language</span>
+                    <span class="metadata-value">JavaScript</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Last Modified</span>
+                    <span class="metadata-value">2024-11-13T17:50:33.634786</span>
+                </div>
+            </div>
+
+            <div class="file-purpose">
+                <h1>src/fluen/generator/templates/default/static/script.js</h1>
+                <p>The code provides functionality for searching documentation and visualizing data through a lineage graph on a web page.</p>
             </div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <header class="main-header">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
-                <div class="search-results"></div>
-            </div>
-        </header>
-
-        <main class="content">
-            <div class="file-header">
-                <h1>src/fluen/generator/templates/default/static/script.js</h1>
-                <div class="metadata">
-                    <p><strong>Language:</strong> JavaScript</p>
-                    <p><strong>Last Modified:</strong> 2024-11-13T17:50:33.634786</p>
+        <!-- Dependencies section -->
+        <section class="file-dependencies">
+            <h2>Dependencies</h2>
+            <div class="dependencies-list">
+                <div class="dependency-item">
+                    <span class="dependency-name">d3</span>
+                    <span class="dependency-type">external</span>
                 </div>
             </div>
+        </section>
 
-            <section class="purpose-section">
-                <h2>Purpose</h2>
-                <p>The code provides functionality for searching documentation and visualizing data through a lineage graph on a web page.</p>
-            </section>
+        <!-- Dependency visualization -->
+        <section class="dependency-section">
+            <h2>Visualization</h2>
+            <div class="graph-wrapper">
+                <div id="dependencyGraph" class="dependency-graph"></div>
+            </div>
+        </section>
 
-            <section class="dependencies-section">
-                <h2>Dependencies</h2>
-                <ul class="dependency-list">
-                    <li>
-                        <span class="dep-name">d3</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="dependency-section">
-                <h2>Visualization</h2>
-                <div class="graph-wrapper">
-                    <div id="dependencyGraph" class="dependency-graph"></div>
-                </div>
-            </section>
-
-            <section class="elements-section">
-                <h2>Elements</h2>
-                <div class="element-type-section">
-                    <h3>Class</h3>
-                    <div id="documentationsearch" class="element">
-                        <div class="element-header">
+        <!-- Code elements -->
+        <section class="code-elements">
+            <h2>Code Elements</h2>
+            <div class="element-group">
+                <h3>Class</h3>
+                
+                <div id="documentationsearch" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>DocumentationSearch</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Handles the documentation search functionality, including loading the search index, managing user input, and displaying search results.</p>
-                            <div class="documentation">
-                                The class initializes search input elements, sets up keyboard shortcuts, and handles search index loading and user interactions for search functionality.
-                            </div>
+                        <span class="line-number">Line 3</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Handles the documentation search functionality, including loading the search index, managing user input, and displaying search results.
+                        </div>
+
+                        <div class="element-documentation">
+                            The class initializes search input elements, sets up keyboard shortcuts, and handles search index loading and user interactions for search functionality.
                         </div>
                     </div>
-                    <div id="lineagegraph" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="lineagegraph" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>LineageGraph</code>
                             <span class="scope-badge">global</span>
                         </div>
-                        <div class="element-content">
-                            <p>Renders a lineage graph to visualize relationships between data nodes.</p>
-                            <div class="documentation">
-                                The class uses D3.js to render an interactive graph in a specified container, handling node and link interactions through event listeners.
-                            </div>
+                        <span class="line-number">Line 137</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Renders a lineage graph to visualize relationships between data nodes.
+                        </div>
+
+                        <div class="element-documentation">
+                            The class uses D3.js to render an interactive graph in a specified container, handling node and link interactions through event listeners.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Method</h3>
-                    <div id="initializesearch" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Method</h3>
+                
+                <div id="initializesearch" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>initializeSearch</code>
                             <span class="scope-badge">DocumentationSearch</span>
                         </div>
-                        <div class="element-content">
-                            <p>Initializes the search index by loading a manifest file dynamically.</p>
-                            <div class="documentation">
-                                Asynchronously loads a manifest file and builds a search index from it. Sets up event listeners for search input interactions.
-                            </div>
-                        </div>
+                        <span class="line-number">Line 13</span>
                     </div>
-                    <div id="setupkeyboardshortcuts" class="element">
-                        <div class="element-header">
-                            <code>setupKeyboardShortcuts</code>
-                            <span class="scope-badge">DocumentationSearch</span>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Initializes the search index by loading a manifest file dynamically.
                         </div>
-                        <div class="element-content">
-                            <p>Manages keyboard shortcuts for search operations.</p>
-                            <div class="documentation">
-                                Listens for '/' to focus the search input and 'Escape' to clear search results and blur input.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="_getmanifestpath" class="element">
-                        <div class="element-header">
-                            <code>_getManifestPath</code>
-                            <span class="scope-badge">DocumentationSearch</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Determines the path to the documentation manifest file.</p>
-                            <div class="documentation">
-                                Checks the current page path to correctly set the relative path to the manifest, depending on the context (reference page or index).
-                            </div>
-                        </div>
-                    </div>
-                    <div id="buildsearchindex" class="element">
-                        <div class="element-header">
-                            <code>buildSearchIndex</code>
-                            <span class="scope-badge">DocumentationSearch</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Builds the search index from the loaded manifest.</p>
-                            <div class="documentation">
-                                Processes the manifest data to create an index that facilitates quick searching by path and elements.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="setupeventlisteners" class="element">
-                        <div class="element-header">
-                            <code>setupEventListeners</code>
-                            <span class="scope-badge">DocumentationSearch</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Sets up event listeners for search input focus and document click events.</p>
-                            <div class="documentation">
-                                Handles input events to trigger search operations and manages document clicks to hide search results when clicking outside the search area.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="handlesearch" class="element">
-                        <div class="element-header">
-                            <code>handleSearch</code>
-                            <span class="scope-badge">DocumentationSearch</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Processes the search input and displays results.</p>
-                            <div class="documentation">
-                                Reads the search query and displays filtered search results based on the query entered by the user.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="performsearch" class="element">
-                        <div class="element-header">
-                            <code>performSearch</code>
-                            <span class="scope-badge">DocumentationSearch</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Executes the search operation on the index.</p>
-                            <div class="documentation">
-                                Matches the query against paths, purposes, and elements in the search index to find relevant results, limiting to 10.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="displayresults" class="element">
-                        <div class="element-header">
-                            <code>displayResults</code>
-                            <span class="scope-badge">DocumentationSearch</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Displays the search results in the UI.</p>
-                            <div class="documentation">
-                                Generates and injects HTML to present the search results and sets event handlers for result item clicks.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="handleresultclick" class="element">
-                        <div class="element-header">
-                            <code>handleResultClick</code>
-                            <span class="scope-badge">DocumentationSearch</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Handles clicks on search result items.</p>
-                            <div class="documentation">
-                                Navigates to the appropriate page or element in the documentation when a user clicks a search result.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="clearresults" class="element">
-                        <div class="element-header">
-                            <code>clearResults</code>
-                            <span class="scope-badge">DocumentationSearch</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Clears the current search results.</p>
-                            <div class="documentation">
-                                Empties the search results container and updates the UI state to reflect that no results are active.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="_escapehtml" class="element">
-                        <div class="element-header">
-                            <code>_escapeHtml</code>
-                            <span class="scope-badge">DocumentationSearch</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Escapes HTML characters for safe insertion into the result display.</p>
-                            <div class="documentation">
-                                Converts a string to a safe HTML format to prevent potential HTML injection vulnerabilities.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="initializegraph" class="element">
-                        <div class="element-header">
-                            <code>initializeGraph</code>
-                            <span class="scope-badge">LineageGraph</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Sets up the graph using D3 to create nodes and links.</p>
-                            <div class="documentation">
-                                Initializes an SVG graph area and sets up D3 force and drag simulations along with link and node definitions. Handles interactions like hover and drag.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="getnodecolor" class="element">
-                        <div class="element-header">
-                            <code>getNodeColor</code>
-                            <span class="scope-badge">LineageGraph</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Determines the color for graph nodes based on their type.</p>
-                            <div class="documentation">
-                                Returns a specific color code according to the type attribute of a node to visually differentiate node types.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="dragstarted" class="element">
-                        <div class="element-header">
-                            <code>dragstarted</code>
-                            <span class="scope-badge">LineageGraph</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Starts the dragging interaction on a graph node.</p>
-                            <div class="documentation">
-                                Fixes position properties and restarts the simulation to allow a node to be freely moved using the mouse.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="dragged" class="element">
-                        <div class="element-header">
-                            <code>dragged</code>
-                            <span class="scope-badge">LineageGraph</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Updates node position during dragging interaction.</p>
-                            <div class="documentation">
-                                Updates the position of a node as it is dragged across the graph. Adjusts fixed positions dynamically.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="dragended" class="element">
-                        <div class="element-header">
-                            <code>dragended</code>
-                            <span class="scope-badge">LineageGraph</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Ends the dragging interaction on a graph node.</p>
-                            <div class="documentation">
-                                Releases the node to its final position, removing fixed coordinates and resetting the simulation state.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="handlenodehover" class="element">
-                        <div class="element-header">
-                            <code>handleNodeHover</code>
-                            <span class="scope-badge">LineageGraph</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Handles hover interaction on a graph node.</p>
-                            <div class="documentation">
-                                Enlarges the node size on hover to emphasize focus, creating a visual effect to enhance UX.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="handlenodehoverend" class="element">
-                        <div class="element-header">
-                            <code>handleNodeHoverEnd</code>
-                            <span class="scope-badge">LineageGraph</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Handles the end of a hover interaction on a graph node.</p>
-                            <div class="documentation">
-                                Reduces the node size when hover ends, reverting it back to its original size.
-                            </div>
+
+                        <div class="element-documentation">
+                            Asynchronously loads a manifest file and builds a search index from it. Sets up event listeners for search input interactions.
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+                <div id="setupkeyboardshortcuts" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>setupKeyboardShortcuts</code>
+                            <span class="scope-badge">DocumentationSearch</span>
+                        </div>
+                        <span class="line-number">Line 9</span>
+                    </div>
 
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Manages keyboard shortcuts for search operations.
+                        </div>
+
+                        <div class="element-documentation">
+                            Listens for '/' to focus the search input and 'Escape' to clear search results and blur input.
+                        </div>
+                    </div>
+                </div>
+                <div id="_getmanifestpath" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>_getManifestPath</code>
+                            <span class="scope-badge">DocumentationSearch</span>
+                        </div>
+                        <span class="line-number">Line 44</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Determines the path to the documentation manifest file.
+                        </div>
+
+                        <div class="element-documentation">
+                            Checks the current page path to correctly set the relative path to the manifest, depending on the context (reference page or index).
+                        </div>
+                    </div>
+                </div>
+                <div id="buildsearchindex" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>buildSearchIndex</code>
+                            <span class="scope-badge">DocumentationSearch</span>
+                        </div>
+                        <span class="line-number">Line 50</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Builds the search index from the loaded manifest.
+                        </div>
+
+                        <div class="element-documentation">
+                            Processes the manifest data to create an index that facilitates quick searching by path and elements.
+                        </div>
+                    </div>
+                </div>
+                <div id="setupeventlisteners" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>setupEventListeners</code>
+                            <span class="scope-badge">DocumentationSearch</span>
+                        </div>
+                        <span class="line-number">Line 59</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Sets up event listeners for search input focus and document click events.
+                        </div>
+
+                        <div class="element-documentation">
+                            Handles input events to trigger search operations and manages document clicks to hide search results when clicking outside the search area.
+                        </div>
+                    </div>
+                </div>
+                <div id="handlesearch" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>handleSearch</code>
+                            <span class="scope-badge">DocumentationSearch</span>
+                        </div>
+                        <span class="line-number">Line 67</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Processes the search input and displays results.
+                        </div>
+
+                        <div class="element-documentation">
+                            Reads the search query and displays filtered search results based on the query entered by the user.
+                        </div>
+                    </div>
+                </div>
+                <div id="performsearch" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>performSearch</code>
+                            <span class="scope-badge">DocumentationSearch</span>
+                        </div>
+                        <span class="line-number">Line 72</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Executes the search operation on the index.
+                        </div>
+
+                        <div class="element-documentation">
+                            Matches the query against paths, purposes, and elements in the search index to find relevant results, limiting to 10.
+                        </div>
+                    </div>
+                </div>
+                <div id="displayresults" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>displayResults</code>
+                            <span class="scope-badge">DocumentationSearch</span>
+                        </div>
+                        <span class="line-number">Line 97</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Displays the search results in the UI.
+                        </div>
+
+                        <div class="element-documentation">
+                            Generates and injects HTML to present the search results and sets event handlers for result item clicks.
+                        </div>
+                    </div>
+                </div>
+                <div id="handleresultclick" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>handleResultClick</code>
+                            <span class="scope-badge">DocumentationSearch</span>
+                        </div>
+                        <span class="line-number">Line 112</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Handles clicks on search result items.
+                        </div>
+
+                        <div class="element-documentation">
+                            Navigates to the appropriate page or element in the documentation when a user clicks a search result.
+                        </div>
+                    </div>
+                </div>
+                <div id="clearresults" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>clearResults</code>
+                            <span class="scope-badge">DocumentationSearch</span>
+                        </div>
+                        <span class="line-number">Line 125</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Clears the current search results.
+                        </div>
+
+                        <div class="element-documentation">
+                            Empties the search results container and updates the UI state to reflect that no results are active.
+                        </div>
+                    </div>
+                </div>
+                <div id="_escapehtml" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>_escapeHtml</code>
+                            <span class="scope-badge">DocumentationSearch</span>
+                        </div>
+                        <span class="line-number">Line 130</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Escapes HTML characters for safe insertion into the result display.
+                        </div>
+
+                        <div class="element-documentation">
+                            Converts a string to a safe HTML format to prevent potential HTML injection vulnerabilities.
+                        </div>
+                    </div>
+                </div>
+                <div id="initializegraph" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>initializeGraph</code>
+                            <span class="scope-badge">LineageGraph</span>
+                        </div>
+                        <span class="line-number">Line 143</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Sets up the graph using D3 to create nodes and links.
+                        </div>
+
+                        <div class="element-documentation">
+                            Initializes an SVG graph area and sets up D3 force and drag simulations along with link and node definitions. Handles interactions like hover and drag.
+                        </div>
+                    </div>
+                </div>
+                <div id="getnodecolor" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>getNodeColor</code>
+                            <span class="scope-badge">LineageGraph</span>
+                        </div>
+                        <span class="line-number">Line 214</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Determines the color for graph nodes based on their type.
+                        </div>
+
+                        <div class="element-documentation">
+                            Returns a specific color code according to the type attribute of a node to visually differentiate node types.
+                        </div>
+                    </div>
+                </div>
+                <div id="dragstarted" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>dragstarted</code>
+                            <span class="scope-badge">LineageGraph</span>
+                        </div>
+                        <span class="line-number">Line 222</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Starts the dragging interaction on a graph node.
+                        </div>
+
+                        <div class="element-documentation">
+                            Fixes position properties and restarts the simulation to allow a node to be freely moved using the mouse.
+                        </div>
+                    </div>
+                </div>
+                <div id="dragged" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>dragged</code>
+                            <span class="scope-badge">LineageGraph</span>
+                        </div>
+                        <span class="line-number">Line 229</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Updates node position during dragging interaction.
+                        </div>
+
+                        <div class="element-documentation">
+                            Updates the position of a node as it is dragged across the graph. Adjusts fixed positions dynamically.
+                        </div>
+                    </div>
+                </div>
+                <div id="dragended" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>dragended</code>
+                            <span class="scope-badge">LineageGraph</span>
+                        </div>
+                        <span class="line-number">Line 234</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Ends the dragging interaction on a graph node.
+                        </div>
+
+                        <div class="element-documentation">
+                            Releases the node to its final position, removing fixed coordinates and resetting the simulation state.
+                        </div>
+                    </div>
+                </div>
+                <div id="handlenodehover" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>handleNodeHover</code>
+                            <span class="scope-badge">LineageGraph</span>
+                        </div>
+                        <span class="line-number">Line 239</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Handles hover interaction on a graph node.
+                        </div>
+
+                        <div class="element-documentation">
+                            Enlarges the node size on hover to emphasize focus, creating a visual effect to enhance UX.
+                        </div>
+                    </div>
+                </div>
+                <div id="handlenodehoverend" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>handleNodeHoverEnd</code>
+                            <span class="scope-badge">LineageGraph</span>
+                        </div>
+                        <span class="line-number">Line 245</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Handles the end of a hover interaction on a graph node.
+                        </div>
+
+                        <div class="element-documentation">
+                            Reduces the node size when hover ends, reverting it back to its original size.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <p>Powered by <a href="https://fluen.io" target="_blank">Fluen.io</a></p>
+        </footer>
+    </main>
     <!-- Add D3.js before other scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <!-- Add default graph data in case the server doesn't provide it -->
-    
+
     <script src="../assets/script.js"></script>
 <script>window.lineageData = {"nodes": [{"id": "src/fluen/generator/templates/default/static/script.js", "type": "current"}], "links": []};</script></body>
 </html>

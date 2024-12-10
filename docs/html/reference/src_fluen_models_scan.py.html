@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>src/fluen/models/scan.py - fluen-core</title>
-    <link href="../assets/styles.css" rel="stylesheet">
+    <title>src/fluen/models/scan.py | fluen-core Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="../assets/logo-placeholder.png" alt="Fluen" width="32" height="32">
+                <a href="../index.html" class="logo-text">Fluen Documentation</a>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search documentation... (Press '/' to focus)">
+                <div class="search-results"></div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
         <div class="sidebar-header">
             <h1><a href="../index.html">fluen-core</a></h1>
             <p>Python Project</p>
         </div>
+
         <div class="sidebar-content">
-            <div class="element-navigation">
-                <div class="element-group">
+            <nav class="file-navigation">
+                <div class="nav-section">
                     <h3>Class</h3>
                     <ul>
                         <li>
@@ -29,7 +61,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Method</h3>
                     <ul>
                         <li>
@@ -54,7 +86,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="element-group">
+                <div class="nav-section">
                     <h3>Property</h3>
                     <ul>
                         <li>
@@ -74,180 +106,256 @@
                         </li>
                     </ul>
                 </div>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- File header -->
+        <div class="file-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">fluen-core</a>
+                <span class="separator">/</span>
+                <span class="current">src/fluen/models/scan.py</span>
+            </div>
+
+            <div class="file-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">Language</span>
+                    <span class="metadata-value">Python</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Last Modified</span>
+                    <span class="metadata-value">2024-11-13T17:53:21.469450</span>
+                </div>
+            </div>
+
+            <div class="file-purpose">
+                <h1>src/fluen/models/scan.py</h1>
+                <p>The code provides functionality for parsing, validating, and handling selectors for a scanning operation with options for selective scanning and forced execution.</p>
             </div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <header class="main-header">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search documentation (Press '/' to focus)">
-                <div class="search-results"></div>
-            </div>
-        </header>
-
-        <main class="content">
-            <div class="file-header">
-                <h1>src/fluen/models/scan.py</h1>
-                <div class="metadata">
-                    <p><strong>Language:</strong> Python</p>
-                    <p><strong>Last Modified:</strong> 2024-11-13T17:53:21.469450</p>
+        <!-- Dependencies section -->
+        <section class="file-dependencies">
+            <h2>Dependencies</h2>
+            <div class="dependencies-list">
+                <div class="dependency-item">
+                    <span class="dependency-name">pathlib</span>
+                    <span class="dependency-type">external</span>
+                </div>
+                <div class="dependency-item">
+                    <span class="dependency-name">typing</span>
+                    <span class="dependency-type">external</span>
                 </div>
             </div>
+        </section>
 
-            <section class="purpose-section">
-                <h2>Purpose</h2>
-                <p>The code provides functionality for parsing, validating, and handling selectors for a scanning operation with options for selective scanning and forced execution.</p>
-            </section>
+        <!-- Dependency visualization -->
+        <section class="dependency-section">
+            <h2>Visualization</h2>
+            <div class="graph-wrapper">
+                <div id="dependencyGraph" class="dependency-graph"></div>
+            </div>
+        </section>
 
-            <section class="dependencies-section">
-                <h2>Dependencies</h2>
-                <ul class="dependency-list">
-                    <li>
-                        <span class="dep-name">pathlib</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                    <li>
-                        <span class="dep-name">typing</span>
-                        <span class="type-badge">external</span>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="dependency-section">
-                <h2>Visualization</h2>
-                <div class="graph-wrapper">
-                    <div id="dependencyGraph" class="dependency-graph"></div>
-                </div>
-            </section>
-
-            <section class="elements-section">
-                <h2>Elements</h2>
-                <div class="element-type-section">
-                    <h3>Class</h3>
-                    <div id="scanselector" class="element">
-                        <div class="element-header">
+        <!-- Code elements -->
+        <section class="code-elements">
+            <h2>Code Elements</h2>
+            <div class="element-group">
+                <h3>Class</h3>
+                
+                <div id="scanselector" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>ScanSelector</code>
                             <span class="scope-badge">public</span>
                         </div>
-                        <div class="element-content">
-                            <p>Handles parsing and validation of scan selectors.</p>
-                            <div class="documentation">
-                                This class parses a selector string into type and value, validates it, and provides properties to query the selector type.
-                            </div>
+                        <span class="line-number">Line 5</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Handles parsing and validation of scan selectors.
+                        </div>
+
+                        <div class="element-documentation">
+                            This class parses a selector string into type and value, validates it, and provides properties to query the selector type.
                         </div>
                     </div>
-                    <div id="scanoptions" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="scanoptions" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>ScanOptions</code>
                             <span class="scope-badge">public</span>
                         </div>
-                        <div class="element-content">
-                            <p>Container for scan options, including selector and force flag.</p>
-                            <div class="documentation">
-                                This class wraps scan options and provides a mechanism to manage an optional selector and a force flag for scan operations.
-                            </div>
+                        <span class="line-number">Line 40</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Container for scan options, including selector and force flag.
+                        </div>
+
+                        <div class="element-documentation">
+                            This class wraps scan options and provides a mechanism to manage an optional selector and a force flag for scan operations.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Method</h3>
-                    <div id="scanselector.__init__" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Method</h3>
+                
+                <div id="scanselector.__init__" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>ScanSelector.__init__</code>
                             <span class="scope-badge">public</span>
                         </div>
-                        <div class="element-content">
-                            <p>Initializes a ScanSelector instance with parsing.</p>
-                            <div class="documentation">
-                                Constructor that takes a raw selector string, initializes attributes, and triggers parsing and validation.
-                            </div>
+                        <span class="line-number">Line 8</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Initializes a ScanSelector instance with parsing.
+                        </div>
+
+                        <div class="element-documentation">
+                            Constructor that takes a raw selector string, initializes attributes, and triggers parsing and validation.
                         </div>
                     </div>
-                    <div id="scanselector._parse_selector" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="scanselector._parse_selector" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>ScanSelector._parse_selector</code>
                             <span class="scope-badge">private</span>
                         </div>
-                        <div class="element-content">
-                            <p>Parses the selector string into type and value components.</p>
-                            <div class="documentation">
-                                Internal method that splits the selector string by ':' and assigns the type and value. Raises ValueError on invalid format.
-                            </div>
+                        <span class="line-number">Line 15</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Parses the selector string into type and value components.
+                        </div>
+
+                        <div class="element-documentation">
+                            Internal method that splits the selector string by ':' and assigns the type and value. Raises ValueError on invalid format.
                         </div>
                     </div>
-                    <div id="scanselector._validate" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="scanselector._validate" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>ScanSelector._validate</code>
                             <span class="scope-badge">private</span>
                         </div>
-                        <div class="element-content">
-                            <p>Validates the parsed selector type.</p>
-                            <div class="documentation">
-                                Checks if the selector type is within the set of valid types (e.g., 'path', 'element'). Returns True if valid, otherwise False.
-                            </div>
+                        <span class="line-number">Line 26</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Validates the parsed selector type.
+                        </div>
+
+                        <div class="element-documentation">
+                            Checks if the selector type is within the set of valid types (e.g., 'path', 'element'). Returns True if valid, otherwise False.
                         </div>
                     </div>
-                    <div id="scanoptions.__init__" class="element">
-                        <div class="element-header">
+                </div>
+                <div id="scanoptions.__init__" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>ScanOptions.__init__</code>
                             <span class="scope-badge">public</span>
                         </div>
-                        <div class="element-content">
-                            <p>Initializes a ScanOptions instance with optional selector and force flag.</p>
-                            <div class="documentation">
-                                Constructor that initializes the selector object if provided and sets the force flag.
-                            </div>
+                        <span class="line-number">Line 43</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Initializes a ScanOptions instance with optional selector and force flag.
+                        </div>
+
+                        <div class="element-documentation">
+                            Constructor that initializes the selector object if provided and sets the force flag.
                         </div>
                     </div>
                 </div>
-                <div class="element-type-section">
-                    <h3>Property</h3>
-                    <div id="scanselector.is_path_selector" class="element">
-                        <div class="element-header">
+            </div>
+            <div class="element-group">
+                <h3>Property</h3>
+                
+                <div id="scanselector.is_path_selector" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
                             <code>ScanSelector.is_path_selector</code>
                             <span class="scope-badge">public</span>
                         </div>
-                        <div class="element-content">
-                            <p>Checks if the selector is of type &#39;path&#39;.</p>
-                            <div class="documentation">
-                                Property that returns True if the selector type is 'path'.
-                            </div>
-                        </div>
+                        <span class="line-number">Line 32</span>
                     </div>
-                    <div id="scanselector.is_element_selector" class="element">
-                        <div class="element-header">
-                            <code>ScanSelector.is_element_selector</code>
-                            <span class="scope-badge">public</span>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Checks if the selector is of type &#39;path&#39;.
                         </div>
-                        <div class="element-content">
-                            <p>Checks if the selector is of type &#39;element&#39;.</p>
-                            <div class="documentation">
-                                Property that returns True if the selector type is 'element'.
-                            </div>
-                        </div>
-                    </div>
-                    <div id="scanoptions.is_selective_scan" class="element">
-                        <div class="element-header">
-                            <code>ScanOptions.is_selective_scan</code>
-                            <span class="scope-badge">public</span>
-                        </div>
-                        <div class="element-content">
-                            <p>Determines if the scan is selective based on selector presence.</p>
-                            <div class="documentation">
-                                Property that returns True if a selector is present, indicating a selective scan.
-                            </div>
+
+                        <div class="element-documentation">
+                            Property that returns True if the selector type is 'path'.
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+                <div id="scanselector.is_element_selector" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>ScanSelector.is_element_selector</code>
+                            <span class="scope-badge">public</span>
+                        </div>
+                        <span class="line-number">Line 36</span>
+                    </div>
 
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Checks if the selector is of type &#39;element&#39;.
+                        </div>
+
+                        <div class="element-documentation">
+                            Property that returns True if the selector type is 'element'.
+                        </div>
+                    </div>
+                </div>
+                <div id="scanoptions.is_selective_scan" class="element-card">
+                    <div class="element-header">
+                        <div class="element-name">
+                            <code>ScanOptions.is_selective_scan</code>
+                            <span class="scope-badge">public</span>
+                        </div>
+                        <span class="line-number">Line 49</span>
+                    </div>
+
+                    <div class="element-content">
+                        <div class="element-purpose">
+                            Determines if the scan is selective based on selector presence.
+                        </div>
+
+                        <div class="element-documentation">
+                            Property that returns True if a selector is present, indicating a selective scan.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <p>Powered by <a href="https://fluen.io" target="_blank">Fluen.io</a></p>
+        </footer>
+    </main>
     <!-- Add D3.js before other scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <!-- Add default graph data in case the server doesn't provide it -->
-    
+
     <script src="../assets/script.js"></script>
 <script>window.lineageData = {"nodes": [{"id": "src/fluen/models/scan.py", "type": "current"}], "links": []};</script></body>
 </html>

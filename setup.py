@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="fluen",
-    version="0.1.1",
+    version="0.1.4",
     packages=find_packages(where="src"),
     package_dir={"": "src"},  # Tell setuptools packages are under src
     python_requires=">=3.8",
@@ -19,6 +19,8 @@ setup(
         "aiohttp>=3.8.0",        # Async HTTP client
         "openai>=1.0.0",         # OpenAI API
         "mistralai>=0.0.7",      # Mistral AI API
+        "markdown>=3.5.0",       # Process markdown in templates
+        "bleach>=6.1.0",         # For HTML sanitization
     ],
     extras_require={
         "dev": [

@@ -119,7 +119,8 @@ class HTMLGenerator(BaseFormatGenerator):
         context.update({
             'files_by_type': self._group_files_by_type(),
             'dependencies': self.manifest.dependencies,
-            'frameworks': self.manifest.frameworks
+            'frameworks': self.manifest.frameworks,
+            'project_insights': self.manifest.project_insights
         })
         
         content = self.template_manager.render_template('html/index.html', context)
