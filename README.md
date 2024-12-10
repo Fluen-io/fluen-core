@@ -1,10 +1,12 @@
 # Fluen: AI-Powered Code Documentation Generator
 
-[![Build Status](https://github.com/Fluen-io/fluen-core/actions/workflows/build.yml/badge.svg)](https://github.com/Fluen-io/fluen-core/actions)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
 Fluen is a modern, LLM-powered documentation generator that understands your code. Point it at any git repository, and it will create comprehensive, intelligent documentation that captures not just the structure, but the intent and relationships within your codebase.
+
+## Quick Demo
+![Demo](fluen-demo.gif)
 
 ## ✨ Features
 

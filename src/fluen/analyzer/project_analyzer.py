@@ -115,7 +115,7 @@ class ProjectAnalyzer:
                     await asyncio.sleep(self.batch_delay)
             
             # Save final manifest
-            if self.manifest_generator.save():
+            if await self.manifest_generator.save():
                 self.state_manager.update_commit(current_commit)
                 return True
                 
@@ -290,7 +290,7 @@ class ProjectAnalyzer:
                     await asyncio.sleep(self.batch_delay)
             
             # Save final manifest
-            if self.manifest_generator.save():
+            if await self.manifest_generator.save():
                 self.state_manager.update_commit(current_commit)
                 return True
             
