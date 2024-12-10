@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="fluen",
-    version="0.1.4",
+    version="0.1.40",
     packages=find_packages(where="src"),
     package_dir={"": "src"},  # Tell setuptools packages are under src
     python_requires=">=3.8",
